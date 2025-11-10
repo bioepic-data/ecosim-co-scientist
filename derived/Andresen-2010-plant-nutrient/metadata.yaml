@@ -1,0 +1,617 @@
+# Metadata for Andresen et al. 2010 - Plant Nutrient Mobilization Study
+# This YAML structure will be formalized with LinkML schema later
+
+study:
+  id: andresen-2010-plant-nutrient
+  title: "Plant nutrient mobilization in temperate heathland responds to elevated CO2, temperature and drought"
+
+  citation:
+    authors:
+      - Andresen, Louise C.
+      - Michelsen, Anders
+      - Jonasson, Sven
+      - Schmidt, Inger K.
+      - Mikkelsen, Teis N.
+      - Ambus, Per
+      - Beier, Claus
+    year: 2010
+    journal: "Plant and Soil"
+    volume: 328
+    pages: "381-396"
+    doi: 10.1007/s11104-009-0118-7
+
+  project: CLIMAITE
+
+  study_period:
+    start_date: 2005-10
+    end_date: 2007-05
+    duration_months: 18
+    incubation_duration_days: 187
+    incubation_period: "2006-11 to 2007-05"
+
+site:
+  location:
+    name: Brandbjerg
+    country: Denmark
+    latitude: 55.883
+    longitude: 11.967
+    coordinates_format: "55°53'N, 11°58'E"
+
+  ecosystem:
+    type: temperate heathland
+    classification: dry heath/grassland
+    dominant_species:
+      - species: Deschampsia flexuosa
+        common_name: wavy hair-grass
+        functional_type: C3 grass
+        photosynthetic_pathway: C3
+        growth_form: perennial grass
+      - species: Calluna vulgaris
+        common_name: heather
+        functional_type: C3 evergreen dwarf shrub
+        photosynthetic_pathway: C3
+        growth_form: evergreen shrub
+    other_vegetation: low cover of herbs and grasses, open moss layer
+
+  climate:
+    mean_annual_temperature_c: 8
+    mean_annual_precipitation_mm: 600
+    climate_zone: temperate oceanic
+
+  soil:
+    type: sandy deposit
+    texture: sand
+    pH: 4.6
+    description: nutrient-poor, hilly terrain
+
+experimental_design:
+  type: multi-factorial field experiment
+  design: fully factorial randomized block
+  num_treatments: 8
+  num_replicates: 6
+  num_plots: 48
+  plot_size_m2: 9.2
+
+  spatial_structure:
+    octagons: 12
+    octagon_diameter_m: 7
+    block_structure: "12 octagons in 6 blocks of 2 (one with CO2, one without)"
+
+  treatments:
+    - name: warming
+      abbreviation: T
+      type: temperature manipulation
+      method: passive nighttime warming curtains
+      target_increase_c: 1.5
+      achieved_increase_c: 1.0
+      soil_depth_cm: 2
+      details: "Automatic curtains rolled over vegetation at night, removed during rain events"
+
+    - name: drought
+      abbreviation: D
+      type: precipitation manipulation
+      method: rain exclusion curtains
+      duration_weeks: 5
+      timing: "late June to early August 2006"
+      soil_moisture_drought_pct: 5
+      soil_moisture_control_pct: 17
+      depth_cm: "0-20"
+      details: "Curtains automatically deployed during rain events in early summer"
+
+    - name: elevated_co2
+      abbreviation: CO2
+      type: atmospheric CO2 enrichment
+      method: FACE-style pipe fumigation
+      target_ppm: 510
+      ambient_ppm: 385
+      timing: daylight hours only
+      control_system: "feedback linked to wind speed, direction, and CO2 concentration"
+
+measurements:
+  soil_incubations:
+    method: buried bag
+    duration_days: 187
+    season: winter
+    sampling_date_initial: 2006-11
+    sampling_date_final: 2007-05
+
+    soil_depth:
+      top_cm: 0
+      bottom_cm: 5
+
+    sample_size:
+      length_cm: 4
+      width_cm: 4.5
+      height_cm: 5
+
+    vegetation_treatments:
+      - type: soil_only
+        description: "Intact soil with roots/litter, no added plants"
+      - type: soil_with_deschampsia
+        num_plants: 3
+        plant_fresh_weight_g: 0.08
+        plant_source: "pre-grown from seeds for 2 months"
+      - type: soil_with_calluna
+        num_plants: 3
+        plant_fresh_weight_g: 0.05
+        plant_source: "pre-grown seedlings and cuttings for 15 months"
+
+    species_specific: true
+    species_sampled:
+      - Deschampsia flexuosa
+      - Calluna vulgaris
+
+    parameters_measured:
+      nitrogen:
+        - NO3_N  # nitrate nitrogen
+        - NH4_N  # ammonium nitrogen
+        - DON    # dissolved organic nitrogen
+        - microbial_N
+        - plant_N  # in plant incubations
+
+      carbon:
+        - DOC  # dissolved organic carbon
+        - microbial_C
+
+      phosphorus:
+        - PO4_P  # orthophosphate
+        - dissolved_total_P
+        - microbial_P
+        - plant_P  # in plant incubations
+
+      other:
+        - soil_water_content
+        - soil_organic_matter
+        - plant_biomass  # in plant incubations
+
+    derived_rates:
+      - net_nitrification_rate
+      - net_ammonification_rate
+      - DON_production_rate
+      - DOC_production_rate
+      - phosphorus_mineralization_rate
+      - microbial_N_immobilization_rate
+      - microbial_P_immobilization_rate
+      - microbial_C_immobilization_rate
+
+    calculation_method: "(final - initial) / 187 days"
+    normalization: "per gram soil organic matter (SOM)"
+    units: "μg element g⁻¹ SOM day⁻¹"
+
+  litter_decomposition:
+    method: litter bags
+    litter_source: ambient current-year standing dead litter
+    collection_date: 2006-02
+
+    deschampsia:
+      bag_size_cm: "4×4"
+      mesh_size_mm: "1×1"
+      initial_mass_g: 1.0
+      litter_type: "leaves and inflorescences"
+
+    calluna:
+      bag_size_cm: "4×4"
+      mesh_size_mm: "0.05×0.05"
+      initial_mass_g: 2.0
+      litter_composition:
+        flowers_pct: 27
+        leaves_small_branches_pct: 36
+        large_branches_pct: 19
+        mixed_pct: 18
+
+    placement: "soil surface below origin species, pinned and covered with site litter"
+
+    collection_dates:
+      - 2006-09  # 6 months
+      - 2007-03  # 12 months
+      - 2007-05  # 14 months (Deschampsia only)
+
+    metrics:
+      - mass_loss_percent
+      - decomposition_constant_k_per_year
+
+  organic_acids:
+    method: HPLC
+    sampling_date: 2006-09
+    soil_depth_cm: "0-5"
+    location: "below grass"
+    extraction: "1:5 soil:demineralized water"
+    acids_measured:
+      - acetic_acid
+      - formic_acid
+      - malic_acid
+      - tartaric_acid
+      - oxalic_acid
+      - citric_acid
+
+# Quantitative baseline data (ambient plots, November 2006)
+baseline_soil_properties:
+  calluna_soil:
+    soil_organic_matter_pct:
+      mean: 12.4
+      se: 1.1
+    water_content_pct:
+      mean: 31.4
+      se: 1.2
+    NO3_N_ug_per_g_SOM:
+      mean: 30.4
+      se: 25.0
+    NH4_N_ug_per_g_SOM:
+      mean: 113
+      se: 47.6
+    DON_ug_per_g_SOM:
+      mean: 148
+      se: 104
+    microbial_N_ug_per_g_SOM:
+      mean: 1310
+      se: 338
+    DOC_ug_per_g_SOM:
+      mean: 725
+      se: 87.6
+    microbial_C_ug_per_g_SOM:
+      mean: 9800
+      se: 1390
+    PO4_P_ug_per_g_SOM:
+      mean: 34.7
+      se: 28.2
+    dissolved_P_ug_per_g_SOM:
+      mean: 30.5
+      se: 17.9
+    microbial_P_ug_per_g_SOM:
+      mean: 402
+      se: 50.5
+    microbial_C_to_N_ratio: 7.5
+    microbial_N_to_P_ratio: 3.5
+
+  deschampsia_soil:
+    soil_organic_matter_pct:
+      mean: 15.5
+      se: 4.0
+    water_content_pct:
+      mean: 40.0
+      se: 11.8
+    NO3_N_ug_per_g_SOM:
+      mean: 6.2
+      se: 2.2
+    NH4_N_ug_per_g_SOM:
+      mean: 60.4
+      se: 14.5
+    DON_ug_per_g_SOM:
+      mean: 113
+      se: 78.8
+    microbial_N_ug_per_g_SOM:
+      mean: 1320
+      se: 92
+    DOC_ug_per_g_SOM:
+      mean: 905
+      se: 110
+    microbial_C_ug_per_g_SOM:
+      mean: 7600
+      se: 1780
+    PO4_P_ug_per_g_SOM:
+      mean: 5.0
+      se: 1.4
+    dissolved_P_ug_per_g_SOM:
+      mean: 10.7
+      se: 1.7
+    microbial_P_ug_per_g_SOM:
+      mean: 448
+      se: 113
+    microbial_C_to_N_ratio: 5.8
+    microbial_N_to_P_ratio: 2.9
+
+baseline_litter_decomposition:
+  calluna:
+    - duration_months: 6
+      mass_loss_pct:
+        mean: 25.8
+        se: 1.31
+      k_per_year: 0.0014
+    - duration_months: 12
+      mass_loss_pct:
+        mean: 34.3
+        se: 1.42
+      k_per_year: 0.0011
+
+  deschampsia:
+    - duration_months: 6
+      mass_loss_pct:
+        mean: 33.4
+        se: 1.09
+      k_per_year: 0.0019
+    - duration_months: 12
+      mass_loss_pct:
+        mean: 45.1
+        se: 4.28
+      k_per_year: 0.0017
+    - duration_months: 14
+      mass_loss_pct:
+        mean: 46.1
+        se: 4.67
+      k_per_year: 0.0014
+
+# Main treatment effects (statistically significant or near-significant)
+treatment_effects:
+  drought:
+    deschampsia_soil:
+      - variable: nitrification_rate
+        effect: decrease
+        p_value: 0.0342
+        measurement: incubated_soil
+      - variable: DON_production_rate
+        effect: decrease
+        p_value: 0.0532
+        measurement: soil_with_plant
+      - variable: plant_N_immobilization
+        effect: decrease
+        p_value: 0.0949
+        measurement: soil_with_plant
+      - variable: DOC_production_rate
+        effect: decrease_in_non_warmed
+        p_value: 0.0760
+        interaction: T*D
+        measurement: soil_with_plant
+      - variable: litter_decomposition_6mo
+        effect: decrease
+        p_value: 0.0304
+
+    calluna_soil:
+      - variable: DON_production_rate
+        effect: increase
+        p_value: 0.0646
+        measurement: incubated_soil
+      - variable: microbial_C_accumulation
+        effect: increase
+        p_value: 0.0189
+        measurement: incubated_soil
+      - variable: litter_decomposition_12mo
+        effect: decrease
+        p_value: 0.0212
+
+  warming:
+    deschampsia_soil:
+      - variable: ammonification_rate
+        effect: decrease
+        p_value: 0.0294
+        measurement: incubated_soil
+      - variable: ammonification_rate
+        effect: decrease
+        p_value: 0.0794
+        measurement: soil_with_plant
+      - variable: microbial_N_immobilization
+        effect: decrease_in_non_CO2
+        p_value: 0.0249
+        measurement: incubated_soil
+      - variable: litter_decomposition
+        effect: increase_tendency
+        p_value: 0.0884
+
+    calluna_soil:
+      - variable: microbial_N_content_initial
+        effect: increase
+        p_value: 0.0929
+        note: "in soil before incubation"
+      - variable: microbial_P_content_initial
+        effect: increase
+        p_value: 0.0558
+        note: "in soil before incubation"
+      - variable: microbial_N_immobilization
+        effect: decrease
+        p_value: 0.0156
+        measurement: incubated_soil
+        interpretation: "net release from microbial pool"
+      - variable: microbial_P_immobilization
+        effect: decrease
+        p_value: 0.0122
+        measurement: incubated_soil
+        interpretation: "net release from microbial pool"
+      - variable: plant_biomass_N
+        effect: increase
+        p_value: 0.0039
+        measurement: soil_with_plant
+      - variable: plant_biomass_P
+        effect: increase
+        p_value: 0.0149
+        measurement: soil_with_plant
+      - variable: litter_decomposition
+        effect: increase_tendency
+        p_value: 0.0605
+
+  elevated_co2:
+    deschampsia_soil:
+      - variable: nitrification_rate
+        effect: increase_tendency
+        p_value: 0.0861
+        measurement: incubated_soil
+      - variable: nitrification_rate
+        effect: increase_in_drought
+        p_value: 0.0558
+        interaction: D*CO2
+        measurement: soil_with_plant
+      - variable: dissolved_P_mineralization
+        effect: decrease
+        p_value: 0.0335
+        measurement: incubated_soil
+      - variable: dissolved_P_mineralization
+        effect: decrease
+        p_value: 0.0506
+        measurement: soil_with_plant
+      - variable: microbial_P_immobilization
+        effect: decrease_in_non_drought
+        p_value: 0.0330
+        interaction: D*CO2
+        measurement: soil_with_plant
+      - variable: DON_production_rate
+        effect: decrease
+        p_value: 0.0063
+        measurement: soil_with_plant
+      - variable: citric_acid_concentration
+        effect: increase
+        fold_change: 2
+        p_value: 0.0165
+        interaction: CO2*D
+        note: "First field evidence of CO2 effect on organic acid"
+        baseline_uM: 0.06
+        treatment_uM: 1.34
+
+    calluna_soil:
+      - variable: litter_decomposition_6mo
+        effect: increase_tendency
+        p_value: 0.0744
+
+# Complex interactions (three-way and notable two-way)
+interactions:
+  - factors: [drought, warming, CO2]
+    order: 3
+    variable: nitrification_rate
+    soil_type: deschampsia
+    p_value: 0.0760
+    interpretation: "warming effects counteracted by CO2 and drought combination"
+
+  - factors: [drought, warming, CO2]
+    order: 3
+    variable: DON_production
+    soil_type: calluna
+    p_value: 0.0401
+    interpretation: "complex non-additive effects"
+
+  - factors: [warming, CO2]
+    order: 2
+    variable: microbial_N_immobilization
+    soil_type: deschampsia
+    p_value: 0.0760
+
+  - factors: [drought, CO2]
+    order: 2
+    variable: nitrification_rate
+    soil_type: deschampsia
+    p_value: 0.0558
+
+  - factors: [drought, CO2]
+    order: 2
+    variable: DON_production
+    soil_type: calluna
+    p_value: 0.0165
+
+key_findings:
+  - finding: "Drought suppressed nitrogen cycling, especially in Deschampsia soil"
+    mechanisms:
+      - "Reduced nitrification and DON production"
+      - "Decreased litter decomposition"
+      - "Moisture limitation of microbial activity"
+    ecosystem_implications: "May limit plant productivity under future drought scenarios"
+
+  - finding: "Warming promoted nutrient mobilization and plant growth in Calluna"
+    mechanisms:
+      - "Increased decomposition rates"
+      - "Net release of N and P from microbial pools"
+      - "Alleviated nutrient limitation"
+    ecosystem_implications: "Calluna may benefit competitively from warming"
+
+  - finding: "Elevated CO2 constrained phosphorus availability"
+    mechanisms:
+      - "Decreased P mineralization"
+      - "Possibly increased P occlusion via soil acidification"
+      - "Increased citric acid (potential P mobilization strategy)"
+    ecosystem_implications: "Progressive P limitation may develop under elevated CO2"
+    novelty: "First field evidence of CO2 effect on soil citric acid"
+
+  - finding: "Species-specific soil responses"
+    details:
+      - "Deschampsia soil more responsive to treatments"
+      - "Different drought and warming sensitivities"
+    ecosystem_implications: "Climate change may alter competitive balance between species"
+
+  - finding: "Complex interactions between factors"
+    details:
+      - "Warming effects often counteracted by CO2 and drought"
+      - "Non-additive responses common"
+    modeling_implications: "Single-factor studies insufficient for predictions"
+
+ecosim_relevance:
+  modeling_applications:
+    - "Multi-factorial climate change scenario testing"
+    - "Species-specific parameterization (C3 grass vs. C3 shrub)"
+    - "Validation of moisture limitation on decomposition"
+    - "Testing CO2 effects on soil chemistry and P cycling"
+    - "Evaluating emergent interaction effects"
+
+  validation_targets:
+    nitrogen:
+      - nitrification_rate_range: [-0.3, 0.3]
+        unit: "μg N g⁻¹ SOM day⁻¹"
+      - ammonification_rate_range: [-0.6, 1.0]
+        unit: "μg N g⁻¹ SOM day⁻¹"
+
+    microbial_stoichiometry:
+      - C_to_N_ratio_range: [5.8, 7.5]
+      - N_to_P_ratio_range: [2.9, 3.5]
+
+    decomposition:
+      - k_calluna_range: [0.0011, 0.0014]
+        unit: "yr⁻¹"
+      - k_deschampsia_range: [0.0014, 0.0019]
+        unit: "yr⁻¹"
+
+  input_data_available:
+    - "Initial soil chemistry (all major pools)"
+    - "Climate manipulation magnitudes"
+    - "Plant functional type characteristics"
+    - "Microbial biomass C:N:P ratios"
+    - "Litter quality (species-specific)"
+
+  process_mechanisms_to_test:
+    - "Moisture threshold for nitrification"
+    - "Temperature sensitivity (Q10) of mineralization"
+    - "CO2-induced soil acidification and P occlusion"
+    - "Plant vs. microbial competition for nutrients"
+    - "Root exudation and priming effects (or lack thereof)"
+
+data_quality:
+  strengths:
+    - "Rigorous experimental design with full factorial treatments"
+    - "Multiple replicates (n=6) for statistical power"
+    - "Species-specific measurements"
+    - "Both process rates and pool sizes measured"
+    - "Long-term field manipulation (not short-term lab)"
+    - "Comprehensive nutrient analysis (C, N, P)"
+    - "In situ incubations preserve soil structure"
+
+  limitations:
+    - "Short duration (18 months treatment, 6 months incubation)"
+    - "Single site and soil type"
+    - "Temperate zone only"
+    - "Small sample sizes for incubations"
+    - "No direct N addition treatment"
+    - "Buried bag method has known artifacts (plant severance)"
+
+  uncertainty_sources:
+    - "High spatial variability (large standard errors)"
+    - "Treatment effects smaller than seasonal variation"
+    - "Chloroform fumigation extraction efficiency assumptions"
+    - "Litter bag mesh effects on decomposer access"
+
+related_studies:
+  climaite_project:
+    - "Mikkelsen et al. 2008 Functional Ecology - Experimental design"
+    - "Larsen et al. 2011 - CLIMAITE 2-year N cycling synthesis"
+    - "Multiple other publications from same experiment"
+
+  comparison_studies:
+    - "Cross-European heathland gradient studies (Emmett et al. 2004, Schmidt et al. 2004)"
+    - "Subarctic warming studies (Jonasson et al. 2006, Rinnan et al. 2007)"
+
+notes:
+  - "This is one of the first multi-factorial field experiments globally"
+  - "CLIMAITE = CLIMAte change effects on biological processes in TErrestrial ecosystems"
+  - "Study emphasizes need for multi-factor experiments - interactions dominate"
+  - "Plant presence in incubations mainly represented N uptake, not priming"
+  - "Citric acid finding important for understanding rhizosphere P mobilization under elevated CO2"
+  - "Species-specific responses suggest differential climate change impacts on heathland composition"
+
+file_provenance:
+  source_document: "hackathon-case_study-experimental_warming_nitrogen/sources/Andresen LC etal 2010_Plant nutrient mobilization in temperate heathland responds to elevated CO2, temperature and drought.pdf"
+  extracted_by: "Claude Code (AI assistant)"
+  extraction_date: "2025-11-10"
+  schema_version: "0.1.0-draft"
+  notes: "This YAML structure is preliminary and will be formalized with LinkML schema"
