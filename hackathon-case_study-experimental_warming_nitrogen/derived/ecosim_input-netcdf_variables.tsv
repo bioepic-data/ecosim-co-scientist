@@ -1,9 +1,9 @@
-source_file	type	variable-data_type	variable-name	variable-shape	variable-FillValue	variable-long_name	variable-unit	variable-flags	variable-missing_value
-Blodget.clim.2012-2022.nc.cdl	climate	float	CALRG	year,ngrid		Al conc in precip	gAl m^-3		
-Blodget.clim.2012-2022.nc.cdl	climate	float	CCARG	year,ngrid		Ca conc in precip	gCa m^-3		
-Blodget.clim.2012-2022.nc.cdl	climate	float	CCLRG	year,ngrid		Cl conc in precip	gCl m^-3		
-Blodget.clim.2012-2022.nc.cdl	climate	float	CFERG	year,ngrid		Fe conc in precip	gFe m^-3		
-Blodget.clim.2012-2022.nc.cdl	climate	float	CKARG	year,ngrid		K conc in precip	gK m^-3		
+source_file	type	variable-data_type	variable-name	variable-shape	variable-FillValue	variable-long_name	variable-unit	variable-flags	variable-missing_value	bervo_id	bervo_label	bervo_category	bervo_definition	bervo_units
+Blodget.clim.2012-2022.nc.cdl	climate	float	CALRG	year,ngrid		Al conc in precip	gAl m^-3							
+Blodget.clim.2012-2022.nc.cdl	climate	float	CCARG	year,ngrid		Ca conc in precip	gCa m^-3							
+Blodget.clim.2012-2022.nc.cdl	climate	float	CCLRG	year,ngrid		Cl conc in precip	gCl m^-3							
+Blodget.clim.2012-2022.nc.cdl	climate	float	CFERG	year,ngrid		Fe conc in precip	gFe m^-3							
+Blodget.clim.2012-2022.nc.cdl	climate	float	CKARG	year,ngrid		K conc in precip	gK m^-3							
 Blodget.clim.2012-2022.nc.cdl	climate	float	CMGRG	year,ngrid		Mg conc in precip	gMg m^-3		
 Blodget.clim.2012-2022.nc.cdl	climate	float	CN4RIG	year,ngrid		NH4 conc in precip	gN m^-3		
 Blodget.clim.2012-2022.nc.cdl	climate	float	CNARG	year,ngrid		Na conc in precip	gNa m^-3		
@@ -13,17 +13,17 @@ Blodget.clim.2012-2022.nc.cdl	climate	float	CSORG	year,ngrid		SO4 conc in precip
 Blodget.clim.2012-2022.nc.cdl	climate	float	DWPTH	year,day,hour,ngrid	1.e+30f	atmospheric vapor pressure	kPa		1.e+30f 
 Blodget.clim.2012-2022.nc.cdl	climate	int	IFLGW	year,ngrid		flag for raising Z0G with vegeation			
 Blodget.clim.2012-2022.nc.cdl	climate	float	PHRG	year,ngrid		pH in precipitation			
-Blodget.clim.2012-2022.nc.cdl	climate	float	RAINH	year,day,hour,ngrid	1.e+30f	Total precipitation	mm m^-2 hr^-1		1.e+30f 
+Blodget.clim.2012-2022.nc.cdl	climate	float	RAINH	year,day,hour,ngrid	1.e+30f	Total precipitation	mm m^-2 hr^-1		1.e+30f	BERVO:0001347	Hourly precipitation	Climate force data type	The precipitation rate measured at hourly intervals, providing detailed temporal resolution of water input to ecosystems.	mm h-1 
 Blodget.clim.2012-2022.nc.cdl	climate	float	SRADH	year,day,hour,ngrid	1.e+30f	Incident solar radiation	W m^-2		1.e+30f 
 Blodget.clim.2012-2022.nc.cdl	climate	float	TMPH	year,day,hour,ngrid	1.e+30f	hourly air temperature	oC		1.e+30f 
 Blodget.clim.2012-2022.nc.cdl	climate	float	WINDH	year,day,hour,ngrid	1.e+30f	horizontal wind speed	m s^-1		1.e+30f 
 Blodget.clim.2012-2022.nc.cdl	climate	int	year	year		year AD			
 Blodget.clim.2012-2022.nc.cdl	climate	float	Z0G	year,ngrid	1.e+30f	windspeed measurement height	m		1.e+30f 
 Blodget.clim.2012-2022.nc.cdl	climate	float	ZNOONG	year,ngrid	1.e+30f	time of solar noon	hour		1.e+30f 
-Blodget_grid_20240622.nc.cdl	grid	float	AEC	ntopou,nlevs	-999.9	Anion exchange capacity	cmol kg soil-1		
+Blodget_grid_20240622.nc.cdl	grid	float	AEC	ntopou,nlevs	-999.9	Anion exchange capacity	cmol kg soil-1			BERVO:0000884	Soil anion exchange capacity	Soil biogeochemical data type	The total amount of exchangeable anions that soil can hold on its surface and exchange with the soil solution, representing soil capacity to retain negatively charged ions.	cmol kg-1
 Blodget_grid_20240622.nc.cdl	grid	float	ALATG	ngrid		Latitude	degrees north		
 Blodget_grid_20240622.nc.cdl	grid	float	ALBS	ntopou		Wet soil albedo	none		
-Blodget_grid_20240622.nc.cdl	grid	float	ALTIG	ngrid		Altitude above sea-level	m		
+Blodget_grid_20240622.nc.cdl	grid	float	ALTIG	ngrid		Altitude above sea-level	m			BERVO:0000670	Altitude of landscape	Land surface data type	The vertical elevation of landscape features above a reference datum, typically mean sea level, affecting temperature, pressure, and precipitation patterns.	m
 Blodget_grid_20240622.nc.cdl	grid	float	ASPX	ntopou		Aspect	degrees		
 Blodget_grid_20240622.nc.cdl	grid	float	ATCAG	ngrid		Mean annual temperaure	oC		
 Blodget_grid_20240622.nc.cdl	grid	float	BKDSI	ntopou,nlevs	-999.9	Initial bulk density	Mg m-3	0 for water	
