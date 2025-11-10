@@ -1,0 +1,21 @@
+variable_name,dimensions,shape,dtype,ndim,size,long_name,units
+TMPH,"year, day, hour, ngrid","(11, 366, 24, 1)",float32,4,96624,hourly air temperature,oC
+WINDH,"year, day, hour, ngrid","(11, 366, 24, 1)",float32,4,96624,horizontal wind speed,m s^-1
+RAINH,"year, day, hour, ngrid","(11, 366, 24, 1)",float32,4,96624,Total precipitation,mm m^-2 hr^-1
+DWPTH,"year, day, hour, ngrid","(11, 366, 24, 1)",float32,4,96624,atmospheric vapor pressure,kPa
+SRADH,"year, day, hour, ngrid","(11, 366, 24, 1)",float32,4,96624,Incident solar radiation,W m^-2
+Z0G,"year, ngrid","(11, 1)",float32,2,11,windspeed measurement height,m
+IFLGW,"year, ngrid","(11, 1)",int32,2,11,flag for raising Z0G with vegeation,
+ZNOONG,"year, ngrid","(11, 1)",float32,2,11,time of solar noon,hour
+PHRG,"year, ngrid","(11, 1)",float32,2,11,pH in precipitation,
+CN4RIG,"year, ngrid","(11, 1)",float32,2,11,NH4 conc in precip,gN m^-3
+CNORIG,"year, ngrid","(11, 1)",float32,2,11,NO3 conc in precip,gN m^-3
+CPORG,"year, ngrid","(11, 1)",float32,2,11,H2PO4 conc in precip,gP m^-3
+CALRG,"year, ngrid","(11, 1)",float32,2,11,Al conc in precip,gAl m^-3
+CFERG,"year, ngrid","(11, 1)",float32,2,11,Fe conc in precip,gFe m^-3
+CCARG,"year, ngrid","(11, 1)",float32,2,11,Ca conc in precip,gCa m^-3
+CMGRG,"year, ngrid","(11, 1)",float32,2,11,Mg conc in precip,gMg m^-3
+CNARG,"year, ngrid","(11, 1)",float32,2,11,Na conc in precip,gNa m^-3
+CKARG,"year, ngrid","(11, 1)",float32,2,11,K conc in precip,gK m^-3
+CSORG,"year, ngrid","(11, 1)",float32,2,11,SO4 conc in precip,gS m^-3
+CCLRG,"year, ngrid","(11, 1)",float32,2,11,Cl conc in precip,gCl m^-3

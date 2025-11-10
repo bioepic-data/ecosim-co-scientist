@@ -1,0 +1,860 @@
+# Larsen et al. 2011 - CLIMAITE N Cycling Synthesis (2 Years)
+# Machine-readable structured metadata
+
+study:
+  id: larsen-2011-climaite-synthesis
+
+  citation:
+    authors:
+      - family: Larsen
+        given: Klaus S.
+      - family: Andresen
+        given: Louise C.
+      - family: Beier
+        given: Claus
+      - family: Jonasson
+        given: Sven
+      - family: Albert
+        given: Kristian R.
+      - family: Ambus
+        given: Per
+      - family: Arndal
+        given: Marie F.
+      - family: Carter
+        given: Mette S.
+      - family: Christensen
+        given: Søren
+      - family: Holmstrup
+        given: Martin
+      - family: Ibrom
+        given: Andreas
+      - family: Kongstad
+        given: Jane
+      - family: van der Linden
+        given: Leon
+      - family: Maraldo
+        given: Kristine
+      - family: Michelsen
+        given: Anders
+      - family: Mikkelsen
+        given: Teis N.
+      - family: Pilegaard
+        given: Kim
+      - family: Priemé
+        given: Anders
+      - family: Ro-Poulsen
+        given: Helge
+      - family: Schmidt
+        given: Inger K.
+      - family: Selsted
+        given: Merete B.
+      - family: Stevnbak
+        given: Karen
+    title: "Reduced N cycling in response to elevated CO2, warming, and drought in a Danish heathland: Synthesizing results of the CLIMAITE project after two years of treatments"
+    journal: Global Change Biology
+    year: 2011
+    volume: 17
+    pages: "1884-1899"
+    doi: 10.1111/j.1365-2486.2010.02351.x
+
+  study_period:
+    treatment_start: "October 2005"
+    measurement_years: "2006-2007"
+    duration_years: 2
+    description: "2-year synthesis, most data from 2007"
+
+  project:
+    name: "CLIMAITE"
+    description: "Multi-factor climate change experiment"
+    related_paper: "Andresen et al. 2010 (same site, complementary measurements)"
+
+site:
+  location:
+    name: "Brandbjerg"
+    region: "Zealand"
+    country: "Denmark"
+    latitude: 55.883
+    longitude: 11.967
+    distance_from_copenhagen_km: 50
+    direction_from_copenhagen: "NW"
+
+  ecosystem:
+    type: "Dry temperate heathland"
+    classification: "Seminatural"
+    land_use: "Unmanaged"
+
+  climate:
+    mean_annual_temperature_c: 8.0
+    mean_annual_precipitation_mm: 613
+    data_source: "Danish Meteorological Institute long-term average"
+
+  soil:
+    type: "Well-drained sandy deposit"
+    ph: "4-5"
+    organic_layer_depth_cm: "2-5"
+    nutrient_status: "Poor"
+
+  vegetation:
+    dominant_species:
+      - species: "Calluna vulgaris (L.)"
+        functional_type: "Evergreen dwarf shrub"
+        percent_aboveground_N: 60
+        notes: "Dominant species"
+      - species: "Deschampsia flexuosa (L.)"
+        functional_type: "Perennial C3 grass"
+        percent_aboveground_N: 30
+        notes: "Co-dominant"
+    other_vegetation:
+      - "Various mosses (~10% aboveground N)"
+      - "Various herbs"
+
+  atmospheric_deposition:
+    year_2006:
+      total_N_g_m2_yr: 1.27
+      se: 0.07
+    year_2007:
+      total_N_g_m2_yr: 1.35
+      se: 0.04
+      NO3_N_g_m2_yr: 0.32
+      NH4_N_g_m2_yr: 0.46
+      DON_g_m2_yr: 0.59
+
+experimental_design:
+  design_type: "Full 2×2×2 factorial"
+  factors: ["CO2", "Warming", "Drought"]
+  treatments: 8
+  replication: 6
+  total_plots: 48
+  spatial_layout: "12 octagons, paired for CO2"
+  octagon_diameter_m: 7
+  plots_per_octagon: 4
+  plot_area_m2: 9.2
+
+  treatments_list:
+    - "A (ambient control)"
+    - "CO2 (elevated CO2)"
+    - "D (drought)"
+    - "T (warming)"
+    - "DCO2 (drought + elevated CO2)"
+    - "TCO2 (warming + elevated CO2)"
+    - "TD (warming + drought)"
+    - "TDCO2 (warming + drought + elevated CO2)"
+
+  elevated_CO2:
+    method: "FACE (Free Air CO2 Enrichment)"
+    target_ppm: 510
+    ambient_ppm: 385
+    operation: "Daytime only"
+    control_system: "Feedback linked to wind speed and direction"
+    fumigation_method: "Pipe system"
+
+  warming:
+    method: "Passive nighttime warming"
+    equipment: "Automated curtains"
+    height_above_ground_cm: 50
+    operation: "Nighttime deployment (automatic)"
+    target_increase_c: 1.5
+    measurement_depth_cm: 2
+
+    achieved_warming_october_2005_to_december_2007:
+      daily_maximum_elevation:
+        soil_5cm_c: 1.5
+        surface_c: 1.8
+        air_20cm_c: 3.2
+
+      seasonal_range_at_5cm_soil_depth:
+        spring:
+          mean_to_max_c: "0.6-1.5"
+        summer:
+          mean_to_max_c: "0.5-1.3"
+        autumn:
+          mean_to_max_c: "0.3-1.0"
+        winter:
+          mean_to_max_c: "0.2-0.7"
+          notes: "Lowest warming effect"
+
+    notes: "Passive method relies on capturing incoming energy, varies with season and weather"
+
+  drought:
+    method: "Rain-out shelters (automated)"
+    deployment: "During rain events"
+    duration: "~1 month each summer"
+    target_soil_water_pct: 5
+    soil_depth_monitored_cm: "0-20"
+
+    campaigns:
+      year_2006:
+        dates: "3-20 July, 26 July-4 August"
+        precipitation_removed_mm: 52
+        peak_soil_water_reduction_pct: 11
+
+      year_2007:
+        dates: "21 May-22 June"
+        precipitation_removed_mm: 94
+        peak_soil_water_reduction_pct: 13
+
+    stopping_criterion: "Soil water content ~5% v/v at 0-20 cm depth"
+
+measurements:
+  number_of_n_cycle_variables: 47
+  focus: "Comprehensive N cycle synthesis"
+
+  plant_aboveground:
+    biomass_estimation:
+      method: "Non-destructive point intercept"
+      subplot_size_cm: "50×50"
+      subplots_per_plot: 2
+      reference: "Jonasson 1988"
+      calibration: "Linear regression to destructive harvests outside plots"
+      normalization: "Scaled to ambient biomass development"
+      species: ["Calluna vulgaris", "Deschampsia flexuosa", "Mosses"]
+
+    harvest_for_chemistry:
+      date: "August 2007"
+      subplot_size_cm: "20×20"
+      fractions_calluna: ["Green leaves", "Flowers", "Green tissue", "Wood/stem", "Roots"]
+      fractions_deschampsia: ["Green leaves", "Whole plant", "Roots", "Litter"]
+      fractions_mosses: ["Whole plant"]
+      analyses: ["C concentration", "N concentration", "C/N ratio"]
+
+    litter_production:
+      species: "Deschampsia flexuosa"
+      method: "Point intercept difference (seasonal max - min live biomass)"
+      components: ["Leaves", "Reproductive shoots"]
+      timing: "After senescence"
+      calculation: "Biomass × litter N concentration"
+
+  plant_belowground:
+    sampling_depth_cm: "0-10"
+    date: "August 2007"
+    species: ["Calluna", "Deschampsia"]
+    analyses: ["Biomass", "N concentration"]
+
+  soil_chemistry:
+    sampling_depth_cm: "0-10"
+    date: "August 2007"
+
+    microbial_biomass_N:
+      method: "Chloroform fumigation-extraction"
+      reference: "Andresen et al. 2010a"
+
+    extractable_N:
+      extraction: "2 M KCl"
+      analytes: ["NO3-N", "NH4-N", "DON (dissolved organic N)"]
+
+    soil_organic_matter_N:
+      abbreviation: "SOM-N"
+      method: "Total soil N minus extractable N"
+
+  soil_fauna:
+    sampling_depth_cm: "0-10"
+
+    protozoa:
+      sampling_date: "October 2007"
+      method: "Most Probable Number (MPN)"
+      sample_size_g: 5
+      medium: "Amoeba Saline (AS, Page 1988)"
+      suspension_preparation: "100 mL AS, 1 min blending"
+      dilution_series: "Three-fold in microtiter plates"
+      incubation: "15°C for 1 and 3 weeks"
+      reference: "Modified Darbyshire et al. 1974, Rønn et al. 1995"
+      biomass_N_calculation: "Stout & Heal 1967"
+
+    nematodes:
+      sampling_date: "October 2007"
+      method: "Modified Baermann tray extraction"
+      sample_size_g: "10-11"
+      extraction_duration_h: 48
+      counting_magnification: "40×"
+      reference: "Georgieva et al. 2005"
+      biomass_N_calculation: "Sohlenius & Sandor 1987"
+      functional_group: "Bacterivorous"
+
+    enchytraeids:
+      sampling_date: "November 2007"
+      method: "Maraldo et al. 2008"
+      biomass_N_percent_dry_weight: 11.5
+      reference: "Persson 1983"
+
+    microarthropods:
+      sampling_date: "November 2007"
+      method: "Holmstrup et al. 2007"
+      biomass_N_percent_dry_weight: 10
+      reference: "Petersen & Luxton 1982, Persson 1983"
+
+    N_mineralization_by_fauna:
+      microfauna_turnover_rate_day: 0.16
+      microfauna_reference: "Zwart et al. 1994"
+      protozoan_yield_on_bacteria: 0.4
+      nematode_yield_on_bacteria: 0.04
+      yields_reference: "Coleman et al. 1978"
+      enchytraeid_annual_turnover: 1.2
+      enchytraeid_reference: "Standen 1973"
+      microarthropod_annual_turnover: 1.8
+      microarthropod_reference: "De Ruiter et al. 1993"
+      calculation_reference: "Persson 1983"
+
+  gross_N_mineralization:
+    method: "15N isotope pool dilution"
+    sampling_date: "September 2007"
+    depths: ["0-5 cm", "5-10 cm"]
+    sample_preparation: "Sieved, stored at 5°C for ~1 week"
+
+    incubation:
+      soil_mass_g: 10
+      container: "250 mL poly-ethylene bottles"
+      tracer_solution: "15N-NH4Cl (5 atom% 15N)"
+      tracer_addition_amount: "400 μL to provide 5 μg N g-1 soil"
+      temperature_c: 20
+      duration_days: 7
+      time_points: ["t=0", "t=7 days"]
+
+    extraction_and_analysis:
+      method: "Microdiffusion"
+      reference: "Sørensen & Jensen 1991"
+      measured_pools: ["Mineral N", "15N content"]
+
+    calculations:
+      formula_reference: "Kirkham & Bartholomew 1954"
+      rates_calculated: ["Gross N mineralization", "NH4+ consumption"]
+      time_unit: "Daily rates"
+
+    upscaling_to_annual:
+      method: "Q10 function"
+      Q10_value: 2
+      temperature_data: "Mean daily soil temperature at 5 cm depth for each treatment"
+
+  potential_rates:
+    sampling_date: "November 2007"
+    sampling_depth_cm: "0-10"
+    storage: "4°C, analyzed within 24 h"
+    sample_preparation: "Gently homogenized by hand, major roots removed"
+
+    potential_nitrification:
+      method: "Modified Belser & Mays 1980 (without chlorate)"
+      soil_mass_g: 3
+      measurement: "Increase in NO2- + NO3-"
+
+    potential_denitrification:
+      method: "Wolsing & Prieme 2004"
+      soil_mass_g: 10
+      incubation_duration_min: 180
+      measurement: "Linear N2O accumulation in headspace"
+
+    upscaling: "Same Q10 approach as gross mineralization"
+
+  N2O_emissions:
+    method: "Static chamber"
+
+    chamber_specifications:
+      material: "White PVC"
+      heights_cm: [15, 45]
+      height_variation_reason: "Seasonal vegetation height"
+      collar_size_cm: "60×60"
+      collar_installation: "Permanent"
+
+    measurement_protocol:
+      enclosure_time_h: "2-2.5"
+      headspace_sampling_frequency: "4 times per enclosure"
+      analysis: "Gas chromatography"
+      flux_calculation: "Linear regression of N2O concentration vs time"
+
+    campaigns:
+      period_1:
+        dates: "June 2006 - March 2007"
+        number_of_campaigns: 9
+        treatments_measured: "All 8"
+
+      period_2:
+        dates: "April - June 2007"
+        number_of_campaigns: 5
+        treatments_measured: "5 (A, CO2, D, DCO2, TDCO2)"
+        extrapolation: "For T, TD, TCO2 treatments in March-June 2007"
+
+    annual_cumulative_flux: "Interpolation between measurement days"
+
+  N2O_reductase:
+    sampling_date: "November 2007"
+    sample_source: "Subsample from fauna biomass cores"
+
+    pre_treatment:
+      purpose: "Nitrate removal"
+      method: "3× wash with PBS (phosphate-buffered saline)"
+      procedure: "Vortex 10g soil + 30mL PBS, centrifuge 10min at 3500×g and 5°C"
+
+    incubation:
+      container: "100 mL bottle"
+      seal: "Butyl rubber stopper"
+      atmosphere: "N2 (flushed for 2 min)"
+      carbon_sources: "0.5 mM each: glucose, sodium acetate, sodium succinate"
+      volume_mL: 15
+      N2O_addition_ppm: 100
+      temperature_c: 22
+      shaking_rpm: 200
+      sampling_times_h: [0, 1, 3, 6, 24]
+      headspace_volume_mL: 3
+      storage: "Pre-evacuated 3mL Venoject vials"
+      analysis: "Gas chromatography"
+
+    result: "Negligible activity (<1 ng N g-1 dw h-1 all samples)"
+    conclusion: "N2 production assumed negligible"
+
+  leaching_and_deposition:
+    bulk_deposition:
+      sampling_frequency: "Monthly"
+      collectors: 3
+      collector_type: "PVC rain water collectors"
+      height_above_soil_m: 2
+      installation: "Collection bottle buried in soil"
+      spatial_design: "Randomly placed within experimental area"
+      replication_level: "Site level (n=3)"
+      analytes: ["NH4+", "NO3-", "Total N", "DON"]
+      DON_calculation: "Total N minus inorganic N"
+
+    leachate_5cm:
+      depth_cm: 5
+      position: "Below organic soil layer"
+      collector_type: "Passive PVC soil water draining collectors"
+      sampling_frequency: "Monthly"
+      replication: "Each experimental plot"
+      analytes: ["NH4+", "NO3-", "Total N", "DON"]
+
+    leachate_60cm:
+      depth_cm: 60
+      position: "Below main rooting zone"
+      collector_type: "PTFE (Prenart Super Quartz) suction cups"
+      pressure: "Continuous sub-atmospheric"
+      sampling_frequency: "Monthly"
+      replication: "Each experimental plot"
+      analytes: ["NH4+", "NO3-", "Total N", "DON"]
+
+    analytical_methods:
+      equipment: "Autoanalyzer 3 (Bran + Luebbe GmbH, Germany)"
+      NH4_and_NO3: "Standard colorimetric"
+      total_N: "UV-persulphate oxidation"
+      DON: "Total N - (NH4 + NO3)"
+
+    water_percolation_modeling:
+      model: "CoupModel"
+      references: ["Jansson & Moon 2001", "Svensson et al. 2008"]
+      description: "Coupled ecosystem model (soil-plant-atmosphere)"
+      parameterization: "Soil layer properties"
+      validation_data: "Time series of soil temperature and moisture"
+      forcing_data: "On-site radiation, precipitation, wind speed"
+      method: "Generalized likelihood uncertainty evaluation"
+      output: "Percolation below 60 cm depth"
+
+    N_leaching_calculation:
+      formula: "Percolation volume × concentration at 60 cm"
+      temporal_resolution: "Each water collection period"
+      reference: "Schmidt et al. 2004"
+
+statistical_analysis:
+  software: "SAS PROC MIXED (SAS Institute 2003)"
+
+  model:
+    type: "Multiple linear regression"
+    random_effects: "Block, Octagon, Octagon×D, Octagon×T"
+    fixed_effects: ["CO2", "D", "T", "D×CO2", "T×CO2", "T×D", "T×D×CO2"]
+    interactions_tested: "All two-way and three-way"
+
+  significance_level: 0.05
+  data_transformation: "When necessary for normality and homogeneity of variance"
+
+  interaction_categorization:
+    method: "Differences of least squares means (DLSM)"
+    categories:
+      antagonistic: "Combined effect reduced observed individual effects"
+      synergistic: "Combined effect amplified individual effects OR significant only in combination"
+      additive: "Two significant main effects without interaction"
+
+    DLSM_evaluation_reveals:
+      - "Whether interactions due to single treatment effects disappearing in combination"
+      - "Whether main factor effects significant only in combination or also as single"
+      - "Direction of effects (increase or decrease)"
+
+results:
+  ecosystem_N_balance_2007_ambient:
+    units: "g N m-2"
+
+    pools:
+      aboveground:
+        calluna: 6.7
+        calluna_se: 1.7
+        deschampsia: 3.0
+        deschampsia_se: 0.6
+        mosses: 0.93
+        mosses_se: 0.5
+        total: ~10.6
+        percent_of_ecosystem: ~10
+
+      belowground:
+        SOM_N: 180
+        SOM_N_se: 9
+        SOM_N_percent_of_belowground: ~90
+        deschampsia_roots: 10.3
+        deschampsia_roots_se: 3.0
+        calluna_roots: 7.6
+        calluna_roots_se: 2.7
+        microbial_biomass_N: 3.6
+        microbial_biomass_N_se: 0.6
+        fauna_total: 0.28
+        fauna_se: 0.04
+        fauna_percent_of_microbial: 10
+        extractable_NH4: 0.33
+        extractable_NO3: 0.079
+        extractable_DON: 1.5
+        litter_deschampsia: 0.095
+
+  fluxes_g_N_m2_yr_ambient_2007:
+    inputs:
+      bulk_deposition_total: 1.35
+      bulk_deposition_se: 0.04
+      bulk_deposition_NO3: 0.32
+      bulk_deposition_NH4: 0.46
+      bulk_deposition_DON: 0.59
+
+    internal_cycling:
+      gross_mineralization: 7.0
+      gross_mineralization_se: 1.0
+      gross_min_0_5cm: 4.46
+      gross_min_5_10cm: 2.51
+      fauna_mineralization: 5.0
+      fauna_mineralization_se: 0.6
+      fauna_percent_of_gross: 71
+      NH4_consumption_0_5cm: 3.36
+      potential_nitrification: 3.82
+      potential_denitrification: 19.0
+      litter_N_production_deschampsia: 1.42
+
+    outputs:
+      total_N_leaching_2007: 0.56
+      total_N_leaching_2006: 0.13
+      leaching_interannual_difference_p: "<0.0001"
+      N2O_emissions: 0.031
+      N2O_emissions_se: 0.006
+
+    balance:
+      N_retention: 0.53
+      N_retention_se: 0.42
+      calculation: "Deposition - Leaching - N2O"
+
+  treatment_main_effects:
+    summary:
+      drought: "11 significant effects (dominates)"
+      warming: "6 significant effects"
+      elevated_CO2: "4 significant effects"
+
+    CO2_effects:
+      calluna_leaf_CN_increase_pct: 17
+      calluna_leaf_CN_p: 0.04
+      calluna_flower_CN_increase_pct: 16
+      calluna_flower_CN_p: 0.02
+      deschampsia_leaf_CN_increase_pct: 16
+      deschampsia_leaf_CN_p: 0.01
+      mosses_CN_increase_pct: 44
+      mosses_CN_p: 0.05
+      mosses_CN_note: "Single treatment only, 3-way interaction P=0.003"
+      deschampsia_litter_N_decrease_pct: 24
+      deschampsia_litter_N_p: 0.05
+      leachate_NO3_5cm_decrease_pct: 76
+      leachate_NO3_5cm_p: 0.01
+      leachate_DON_5cm_decrease_pct: 21
+      leachate_DON_5cm_p: 0.01
+      leachate_note: "Single treatment effects, reduced in combinations"
+
+    drought_effects:
+      deschampsia_leaf_CN_increase_pct: 16
+      deschampsia_leaf_CN_p: 0.002
+      mosses_CN_increase_pct: 31
+      mosses_CN_p: "≤0.05"
+      deschampsia_litter_N_production_decrease_pct: 30
+      deschampsia_litter_N_production_p: 0.01
+      calluna_root_N_increase_pct: 73
+      calluna_root_N_p: 0.04
+      calluna_root_N_note: "Unexpected, possibly sampling artifact"
+      gross_mineralization_decrease_pct: 8
+      gross_mineralization_p: 0.02
+      enchytraeid_biomass_N_decrease_pct: 29
+      enchytraeid_biomass_N_p: 0.03
+      protozoan_biomass_N_decrease_pct: 18
+      protozoan_biomass_N_p: 0.04
+      enchytraeid_mineralization_decrease_pct: 29
+      protozoan_mineralization_decrease_pct: 18
+      soil_NH4_decrease_pct: 42
+      soil_NH4_p: 0.02
+
+    warming_effects:
+      deschampsia_litter_N_conc_increase_pct: 8
+      deschampsia_litter_N_conc_p: 0.03
+      NH4_consumption_0_5cm_increase_pct: 159
+      NH4_consumption_0_5cm_p: 0.03
+      gross_mineralization_increase_note: "Single treatment only, P≤0.05"
+      potential_nitrification_increase_pct: 51
+      potential_nitrification_p: 0.0002
+      potential_denitrification_increase_pct: 57
+      potential_denitrification_p: 0.02
+      N2O_note: "Complex interaction effects"
+
+  combined_treatment_TDCO2:
+    effects_persisting:
+      - "Increased leaf C/N ratios (Calluna, Deschampsia)"
+      - "Increased flower C/N ratio (Calluna)"
+      - "Reduced litter N production (Deschampsia)"
+      - "Reduced fauna N biomass (enchytraeids, protozoans)"
+      - "Reduced fauna N mineralization"
+      - "Increased potential denitrification"
+
+    effects_disappearing:
+      - "Moss C/N ratio increase (antagonistic interaction)"
+      - "Litter N concentration changes (opposing effects canceled)"
+      - "Most other belowground effects (antagonistic interactions)"
+
+    overall_interpretation: "Reduced N turnover"
+    mechanisms:
+      - "Increased C/N in photosynthetic tissue (CO2 effect)"
+      - "Decreased litter N production (drought effect)"
+      - "Decreased fauna N mineralization (drought effect, not counteracted)"
+    potential_consequence: "Progressive N limitation constraining CO2 growth response"
+
+  interaction_analysis:
+    total_variables_analyzed: 47
+    significant_interactions: 15
+    percent_with_interactions: 32
+
+    interaction_types:
+      antagonistic: 13
+      synergistic: 4
+      note: "2 three-way interactions had both types"
+      antagonistic_to_synergistic_ratio: ~3
+
+    two_way_interactions: 9
+    three_way_interactions: 6
+
+    simple_additive_effects: 3
+    percent_additive: 6
+
+    key_examples_antagonism:
+      moss_CN:
+        D_alone_pct: +31
+        CO2_alone_pct: +44
+        D_plus_CO2: "No change"
+
+      gross_mineralization:
+        T_alone_pct: +50
+        T_plus_CO2: "Effect reduced"
+
+      CO2_leachate:
+        CO2_alone: "Decreased NO3 and DON at 5cm"
+        CO2_combinations: "Effect disappeared"
+
+  interannual_variability:
+    leaching_2006_g_N_m2_yr: 0.13
+    leaching_2006_se: 0.06
+    leaching_2007_g_N_m2_yr: 0.56
+    leaching_2007_se: 0.20
+    fold_difference: 4.3
+    p_value: "<0.0001"
+
+    summer_precipitation:
+      year_2006_mm: 204
+      year_2006_label: "Dry"
+      year_2006_leaching_percent_of_annual: 1
+      year_2007_mm: 433
+      year_2007_label: "Wet"
+      year_2007_leaching_percent_of_annual: 46
+
+    interpretation: "Leaching highly sensitive to precipitation timing, suggests ecosystem near N saturation"
+
+major_findings:
+  - finding: "Drought effects dominated after 2 years"
+    number_of_effects: 11
+
+  - finding: "CO2 increased C/N ratios in photosynthetic tissues"
+    species_affected: "Both Calluna and Deschampsia"
+    cascading: "Beginning to affect litter N concentration after 2 years"
+
+  - finding: "Warming increased N turnover"
+    processes_stimulated: ["Gross mineralization", "NH4 consumption", "Potential nitrification", "Potential denitrification"]
+    magnitude_range_pct: "51-159"
+
+  - finding: "Drought reduced N turnover"
+    effects: ["Reduced gross mineralization", "Reduced fauna biomass and mineralization", "Reduced litter N production"]
+
+  - finding: "Soil fauna critical to N cycling"
+    fauna_mineralization_percent_of_gross: 71
+    fauna_biomass_percent_of_microbial: 10
+    implication: "Most bacterial mineralization facilitated by fauna predation"
+
+  - finding: "Interactions common, antagonism dominates"
+    interaction_frequency_pct: 32
+    antagonistic_to_synergistic_ratio: 3
+    implication: "Single-factor studies likely overestimate responses"
+
+  - finding: "Leaching highly sensitive to precipitation timing"
+    no_treatment_effects: true
+    interannual_fold_difference: 4
+
+  - finding: "Combined treatment shows reduced N availability"
+    persistent_effects: ["Increased leaf C/N", "Reduced litter N production", "Reduced fauna N mineralization"]
+    potential_outcome: "Progressive N limitation"
+
+ecosim_relevance:
+  data_quality: "Most comprehensive N cycle dataset from any multi-factor climate experiment"
+
+  validation_targets_ambient:
+    gross_N_mineralization_g_m2_yr: 7.0
+    fauna_N_mineralization_g_m2_yr: 5.0
+    fauna_percent_of_gross: 71
+    potential_nitrification_g_m2_yr: 3.82
+    potential_denitrification_g_m2_yr: 19.0
+    N2O_emissions_g_m2_yr: 0.031
+    total_N_leaching_g_m2_yr: 0.80
+
+  treatment_response_magnitudes:
+    CO2_calluna_leaf_CN_pct: +17
+    CO2_deschampsia_leaf_CN_pct: +16
+    CO2_litter_N_conc_pct: -24
+    drought_gross_min_pct: -8
+    drought_fauna_min_pct: "-18 to -29"
+    drought_litter_N_prod_pct: -30
+    warming_NH4_consumption_pct: +159
+    warming_potential_nitrification_pct: +51
+    warming_potential_denitrification_pct: +57
+
+  interaction_targets:
+    expect_antagonism: true
+    antagonistic_frequency_pct: 87
+    combined_less_than_sum: true
+
+  model_testing_questions:
+    - "Can EcoSIM reproduce dominance of antagonistic interactions?"
+    - "Are interactions emergent from model structure?"
+    - "Does model capture critical role of soil fauna (71% of gross mineralization)?"
+    - "Can model simulate cascading C/N ratio effects (CO2 → leaf → litter)?"
+    - "Does model capture warming stimulation of all N processes?"
+    - "Can model reproduce drought suppression via fauna populations?"
+    - "Does model predict 4× interannual leaching variability?"
+    - "Can model handle multi-depth dynamics (0-5 vs 5-10 cm)?"
+
+  complementary_data:
+    andresen_2010: "Same site, in situ buried bags, net rates, 6-month winter"
+    combined_value: "Complete picture of seasonal + annual N dynamics"
+
+data_quality:
+  strengths:
+    - "Most comprehensive N cycle measurements (47 variables)"
+    - "Full factorial design (8 treatment combinations)"
+    - "Good replication (n=6)"
+    - "Multiple methods for mineralization (isotope dilution + in situ bags)"
+    - "Isotope pool dilution (gold standard for gross rates)"
+    - "Fauna measurements (often neglected)"
+    - "Detailed statistical interaction analysis"
+    - "Part of larger CLIMAITE project (multiple papers)"
+
+  limitations:
+    methodological:
+      - "Isotope dilution: Lab at constant 20°C, upscaled using Q10=2"
+      - "Potential rates not realized field rates"
+      - "Fauna mineralization from biomass + literature turnover values"
+      - "Root biomass high spatial heterogeneity"
+
+    temporal:
+      - "Short duration (2 years)"
+      - "Most data from single year (2007)"
+      - "Limited seasonal coverage for some variables"
+
+    spatial:
+      - "Single site"
+      - "Specific ecosystem (temperate heathland)"
+      - "Specific soil (acidic sandy, pH 4-5)"
+
+    treatment_specific:
+      - "Passive warming (lower magnitude than active)"
+      - "No increased winter precipitation (only summer drought)"
+      - "Seasonal variation in warming (higher in growing season)"
+
+  uncertainty_sources:
+    - "Spatial heterogeneity within plots"
+    - "Upscaling from lab to field"
+    - "Fauna parameter uncertainty"
+    - "High interannual variability (precipitation-driven)"
+    - "Modeled percolation for leaching calculation"
+
+comparison_to_other_studies:
+  andresen_2010:
+    same_site: true
+    same_experiment: true
+    complementarity: "Annual synthesis vs. 6-month in situ incubations"
+    overlap: "Both show complex multi-factor interactions"
+
+  ma_2011:
+    contrasts:
+      ecosystem: "Heathland vs. Grassland"
+      soil_pH: "4-5 vs. 8.2"
+      precipitation_mm: "613 vs. 276-410"
+      treatments: "CO2+T+D vs. T+N"
+      species_diversity: "2 dominant vs. 1 dominant"
+
+    similarities:
+      both_show_antagonistic_interactions: true
+      both_temperate: true
+      similar_duration_years: "2 vs. 3"
+
+    complementarity:
+      pH_gradient: "4-5 to 8.2"
+      ecosystem_types: "heathland and grassland"
+      climate_contexts: "wet and dry"
+      mechanisms: "fauna vs. microbial community vs. plant uptake"
+
+meta_analysis_value:
+  relevance: "Very high"
+
+  unique_contributions:
+    - "Most comprehensive single-study N cycle dataset (47 variables)"
+    - "Systematic interaction quantification (framework for meta-analysis)"
+    - "Soil fauna role documented (71% of gross mineralization)"
+    - "Multi-factorial climate change (one of few globally)"
+    - "Cascading stoichiometric effects (CO2 → leaf → litter)"
+    - "Interannual variability (highlights natural variation challenge)"
+
+  integration_recommendations:
+    - "Extract all 15 interactions with types (antagonistic/synergistic)"
+    - "Calculate effect sizes for multiple N cycle components (47 variables)"
+    - "Compare to Andresen 2010 for method validation (isotope vs. in situ)"
+    - "Combine with Ma 2011 to test generality of antagonism"
+    - "Use for comprehensive EcoSIM model validation (47 validation targets)"
+
+notes:
+  - "First comprehensive CLIMAITE N cycle synthesis (2 years)"
+  - "Largest number of N variables (47) from any single climate manipulation experiment"
+  - "Novel framework for categorizing climate driver interactions"
+  - "Challenges assumption that single-factor studies are additive"
+  - "Highlights critical role of soil fauna (often neglected in models)"
+  - "Documents initiation of progressive N limitation"
+  - "Authors recommend single-factor studies be evaluated with caution"
+  - "Suggests ecosystem resilience to multi-factor change greater than expected"
+  - "Part of long-term experiment (need to track persistence)"
+  - "Large collaborative effort (22 authors from 4 institutions)"
+  - "Published in high-impact journal (Global Change Biology, IF ~11)"
+
+related_publications:
+  - "Mikkelsen et al. 2008 - Experimental design (Functional Ecology)"
+  - "Andresen et al. 2010a - Plant nutrient mobilization (Plant and Soil)"
+  - "Andresen et al. 2010b - Belowground responses (Biogeochemistry)"
+  - "Andresen et al. 2009 - Glycine uptake (Acta Oecologia)"
+  - "Schmidt et al. 2007 - Tannin concentrations (Flora og Fauna)"
+  - "Maraldo et al. 2010 - Enchytraeid responses (Soil Biol Biochem)"
+  - "Selsted et al. 2010 - CO2 flux measurements (Atmos Environ)"
+
+data_availability:
+  journal: "Global Change Biology (Wiley)"
+  access: "Published data in tables and figures"
+  contact: "klas@risoe.dtu.dk (Klaus S. Larsen)"
+  additional_data: "CLIMAITE project database"
+
+metadata_info:
+  created: "2025-11-10"
+  created_for: "EcoSIM Co-Scientist project - warming/nitrogen meta-analysis"
+  schema_version: "0.1.0"
+  notes: "To be formalized with LinkML schema. Most comprehensive metadata of all papers due to 47 variables measured."
