@@ -1,0 +1,971 @@
+study:
+  id: allison-2010-boreal-postfire
+  citation: "Allison, S.D., McGuire, K.L., & Treseder, K.K. (2010). Resistance of microbial and soil properties to warming treatment seven years after boreal fire. Soil Biology & Biochemistry, 42, 1872-1878."
+  doi: "10.1016/j.soilbio.2010.07.011"
+
+  authors:
+    - name: "Steven D. Allison"
+      affiliation: "Department of Ecology and Evolutionary Biology, University of California Irvine"
+      email: "allisons@uci.edu"
+    - name: "Krista L. McGuire"
+      affiliation: "Department of Biological Sciences, Barnard College, Columbia University"
+    - name: "Kathleen K. Treseder"
+      affiliation: "Department of Ecology and Evolutionary Biology, University of California Irvine"
+
+  year: 2010
+  journal: "Soil Biology & Biochemistry"
+
+  keywords:
+    - Alaska
+    - Boreal forest
+    - Decomposition
+    - Extracellular enzyme
+    - Fire
+    - Fungi
+    - Soil carbon
+    - Soil respiration
+    - Succession
+    - Warming
+
+  significance:
+    - "RESISTANCE to warming 7-9 years post-fire despite 1.2°C soil warming"
+    - "Contrasts with POSITIVE response 1-3 years post-fire at same site (Bergner 2004)"
+    - "Only cellulose and chitin enzymes increased (+15% and +35%); NO changes in CO2 efflux, nutrients, or microbial biomass"
+    - "Proposed mechanism: LABILE CARBON DEPLETION from fire combustion and elevated post-fire temperatures"
+    - "Demonstrates TRANSIENT nature of warming feedbacks in permafrost-free boreal forests"
+    - "Critical for 45-60% of boreal zone lacking permafrost"
+    - "Substrate availability overrides temperature effects on microbial metabolism"
+
+site:
+  location:
+    name: "Fort Greely military base, Delta Junction, Alaska"
+    coordinates:
+      latitude: 63.917
+      longitude: -145.733
+    country: "USA"
+    state: "Alaska"
+
+  ecosystem_type: "Boreal forest"
+
+  successional_stage: "Early post-fire succession"
+  time_since_fire_years: 7-9
+  fire_year: 1999
+  fire_severity: "Severe - killed all canopy trees, removed 60% surface organic C"
+
+  permafrost: "Absent (discontinuous permafrost zone, but not present at site)"
+
+  climate:
+    type: "Continental boreal"
+    mean_annual_temperature_C: -2
+    mean_annual_precipitation_mm: 303
+    description: "Dry and cold"
+
+  soils:
+    classification: "Well-drained silt-loam"
+    parent_material: "Gravelly glacial till and outwash"
+
+    horizons:
+      organic:
+        depth_cm: "<5"
+        note: "Reduced from pre-fire; 60% of surface organic C removed by fire"
+
+      mineral_A:
+        texture: "Silt-loam"
+        depth_cm: "5+"
+
+    bulk_density_g_cm3: 0.69
+    pH: ~5.0
+
+    fire_impacts:
+      organic_C_loss_pct: 60
+      unburned_forest_floor_thickness_cm: "0-3"
+      char_and_ash: "Present immediately post-fire, mostly gone by 2006"
+
+  vegetation:
+    successional_stage: "Early (7-9 years post-fire)"
+
+    dominant_taxa:
+      trees:
+        - "Populus tremuloides (trembling aspen)"
+        - "Betula spp. (birch)"
+        - "Salix spp. (willow)"
+
+      grasses:
+        - "Calamagrostis spp."
+        - "Festuca spp."
+
+      shrubs:
+        - "Ledum spp. (Labrador tea)"
+        - "Vaccinium spp. (blueberry)"
+
+      forbs:
+        - "Lupinus spp."
+
+    pre_fire_vegetation: "Picea mariana (black spruce) forest with moss understory"
+
+    successional_trajectory:
+      years_0_to_few: "Grasses and shrubs dominate"
+      years_15_to_50: "Deciduous Populus tremuloides dominates canopy"
+      years_80_plus: "Black spruce (Picea mariana) returns to dominance"
+
+experimental_design:
+  type: "Paired plot design"
+
+  replication:
+    blocks: 5
+    plots_per_block: 2
+    plot_size_m: "2.5 × 2.5"
+    control_placement: "Within 10 m of warmed plot"
+
+  duration:
+    start_year: 2006
+    end_year: 2008
+    growing_seasons: 3
+    years_post_fire_at_start: 7
+
+  treatments:
+    warming:
+      method: "Greenhouse passive warming"
+
+      construction:
+        structure: "A-frame of two-by-fours"
+        covering: "Clear 6 mil plastic sheeting (AT Plastics, Inc)"
+        PAR_transmission_pct: 60-70
+        air_circulation: "Gaps between plastic and frame/ground"
+
+      timing:
+        growing_season: "Mid-May to mid-September each year"
+        winter: "Plastic removed; snowfall reaches plots"
+
+      precipitation_management:
+        method: "Gutters collect; tubing redistributes to 8 locations ≥50 cm apart"
+
+      temperature_effect:
+        soil_warming_C: 1.20
+        depth_cm: 5
+        p_value: 0.019
+
+        temperature_range:
+          diurnal_range_C: ~15
+          mean_daily_range_C: "5 to 21"
+          minimum_C: ~1
+          maximum_C: ">30"
+
+      soil_moisture_effect:
+        overall_effect: "Significant reduction (warming × date interaction, p<0.05)"
+
+        specific_dates:
+          - date: "2006-08-21"
+            p_value: "<0.001"
+          - date: "2007-08-14"
+            p_value: "<0.05"
+          - date: "2007-09-17"
+            p_value: "<0.01"
+
+        maximum_reduction_pct: 30
+
+        moisture_limitation_assessment:
+          lowest_gravimetric_moisture: ~0.35
+          volumetric_moisture_cm3_cm3: ~0.25
+          soil_matric_potential_MPa: ~-0.1
+          constraint_threshold_MPa: -0.5
+          conclusion: "Drying probably NOT sufficient to limit microbial activity"
+
+    control:
+      description: "No greenhouse structure"
+      chamber_control: "NO (frames without plastic not included)"
+      rationale: "Prior study at site showed no chamber effect"
+
+methods:
+  soil_CO2_efflux:
+    instrument: "PP Systems EGM-4 infrared gas analyzer"
+    chamber_diameter_cm: 25
+    chamber_insertion_depth_cm: 2
+    measurement_duration_min: "5-10"
+    opaque_chambers: true
+
+    protocol:
+      - "Place opaque lid on chamber base"
+      - "Measure rate of CO2 increase"
+      - "Record soil temperature with probe next to chamber"
+      - "Calculate flux using ideal gas law"
+
+    vegetation_handling:
+      general: "Litter, grasses, mosses left in chambers"
+      clipping: "Aboveground biomass clipped 2006-08-21 (no effect on efflux)"
+
+    frequency: "3-4 time points per growing season (2006-2008)"
+
+  nutrient_availability:
+    method: "Resin bags"
+
+    deployment:
+      resin_types:
+        - "Anion-exchange bags (4 per plot)"
+        - "Cation-exchange bags (4 per plot)"
+      depth_cm: 5
+      spacing_cm: "≥25"
+
+      periods:
+        - start: "2006-05-14"
+          end: "2006-09-17"
+        - start: "2007-05-11"
+          end: "2007-09-19"
+
+    processing:
+      rinse: "Deionized water"
+      extraction: "0.1 M HCl / 2.0 M NaCl"
+
+    analyses:
+      NH4:
+        extract: "Cation"
+        method: "Modified Berthelot-salicylate"
+
+      NO3:
+        extract: "Anion"
+        method: "Vanadium method"
+
+      PO4:
+        extract: "Anion"
+        method: "Malachite green"
+
+    units: "ng nutrient (N or P) g⁻¹ resin d⁻¹"
+
+  microbial_biomass:
+    method: "Chloroform fumigation-direct extraction"
+    sampling: "July 2006 soils"
+    extractant: "K2SO4"
+
+    efficiency_factors:
+      carbon: 0.45
+      nitrogen: 0.54
+
+    measurements:
+      - "Microbial biomass C (μg g⁻¹ soil)"
+      - "Microbial biomass N (μg g⁻¹ soil)"
+      - "Microbial C:N ratio"
+
+  extracellular_enzymes:
+    sampling:
+      frequency: "7 time points during 2006-2007"
+      cores_per_plot: "3-5"
+      core_depth_cm: 5
+      core_diameter_cm: 2.5
+      processing: "Cores combined and homogenized"
+
+    assays:
+      buffer: "50 mM sodium acetate, pH 5.0"
+      substrate_volume_ul: 150
+      slurry_volume_ul: 50
+      incubation_time_h: "1-4"
+      detection: "Microplate reader"
+      units: "μmol product g⁻¹ dry soil h⁻¹"
+
+      enzymes:
+        beta_glucosidase:
+          substrate: "5 mM p-nitrophenyl-β-glucopyranoside"
+          product: "p-nitrophenol (yellow)"
+          function: "Cellulose degradation (releases glucose)"
+
+        N_acetyl_glucosaminidase:
+          substrate: "2 mM p-nitrophenyl-β-N-acetylglucosaminide"
+          product: "p-nitrophenol (yellow)"
+          function: "Chitin degradation"
+
+        glycine_aminopeptidase:
+          substrate: "5 mM glycine p-nitroanilide"
+          product: "p-nitroaniline (yellow)"
+          function: "Protein/polypeptide degradation"
+
+        polyphenol_oxidase:
+          substrate: "50 mM pyrogallol + 50 mM EDTA"
+          product: "Colored oxidation product"
+          function: "Lignin degradation"
+
+  fungal_community:
+    sampling:
+      date: "2008-05-29"
+      samples_per_plot: 3
+      compositing: "Pooled"
+      storage: "-20°C"
+
+    DNA_extraction:
+      kit: "PowerSoil DNA kit (Mo Bio Laboratories)"
+      timing: "Within 1 month of collection"
+      pooling: "3 subsamples of 0.25 g each"
+
+    PCR:
+      primers:
+        forward: "ITS-F"
+        reverse: "TW13"
+      target: "ITS and 28S regions of fungal rDNA"
+      amplicon_size_bp: ~1200
+
+      conditions:
+        initial_denaturation: "5 min at 95°C"
+        cycles: 35
+        cycle_conditions: "30s at 95°C, 45s at 50°C, 6 min at 72°C"
+        final_elongation: "10 min at 72°C"
+
+    clone_libraries:
+      vector: "pCR2.1-TOPO (Invitrogen)"
+      clones_per_plot: 50
+      total_libraries: 10
+      sequencing: "Bi-directional (Agencourt Bioscience)"
+
+    sequence_analysis:
+      assembly: "CodonCode Aligner"
+      alignment_region: "~425 bp segment of 28S rRNA gene"
+      alignment_tool: "CLUSTALW"
+
+      quality_control:
+        total_sequences: 433
+        sequences_in_alignment: 426
+        ITS_only_sequences: 7
+
+      OTU_assignment:
+        distance_matrix: "DNADIST (Phylip)"
+        OTU_tool: "DOTUR"
+        similarity_cutoffs: "80-100%"
+        total_OTUs_99pct: 113
+
+      community_analysis:
+        ordination: "Non-metric multidimensional scaling (NMS)"
+        hypothesis_testing: "Multi-response permutational procedures (MRPP)"
+
+      genbank_accessions: "GU211934-GU212366"
+
+  statistics:
+    repeated_measures_ANOVA:
+      software: "SAS PROC MIXED"
+
+      factors:
+        block: "Random"
+        warming: "Fixed"
+        date: "Repeated"
+
+      covariance_structure: "First-order autoregressive or compound symmetry (lowest AIC)"
+      post_hoc: "SLICE option for within-date effects"
+
+    transformations:
+      temperature: "Square-root (daily means)"
+      glycine_aminopeptidase: "Square-root"
+      polyphenol_oxidase: "Square-root"
+      most_other_data: "Log-transformed (except C:N ratios)"
+      purpose: "Improve normality"
+
+    paired_t_tests:
+      - "Microbial C pools"
+      - "Microbial N pools"
+
+    multiple_regression:
+      response: "Log-transformed CO2 efflux"
+      predictors:
+        - "Soil temperature (probe data)"
+        - "Log-transformed soil water content"
+
+      sample_sizes:
+        all_data: 69
+        warmed_only: 35
+        control_only: 34
+
+      variable_selection: "Stepwise (p<0.05 to enter and stay)"
+      confirmation: "Simple regression with all temperature data (n=99)"
+
+results:
+  overall_finding: "RESISTANCE to warming - minimal support for hypothesis"
+
+  comparison_to_prior_study:
+    Bergner_2004:
+      timing: "1-3 years post-fire"
+      warming_C: 0.9
+      soil_respiration_response: "+20% increase"
+      feedback: "POSITIVE"
+
+    this_study:
+      timing: "7-9 years post-fire"
+      warming_C: 1.2
+      soil_respiration_response: "NO increase"
+      feedback: "RESISTANCE"
+
+  soil_CO2_efflux:
+    ANOVA:
+      warming_effect: "NOT significant"
+      date_effect: "Highly significant (p<0.001)"
+      warming_x_date: "NOT significant"
+
+    mean_rates:
+      control_mg_CO2_C_m2_h: 68
+      control_SE: 4
+      warmed_mg_CO2_C_m2_h: "~68 (not significantly different)"
+
+    regression_all_data_n69:
+      temperature_variance_explained_pct: 54
+      temperature_p_value: "<0.001"
+      temperature_relationship: "POSITIVE"
+
+      moisture_variance_explained_pct: 6
+      moisture_p_value: "<0.01"
+      moisture_relationship: "POSITIVE"
+
+    regression_by_treatment:
+      control:
+        temperature_significant: true
+        moisture_significant: true
+
+      warmed:
+        temperature_significant: true
+        moisture_significant: false
+
+      slope_comparison: "NO difference in temperature relationship"
+
+    simple_regression_n99:
+      temperature_p_value: "<0.001"
+      temperature_R2: 0.49
+      relationship: "Exponential increase with temperature"
+      interpretation: "CO2 responds to AMBIENT temperature variation but NOT to warming TREATMENT"
+
+    comparison_to_unburned_site:
+      burned_site_this_study: 68
+      unburned_site_Allison_2008: 106
+      difference_pct: -36
+      interpretation: "Lower C availability in burned site"
+
+  nutrient_availability:
+    resin_NH4:
+      control_ng_N_g_resin_d: 56
+      control_SE: 30
+      warmed_ng_N_g_resin_d: 69
+      warmed_SE: 26
+      effect: "NOT significant"
+
+    resin_NO3:
+      control_ng_N_g_resin_d: 3.4
+      control_SE: 1.2
+      warmed_ng_N_g_resin_d: 3.9
+      warmed_SE: 1.8
+      effect: "NOT significant"
+      note: "Order of magnitude lower than NH4"
+
+    resin_PO4:
+      control_ng_P_g_resin_d: 77
+      control_SE: 29
+      warmed_ng_P_g_resin_d: 89
+      warmed_SE: 49
+      effect: "NOT significant"
+
+  microbial_biomass:
+    microbial_C:
+      control_ug_g_soil: 349
+      control_SE: 81
+      warmed_ug_g_soil: 358
+      warmed_SE: 34
+      effect: "NOT significant"
+
+    microbial_N:
+      control_ug_g_soil: 26.7
+      control_SE: 8.8
+      warmed_ug_g_soil: 25.8
+      warmed_SE: 2.5
+      effect: "NOT significant"
+
+    microbial_C_N:
+      control: 15.5
+      control_SE: 1.8
+      warmed: 14.1
+      warmed_SE: 1.2
+      effect: "NOT significant"
+
+  extracellular_enzymes:
+    beta_glucosidase:
+      control_umol_g_h: 1.38
+      control_SE: 0.08
+      warmed_umol_g_h: 1.59
+      warmed_SE: 0.09
+      change_pct: +15
+      p_value: "<0.05"
+      within_date_effects: "Only significant 2006-07-02"
+
+    N_acetyl_glucosaminidase:
+      control_umol_g_h: 0.54
+      control_SE: 0.04
+      warmed_umol_g_h: 0.73
+      warmed_SE: 0.06
+      change_pct: +35
+      p_value: "<0.01"
+      within_date_effects: "NO significant effects on individual dates"
+
+    glycine_aminopeptidase:
+      control_umol_g_h: 0.513
+      control_SE: 0.070
+      warmed_umol_g_h: 0.376
+      warmed_SE: 0.054
+      effect: "NOT significant"
+
+    polyphenol_oxidase:
+      control_umol_g_h: 15.3
+      control_SE: 1.3
+      warmed_umol_g_h: 13.1
+      warmed_SE: 1.1
+      effect: "NOT significant"
+
+    interpretation: "DISCONNECT between enzyme activities and ecosystem-level processes"
+
+  fungal_community:
+    total_sequences: 433
+    total_OTUs_99pct: 113
+
+    composition_80pct_similarity:
+      OTU_1_Ascomycota_pct: 40
+      OTU_2_Basidiomycota_pct: 33
+      OTUs_3_6_Zygomycota_pct: 10
+      other_unidentified_pct: "<17"
+
+    warming_effects:
+      NMS_ordination: "NO significant shifts"
+      MRPP_analysis: "NO significant treatment effects"
+      conclusion: "Community composition STABLE"
+
+mechanisms:
+  primary_hypothesis: "Labile carbon depletion"
+
+  labile_C_depletion:
+    fire_impacts:
+      surface_organic_C_removal_pct: 60
+      preferential_combustion: "Labile, easily-degradable substrates"
+      remaining_substrates: "Recalcitrant C with weak temperature responses"
+
+    post_fire_elevated_temperatures:
+      year_2002_3yr_postfire:
+        burned_vs_unburned_difference_C: 5
+        depth_cm: 11
+
+      years_2006_2007_7_9yr_postfire:
+        burned_site_mean_C: 13.1
+        unburned_site_mean_C: 9.3
+        sustained_warming_C: 3.8
+        depth_cm: 5
+
+      consequence: "Years of elevated metabolism depleted remaining labile C"
+
+    evidence_for_depletion:
+      declining_C_stocks: "Trend toward decreasing soil C since 1999 fire"
+
+      lower_CO2_efflux:
+        burned_site: 68
+        unburned_site: 106
+        difference_pct: -36
+        interpretation: "Lower C availability in burned site"
+
+    mechanism_explanation:
+      labile_C: "High Q10, strong temperature response"
+      recalcitrant_C: "Low Q10, weak temperature response"
+      after_depletion: "Warming has little effect on remaining recalcitrant C"
+
+    temporal_pattern:
+      early_postfire_1_3yr: "Positive response (labile C available)"
+      mid_succession_7_9yr: "Resistance (labile C depleted)"
+      mature_forest: "Potential negative feedback"
+
+  reduced_plant_inputs:
+    greenhouse_artifacts:
+      light_attenuation_pct: "30-40"
+      possible_photosynthesis_reduction: true
+      belowground_allocation_impact: "Unknown but possible"
+
+    prior_evidence:
+      Bergner_2004_root_biomass_reduction_pct: 33
+
+    mechanism:
+      - "Reduced root exudation"
+      - "Less litter inputs"
+      - "Less labile C supply to microbes"
+      - "Offsets microbial metabolism stimulation"
+
+    assessment: "Possible contributor but NOT sole explanation"
+
+  soil_moisture_constraints:
+    status: "Unlikely to be limiting"
+
+    observations:
+      maximum_reduction_pct: 30
+      significant_dates: 3
+      total_dates: 7
+
+    soil_water_potential_analysis:
+      lowest_gravimetric_moisture: 0.35
+      corresponding_matric_potential_MPa: -0.1
+      constraint_threshold_MPa: -0.5
+      conclusion: "Well above constraint threshold"
+
+    regression_evidence:
+      moisture_variance_explained_pct: 6
+      moisture_effect_in_warmed_plots: "NOT significant"
+      temperature_slopes: "Did NOT differ between treatments"
+
+    depth_considerations:
+      moisture_measured_depth_cm: "0-5 (surface only)"
+      deeper_horizons: "Likely less affected"
+      respiration_contribution: "Substantial from deeper soils"
+
+  physiological_acclimation:
+    status: "NO evidence"
+
+    fungal_community: "NO changes in composition"
+    enzyme_activities: "Increased (opposite of acclimation expectation)"
+
+    time_considerations:
+      experiment_duration_yr: 3
+      community_shifts_may_require: ">15 years (Rinnan et al. 2007)"
+
+ecosim_modeling_relevance:
+  critical_insights:
+    - "Successional stage must be represented in models"
+    - "Substrate quality constraints override temperature effects"
+    - "Disconnect between enzyme pools and ecosystem fluxes"
+    - "Microbial community stability (composition NOT primary driver)"
+    - "Temperature-moisture interactions and thresholds"
+    - "Fire effects on soil properties and long-term consequences"
+    - "Permafrost vs permafrost-free systems require different parameterizations"
+
+  substrate_dynamics:
+    multiple_C_pools_needed: true
+
+    pool_characteristics:
+      labile:
+        Q10: "High"
+        temperature_response: "Strong"
+        fire_impact: "Depleted by combustion and elevated post-fire temperatures"
+
+      recalcitrant:
+        Q10: "Low"
+        temperature_response: "Weak"
+        fire_impact: "Enriched (proportionally) after labile depletion"
+
+    fire_induced_transfers:
+      - "Labile C → Combustion loss"
+      - "Enrichment of recalcitrant C (proportional)"
+      - "Post-fire elevated temperatures accelerate labile depletion"
+
+    key_process: "Substrate depletion OVERRIDES temperature effects on metabolism"
+
+  enzyme_substrate_coupling:
+    empirical_pattern:
+      enzyme_increase_pct: "15-35"
+      ecosystem_flux_change: "NONE"
+
+    interpretation: "Substrate availability, NOT enzyme capacity, limits decomposition"
+
+    model_focus:
+      priority: "Substrate availability and quality"
+      secondary: "Enzyme production"
+      coupling_required: "Enzyme pools WITH substrate accessibility"
+
+  successional_representation:
+    temporal_patterns:
+      early_postfire_1_3yr:
+        feedback: "POSITIVE"
+        mechanism: "Labile C available"
+
+      mid_succession_7_9yr:
+        feedback: "RESISTANCE"
+        mechanism: "Labile C depleted"
+
+      mature_forest_80plus_yr:
+        feedback: "Potential NEGATIVE"
+        mechanism: "Different constraints?"
+
+    model_requirements:
+      - "Track time-since-fire or successional age"
+      - "Parameterize different substrate pools that change with succession"
+      - "Allow warming responses to vary with pool composition"
+
+  temperature_moisture_coupling:
+    temperature_effects:
+      CO2_variance_explained_pct: 54
+      relationship: "Exponential (Q10-type)"
+
+    moisture_effects:
+      CO2_variance_explained_pct: 6
+      threshold_behavior: true
+      constraint_threshold_MPa: -0.5
+
+    warming_drying_linkage:
+      warming_causes_drying: true
+      drying_magnitude_pct: "Up to 30"
+      moisture_limitation: "NOT reached in this study"
+
+    model_needs:
+      - "Represent soil water potential (not just water content)"
+      - "Include threshold functions"
+      - "Couple warming to soil drying via energy balance"
+
+  fire_effects_parameterization:
+    combustion:
+      surface_organic_C_removal_pct: 60
+      labile_C_preferential_loss: true
+
+    post_fire_warming:
+      sustained_temperature_increase_C: 3.8
+      duration_years: "7-9+"
+      consequence: "Accelerated decomposition and depletion"
+
+    substrate_quality_shifts:
+      recalcitrant_to_labile_ratio: "Increased"
+
+    physical_changes:
+      organic_horizon_reduction_cm: ">10 to <5"
+      albedo: "Reduced (more bare soil)"
+      temperature_consequences: "Higher soil temperatures"
+
+  permafrost_distinction:
+    permafrost_free_this_study:
+      pattern: "Transient positive feedback → Resistance"
+      mechanism: "Substrate depletion"
+      boreal_coverage_pct: "45-60"
+
+    permafrost_systems:
+      pattern: "Sustained positive feedbacks"
+      mechanism: "Thawing releases frozen C"
+      depletion: "Less (C was frozen, not decomposing)"
+
+    model_discrimination: "Separate parameterizations required"
+
+  parameterization_data:
+    temperature_relationships:
+      CO2_variance_explained_pct: 54
+      relationship: "Positive, exponential"
+      warming_magnitude_C: 1.2
+      temperature_range_mean_daily_C: "5 to 21"
+
+    enzyme_kinetics:
+      beta_glucosidase_increase_pct: 15
+      beta_glucosidase_control: 1.38
+      beta_glucosidase_warmed: 1.59
+
+      N_acetyl_glucosaminidase_increase_pct: 35
+      N_acetyl_glucosaminidase_control: 0.54
+      N_acetyl_glucosaminidase_warmed: 0.73
+
+      peptidase_change: "NONE"
+      polyphenol_oxidase_change: "NONE"
+
+    baseline_rates:
+      CO2_efflux_mg_C_m2_h: 68
+      microbial_biomass_C_ug_g: 350
+      microbial_biomass_N_ug_g: 26
+      microbial_C_N: 15
+
+    nutrient_availability:
+      NH4_ng_N_g_resin_d: 60
+      NO3_ng_N_g_resin_d: "3-4 (order of magnitude lower)"
+      PO4_ng_P_g_resin_d: 80
+
+    soil_properties:
+      texture: "Silt-loam"
+      bulk_density_g_cm3: 0.69
+      organic_horizon_depth_cm: "<5"
+      pH: 5.0
+
+  model_testing_opportunities:
+    key_tests:
+      - "Can model reproduce LACK of warming response 7-9 years post-fire?"
+      - "Can model reproduce TEMPORAL DYNAMICS across succession?"
+      - "Can model separate substrate vs enzyme limitations?"
+      - "Can model reproduce temperature-CO2 relationships without treatment effect?"
+
+    temporal_dynamics_test:
+      year_1_3_postfire: "Positive response (Bergner 2004)"
+      year_7_9_postfire: "Resistance (this study)"
+      mature_forest: "Negative response (Allison & Treseder 2008)"
+
+  integration_with_database:
+    unique_contribution: "ONLY study showing complete resistance to warming"
+    importance: "Demonstrates disturbance history and succession critical"
+
+    complementary_studies:
+      - "Temperate forests: Peterjohn 1994, Butler 2012 (mostly positive)"
+      - "Arctic tundra: Chapin 1995 (mixed)"
+      - "Subarctic heath: Hartley 1999 (positive)"
+      - "Peatlands: Weedon 2012 (positive)"
+      - "Boreal post-fire: Allison 2010 (RESISTANCE - unique)"
+
+study_limitations:
+  experimental_artifacts:
+    chamber_effects:
+      light_attenuation_pct: "30-40"
+      precipitation_redistribution: "May not mimic natural patterns"
+      air_circulation: "Imperfect"
+      no_chamber_control: true
+
+    growing_season_only:
+      timing: "Mid-May to mid-September"
+      winter: "NO warming"
+      missed_processes: "Winter respiration (10-20% of annual)"
+
+    treatment_duration:
+      years: 3
+      note: "Longer experiments sometimes show delayed responses"
+
+    experiment_start_timing:
+      years_post_fire: 7
+      artificiality: "Does not mimic gradual climate change affecting all stages"
+
+  measurement_limitations:
+    microbial_community:
+      fungi_only: true
+      bacteria: "NOT measured"
+      sampling_frequency: "Only once (May 2008)"
+      molecular_method: "Clone libraries (lower resolution than modern)"
+
+    CO2_efflux:
+      includes_autotrophic: true
+      separation: "Cannot distinguish plant vs microbial respiration"
+
+    nutrients:
+      temporal_resolution: "Integrative over ~4 months"
+      depth: "5 cm only"
+
+    moisture:
+      depth: "Surface soil only (0-5 cm)"
+      deeper_horizons: "NOT measured"
+
+  interpretation_uncertainties:
+    mechanism:
+      multiple_hypotheses: true
+      primary: "Labile C depletion (most supported)"
+      secondary: "Reduced plant inputs (possible)"
+      unlikely: "Moisture constraints"
+      definitive_separation: "Difficult"
+
+    generalizability:
+      single_site: true
+      specific_fire_severity: "60% organic C removal"
+      specific_successional_stage: "7-9 years"
+      permafrost_free: true
+
+      may_not_apply_to:
+        - "Different fire severities"
+        - "Other boreal regions"
+        - "Permafrost-affected soils"
+        - "Different successional stages"
+
+    substrate_depletion_inference:
+      direct_measurements_lacking:
+        - "Labile C pool sizes"
+        - "Substrate quality indices"
+        - "Decomposition rates of specific pools"
+
+      indirect_evidence:
+        - "Declining C stocks (trend)"
+        - "Lower CO2 efflux vs unburned"
+        - "Elevated post-fire temperatures"
+
+    temporal_dynamics:
+      comparison_between_studies: "Different plots, methods, timepoints"
+      spatial_variability: "Cannot rule out as partial explanation"
+      ideal: "Same plots tracked 1 to 10+ years post-fire"
+
+  statistical_power:
+    sample_size: 5
+    limitation: "Limits power to detect small effects"
+    variability: "Large in some measurements"
+    multiple_comparisons: "No adjustment for family-wise error"
+
+  missing_measurements:
+    plant_dynamics:
+      - "Aboveground productivity"
+      - "Root biomass and turnover"
+      - "Root exudation"
+      - "Litter inputs"
+
+    soil_C_pools:
+      - "Labile vs recalcitrant fractionation"
+      - "Particulate vs mineral-associated"
+      - "Chemical fractions"
+
+    N_cycling:
+      - "Gross mineralization/immobilization"
+      - "Nitrification rates"
+      - "N2O emissions"
+      - "Microbial N uptake"
+
+    enzyme_kinetics:
+      - "In situ activities"
+      - "Temperature responses (Q10)"
+      - "Substrate affinities (Km)"
+      - "Maximum velocities (Vmax)"
+
+broader_implications:
+  climate_carbon_feedbacks:
+    - "Boreal warming responses NOT uniform"
+    - "Vary with successional stage, disturbance history, permafrost"
+    - "Permafrost-free systems (45-60% of boreal) may show weaker responses"
+    - "Positive feedbacks may NOT be sustained"
+
+    fire_regime_changes:
+      increased_fire_frequency: "More landscape in early succession"
+      early_succession_feedback: "Transient positive"
+      mid_succession_feedback: "Resistance"
+      net_regional_effect: "UNCERTAIN"
+
+    substrate_quality_critical:
+      - "Overwhelms enzyme and metabolism controls"
+      - "Must be represented in models"
+      - "Affected by fire, temperature history, inputs"
+
+  ecosystem_modeling:
+    must_represent:
+      - "Successional dynamics and time-since-disturbance"
+      - "Multiple substrate pools with different temperature sensitivities"
+      - "Fire effects on substrate quality and availability"
+      - "Substrate depletion over time"
+
+    may_be_simplified:
+      - "Microbial community dynamics (short-term)"
+      - "Enzyme kinetics vs substrate availability"
+
+    critical_processes:
+      - "Labile C depletion trajectories"
+      - "Post-fire elevated temperatures"
+      - "Substrate quality shifts"
+
+  future_research:
+    long_term_experiments:
+      - "Track same plots 0 to >50 years post-fire"
+      - "Capture full successional trajectory"
+      - "Document temporal dynamics definitively"
+
+    direct_substrate_measurements:
+      - "Labile vs recalcitrant C pools"
+      - "Chemical fractionation"
+      - "Decomposition rates of pools"
+      - "Temperature sensitivities (Q10) of pools"
+
+    mechanistic_experiments:
+      - "Substrate addition experiments"
+      - "Separate fire from temperature effects"
+      - "Test depletion hypothesis directly"
+
+    regional_extrapolation:
+      - "More sites across boreal zone"
+      - "Different fire severities"
+      - "Permafrost vs permafrost-free"
+      - "Different climate zones"
+
+    process_integration:
+      - "Link plant productivity to belowground C supply"
+      - "Couple fire ecology with C cycling"
+      - "Connect vegetation succession to soil dynamics"
+
+conclusions:
+  - "Post-fire boreal ecosystems show RESISTANCE to warming 7-9 years after fire"
+  - "Contrasts with POSITIVE responses 1-3 years post-fire at same site (Bergner 2004)"
+  - "LABILE CARBON DEPLETION most likely mechanism (fire combustion + elevated post-fire temperatures)"
+  - "Enzyme activities increased WITHOUT ecosystem-level changes - substrate availability limits decomposition"
+  - "Fungal community composition STABLE - community shifts NOT necessary for warming responses (≤3 years)"
+  - "Positive feedbacks between warming and C mineralization may be TRANSIENT in permafrost-free boreal forests"
+  - "Temporal dynamics critical: Early positive → Mid-succession resistance → Mature potential reversal"
+  - "Substrate quality dynamics overwhelm temperature effects on microbial metabolism"
+  - "Models must represent successional dynamics, multiple substrate pools, and fire effects"
+  - "Critical for 45-60% of boreal zone lacking permafrost"

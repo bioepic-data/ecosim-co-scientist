@@ -1,0 +1,621 @@
+study:
+  id: hartley-1999-subarctic-dwarf-shrub
+  citation:
+    authors: "Hartley, A. E., Neill, C., Melillo, J. M., Crabtree, R. and Bowles, F. P."
+    year: 1999
+    title: "Plant performance and soil nitrogen mineralization in response to simulated climate change in subarctic dwarf shrub heath"
+    journal: "Oikos"
+    volume: 86
+    issue: 2
+    pages: "331-343"
+    doi: null
+    stable_url: "https://www.jstor.org/stable/3546450"
+
+  significance:
+    - "First study to show that SHORT-TERM warming responses (2-3 yr) may NOT persist LONG-TERM (5 yr)"
+    - "Demonstrates that high-dose fertilization studies (100 kg N/ha) OVERESTIMATE N availability increases with climate warming by an order of magnitude"
+    - "Strong direct soil warming (+5°C) sufficient to stimulate N mineralization (doubling in year 2)"
+    - "No change in plant community composition despite enhanced N availability - contrasts with fertilization studies"
+    - "Natural interannual climate variability affected plant growth MORE than +5°C experimental warming"
+
+site:
+  location:
+    name: "Near Abisko Scientific Research Station"
+    country: "Sweden"
+    region: "Northern Sweden, southern shore of Lake Torneträsk"
+    latitude_n: 68.583
+    longitude_e: 18.820
+    elevation_m: 380
+
+  climate:
+    classification: "Subarctic (1.0°C warmer than 10°C arctic isotherm)"
+    mean_july_temp_c_30yr: 11.0
+    mean_annual_precip_mm: 300
+    proximity_note: "Milder than other areas at same latitude due to proximity to Atlantic Ocean"
+
+    during_experiment:
+      1993:
+        growing_season_mean_temp_c: 9.4
+        growing_season_precip_mm: 161
+        note: "Wettest year"
+      1994:
+        growing_season_mean_temp_c: 9.6
+        growing_season_precip_mm: 73
+        note: "Driest year"
+      1995:
+        growing_season_mean_temp_c: 8.9
+        growing_season_precip_mm: 117
+        note: "Coolest year"
+      1996:
+        growing_season_mean_temp_c: 10.2
+        growing_season_precip_mm: 124
+      1997:
+        growing_season_mean_temp_c: 11.4
+        growing_season_precip_mm: 77
+        note: "Warmest year, very dry - unusually hot and dry conditions"
+
+  ecosystem:
+    type: "Subarctic dwarf shrub heath"
+    overstory: "Open birch woodland (Betula pubescens Ehrh. ssp. tortuosa Ledeb. Nyman)"
+    understory: "Dwarf shrub dominated"
+
+    dominant_species:
+      evergreen_shrubs:
+        - species: "Empetrum hermaphroditum Hagerup"
+          common_name: "crowberry"
+        - species: "Vaccinium vitis-idaea L."
+          common_name: "lingonberry"
+      deciduous_shrubs:
+        - species: "Vaccinium myrtillus L."
+          common_name: "bilberry"
+        - species: "Vaccinium uliginosum L."
+          common_name: "bog bilberry"
+      grasses:
+        - "Calamagrostis lapponica"
+        - "Deschampsia flexuosa"
+      forbs:
+        - "Linnaea borealis"
+        - "Rubus chamaemorus"
+      nonvascular:
+        - "Mosses (significant cover)"
+        - "Lichens (significant cover)"
+
+  soil:
+    type: "Organic soils"
+    total_N_g_m2: 100
+    total_C_stores_note: "Lower than arctic wet tundra; see Table 9 in paper"
+    soil_moisture_june_1997:
+      control_pct_oven_dried: 353
+      warmed_pct_oven_dried: 232
+      note: "Significantly lower in warmed plots (p<0.001)"
+
+experimental_design:
+  duration:
+    years: 5
+    growing_seasons: "1993-1997"
+    heating_period: "From snowmelt to first frost each year"
+    first_heating: "17 June to 16 September 1993"
+
+  treatments:
+    - name: "Control"
+      n_plots: 4
+      description: "Completely untreated plots at corners of heated plot"
+
+    - name: "Disturbance Control"
+      n_plots: 4
+      description: "Unheated buried cables to account for disturbance effect"
+
+    - name: "Soil Warming"
+      n_plots: 20
+      description: "Buried heating cables in one large 4.8 × 6 m plot, divided into 20 1-m² subplots"
+      method: "Buried heating cables at 5 cm depth in humic layer"
+      target_increase_c: 5.0
+      achieved_increase_c: 5.0
+      se_c: 0.5
+      heating_system: "Cables heated when temperature difference between heated and control plots at 5-cm depth dropped below 5°C"
+      thermistors: 5
+      years_applied: "1993-1997"
+
+    - name: "Soil + Air Warming (Tents)"
+      n_plots: 4
+      description: "Four plots within heated area received additional air warming via plastic tents"
+      year_applied: 1994
+      tent_height_m: 0.75
+      tent_design: "Vented plastic tents"
+      soil_warming_increase_c: 4.3
+      air_warming_increase_c: 1.3
+      measurement_days: "Julian days 227-237"
+
+    - name: "Soil + Air Warming (OTC)"
+      n_plots: 4
+      description: "Same four plots as 1994 tents, but with ITEX-style open-top chambers"
+      year_applied: 1995
+      chamber_type: "ITEX-style open-top chambers"
+      reason_for_change: "Decrease rain interception, increase air warming intensity"
+      soil_warming_increase_c: 5.4
+      air_warming_increase_c: 2.1
+      measurement_period: "24-hour monitoring on Julian days 202-204"
+
+  note_on_1996: "Heating cables turned on in 1996 but no data collected that year"
+
+  sampling_strategy:
+    approach: "Different 1-m² subplots used for different measurements to minimize disturbance"
+    soil_sampling_n: 3
+    soil_sampling_treatments: "warmed + disturbance controls"
+    plant_growth_cover_n: 4
+    plant_growth_treatments: "warmed + controls + disturbance controls"
+    phenology_n: 4
+    phenology_years: "1994, 1995, 1997"
+    soil_air_warming_n: 4
+    soil_air_warming_location: "within heated area"
+
+  statistical_note:
+    replication: "Soil warming treatment NOT replicated (single 4.8 × 6 m plot)"
+    justification: "Minimize disturbance; avoid strong edge effects; allow destructive sampling"
+    pseudoreplication: "Acknowledged by authors"
+    analysis_approach: "Year-by-year ANOVA (different treatments in different years)"
+
+measurements:
+  soil_nitrogen_cycling:
+    method: "In situ buried bag incubations (season-long)"
+    years_measured: [1993, 1994, 1997]
+    variables:
+      - "Net N mineralization (kg N/ha/season)"
+      - "Net nitrification (kg N/ha/season)"
+      - "NH4+ concentration"
+      - "NO3- concentration"
+      - "Soil moisture (% oven-dried weight)"
+
+    protocol:
+      initial_cores: "5-cm diameter × 10-cm deep"
+      n_cores_per_plot: 3
+      incubation: "Unsieved soil in polyethylene bags at 5 cm depth"
+      timing: "Samples collected and buried at snowmelt, retrieved at end of growing season"
+      extraction: "10-g subsample in 100 ml of 2 M KCl, shaken 1 h, filtered after 24 h"
+      moisture: "Remainder dried at 105°C for 48 hours"
+      analysis: "Colorimetric on Alpkem RFA autoanalyzer"
+      NH4_method: "Phenol hypochlorite"
+      NO3_method: "Cadmium reduction"
+      calculations: "Net N mineralization = change in total inorganic N (NH4+ + NO3-); Net nitrification = change in NO3-"
+
+    limitations:
+      - "Captures soil moisture at one time point (snowmelt)"
+      - "Buried soils moister than surrounding soils → may overestimate net N mineralization"
+      - "Prohibits study of root-mycorrhizal interactions"
+      - "Does not assess importance of organic N in plant nutrition"
+
+  plant_phenology:
+    years_measured: [1994, 1995, 1997]
+    frequency: "1-2 week intervals during growing season"
+    n_individuals_per_species: 10
+    n_plots: 4
+
+    stages_recorded:
+      - "Bud break (E. hermaphroditum, V. vitis-idaea)"
+      - "Leaf emergence (all 4 species)"
+      - "Leaf maturation (all 4 species; full expansion for V. myrtillus and V. vitis-idaea)"
+
+    data_format: "Percentage of plants reaching each stage by given date"
+
+  current_year_aboveground_biomass:
+    years_measured: [1993, 1994, 1995, 1997]
+    timing: "Peak biomass (~early August)"
+    n_shoots_per_plot: 6
+    n_plots: 4
+
+    measurements_per_shoot:
+      - "Stem length (mm)"
+      - "Stem dry mass (mg)"
+      - "Leaf dry mass (mg)"
+      - "Leaf number (V. myrtillus, V. uliginosum, V. vitis-idaea only)"
+      - "Leaf area (cm²; V. myrtillus, V. uliginosum, V. vitis-idaea only)"
+
+    equipment: "Digital Image Analysis System (Delta-T Devices Ltd., England) for leaf area"
+
+    derived_metrics:
+      leaf_weight_ratio: "dry leaf mass / (dry stem + leaf mass)"
+      purpose: "Assess allocation to leaves vs stems in current-year growth"
+
+  foliar_nitrogen:
+    years_measured: [1993, 1994, 1995, 1997]
+    tissue_type: "Live and senescent leaf tissue pooled per species per plot"
+    analysis: "Total N on Perkin-Elmer 2400 elemental analyzer"
+    units: "% N in dry leaf tissue"
+
+  plant_cover:
+    years_measured: [1993, 1994, 1997]
+    timing: "Early August (peak biomass)"
+    method: "Modified point intercept"
+    n_plots: 4
+
+    protocol:
+      frame_size_m2: 0.5
+      frame_position: "Into 4 permanently installed pipes in center of each plot"
+      grid: "Two-tiered with 121 sampling points at 5-cm intervals"
+      observation: "Sighting down crosshairs, recorded species observed"
+      metric: "Number of total observations per species = relative estimate of plant cover"
+
+    categories:
+      dwarf_shrubs:
+        - "Empetrum hermaphroditum"
+        - "Vaccinium myrtillus"
+        - "Vaccinium uliginosum"
+        - "Vaccinium vitis-idaea"
+      grasses: "Calamagrostis lapponica, Deschampsia flexuosa (combined)"
+      forbs: "Linnaea borealis, Rubus chamaemorus (combined)"
+      mosses: "combined"
+      lichens: "combined"
+
+results:
+  soil_nitrogen_cycling:
+    net_N_mineralization_kg_ha_season:
+      year_1993:
+        control: 5.7
+        disturbance_control: 5.6
+        warmed: 6.7
+        effect: "Marginally higher in warmed plots, NOT significant"
+
+      year_1994:
+        disturbance_control: 4.3
+        warmed: 9.2
+        effect: "MORE THAN DOUBLED in warmed plots (p<0.05)"
+        increase_pct: 114
+
+      year_1997:
+        disturbance_control: 4.4
+        warmed: 4.8
+        effect: "NOT significantly different - warming effect disappeared"
+
+    nitrification:
+      all_years: "Net nitrification rates were ZERO in all years and treatments"
+      inorganic_N_pool: "Dominated by NH4+ in both treatments"
+
+    soil_moisture_june_1997:
+      disturbance_control_pct: 353
+      warmed_pct: 232
+      significance: "p<0.001"
+      note: "1997 was unusually hot and dry summer"
+
+  plant_phenology:
+    soil_warming_effects:
+      V_vitis_idaea:
+        1995: "Leaf emergence earlier (67% vs 32% by 6 July; p<0.05)"
+        1997: "Leaf emergence earlier (75% vs 31% by 15 July; p<0.05)"
+        other_stages: "No effect on bud break or leaf maturation"
+
+      V_myrtillus:
+        1994: "Leaf maturation EARLIER (75% vs 28% by 30 June; p<0.05)"
+        1997: "Leaf maturation DELAYED (6% vs 50% by 12 June; p<0.05) - opposite effect"
+        note: "No consistent effect on leaf emergence"
+
+      V_uliginosum:
+        all_years: "No phenological response to soil warming"
+
+      E_hermaphroditum:
+        all_years: "No phenological response to soil warming"
+
+    soil_plus_air_warming_effects:
+      1994_tents:
+        - "Advanced leaf development in V. uliginosum, V. myrtillus, V. vitis-idaea"
+        - "No effect on E. hermaphroditum"
+
+      1995_OTC:
+        - "Accelerated E. hermaphroditum bud break (p<0.05)"
+        - "Accelerated V. myrtillus leaf development (p<0.05)"
+        - "Accelerated V. vitis-idaea leaf development (p<0.05)"
+        - "No effect on V. uliginosum"
+
+  plant_growth_soil_warming:
+    year_1993:
+      all_species: "NO significant response to soil warming"
+
+    year_1994_V_myrtillus:
+      shoot_production_increase_pct: 62
+      shoot_biomass_mg:
+        control: 14.6
+        warmed: 22.9
+      significance_shoot: "p<0.03"
+      leaf_production_increase_pct: 44
+      significance_leaf: "p<0.04"
+      leaf_area_increase_pct: 46
+      significance_area: "p<0.04"
+      allocation: "No effect on leaf weight ratio"
+
+    year_1994_other_species:
+      E_hermaphroditum: "Shoots tended to be heavier and longer, NOT significant"
+      V_vitis_idaea: "Shoots tended to be heavier and longer, NOT significant"
+      V_uliginosum: "No response"
+
+    year_1995_V_myrtillus:
+      shoot_production_increase_pct: 32
+      significance: "NO longer statistically significant (effect weakening)"
+      note: "Treatment effects of same order as interannual variability"
+
+    year_1997:
+      all_species: "NO species responded positively to soil warming"
+      V_vitis_idaea: "Higher leaf weight ratio, shorter stems (p<0.05) - NEGATIVE effect"
+      note: "Current-year growth significantly lower in 1997 than any other year (p<0.0001)"
+      likely_cause: "Unusually hot, dry conditions"
+
+    V_uliginosum_overall: "ONLY species that did NOT respond to soil warming in any year during entire 5-year experiment"
+
+  plant_growth_soil_plus_air_warming:
+    year_1994_V_myrtillus:
+      shoot_biomass_increase_pct: 73
+      shoot_biomass_mg:
+        control: 14.6
+        soil_plus_air: 24.5
+      significance_shoot: "p<0.01"
+      stem_biomass_increase_pct: 120
+      significance_stem: "p<0.02"
+      leaf_biomass_increase_pct: 52
+      significance_leaf: "p<0.02"
+      leaf_area_increase_pct: 57
+      significance_area: "p<0.01"
+      allocation_note: "Larger fraction to stems vs controls (p<0.06; marginally significant)"
+
+    year_1995_E_hermaphroditum:
+      shoot_biomass_increase_pct: ">80"
+      shoot_biomass_mg:
+        control: 18.1
+        soil_plus_air: 30.8
+      significance_shoot: "p<0.0001"
+      shoot_length_increase_pct: 70
+      significance_length: "p<0.004"
+      leaf_biomass_increase_pct: 73
+      significance_leaf: "p<0.00003"
+      stem_biomass_increase_pct: 122
+      significance_stem: "p<0.0004"
+      stem_length_increase_pct: 70
+      significance_stem_length: "p<0.004"
+      allocation: "No change in leaf weight ratio"
+
+    year_1995_V_vitis_idaea:
+      shoot_biomass_increase_pct: ">80"
+      shoot_biomass_mg:
+        control: 21.8
+        soil_plus_air: 30.2
+      significance_shoot: "p<0.00003"
+      shoot_length_increase_pct: 38
+      significance_length: "p<0.003"
+      leaf_biomass_increase_pct: 83
+      significance_leaf: "p<0.00001"
+      stem_biomass_increase_pct: 70
+      significance_stem: "p<0.003"
+      leaf_number_increase_pct: 32
+      significance_number: "p<0.05"
+      leaf_area_increase_pct: 52
+      significance_area: "p<0.05"
+      allocation: "No change"
+
+    year_1995_V_myrtillus:
+      shoot_production_increase_pct: 40
+      significance: "NO longer statistically significant after 1994"
+
+    year_1995_V_uliginosum:
+      response: "NO significant response to soil + air warming"
+
+  foliar_nitrogen:
+    soil_warming:
+      all_years: "NO effect on foliar N concentrations in any species"
+      concentrations_pct_N:
+        E_hermaphroditum: "1.2-1.6"
+        V_myrtillus: "1.4-1.9"
+        V_uliginosum: "1.5-2.2"
+        V_vitis_idaea: "0.9-1.4"
+
+    soil_plus_air_warming:
+      year_1995_V_myrtillus:
+        effect: "LOWERED foliar N by 0.4% (p<0.05)"
+        control_pct: 1.9
+        warmed_pct: 1.5
+        note: "Despite higher biomass production"
+      other: "No effect in other species/years"
+
+  plant_community_composition:
+    dwarf_shrubs:
+      all_4_species: "NO detectable effect on cover after 5 years"
+      years_measured: [1993, 1994, 1997]
+
+    grasses:
+      all_years: "NO effect on grass cover"
+      cover_level: "Remained low (~5-15 hits)"
+
+    mosses:
+      1993: "Significantly higher cover in warmed plots (p<0.02); control ~60 hits, warmed ~100 hits"
+      1994: "Trend reversed - lower in warmed plots (not significant)"
+      1997: "Lower in warmed plots (not significant)"
+      conclusion: "Cannot draw clear conclusions; lack of pretreatment data"
+
+    lichens:
+      1993: "No significant difference (~15 hits all treatments)"
+      1994: "No significant difference (~35 hits warmed, 25 disturbance control)"
+      1997: "SIGNIFICANTLY LOWER in warmed plots (p<0.04); disturbance control ~30 hits, warmed ~12 hits"
+      overall: "Lichen cover REDUCED during 5-yr experiment in warmed plots"
+
+    soil_plus_air_warming_1994:
+      all_groups: "NO effect on dwarf shrub, moss, lichen, or grass cover"
+      note: "No cover data collected from OTCs in 1995"
+
+major_findings:
+  - finding: "Short-term responses (2-3 yr) do NOT predict long-term responses (5 yr)"
+    evidence:
+      year_2: "Net N mineralization doubled; V. myrtillus growth +62%"
+      year_3: "Evergreen shrubs responded to soil+air warming (>80% increase)"
+      year_5: "NO detectable effects on plant growth or soil N cycling"
+    implication: "Need long-term studies (>5 years) to understand sustained ecosystem responses to warming"
+
+  - finding: "5°C direct soil warming sufficient to stimulate microbial N mineralization"
+    evidence: "Net N mineralization doubled in year 2 (4.3 → 9.2 kg N/ha/season)"
+    contrast: "Previous studies with 1-2°C warming showed no effect on N mineralization"
+    implication: "Temperature threshold for microbial response may be 4-5°C"
+
+  - finding: "Long-term decline in N mineralization response"
+    year_5_result: "Net N mineralization returned to control levels"
+    possible_mechanisms:
+      - "Increased microbial biomass and N demand (microbial immobilization)"
+      - "Depletion of labile carbon substrates"
+      - "Soil moisture limitation (1997 was hot and dry)"
+    implication: "Warming-induced increases in N mineralization may not be sustained"
+
+  - finding: "No nitrification detected in subarctic heath soils"
+    result: "Net nitrification rates = ZERO in all years and treatments"
+    consequence: "Losses of mineralized N in soil solution or gaseous form should be negligible"
+    comparison: "Similar to arctic wet sedge and dry heath ecosystems"
+
+  - finding: "Species-specific growth responses within same growth form"
+    deciduous:
+      V_myrtillus: "Responded in year 2 (soil warming alone)"
+      V_uliginosum: "NO response in any year"
+    evergreen:
+      V_vitis_idaea: "Responded in year 3 (soil+air warming)"
+      E_hermaphroditum: "Responded in year 3 (soil+air warming)"
+    implication: "Cannot model all deciduous or all evergreen shrubs as single functional type"
+
+  - finding: "NO change in foliar N concentrations despite increased growth"
+    contrast_to: "Fertilization studies show increased foliar N"
+    consistency: "Total N storage in vegetation likely increases with warming, driven by increased biomass (Jonasson et al. in press)"
+
+  - finding: "Plant community composition stable after 5 years despite enhanced N availability"
+    contrast: "Fertilization studies show shifts toward graminoids (Jonasson 1992, Parsons et al. 1995)"
+    reason: "Order of magnitude difference in N availability"
+    warming_N: "4-9 kg N/ha/season"
+    fertilization_N: "~100 kg N/ha/yr"
+    conclusion: "High-dose fertilization studies OVERESTIMATE warming effects on community composition"
+
+  - finding: "Natural interannual climate variability > experimental warming effects"
+    evidence: "Year-to-year variation in shrub growth greater than treatment effects (except V. vitis-idaea 1995)"
+    example: "1997 (hot, dry year) - all species had lowest growth of entire study"
+    implication: "Long-term studies needed to separate climate variability from treatment effects"
+
+  - finding: "Lichen cover declined with warming; moss response unclear"
+    lichens: "Significantly lower in warmed plots by year 5 (p<0.04)"
+    comparison: "Consistent with other warming studies (Chapin et al. 1995; Press et al. 1998)"
+
+  - finding: "Subarctic heath has limited C storage potential"
+    soil_N_reserves: "100 g N/m² (lower than wet tundra: 400-900 g N/m²)"
+    soil_C_reserves: "2.4 kg C/m² (lower than wet tundra: 15-34 kg C/m²)"
+    no_community_shift: "Absence of shift toward productive species"
+    conclusion: "Subarctic ecosystems do NOT represent large potential CO₂ sink long-term"
+
+ecosim_modeling_relevance:
+  temperature_sensitivity:
+    - "Q10 and Arrhenius relationships for N mineralization in subarctic soils"
+    - "Threshold temperature for response: 5°C warming effective; 1-2°C not (Robinson et al. 1995)"
+    - "Lag time: 1 year before doubling occurred"
+    - "Non-sustained response: Enhancement year 2, return to baseline year 5"
+    - "Challenge: Models must account for potential microbial acclimation or labile C depletion"
+
+  plant_functional_types:
+    - "Species-specific responses within growth forms - cannot model all deciduous or all evergreen as single type"
+    - "V. myrtillus (deciduous): Year 2 response"
+    - "E. hermaphroditum, V. vitis-idaea (evergreen): Year 3 response"
+    - "V. uliginosum (deciduous): No response any year"
+    - "Need species-level parameterization for subarctic systems"
+
+  nutrient_temperature_interactions:
+    - "Enhanced N availability drove plant growth responses"
+    - "Growth increases coincided with N mineralization increases"
+    - "Models must couple temperature effects on nutrient cycling with nutrient effects on plant growth"
+    - "Include temporal lags and non-linearities"
+
+  community_composition:
+    - "Stable despite changes in N availability and plant growth"
+    - "Competition dynamics buffer against compositional change"
+    - "Threshold for community shift much higher than for individual species responses"
+    - "Models based on fertilization studies will overestimate magnitude of community change"
+
+  soil_organic_matter:
+    - "Possible labile C depletion by year 5"
+    - "Importance of SOM quality (C:N, chemical composition) for sustained N mineralization"
+    - "Models should include multiple SOM pools with different decomposition rates"
+    - "Litter quality effects on decomposition and N mineralization"
+
+  carbon_balance:
+    - "Short-term C uptake (plant growth) vs long-term uncertainty"
+    - "Years 2-3: Increased plant growth → potential C sink"
+    - "Year 5: Growth response disappeared → C balance unclear"
+    - "Must balance plant C uptake against soil respiratory C losses"
+    - "Subarctic dry heath: Limited C storage potential"
+
+  moisture_temperature_interactions:
+    - "1997 (hot, dry): Soil moisture significantly lower in warmed plots; plant growth lowest; N mineralization response disappeared"
+    - "Models must include soil moisture effects on both plant and microbial processes"
+    - "Interactive effects of temperature and moisture critical"
+
+  microbial_competition:
+    - "Possible increased microbial N demand by year 5"
+    - "Models should explicitly represent microbial biomass and N uptake"
+    - "Net N mineralization = gross mineralization - microbial immobilization"
+    - "Competition between plants and microbes for N"
+
+  data_gaps:
+    - "NO measurements of: soil respiration, gross N mineralization, organic N uptake, mycorrhizal dynamics, overstory tree responses, root biomass"
+    - "Models parameterized from this study should acknowledge these limitations"
+
+comparison_to_fertilization_studies:
+  warming_N_availability: "4-9 kg N/ha/season with extreme (+5°C) warming scenario"
+  fertilization_N_addition: "~100 kg N/ha/yr in studies showing community change (Parsons et al. 1995)"
+  difference: "Order of magnitude"
+
+  warming_response:
+    community_composition: "NO change after 5 years"
+    individual_species_growth: "Enhanced in years 2-3, disappeared by year 5"
+
+  fertilization_response:
+    community_composition: "Shifts toward graminoids (Jonasson 1992, Parsons et al. 1995)"
+    individual_species_growth: "Large increases"
+
+  conclusion: "High-dose fertilization studies provide insight into controls on plant communities but do NOT accurately simulate increases in N availability predicted for climate warming"
+
+  caveat: "Dramatic community changes more likely where additional atmospheric N inputs occur (Werkman et al. 1996), but atmospheric inputs to remote Abisko remain low (Kindbom et al. 1998)"
+
+data_quality:
+  strengths:
+    - "Long-term study (5 growing seasons)"
+    - "Strong warming treatment (+5°C soil; up to +7°C combined)"
+    - "Multiple plant species (4 dominant dwarf shrubs)"
+    - "Multiple response variables (soil N, phenology, growth, allocation, cover)"
+    - "Disturbance controls included"
+    - "Temporal dynamics captured: short-term ≠ long-term"
+    - "Season-long N mineralization measurements"
+
+  limitations:
+    statistical:
+      - "No true replication of soil warming (single 4.8×6 m plot) - pseudoreplication acknowledged"
+      - "Year-by-year analysis required (different treatments different years)"
+      - "Small sample sizes (n=3-4 plots)"
+
+    methodological:
+      buried_bag:
+        - "Captures soil moisture at one time point (may overestimate N mineralization)"
+        - "Prohibits root-mycorrhizal interaction study"
+        - "No information on organic N"
+      plant:
+        - "Current-year growth only (not total biomass)"
+        - "Destructive sampling prevents repeated measures"
+        - "Point intercept: relative estimates, not absolute cover"
+      missing:
+        - "No soil respiration data"
+        - "No gross N mineralization"
+        - "No organic N uptake measurements"
+        - "No mycorrhizal colonization"
+        - "No root biomass"
+        - "No overstory tree measurements"
+        - "No continuous soil moisture monitoring"
+
+    temporal:
+      - "No measurements in 1996 (heating continued)"
+      - "Limited pretreatment data (especially plant cover)"
+      - "Air warming discontinued after 1995"
+      - "1997 drought confounds year 5 interpretation"
+
+    interpretation:
+      - "Mechanism for loss of N mineralization response unclear"
+      - "Multiple plausible explanations (cannot definitively determine)"
+
+authors_note:
+  affiliation: "Ecosystems Center, Marine Biological Laboratory, Woods Hole, MA 02543, USA"
+  corresponding_author: "ahartley@mbl.edu"
+  acknowledgments: "Research funded by Swedish Environmental Protection Agency"
+  thanks: "Mats Sonesson, Terry Callaghan (Abisko directors), station staff"

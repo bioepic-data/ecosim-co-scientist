@@ -1,0 +1,865 @@
+study:
+  id: dawes-2011-alpine-dwarf-shrubs
+  citation: "Dawes, M.A., Hagedorn, F., Zumbrunn, T., Handa, I.T., Hättenschwiler, S., Wipf, S., & Rixen, C. (2011). Growth and community responses of alpine dwarf shrubs to in situ CO₂ enrichment and soil warming. New Phytologist, 191, 806-818."
+  doi: "10.1111/j.1469-8137.2011.03722.x"
+
+  authors:
+    - name: "Melissa A. Dawes"
+      affiliation: "WSL Institute for Snow and Avalanche Research SLF; University of Basel"
+      email: "melissa.dawes@slf.ch"
+    - name: "Frank Hagedorn"
+      affiliation: "Swiss Federal Institute for Forest, Snow and Landscape Research (WSL)"
+    - name: "Thomas Zumbrunn"
+      affiliation: "University of Basel"
+    - name: "Ira Tanya Handa"
+      affiliation: "Centre d'Ecologie Fonctionnelle & Evolutive, CEFE-CNRS"
+    - name: "Stephan Hättenschwiler"
+      affiliation: "Centre d'Ecologie Fonctionnelle & Evolutive, CEFE-CNRS"
+    - name: "Sonja Wipf"
+      affiliation: "WSL Institute for Snow and Avalanche Research SLF"
+    - name: "Christian Rixen"
+      affiliation: "WSL Institute for Snow and Avalanche Research SLF"
+
+  year: 2011
+  journal: "New Phytologist"
+  volume: 191
+  pages: "806-818"
+
+  keywords:
+    - alpine treeline
+    - dwarf shrub
+    - elevated CO2
+    - Empetrum hermaphroditum
+    - free air CO2 enrichment (FACE)
+    - soil warming
+    - Vaccinium gaultherioides
+    - Vaccinium myrtillus
+
+  significance:
+    - "LONGEST alpine CO2 enrichment experiment (9 years) using FACE technology"
+    - "ONE OF THE ONLY in situ high-elevation studies combining elevated CO2 and soil warming"
+    - "Vaccinium myrtillus ONLY species showing clear positive responses to both CO2 (+12%) and warming (+31%)"
+    - "NO interactive effects between CO2 and warming - INDEPENDENT responses facilitate predictive modeling"
+    - "SUSTAINED CO2 response over 8 years with NO DECLINE - contrasts with many studies showing progressive limitation"
+    - "Warming increased soil inorganic N (+52% to +140%) and leaf N concentration"
+    - "Vascular species richness declined under elevated CO2 (with larch), nonvascular species declined with warming"
+    - "Higher SLA in V. myrtillus (20-50% greater than other species) predicts CO2 responsiveness"
+
+site:
+  location:
+    name: "Stillberg, Davos, Central Alps, Switzerland"
+    coordinates:
+      latitude: 46.767
+      longitude: 9.867
+    country: "Switzerland"
+    canton: "Graubünden"
+
+  elevation_m: 2180
+  position: "Corresponds to or slightly above natural climatic treeline"
+  slope_degrees: "25-30"
+  aspect: "Northeast-exposed"
+  area_m2: 2500
+
+  ecosystem_type: "Alpine treeline understorey vegetation"
+
+  climate:
+    period: "2001-2009 mean"
+    mean_annual_temperature_C: 2.5
+    mean_annual_precipitation_mm: 1175
+    coldest_month: "February"
+    coldest_month_mean_C: -5.2
+    warmest_month: "July"
+    warmest_month_mean_C: 10.5
+    climate_station: "WSL station at 2090 m asl"
+
+  landscape_context:
+    afforestation_area_ha: 5
+    tree_planting_year: 1975
+    planted_by: "Swiss Federal Institute for Forest, Snow and Landscape Research (WSL)"
+    tree_age_at_experiment_start: "26 years (planted into intact dwarf shrub community)"
+    canopy_structure: "Sparsely distributed trees, no closed canopy"
+
+  vegetation:
+    structure: "Dense understorey vegetation dominated by dwarf shrubs"
+    plot_structure: "Single tree surrounded by heath vegetation"
+    regeneration_mode: "Dwarf shrubs mainly by vegetative spread"
+
+    dwarf_shrubs_ericaceae:
+      vaccinium_myrtillus:
+        common_name: "Bilberry"
+        leaf_type: "Deciduous"
+        elevational_range: "<3000 m asl in Alps"
+        responsiveness: "Most responsive species in study"
+        notes: "Lower elevational distribution than other two species"
+
+      vaccinium_gaultherioides:
+        common_name: "Northern bilberry"
+        taxonomic_group: "V. uliginosum agg."
+        leaf_type: "Deciduous"
+        elevational_range: ">3000 m asl in Alps"
+        notes: "Generally lower ramet height in plots with larch"
+
+      empetrum_hermaphroditum:
+        synonym: "E. nigrum ssp. hermaphroditum"
+        common_name: "Crowberry"
+        leaf_type: "Evergreen"
+        elevational_range: ">3000 m asl in Alps"
+        notes: "Highly heterogeneous species complex"
+
+    other_vascular:
+      grasses:
+        - "Avenella flexuosa"
+        - "Festuca spp."
+      forbs:
+        - "Gentiana punctata"
+        - "Homogyne alpina"
+        - "Leontodon helveticus"
+        - "Melampyrum pratense"
+        - "Lupinus spp."
+
+    nonvascular:
+      - "Multiple moss species"
+      - "Multiple lichen species"
+
+    tree_species:
+      pinus_mugo_uncinata:
+        common_name: "Mountain pine"
+        plots: 20
+        age_at_experiment_start: 26
+        age_at_experiment_end: 39
+        height_m: "<3.5"
+        stem_basal_diameter_cm: "<10"
+
+      larix_decidua:
+        common_name: "European larch"
+        plots: 20
+        age_at_experiment_start: 26
+        age_at_experiment_end: 37
+        height_m: "<3.5"
+        stem_basal_diameter_cm: "<10"
+
+experimental_design:
+  overall_structure: "Balanced factorial with tree species as split-plot factor"
+  total_plots: 40
+  plot_shape: "Hexagonal"
+  plot_area_m2: 1.1
+  replication: 5
+
+  duration:
+    CO2_enrichment:
+      start: "June 2001"
+      end: "September 2009"
+      growing_seasons: 9
+
+    soil_warming:
+      start: "May 2007"
+      end: "September 2009"
+      growing_seasons: 3
+      started_year_of_CO2: 7
+
+  treatment_allocation:
+    CO2_groups: 10
+    plots_per_CO2_group: 4
+    composition_per_group: "2 larch + 2 pine"
+    elevated_CO2_groups: 5
+    ambient_CO2_groups: 5
+
+    warming_nested_within_CO2: true
+    final_design: "5 replicates per CO2 × warming × tree species combination"
+
+  treatments:
+    CO2_enrichment:
+      method: "Free Air CO2 Enrichment (FACE)"
+
+      concentrations:
+        elevated_ppm_mean: 575
+        elevated_ppm_SD: 52
+        ambient_ppm: ~380
+        period: "2001-2009"
+
+      delivery:
+        system: "Laser-punched drip irrigation tubes"
+        configuration: "Hung vertically around hexagonal frame"
+        gas: "Pure CO2"
+        timing: "Daytime only during growing season"
+
+      coverage:
+        percent_of_treatment_periods: "73-87%"
+        interruptions: "Adverse weather or technical failures"
+
+      previous_descriptions:
+        - "Hättenschwiler et al. (2002) - set-up and performance"
+        - "Handa et al. (2006) - system details"
+        - "Dawes et al. (2011) - tree responses"
+
+    soil_warming:
+      method: "Heating cables on ground surface"
+
+      rationale:
+        feasibility: "More feasible than OTCs or infrared radiators given tall trees and steep rocky terrain"
+        disturbance: "Less disturbance than chamber methods"
+        effectiveness: "Allowed greater soil warming than OTCs"
+        snow_interaction: "Avoided interaction between temperature and snow cover duration"
+
+      timing:
+        on: "Immediately after snowmelt each spring"
+        off: "Just before site covered in snow for winter"
+        avoids: "Interaction with snow cover duration"
+
+      temperature_effects:
+        soil_5cm_2007_C_mean: 3.9
+        soil_5cm_2007_C_SE: 0.3
+        soil_5cm_2008_C_mean: 4.4
+        soil_5cm_2008_C_SE: 0.5
+        soil_5cm_2009_C_mean: 3.1
+        soil_5cm_2009_C_SE: 0.4
+
+        air_temp_20cm_K: 0.9
+        air_temp_20cm_SE: 0.1
+        air_temp_50cm_effect: "No difference"
+
+      moisture_effects:
+        volumetric_soil_water_reduction_pct_0_10cm: ~15
+        air_humidity_reduction_pct_10cm: ~10
+        timing: "Most pronounced in late summer"
+        soil_water_potential_hPa: "Always >-300 (high water availability)"
+        independence: "Irrespective of CO2 treatment and tree species"
+
+methods:
+  plant_growth:
+    annual_shoot_increment:
+      years: "2002-2009 (autumn measurements after shoot elongation)"
+      protocol: "Longest branch on 5-7 randomly selected ramets per plot"
+      rationale: "Shoots experience less self-shading, highly correlated with annual biomass production"
+      edge_exclusion_cm: 10
+
+      sampling_2002: "Half of plots (n=5 per CO2 × tree species)"
+      sampling_2003_2009: "All plots"
+
+    understorey_vegetation_height:
+      years: "2008-2009"
+      timing: "Late summer"
+      measurement: "Mean of three random point measurements"
+      correlation: "Positively correlated with total above-ground biomass per unit area"
+
+    maximum_ramet_height:
+      years: "2008-2009"
+      timing: "Late summer"
+      species:
+        - "V. myrtillus"
+        - "V. gaultherioides"
+        - "E. hermaphroditum"
+      correlation: "Positively correlated with above-ground biomass per ramet"
+
+    species_composition:
+      years: [2005, 2009]
+      timing: "Peak of growing season"
+      recorded: "All vascular and nonvascular (moss, lichen) species present"
+      purpose: "Document changes in richness and composition"
+
+  leaf_morphology:
+    sampling:
+      years: "2006-2009"
+      timing: "Early August"
+      species:
+        - "V. myrtillus"
+        - "V. gaultherioides"
+      excluded: "E. hermaphroditum (leaves too small and folded)"
+      sample_size: "~50 leaves per plot"
+      distribution: "Whole canopy, evenly across ramets, avoiding edges"
+
+    measurements:
+      leaf_area:
+        processing: "Scanned within 12 hours"
+        software: "ImageJ version 1.43k"
+        herbivory_correction: "Missing parts filled (<4% of potential area)"
+        missing_year: 2008
+
+      dry_mass:
+        drying_temp_C: 60
+        drying_duration: "≥24 hours"
+
+      specific_leaf_area:
+        calculation: "Area/mass (cm² g⁻¹)"
+
+  nitrogen_measurements:
+    soil_inorganic_N_pool:
+      timing: "August 2004, 2007, 2009"
+      depth_cm: "0-5"
+      protocol: "Six 2-cm diameter cores per plot, bulked"
+      extraction: "0.5 M K2SO4"
+
+      analyses:
+        NH4:
+          method: "Colorimetry"
+          instrument: "Automated flow injection analysis (FIAS-300, PerkinElmer)"
+        NO3:
+          method: "Ion chromatography"
+          instrument: "DX-120, Dionex"
+
+    soil_solution:
+      method: "Ceramic suction cups (SoilMoisture Equipment Corp.)"
+      depth_cm: "3-7"
+      cups_per_plot: 2
+      suction_hPa: 400
+      suction_duration: "Overnight"
+      frequency: "Once per month during vegetation period"
+      analyses: "Same as soil extracts"
+
+    leaf_N_concentration:
+      species:
+        - "V. myrtillus"
+        - "V. gaultherioides"
+      sample: "Dried leaves ground as bulk sample per plot per species"
+      instrument: "C-N analyzer (EA-1110, Carlo Erba)"
+      units: "mg N per g dry mass"
+      purpose: "Estimate plant N status"
+
+  environmental_measurements:
+    canopy_shading:
+      year: 2008
+      method: "Hemispherical photographs"
+      timing: "Seasonal peak of leaf area"
+      definition: "Percentage of sky obstructed by tree trunk/canopy, surrounding trees, and topography"
+      result: "Slightly greater for larch than pine; greater in elevated CO2 + larch plots"
+
+    soil_water_content:
+      years: "2007-2009"
+      depth_cm: "0-10"
+      calculation: "Seasonal mean per plot"
+      purpose: "Quantify inter-plot variation and warming-induced drying"
+
+    snowmelt_and_topography:
+      measured: true
+      variation: "Did NOT vary significantly between treatment groups"
+      correlation: "Not correlated with response variables"
+      presentation: "Not presented in results"
+
+  statistics:
+    CO2_effects:
+      period: "2002-2009"
+      pooling: "Warmed and unwarmed plots pooled"
+      rationale: "Likelihood ratio tests showed NO significant CO2 × warming interactions"
+
+      model: "Repeated measures linear mixed effects (REML)"
+      between_subject_factors:
+        - "CO2 concentration"
+        - "Tree species"
+        - "CO2 × tree species interaction"
+      within_subject_factors:
+        - "Year (categorical)"
+        - "All 2- and 3-way interactions with year"
+
+    warming_effects:
+      period: "2007-2009"
+      model: "Similar to CO2 analysis, warming replacing CO2"
+
+      covariables:
+        shoot_growth: "2005-2006 average"
+        leaf_morphology_and_N: "2006 values"
+        soil_inorganic_N: "2004 values"
+
+    species_richness:
+      year: 2009
+      model: "Single model testing both CO2 and warming effects"
+      covariable: "2005 richness values"
+
+    random_effects:
+      CO2_group_intercepts: "Excluded (very small, nonsignificant)"
+      warming_group_intercepts: "Excluded (very small, nonsignificant)"
+      retained: "Only random effects for individual plots"
+
+    error_distributions:
+      most_parameters: "Normal"
+      nonvascular_richness: "Poisson (better fit)"
+
+    transformations: "Log-transformed in some cases to improve normality and homoscedasticity"
+
+    significance:
+      alpha: 0.05
+      marginal: "0.05 ≤ P < 0.10 (designated given low replication)"
+
+    software:
+      R_version: "2.11.1"
+      mixed_models: "NLME package"
+
+results:
+  key_finding: "Species-specific responses: ONLY Vaccinium myrtillus showed clear positive responses to both treatments"
+
+  CO2_effects_9_years:
+    vaccinium_myrtillus:
+      shoot_growth:
+        stimulation_pct_8yr_mean: 12
+        F_statistic: "F(1,36)=7.9"
+        p_value: "<0.01"
+        temporal_pattern: "NO DECLINE over time (P>0.9 for CO2×year)"
+
+      total_ramet_height:
+        effect: "Significantly enhanced"
+        p_value: "≤0.01"
+
+      understorey_vegetation_height:
+        effect: "Positively enhanced"
+        p_value: "≤0.01"
+
+      leaf_area:
+        effect: "Marginally significant increase"
+        p_value: 0.06
+        note: "May be partially driven by increased shading"
+
+      leaf_mass:
+        effect: "Marginally significant increase"
+        p_value: 0.06
+
+      SLA:
+        effect: "No significant change"
+        p_value: ">0.19"
+
+      tree_species_effect:
+        shoot_growth_higher_under: "Larch than pine"
+        F_statistic: "F(1,36)=5.2"
+        p_value: 0.03
+
+    vaccinium_gaultherioides:
+      shoot_growth:
+        CO2_x_tree_interaction: "Significant"
+        F_statistic: "F(1,36)=5.9"
+        p_value: 0.02
+        larch_plots: "Slight negative response"
+        pine_plots: "Slight positive response"
+
+      total_ramet_height:
+        CO2_x_tree_interaction: "Marginally significant"
+        F_statistic: "F(1,36)=4.1"
+        p_value: 0.05
+        larch_plots: "Slight negative response"
+        pine_plots: "Positive response"
+
+      mechanism: "UNCLEAR - NOT explained by light, snowmelt, topography, moisture, leaf N, or soil N"
+
+    empetrum_hermaphroditum:
+      shoot_growth:
+        CO2_effect: "No effect"
+        p_value: ">0.16"
+
+      total_ramet_height:
+        CO2_effect: "No effect"
+        tree_species_effect: "Lower in larch than pine plots"
+        F_statistic: "F(1,32)=5.4"
+        p_value: 0.03
+        possible_mechanism: "Canopy shading (P=0.09 relationship)"
+
+  warming_effects_3_years:
+    vaccinium_myrtillus:
+      shoot_growth:
+        stimulation_pct_3yr_mean: 31
+        relative_to: "Pre-warming years (2005-2006)"
+        F_statistic: "F(1,35)=12.4"
+        p_value: "<0.01"
+        comparison_to_CO2: "MORE THAN DOUBLE the CO2 effect"
+        consistency: "Sustained across all 3 years"
+
+      pre_treatment_correlation:
+        years_2005_2006_predict_warming_period: true
+        p_value: "<0.04"
+
+    vaccinium_gaultherioides:
+      shoot_growth:
+        effect: "No significant warming effect"
+        pre_treatment_correlation: "P<0.04"
+
+    empetrum_hermaphroditum:
+      shoot_growth:
+        effect: "No significant effect"
+        trend: "Slight stimulation in 2009 only"
+        pre_treatment_correlation: "P<0.04"
+
+  interactive_effects:
+    finding: "NO significant interactions between CO2 and warming for ANY measured parameter"
+
+    implications:
+      - "CO2 and warming act INDEPENDENTLY on plant growth"
+      - "CO2 response NOT constrained by low temperature or low N availability"
+      - "Warming did NOT alleviate temperature/nutrient constraints on CO2 response"
+      - "FACILITATES predictive modeling - additive rather than synergistic effects"
+
+  nitrogen_dynamics:
+    soil_inorganic_N:
+      warming_effect:
+        overall_F: "F(1,35)=9.5"
+        overall_p: "<0.01"
+
+        year_2007:
+          change_pct: 52
+          standardized_to: 2004
+          pooled_across: "Tree species and CO2"
+
+        year_2009:
+          change_pct: 140
+          standardized_to: 2004
+          pooled_across: "Tree species and CO2"
+
+        mechanism: "Warming accelerated N mineralization"
+
+      CO2_effect:
+        result: "No significant effect"
+        p_value: ">0.19"
+
+    soil_solution:
+      NH4_and_NO3: "Always below detection limit (0.1 mg N l⁻¹)"
+      K2SO4_extractable_NO3: "Not detectable"
+      interpretation: "NO net nitrification"
+
+    leaf_N_concentration:
+      warming_effect:
+        both_vaccinium_species: "Positive influence"
+
+        vaccinium_myrtillus:
+          warming_x_year_interaction: "Marginally significant"
+          F_statistic: "F(1,35)=2.8"
+          p_value: 0.07
+          pattern: "Effect declined over 3 years (largest 2007, smallest 2009)"
+          interpretation: "Greater growth in 2008-2009 diluted N uptake increase"
+
+      CO2_effect:
+        trend: "Toward lower values under elevated CO2"
+        vaccinium_myrtillus: "Marginally significant CO2×tree×year interaction"
+        overall: "Not statistically significant"
+
+      general_patterns:
+        higher_in: "V. gaultherioides than V. myrtillus"
+        canopy_shading_effect: "Increased with shading for both species"
+        tree_species_effect: "Tended to be lower in pine than larch plots"
+
+    growth_N_relationships:
+      vaccinium_myrtillus:
+        shoot_vs_leaf_N: "Weak positive (P<0.05 in 2007, 2009)"
+        shoot_vs_soil_N: "Weak positive in 2009 (P=0.03), not 2007"
+        interpretation: "Increased N availability PARTIALLY responsible for warming response"
+
+      other_species:
+        vaccinium_gaultherioides: "NO relationships"
+        empetrum_hermaphroditum: "NO relationships"
+
+  community_composition:
+    vascular_species_richness:
+      CO2_x_tree_interaction:
+        F_statistic: "F(1,31)=4.6"
+        p_value: 0.04
+        after_accounting_for: "2005 values"
+
+      larch_plots:
+        CO2_effect: "Marginally significant negative"
+        F_statistic: "F(1,15)=3.9"
+        p_value: 0.07
+        mean_loss: "1.3 ± 0.6 species over 4 years in elevated CO2"
+        ambient_CO2: "No change"
+
+      pine_plots:
+        CO2_effect: "Opposite but nonsignificant"
+        F_statistic: "F(1,15)=1.1"
+        p_value: 0.30
+        pattern: "More losses in ambient CO2"
+
+      warming_effect: "No significant effect"
+
+    nonvascular_species_richness:
+      overall_pattern: "Decline from 2005 to 2009"
+
+      warming_effect:
+        direction: "Significantly negative"
+        p_value: 0.02
+        pattern: "More species lost from warmed plots, especially warmed+elevated CO2"
+
+      soil_moisture_correlation:
+        relationship: "Lower moisture associated with more nonvascular losses"
+        p_value: 0.07
+        interpretation: "Drying associated with warming partly responsible"
+
+    drivers_of_richness_changes:
+      vascular_richness:
+        vaccinium_myrtillus_height: "Lower richness with taller ramets (P<0.07)"
+        no_influence:
+          - "Canopy shading"
+          - "Overall understorey height"
+          - "Soil moisture"
+
+      mechanism: "Increased shading within understorey canopy and/or below-ground competition from dominant V. myrtillus"
+
+mechanisms:
+  vaccinium_myrtillus_CO2_responsiveness:
+    leaf_trait_advantages:
+      SLA_relative_to_gaultherioides: "20-30% higher"
+      SLA_relative_to_hermaphroditum: ">50% higher"
+      advantage: "More leaf area per unit mass → efficient light capture, high photosynthetic capacity"
+      consequence: "Larger assimilation gains under elevated CO2"
+
+    sustained_response:
+      temporal_pattern: "NO DECLINE over 8 years"
+      N_limitation: "NOT N-limited (soil N and leaf N did not decline)"
+      contrast: "Many studies show progressive N limitation"
+
+    species_ecology:
+      elevational_distribution: "<3000 m vs >3000 m for other species"
+      interpretation: "Potentially better adapted to this elevation, intrinsically more responsive to CO2"
+
+  vaccinium_myrtillus_warming_responsiveness:
+    direct_temperature_effects:
+      photosynthesis_stimulation: "At higher temperatures"
+      leaf_type: "Deciduous (but V. gaultherioides also deciduous and did NOT respond)"
+
+    nitrogen_availability:
+      soil_inorganic_N: "Increased +52% to +140%"
+      leaf_N_concentration: "Increased in year 1"
+      growth_N_correlations: "Weak but positive for V. myrtillus only"
+      contribution: "Partial"
+
+    species_adaptation:
+      elevational_distribution: "Lower → potentially better adapted to warmer temperatures"
+      responsiveness: "Intrinsically more responsive"
+
+    magnitude:
+      warming_effect: "31% stimulation"
+      CO2_effect: "12% stimulation"
+      ratio: "2.6× greater for warming"
+      mechanisms: "Combination of direct temperature + N availability effects"
+
+  why_other_species_did_not_respond:
+    vaccinium_gaultherioides:
+      SLA: "Lower than V. myrtillus"
+      elevational_distribution: "Higher → adapted to cooler conditions"
+      CO2_response: "Tree species-dependent, mechanism unclear"
+
+    empetrum_hermaphroditum:
+      SLA: "Lowest of three species"
+      leaf_type: "Evergreen vs deciduous"
+      elevational_distribution: "Higher"
+      leaf_size: "Smaller - different growth strategy"
+
+  independent_effects_why:
+    CO2_not_N_limited: "Soil N pools did not decline, leaf N not significantly affected"
+    CO2_not_temperature_limited: "Already responsive at ambient temperature"
+    warming_not_CO2_limited: "Enhanced N and direct temperature effects sufficient"
+    different_pathways: "CO2 (photosynthetic) vs warming (metabolic+N) operate independently → additive"
+
+  community_composition_mechanisms:
+    vaccinium_myrtillus_dominance:
+      enhanced_growth: "Increased above-ground biomass"
+      shading: "Taller ramets → increased understorey shading"
+      competition: "Below-ground competition likely increased"
+      consequence: "Competitive exclusion of less responsive species"
+
+    larch_CO2_effects:
+      larch_growth: "Stimulated by elevated CO2"
+      canopy_cover: "Greater in elevated CO2 + larch plots"
+      BUT: "Canopy shading NOT significantly related to vascular richness"
+      interpretation: "Within-understorey processes more important"
+
+    warming_induced_drying:
+      soil_moisture: "Reduced ~15% (0-10 cm)"
+      air_humidity: "Reduced ~10% (10 cm)"
+      sensitivity: "Nonvascular species particularly sensitive"
+      correlation: "Lower moisture → more moss/lichen losses (P=0.07)"
+
+    combined_treatments:
+      greatest_losses: "Moss/lichen in elevated CO2 + warming"
+      interpretation: "Additive stresses: increased vascular competition + drying"
+
+ecosim_modeling_relevance:
+  critical_insights:
+    - "Species-specific responses essential - cannot group by functional type"
+    - "Independent CO2 and warming effects facilitate additive modeling (NOT multiplicative)"
+    - "Sustained CO2 response without progressive N limitation - depends on ecosystem N cycling"
+    - "Warming-enhanced N availability (+52% to +140%) with species-specific plant responses"
+    - "Leaf trait mechanisms: SLA predicts CO2 responsiveness"
+    - "Community dynamics: competitive interactions modulate treatment responses"
+    - "Tree species effects on understorey complicate predictions"
+    - "High-elevation specific parameterization needed"
+
+  model_requirements:
+    species_level_parameterization:
+      necessity: "Three co-occurring ericaceous shrubs showed completely different responses"
+      approach: "Trait-based using SLA, leaf type, elevational distribution"
+
+    additive_effects:
+      formula: "Growth = Baseline + CO2_effect + Warming_effect (NOT multiplicative)"
+      justification: "NO significant interactions between treatments"
+
+    sustained_CO2_response:
+      pattern: "DO NOT assume automatic progressive N limitation"
+      requirement: "Accurate N mineralization modeling to predict when limitation occurs"
+
+    warming_N_coupling:
+      Q10_for_N_mineralization: "Required for alpine soils"
+      temperature_moisture_interactions: "On decomposition"
+      species_specific: "N use efficiency and responsiveness"
+
+    SLA_as_predictor:
+      mechanism: "Higher SLA → more leaf area per mass → efficient CO2 gains"
+      implementation: "Photosynthetic capacity scaled by SLA"
+
+    competition_algorithms:
+      within_understorey: "Light competition, not just tree canopy"
+      below_ground: "Nutrients and water"
+      height_based_shading: "Taller species shade shorter"
+      moisture_thresholds: "For nonvascular species"
+
+  parameterization_data:
+    vaccinium_myrtillus:
+      CO2_shoot_growth_stimulation_pct: 12
+      CO2_duration_years: 8
+      CO2_temporal_pattern: "NO decline"
+
+      warming_shoot_growth_stimulation_pct: 31
+      warming_duration_years: 3
+      warming_magnitude_greater_than_CO2: "2.6×"
+
+      SLA_relative:
+        vs_gaultherioides_pct: "20-30% higher"
+        vs_hermaphroditum_pct: ">50% higher"
+
+    nitrogen_responses:
+      soil_inorganic_N_warming:
+        year_1_increase_pct: 52
+        year_3_increase_pct: 140
+
+      leaf_N_warming:
+        year_1: "Increase"
+        years_2_3: "Effect declined (growth dilution)"
+
+    environmental_conditions:
+      warming_magnitude_5cm_C:
+        year_1: 3.9
+        year_2: 4.4
+        year_3: 3.1
+
+      air_warming_20cm_K: 0.9
+      soil_moisture_reduction_pct: 15
+      air_humidity_reduction_pct: 10
+      soil_water_potential_hPa: ">-300 (high water availability)"
+
+  model_testing_opportunities:
+    species_specific:
+      - "V. myrtillus positive to both treatments"
+      - "V. gaultherioides tree-dependent CO2, no warming"
+      - "E. hermaphroditum no responses"
+
+    independent_effects: "Additive CO2 and warming (no interactions)"
+    sustained_CO2: "8 years without progressive N limitation"
+    warming_N_enhancement: "Progressive increase over 3 years"
+    community_shifts: "Increased V. myrtillus dominance, species losses"
+
+  integration_with_database:
+    unique_contributions:
+      - "ONLY alpine study in collection"
+      - "ONLY 9-year CO2 enrichment with detailed N data"
+      - "ONLY multifactor high-elevation experiment"
+      - "Species-specific dwarf shrub responses"
+
+    cross_study_patterns:
+      - "V. myrtillus consistently responsive to CO2 across studies"
+      - "Warming responses vary by species and ecosystem"
+      - "Progressive N limitation NOT universal"
+      - "Species-specific responses common across ecosystems"
+
+    complementary_ecosystems:
+      - "Alpine treeline: Dawes 2011 (UNIQUE)"
+      - "Temperate forests: Peterjohn 1994, Butler 2012"
+      - "Arctic tundra: Chapin 1995"
+      - "Subarctic heath: Hartley 1999"
+      - "Peatlands: Weedon 2012"
+      - "Boreal post-fire: Allison 2010"
+
+limitations:
+  experimental_artifacts:
+    heating_cables:
+      - "Air temperature effects up to 20 cm (+0.9 K)"
+      - "No difference at 50 cm"
+      - "Slight drying (soil -15%, air humidity -10%)"
+      - "But soil water potential >-300 hPa (no strong stress)"
+
+    CO2_coverage:
+      - "73-87% of daytime treatment periods"
+      - "Interruptions due to weather/technical issues"
+      - "Daytime only - missed night-time effects"
+
+    light_attenuation:
+      - "Elevated CO2 stimulated larch growth → greater canopy"
+      - "V. myrtillus leaf area increase may be partly shade response"
+      - "But canopy shading NOT significantly related to shoot growth"
+
+  measurement_limitations:
+    - "Shoot growth only (no below-ground, roots, reproduction)"
+    - "E. hermaphroditum leaves too small for individual measurement"
+    - "Missing 2008 leaf area/SLA data"
+    - "Soil N only 3 time points (2004, 2007, 2009)"
+    - "Species composition only 2 time points (2005, 2009)"
+
+  statistical_power:
+    - "n=5 replicates - low power for small effects"
+    - "Many response variables - no family-wise error adjustment"
+    - "Pre-treatment differences limit ANCOVA strength"
+
+  interpretation_uncertainties:
+    - "V. gaultherioides tree species effect mechanism UNCLEAR"
+    - "Warming vs CO2 magnitude difficult to compare (different durations, magnitudes)"
+    - "Weak N-growth correlations - unclear contribution of N vs direct temperature"
+    - "Community composition mechanisms - cannot separate light vs below-ground competition"
+
+  missing_measurements:
+    - "NO soil respiration, NEE, plant respiration, C balance"
+    - "NO litter decomposition, soil OM dynamics, microbial biomass"
+    - "NO plant water potential, stomatal conductance, transpiration"
+    - "NO mycorrhizal colonization"
+    - "NO root biomass, root:shoot ratios, fine root turnover"
+    - "NO phenology (bud burst, senescence, growing season length)"
+
+conclusions:
+  - "Species-specific responses: ONLY V. myrtillus showed clear positive responses to both CO2 (+12%) and warming (+31%)"
+  - "NO interactive effects: CO2 and warming independent and additive, facilitating predictive modeling"
+  - "Sustained CO2 response: NO decline over 8 years, NO progressive N limitation"
+  - "Warming enhanced N availability: +52% to +140% soil inorganic N over 3 years"
+  - "Community shifts: Vascular richness declined (elevated CO2 + larch), nonvascular declined (warming)"
+  - "SLA predicts responsiveness: V. myrtillus 20-50% higher SLA than co-occurring species"
+  - "Ongoing change consequences: Less diverse communities, increased V. myrtillus dominance at alpine treeline"
+
+broader_implications:
+  alpine_ecosystems:
+    - "Increased dominance of responsive species (V. myrtillus)"
+    - "Less diverse plant communities"
+    - "Enhanced tree growth (larch) → altered tree-understorey interactions"
+    - "Nonvascular species at risk from warming-induced drying"
+
+  climate_predictions:
+    - "Independent effects facilitate modeling (additive not synergistic)"
+    - "Trait-based approaches promising (SLA, leaf type, elevation)"
+    - "Progressive N limitation NOT universal"
+    - "Species-level resolution essential"
+
+  experimental_design:
+    - "Long-term experiments critical (9 years revealed sustained response)"
+    - "Multifactor experiments valuable (revealed independent effects)"
+    - "Species-specific measurements necessary"
+
+  global_change_ecology:
+    - "High-elevation ecosystems particularly responsive"
+    - "Competitive interactions modulate responses"
+    - "Moisture interactions critical"
+
+comparative_studies:
+  consistent_vaccinium_myrtillus_CO2_responsiveness:
+    - "Gwynn-Jones et al. (1997) - Subarctic Sweden, 3 years, positive V. myrtillus response"
+    - "Arp et al. (1998) - Netherlands heathlands, glasshouse, 1 season, positive V. myrtillus response"
+    - "Current study - Swiss Alps, 9 years, sustained positive V. myrtillus response"
+    - "Pattern: INHERENT CO2 responsiveness across multiple environments"
+
+  variable_warming_responses:
+    - "Hartley et al. (1999) - Abisko Sweden, V. myrtillus > E. hermaphroditum"
+    - "Parsons et al. (1994) - Swedish subarctic, ALL THREE species positive (different from current)"
+    - "Kudo & Suzuki (2003) - Japan alpine, V. uliginosum no effect, E. nigrum positive (different)"
+    - "Differences: Genetic variation, arctic vs alpine, warming methods"
+
+  multifactor_studies:
+    - "Oechel et al. (1994) - Alaska tussock tundra, positive CO2×warming (DIFFERENT)"
+    - "Grassland studies - conflicting interaction results"
+    - "Current study - NO interactions (UNIQUE clear result)"

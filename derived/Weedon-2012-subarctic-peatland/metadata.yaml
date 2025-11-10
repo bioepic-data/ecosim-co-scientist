@@ -1,0 +1,639 @@
+study:
+  id: weedon-2012-subarctic-peatland
+  citation:
+    authors: "Weedon, J. T., Kowalchuk, G. A., Aerts, R., van Hal, J., van Logtestijn, R., Tas, N., Röling, W. F. M. and van Bodegom, P. M."
+    year: 2012
+    title: "Summer warming accelerates sub-arctic peatland nitrogen cycling without changing enzyme pools or microbial community structure"
+    journal: "Global Change Biology"
+    volume: 18
+    pages: "138-150"
+    doi: "10.1111/j.1365-2486.2011.02548.x"
+
+  significance:
+    - "Organic-N pools and fluxes an ORDER OF MAGNITUDE HIGHER than inorganic-N in peatlands"
+    - "Summer warming (~1°C) approximately DOUBLED organic-N and ammonia fluxes (Q10 ≈ 30)"
+    - "NO changes in peptidase enzyme activities despite doubled N fluxes - disconnect between process rates and enzyme pools"
+    - "Microbial community structure STABLE across treatments - no changes at domain to sub-phyla level"
+    - "Seasonal microbial biomass die back (21% decrease June-August in warmed plots) proposed as mechanism"
+    - "Challenges paradigm that climate effects mediated through microbial community structure changes"
+
+site:
+  location:
+    name: "Ombrotrophic Sphagnum peat bog near Abisko Scientific Research Station"
+    country: "Sweden"
+    region: "Sub-arctic northern Sweden"
+    latitude_n: 68.350
+    longitude_e: 18.817
+    elevation_m: 340
+    distance_from_station_m: 800
+
+  climate:
+    classification: "Sub-arctic"
+    mean_annual_rainfall_mm: 352
+    mean_monthly_temp_january_c: -9.7
+    mean_monthly_temp_july_c: 12.3
+    meteorological_data_period: "1999-2008"
+
+  ecosystem:
+    type: "Ombrotrophic Sphagnum peat bog (blanket bog on gently sloping terrain)"
+    nutrient_status: "Ombrotrophic (rain-fed, nutrient-poor)"
+    peat_depth_cm: 60
+
+    vegetation:
+      dominant_mosses:
+        - species: "Sphagnum fuscum"
+          note: "Predominant"
+        - "Other Sphagnum species"
+
+      dominant_dwarf_shrubs:
+        - "Empetrum hermaphroditum (crowberry)"
+        - "Rubus chaemomorus (cloudberry)"
+        - "Betula nana (dwarf birch)"
+        - "Vaccinium uliginosum (bog bilberry)"
+
+  soil:
+    type: "Organic peat soil"
+    depth_cm: 60
+    pH_KCl: 3.0
+    soil_moisture_pct_water_by_weight:
+      june_2009: 88.0
+      august_2009: 86.9
+      note: "Small but significant seasonal decrease"
+
+experimental_design:
+  duration:
+    establishment: "June 2000"
+    total_years: 9
+    measurement_year: 2009
+    note: "Long-term continuous treatment since 2000"
+
+  layout:
+    total_plots: 30
+    spatial_design: "5 contiguous blocks perpendicular to slope"
+    plots_per_block: 6
+    replication_n: 5
+
+  treatments:
+    design: "Factorial: 2 summer × 3 winter/spring = 6 treatments"
+
+    summer_levels:
+      - name: "Ambient summer (A)"
+        description: "No OTC during growing season"
+
+      - name: "Summer warming (W)"
+        description: "OTC during growing season (June-October)"
+        air_temp_increase_c: "0.2-0.9"
+        period: "June-October"
+
+    winter_spring_levels:
+      - name: "Ambient winter/spring (A)"
+        description: "No manipulation"
+
+      - name: "Snow addition + Spring warming (S)"
+        description: "Snow fence + OTC in spring"
+        snow_layer_thickness: "Approximately doubled"
+        winter_soil_temp_increase_c: "0.5-2.2"
+        spring_air_temp_increase_c: "0.3-1.0"
+        spring_period: "April-June"
+
+    combinations_analyzed:
+      - "AA: Ambient summer, Ambient winter/spring (control)"
+      - "AS: Ambient summer, Snow + Spring warming"
+      - "WA: Summer warming, Ambient winter/spring"
+      - "WS: Summer warming, Snow + Spring warming"
+
+  open_top_chambers:
+    shape: "Hexagonal"
+    material: "Transparent polycarbonate"
+    height_cm: 50
+    diameter_top_m: "1.6-1.8"
+    diameter_base_m: "2.2-2.5"
+
+  previous_findings_at_site:
+    - "Altered plant phenology (Aerts et al. 2006)"
+    - "Altered Sphagnum moss growth (Dorrepaal et al. 2004)"
+    - "NO significant plant species composition change after 9 years (Keuper et al. 2011)"
+    - "Altered soil freeze-thaw cycles"
+    - "Increased soil respiration from subsurface peat (Dorrepaal et al. 2009)"
+
+measurements:
+  soil_nitrogen_fluxes:
+    method: "Core incubation method (excludes plant uptake and leaching)"
+
+    timing:
+      initial_sampling: "June 4, 2009"
+      final_sampling: "August 26, 2009"
+      additional_sampling: "August 16, 2009 (for microbial community)"
+
+    core_specifications:
+      diameter_cm: 5
+      depth_cm: "15-20"
+      cores_per_plot: 2
+
+    procedure:
+      - "Core 1: Placed in metal cylinder, capped, returned to soil for in situ incubation"
+      - "Core 2: Immediately processed for initial N pools"
+      - "Incubation cores regularly opened to flush headspace"
+      - "August 26: Retrieved incubation cores, processed for final N pools"
+
+    nitrogen_pools_measured:
+      subsamples_per_core: 3
+      subsample_weight_g: 5
+
+      subsample_1:
+        treatment: "Fumigated with chloroform (5 days)"
+        extraction: "25.0 mL 0.5 M K2SO4 (2 h shaking)"
+        digestion: "Potassium persulfate"
+        measures: "Total extractable N (microbial + organic + inorganic)"
+
+      subsample_2:
+        treatment: "Unfumigated"
+        extraction: "25.0 mL 0.5 M K2SO4 (2 h shaking)"
+        digestion: "Potassium persulfate"
+        measures: "Non-microbial extractable N (organic + inorganic)"
+
+      subsample_3:
+        treatment: "Unfumigated"
+        extraction: "25.0 mL 1 M KCl (2 h)"
+        digestion: "None"
+        measures: "Inorganic N (NH4+ + NO3-)"
+
+    calculations:
+      N_inorganic: "Ammonia + Nitrate (unfumigated, undigested)"
+      N_organic: "Nitrate (unfumigated, digested) - N_inorganic"
+      N_microbial: "[Nitrate (fumigated, digested) - N_organic - N_inorganic] / K_EN"
+      K_EN_correction_factor: 0.45
+      seasonal_fluxes: "August pool size - June pool size"
+
+    analytical_instrument: "SA-40 auto-analyzer (Skalar, Breda, The Netherlands)"
+
+  fluorometric_enzyme_assays:
+    purpose: "Estimate potential (not in situ) peptidase activity without substrate limitation"
+    protocol: "Steinweg and McMahon method"
+
+    substrates:
+      - name: "Leu"
+        full_name: "L-leucine-7-amido-4-MUC"
+      - name: "Ala"
+        full_name: "L-alanine-7-amido-4-MUC"
+      - name: "Lys-Ala"
+        full_name: "L-lysine-alanine-7-amido-4-MUC"
+      - name: "AAP"
+        full_name: "L-alanine-alanine-phenylalanine-7-amido-4-MUC (Ala-Ala-Phe)"
+
+    label: "7-amino-4-methylcoumarin (MUC)"
+    supplier: "Sigma-Aldrich"
+
+    assay_conditions:
+      slurry: "4 g fresh weight soil in 90 mL 0.5 M sodium acetate buffer"
+      pH: 5
+      pH_note: "Higher than in situ pH ~3.0; allows comparison to Sinsabaugh et al. 2008"
+      temperature_c: 4
+      temperature_note: "Reflects typical summer 5 cm soil depth temperatures"
+      incubation_duration_h: 22
+      calibration: "Unique 7-point calibration curves per sample"
+
+    fluorometric_detection:
+      instrument: "Spectramax Gemini XS microplate fluorometer (Molecular Devices)"
+      excitation_nm: 365
+      emission_nm: 450
+
+    units: "nanomols per gram dry weight per hour"
+
+  dna_extraction:
+    sample_size_g: 0.25
+    kit: "PowerSoil DNA Isolation Kit (MoBio)"
+    cell_disruption: "Fast Prep Bio101 bead-beater"
+    quality_check: "NanoDrop spectrophotometry"
+
+  quantitative_pcr:
+    purpose: "Enumerate microbial taxonomic groups; relative abundance"
+
+    target_groups:
+      - "Eubacteria (total bacteria)"
+      - "Archaea"
+      - "Fungi"
+      - "Acidobacteria (bacterial phylum)"
+      - "Actinobacteria (bacterial phylum)"
+      - "Alphaproteobacteria (bacterial class)"
+      - "Betaproteobacteria (bacterial class)"
+
+    standards: "Cloned PCR amplicons in pGEM-T vector; 10^8 to 10^3 copies/μL"
+
+    reaction_conditions:
+      volume_uL: 25
+      master_mix: "12.5 μL 2× DyNAmo HS SYBR Green qPCR mix (Finnzymes)"
+      template: "5 μL of 10× diluted DNA extract"
+      replicates: "Triplicate"
+      instrument: "AB 7300 Real-Time PCR System (Applied Biosystems)"
+
+    qpcr_efficiency:
+      range_pct: "81-98"
+      mean_pct: 91
+      r_squared: ">0.99 for all assays"
+
+    normalization: "All target copy numbers scaled to eubacterial 16S rRNA gene copies (relative abundance)"
+
+  dgge:
+    purpose: "Fingerprint microbial community structure"
+
+    target_groups:
+      - "Acidobacteria (primers: Acid31 - Eub518)"
+      - "Actinobacteria (primers: Actino1175-1392R)"
+      - "Fungi (primers: ITS1f - 5.8s)"
+
+    protocol:
+      - "Sequential PCR (2 reactions per sample)"
+      - "GC clamp added in 2nd reaction"
+      - "Template: 10× diluted DNA (1st), product of 1st (2nd)"
+
+    gel_conditions:
+      polyacrylamide_pct:
+        fungi: 6
+        acidobacteria: 6
+        actinobacteria: 8
+      acrylamide_bisacrylamide_ratio: "37.5:1"
+
+      urea_gradient:
+        fungi: "25-40%"
+        acidobacteria: "35-55%"
+        actinobacteria: "35-55%"
+
+      run_voltage: 200
+      run_duration_min: 240
+      run_temperature_c: 60
+      buffer: "1× TAE"
+      instrument: "DCode system (Biorad)"
+
+    image_analysis:
+      staining: "Ethidium bromide (60 min)"
+      camera: "DigiDoc camera system (Biorad)"
+      software: "GelCompar II (Applied Maths)"
+      similarity_metric: "Pearson product moment correlation coefficients from densitometric curves"
+
+results:
+  soil_nitrogen_fluxes:
+    organic_nitrogen:
+      magnitude: "Order of magnitude HIGHER than inorganic-N"
+
+      summer_warming_effect:
+        significance: "F_1,16 = 10.03, P<0.01"
+        AA_control_mg_N_g_DW: 0.06
+        AS_mg_N_g_DW: 0.09
+        WA_mg_N_g_DW: 0.16
+        WA_increase_vs_AA_pct: 165
+        WS_mg_N_g_DW: 0.12
+        WS_increase_vs_AS_pct: 79
+
+      interaction: "Significant summer × winter/spring (F_1,16 = 5.0, P<0.05)"
+      undisturbed_soil: "NO treatment effect"
+
+    ammonia:
+      magnitude: "Order of magnitude LOWER than organic-N"
+
+      summer_warming_effect:
+        significance: "F_1,16 = 14.65, P<0.01"
+        summer_ambient_mean_mg_N_g_DW: 0.005
+        summer_warmed_mean_mg_N_g_DW: 0.013
+        increase_pct: 110
+
+      winter_spring_effect:
+        significance: "F_1,16 = 13.11, P<0.01"
+        direction: "Snow addition + spring warming DECREASED ammonia"
+
+      interaction: "NO interaction between summer and winter/spring"
+
+    nitrate:
+      magnitude: "Similar to ammonia"
+      treatment_effects: "NO significant effects"
+      note: "Surprising - nitrate usually assumed negligible in peatlands"
+
+    calculated_Q10:
+      value: 30
+      interpretation: "Far exceeds enzyme kinetics (Q10 ~ 2-3); indicates INDIRECT mechanisms, not simple temperature effects"
+
+  enzyme_activities:
+    range_nmol_g_DW_h:
+      min: 4.5
+      min_enzyme: "Lys-Ala"
+      max: 134.3
+      max_enzyme: "Ala-Ala-Phe (AAP)"
+
+    seasonal_changes:
+      month_effect: "P<0.05"
+
+      leu:
+        june_to_august_reduction_pct: 50
+        winter_month_interaction: "F_1,16 = 4.77, P<0.05"
+
+      ala:
+        june_to_august_reduction_pct: 30
+
+      aap:
+        june_to_august_reduction_pct: 32
+
+      lys_ala:
+        change: "NO significant change"
+
+    treatment_effects:
+      summer_warming: "NO effect on mean enzymatic potentials"
+      winter_spring: "NO consistent effects"
+
+      key_finding: "Despite ~100% increase in N fluxes, NO changes in potential peptidase activities"
+
+  microbial_biomass_nitrogen:
+    absolute_pool_size_mg_N_g_DW:
+      june: "0.5-0.6"
+      august: "0.45-0.6"
+
+    seasonal_change:
+      summer_month_interaction: "F_1,16 = 4.82, P<0.05"
+
+      summer_ambient:
+        change_pct: -1.5
+
+      summer_warmed:
+        change_pct: -21
+        WA_loss_mg_N_g_DW: 0.14
+        WA_organic_N_accumulation_mg_N_g_DW: 0.16
+        WS_loss_mg_N_g_DW: 0.11
+        WS_organic_N_accumulation_mg_N_g_DW: 0.12
+        note: "Close match between biomass loss and organic-N accumulation"
+
+    undisturbed_soil:
+      all_treatments: "Seasonal decrease in all treatments"
+      summer_warmed_decrease_pct: 45
+      summer_ambient_decrease_pct: 22
+      significance: "Significantly greater in warmed plots"
+
+    winter_spring_effect: "NO significant effects"
+
+  microbial_community_structure:
+    qpcr_relative_abundance:
+      dominant_groups:
+        acidobacteria_pct: 39
+        actinobacteria_pct: 8.8
+        alphaproteobacteria_pct: 2.4
+        betaproteobacteria_pct: 1.1
+
+      fungal_eubacterial_ratio: "0.64:1 (range 0.36:1 to 1.4:1)"
+      eubacterial_archaeal_ratio: "3500:1"
+
+      treatment_effects:
+        alphaproteobacteria:
+          winter_spring_effect: "F_1,16 = 11.02, P<0.01"
+          direction: "LOWER with snow + spring warming"
+          independent_of: "Sampling date and summer treatment"
+
+        betaproteobacteria:
+          winter_spring_effect: "F_1,16 = 7.25, P<0.05"
+          direction: "LOWER with snow + spring warming"
+          independent_of: "Sampling date and summer treatment"
+
+        other_groups: "NO significant effects"
+        seasonal_change: "NO significant change for any group"
+
+        permutational_manova:
+          all_six_groups_together: "NO significant effects (all terms P>0.05)"
+
+    dgge_profiles:
+      target_groups:
+        - "Acidobacteria"
+        - "Actinobacteria"
+        - "Fungi"
+
+      variability_pearson_r:
+        fungi: 0.41
+        fungi_note: "Highly variable"
+        acidobacteria: 0.70
+        actinobacteria: 0.62
+
+      treatment_time_effects:
+        permutational_manova: "NO significant effects"
+        tested: "Each profile separately and all three combined"
+        result: "All models, all terms P>0.05"
+
+      conclusion: "Microbial community structure STABLE across treatments at domain to sub-phyla level"
+
+major_findings:
+  - finding: "Organic-N pools and fluxes an ORDER OF MAGNITUDE HIGHER than inorganic-N"
+    organic_N_range_mg_g_DW: "0.06-0.16"
+    ammonia_range_mg_g_DW: "0.005-0.013"
+    nitrate_range_mg_g_DW: "0.002-0.007"
+    implication: "Measuring organic N turnover more informative than only N mineralization in peatlands"
+
+  - finding: "Summer warming (~1°C air) DOUBLED nitrogen fluxes"
+    organic_N_increase_pct: "79-165"
+    ammonia_increase_pct: 110
+    Q10: 30
+    interpretation: "Q10 far exceeds enzyme kinetics (2-3); indirect mechanisms driving response"
+
+  - finding: "NO changes in enzyme activities despite doubled N fluxes"
+    evidence: "All 4 peptidases (Leu, Ala, Lys-Ala, AAP) insensitive to summer warming"
+    seasonal_changes: "30-50% decrease June-August, but similar across treatments"
+    disconnect: "Large flux changes WITHOUT corresponding enzyme pool changes"
+
+  - finding: "Microbial community structure STABLE"
+    qpcr: "Only minor effects on Alpha and Betaproteobacteria (winter/spring treatment)"
+    dgge: "NO effects on Acidobacteria, Actinobacteria, or Fungi profiles"
+    resolution: "Domain to sub-phyla level stable despite large biogeochemical changes"
+
+  - finding: "Seasonal microbial biomass dieback proposed as mechanism"
+    summer_warmed: "-21% biomass N (June-August)"
+    summer_ambient: "-1.5% biomass N"
+    match_with_organic_N: "WA: 0.14 mg lost = 0.16 mg accumulated"
+    mortality: "Non-specific (no community structure changes)"
+
+    proposed_mechanism:
+      - "Warming → increased substrate inputs (litter, root exudation)"
+      - "→ higher peak microbial biomass (June)"
+      - "→ late-season dieback"
+      - "→ enhanced N fluxes (doubled organic-N and ammonia)"
+
+  - finding: "Implications for peatland carbon balance"
+    potential_feedback: "Warming → decomposition → N mobilization → further decomposition"
+    risk: "Could shift peatlands from C sink to C source"
+    magnitude: "~100% increase in both C respiration (Dorrepaal 2009) and N fluxes (this study)"
+    uncertainty: "Whether increased N → plant C storage vs increased decomposition"
+
+ecosim_modeling_relevance:
+  organic_vs_inorganic_N:
+    - "MUST explicitly represent organic-N pools and fluxes in peatland simulations"
+    - "Cannot rely solely on inorganic N (NH4+, NO3-) dynamics"
+    - "Many peatland plants capable of direct organic-N uptake"
+    - "Need: organic-N depolymerization rates, peptidase dynamics, direct plant uptake"
+
+  indirect_temperature_effects:
+    - "Q10 ≈ 30 far exceeds enzyme kinetics"
+    - "Cannot model as simple Arrhenius/Q10 relationships"
+    - "Must include: non-linear dynamics near freezing, substrate supply changes, microbial biomass dynamics, positive feedbacks"
+    - "Challenge: How to mechanistically represent these indirect effects?"
+
+  microbial_biomass_dynamics:
+    - "Seasonal dieback drove N flux increases, NOT enzyme production or community shifts"
+    - "Explicit representation of microbial biomass essential"
+    - "Must include: seasonal growth/mortality, substrate inputs (litter, root exudation/turnover), overwintering processes, spring flush"
+    - "Microbial biomass as BOTH N source (mortality) and N sink (immobilization)"
+
+  enzyme_pool_process_rate_disconnect:
+    - "Doubled N fluxes with NO changes in potential enzyme activities"
+    - "Enzyme pool size alone INSUFFICIENT predictor of process rates"
+    - "Must also consider: substrate availability, in situ activity (vs potential), environmental controls"
+    - "Substrate supply and microbial biomass dynamics MORE important than enzyme pool size"
+
+  functional_redundancy:
+    - "NO community structure changes despite large functional changes"
+    - "Functional redundancy at phylum/class level for peptidase production"
+    - "Models may NOT need explicit community composition changes for N cycling"
+    - "Can use aggregate microbial parameters"
+
+  seasonal_substrate_dynamics:
+    - "Quantity, timing, composition of substrate inputs critical"
+    - "Must track: plant litter (seasonal timing, quantity, quality), root exudation, root turnover, labile vs recalcitrant C"
+    - "Coupling between plant phenology and substrate supply"
+
+  peatland_specific_processes:
+    - "Ombrotrophic (rain-fed, very low nutrient inputs)"
+    - "Acidic (pH ~3)"
+    - "Anaerobic in deeper layers"
+    - "Sphagnum-dominated (unique litter chemistry)"
+    - "Low decomposition rates (multiple limiting factors)"
+
+  winter_spring_processes:
+    - "Winter snow + spring warming less important than summer warming (this study)"
+    - "But previous studies emphasized winter/spring dynamics"
+    - "Must include: freeze-thaw cycles, snow insulation, spring thaw, overwintering biomass"
+
+  time_lags:
+    - "9-year experiment still showing responses"
+    - "Long equilibration times for peatland processes"
+    - "Need: legacy effects, slow SOM turnover, decade-scale vegetation changes"
+
+  methodological_considerations:
+    - "Incubation cores exclude plant uptake and rhizosphere processes"
+    - "Models calibrated to incubation data may overestimate N to microbes"
+    - "Potential activities (pH 5, 4°C, no substrate limit) very different from in situ (pH 3, variable T, substrate-limited)"
+    - "Focus on in situ process rates rather than potential activities"
+
+comparison_to_other_studies:
+  vs_hartley_1999:
+    both: "Sub-arctic Sweden"
+    ecosystem_difference: "Hartley: dwarf shrub heath (dry); Weedon: Sphagnum bog (wet)"
+    warming_difference: "Hartley: +5°C soil; Weedon: ~+1°C air (OTCs)"
+    duration_difference: "Hartley: 5 years; Weedon: 9 years"
+
+    N_mineralization:
+      hartley: "Doubled year 2, disappeared year 5"
+      weedon: "Doubled (ammonia) year 9, sustained"
+
+    temporal_dynamics:
+      hartley: "Short-term ≠ long-term"
+      weedon: "Effect sustained at least 9 years"
+
+  vs_chapin_1995:
+    both: "High-latitude ecosystems"
+    treatment_difference: "Chapin: HIGH nutrient addition (10 g N/m²/yr); Weedon: No addition, only warming"
+
+    N_availability:
+      chapin_added: "10 g N/m²/yr = 100 kg N/ha/yr"
+      weedon_mineralized: "~5-10 kg N/ha/yr (order of magnitude lower)"
+
+    community_change:
+      chapin: "30-50% species loss, major shifts"
+      weedon: "NO plant species composition change after 9 years"
+
+    conclusion: "Supports that fertilization studies overestimate warming effects"
+
+  vs_peterjohn_butler:
+    ecosystem_difference: "Harvard Forest: temperate deciduous forest; Weedon: sub-arctic peatland"
+    warming_difference: "Harvard: +5°C soil (buried cables); Weedon: ~+1°C air (OTCs)"
+
+    N_mineralization:
+      peterjohn: "Doubled (first 6 months)"
+      butler: "Sustained 7 years"
+      weedon: "Doubled ammonia (year 9), sustained"
+
+    conclusion: "Both show sustained long-term responses (contrasts with Hartley)"
+
+  vs_danish_heathlands:
+    ecosystem_difference: "Denmark: temperate heathland; Weedon: sub-arctic peatland"
+    treatment_difference: "CLIMAITE: CO2 × warming × drought; Weedon: Warming only"
+
+    N_cycling:
+      climaite: "Reduced with warming + drought"
+      weedon: "Enhanced with summer warming"
+
+    key_difference: "Moisture × temperature interactions - Denmark drought dominant, Weedon moisture decrease small"
+
+  unique_contributions:
+    - "ONLY peatland study in collection"
+    - "Organic-N emphasized (order of magnitude > inorganic-N)"
+    - "Enzyme activities + community structure + fluxes measured simultaneously"
+    - "Demonstrates disconnect between enzyme pools, community structure, and process rates"
+    - "Proposes microbial biomass dynamics as key mechanism"
+    - "Long-term (9 years) with sustained responses"
+
+data_quality:
+  strengths:
+    - "Long-term experiment (9 years)"
+    - "Factorial design with seasonal treatments"
+    - "Multiple organizational levels measured simultaneously (fluxes, enzymes, biomass, community)"
+    - "Incubation core method allows complete N accounting"
+    - "Parallel measurements in undisturbed soil"
+    - "Comprehensive molecular methods (qPCR for 7 groups, DGGE for 3)"
+    - "Four peptidase enzymes measured"
+    - "Both organic and inorganic N measured"
+
+  limitations:
+    experimental:
+      - "Limited replication (n=5)"
+      - "Pseudoreplication (blocks not true independent replicates)"
+      - "Multiple treatment combinations complicate isolation of individual factors"
+
+    incubation_method:
+      - "Excludes plant uptake - may overestimate microbial N availability"
+      - "Excludes leaching losses"
+      - "Soil moisture captured at one time (snowmelt)"
+      - "No rhizosphere processes"
+      - "Small core size (5 cm × 15-20 cm) - potential edge effects"
+
+    molecular:
+      - "Resolution: domain to sub-phyla - may miss finer-scale changes"
+      - "DGGE: fingerprinting, not quantitative; fungi highly variable (r=0.41)"
+      - "No functional gene analysis"
+      - "DNA-based: composition, not necessarily activity"
+
+    enzyme_assays:
+      - "Potential activities, not in situ"
+      - "Assay conditions (pH 5, 4°C) differ from field (pH 3, variable T)"
+      - "No substrate limitation - unrealistic"
+      - "Only peptidases - other N-cycle enzymes not examined"
+
+    nitrogen:
+      - "NO chemical composition of organic-N fraction"
+      - "Standard KEN correction (not empirically determined)"
+      - "NO gross N mineralization"
+
+    missing:
+      - "NO soil respiration"
+      - "NO organic N uptake by plants"
+      - "NO root biomass or exudation"
+      - "NO protease activities (only peptidases)"
+      - "NO continuous soil moisture/temperature monitoring"
+
+    temporal:
+      - "Single year of measurements (2009) despite 9-year experiment"
+      - "Only 2 time points (June, August)"
+      - "NO winter or spring measurements"
+
+authors_note:
+  affiliations:
+    - "Department of Systems Ecology, VU University Amsterdam"
+    - "Department of Microbial Ecology, Netherlands Institute of Ecology (NIOO-KNAW)"
+    - "Department of Molecular Cell Physiology, VU University Amsterdam"
+
+  corresponding_author: "j.t.weedon@vu.nl"
+
+  funding: "Netherlands Organisation for Scientific Research (NWO) grant 816.01.012"
+
+  acknowledgments: "J.H.C. Cornelissen and E. Dorrepaal for establishing OTC experiment; Abisko Naturvetenskapliga Station"
