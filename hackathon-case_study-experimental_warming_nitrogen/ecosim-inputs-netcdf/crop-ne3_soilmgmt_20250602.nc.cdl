@@ -1,0 +1,199 @@
+netcdf crop-ne3_soilmgmt_20250602 {
+dimensions:
+	ntopou = 1 ;
+	nchar1 = 10 ;
+	nchart = 24 ;
+	ntill = 12 ;
+	nfert = 12 ;
+	ncharf = 128 ;
+	year = UNLIMITED ; // (12 currently)
+variables:
+	int year(year) ;
+		year:long_name = "year AD" ;
+	int NH1(ntopou) ;
+		NH1:long_name = "Starting column from the west for a topo unit" ;
+		NH1:units = "None" ;
+	int NV1(ntopou) ;
+		NV1:long_name = "Ending column at the east for a topo unit" ;
+		NV1:units = "None" ;
+	int NH2(ntopou) ;
+		NH2:long_name = "Starting row from the north  for a topo unit" ;
+		NH2:units = "None" ;
+	int NV2(ntopou) ;
+		NV2:long_name = "Ending row at the south  for a topo unit" ;
+		NV2:units = "None" ;
+	char fertf(year, ntopou, nchar1) ;
+		fertf:long_name = "Fertilization info for a topo unit" ;
+	char tillf(year, ntopou, nchar1) ;
+		tillf:long_name = "Tillage info for a topo unit" ;
+	char irrigf(year, ntopou, nchar1) ;
+		irrigf:long_name = "Irrigation info for a topo unit" ;
+	char me2001t(ntill, nchart) ;
+		me2001t:long_name = "Tillage file" ;
+	char me2001f(nfert, ncharf) ;
+		me2001f:long_name = "fertilization file" ;
+	char me2003f(nfert, ncharf) ;
+		me2003f:long_name = "fertilization file" ;
+	char me2005f(nfert, ncharf) ;
+		me2005f:long_name = "fertilization file" ;
+	char me2007f(nfert, ncharf) ;
+		me2007f:long_name = "fertilization file" ;
+	char me2009f(nfert, ncharf) ;
+		me2009f:long_name = "fertilization file" ;
+	char me2011f(nfert, ncharf) ;
+		me2011f:long_name = "fertilization file" ;
+
+// global attributes:
+		:description = "soil managment data created on 2025/06/02/21:14:42" ;
+data:
+
+ year = 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 ;
+
+ NH1 = 1 ;
+
+ NV1 = 1 ;
+
+ NH2 = 1 ;
+
+ NV2 = 1 ;
+
+ fertf =
+  "me2001f   ",
+  "NO        ",
+  "me2003f   ",
+  "NO        ",
+  "me2005f   ",
+  "NO        ",
+  "me2007f   ",
+  "NO        ",
+  "me2009f   ",
+  "NO        ",
+  "me2011f   ",
+  "NO        " ;
+
+ tillf =
+  "me2001t   ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        " ;
+
+ irrigf =
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        ",
+  "NO        " ;
+
+ me2001t =
+  "10042001,3,0.100000     ",
+  "20042001,7,0.050000     ",
+  "08112001,1,0.200000     ",
+  "                        ",
+  "                        ",
+  "                        ",
+  "                        ",
+  "                        ",
+  "                        ",
+  "                        ",
+  "                        ",
+  "                        " ;
+
+ me2001f =
+  "16052001  0  0  0  0  4.256000  0  4.256000  4.256000  0  5.000000  0  0  0  0  0  0  0  0  0  0.02  0.76  1  0  0              ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                " ;
+
+ me2003f =
+  "21042003  0  0  0  0  2.964000  0  2.964000  2.964000  0  5.000000  0  0  0  0  0  0  0  0  0  0.02  0.76  1  0  0              ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                " ;
+
+ me2005f =
+  "07042005  0  0  0  0  3.920000  0  3.920000  3.920000  0  5.000000  0  0  0  0  0  0  0  0  0  0.02  0.76  1  0  0              ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                " ;
+
+ me2007f =
+  "18042007  0  0  0  0  4.677667  0  4.677667  4.677667  0  5.000000  0  0  0  0  0  0  0  0  0  0.02  0.76  1  0  0              ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                " ;
+
+ me2009f =
+  "20042009  0  0  0  0  3.642667  0  3.642667  3.642667  0  5.000000  0  0  0  0  0  0  0  0  0  0.02  0.76  1  0  0              ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                " ;
+
+ me2011f =
+  "12042011  0  0  0  0  4.595333  0  4.595333  4.595333  0  5.000000  0  0  0  0  0  0  0  0  0  0.02  0.76  1  0  0              ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                ",
+  "                                                                                                                                " ;
+}

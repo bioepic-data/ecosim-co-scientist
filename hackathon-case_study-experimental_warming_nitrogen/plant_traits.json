@@ -1,0 +1,2520 @@
+[
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "m2 gC-1",
+    "low value": 0.05,
+    "high value": 0.1,
+    "Reference": [
+      "Lemaire, G., et al. (2008). European Journal of Agronomy, 28(3), 434-447. (Provides SLA context for forage legumes).",
+      "Calculation assumes ~48% C mass fraction."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "gC m-2 leaf area",
+    "low value": 4.0,
+    "high value": 8.0,
+    "Reference": [
+      "Based on high SLN (2-3 gN/m2) from Lemaire et al. (2008) and C3 protein fractions (~75%).",
+      "C:N mass ratio of protein ~3.31."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.25,
+    "high value": 0.4,
+    "Reference": [
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19. (Standard C3 range)."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "mgC m-2 leaf area",
+    "low value": 220,
+    "high value": 450,
+    "Reference": [
+      "Gitelson, A. A., et al. (2003). Journal of Plant Physiology, 160(3), 271-282. (Context for Chl in C3 crops).",
+      "Assumes ~73.6% C in chlorophyll."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 100,
+    "high value": 180,
+    "Reference": [
+      "Wilson, K. B., et al. (2000). Agricultural and Forest Meteorology, 104(2), 107-125. (Provides Vcmax data for alfalfa)."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 180,
+    "high value": 300,
+    "Reference": [
+      "Wilson, K. B., et al. (2000). Agricultural and Forest Meteorology, 104(2), 107-125. (Provides Jmax data for alfalfa)."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 600,
+    "high value": 900,
+    "Reference": [
+      "Calculated as Jmax (180-300) / Chlorophyll Carbon content (~0.22-0.45 gC m-2)."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "gC m-2 yr-1",
+    "low value": 1500,
+    "high value": 3000,
+    "Reference": [
+      "Avice, J. C., et al. (1997). Agronomie, 17(2), 107-118. (Context for high productivity of multi-cut alfalfa)."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "MPa h m-4",
+    "low value": 500000000.0,
+    "high value": 5000000000.0,
+    "Reference": [
+      "Meunier, F., et al. (2018). Vadose Zone Journal, 17(1), 170068. (Review including herbaceous dicot hydraulics).",
+      "Alfalfa has a deep taproot system."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "MPa h m-1",
+    "low value": 20000.0,
+    "high value": 200000.0,
+    "Reference": [
+      "Meunier, F., et al. (2018). Vadose Zone Journal, 17(1), 170068. (Range for herbaceous dicots)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 15,
+    "high value": 70,
+    "Reference": [
+      "Garnett, T., et al. (2001). Plant and Soil, 236(1), 67-75. (General crop N-uptake kinetics).",
+      "Derived from dry weight Vmax (e.g., 6-30 umolN gDW-1 h-1)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 40,
+    "Reference": [
+      "Garnett, T., et al. (2001). Plant and Soil, 236(1), 67-75. (General crop N-uptake kinetics).",
+      "Derived from dry weight Vmax (e.g., 4-18 umolN gDW-1 h-1)."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Britto, D. T., & Kronzucker, H. J. (2002). Plant, Cell & Environment, 25(6), 687-699. (Typical HATS range)."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "hairs m-1 root length",
+    "low value": 30000,
+    "high value": 150000,
+    "Reference": [
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants. (General dicot root morphology)."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "laterals m-1 root length",
+    "low value": 500,
+    "high value": 2000,
+    "Reference": [
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants. (General dicot taproot morphology)."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range for C3 dicots.",
+      "Crawford, N. M., & Glass, A. D. M. (1998). Trends in Plant Science, 3(10), 389-395."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.5,
+    "high value": 2.5,
+    "Reference": [
+      "Sage, R. F., & Seemann, J. R. (1993). Plant Physiology, 102(1), 21-30. (General kcat for C3 crops)."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "mgC m-2 leaf area",
+    "low value": 199,
+    "high value": 419.5,
+    "Reference": [
+      "Zarco-Tejada, P. J., et al. (2004). Remote Sensing of Environment, 89(2), 189-199. (Source for total chlorophyll range).",
+      "Lichtenthaler, H. K., & Babani, F. (2021). Photosynthetica, 60(1), 3-9. (Source for Chl a:b ratio).",
+      "PubChem. (n.d.). (Source for molecular formulas and carbon mass fraction)."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 70,
+    "high value": 150,
+    "Reference": [
+      "Warren, C. R., & Adams, M. A. (2001). Plant, Cell & Environment, 24(6), 597-609.",
+      "Guan, X. K., et al. (2010). Photosynthetica, 48(3), 329-336.",
+      "Jensen, A. M., et al. (2015). Annals of Botany, 116(5), 821–833."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "gC m-2 yr-1",
+    "low value": 750,
+    "high value": 1500,
+    "Reference": [
+      "Mäkelä, A., et al. (2009). Tree Physiology, 29(5), 621-638. (Shows range across boreal/temperate sites).",
+      "Ma, J., et al. (2015). Scientific Reports, 5, 10820. (Supports lower end, global average).",
+      "Luyssaert, S., et al. (2007). Global Change Biology, 13(12), 2509-2537. (Supports higher end for temperate forests)."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "gC m-2 leaf area",
+    "low value": 2.3,
+    "high value": 5.3,
+    "Reference": [
+      "Walker, A. P., et al. (2014). Ecology and Evolution, 4(22), 4401-4417. (Context for leaf N content).",
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19. (Supports fraction of N in protein).",
+      "Jones, D. B. (1931, revised 1941). USDA Circular No. 183. (Source for N-to-protein factor 6.25).",
+      "Standard biochemical principles (Supports ~53% C in protein)."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "MPa h m-4",
+    "low value": 500000000.0,
+    "high value": 30000000000.0,
+    "Reference": [
+      "Derived from inverse of typical axial hydraulic conductivity (kh) values for conifer roots (tracheids), often ranging 1e-14 to 5e-13 m4 s-1 MPa-1.",
+      "Sperry, J. S., Hacke, U. G., & Pittermann, J. (2006). Plant, Cell & Environment, 29(3), 364-383. (Review of xylem structure/function, including conifers).",
+      "Tyree, M. T., & Ewers, F. W. (1991). New Phytologist, 119(3), 345-360. (Discussion of hydraulic architecture, including conifers).",
+      "Calculation requires converting s-1 to h-1 (dividing by 3600)."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "MPa h m-1",
+    "low value": 5000.0,
+    "high value": 60000.0,
+    "Reference": [
+      "Derived from inverse of typical radial hydraulic conductivity (Lpr) values for woody/conifer roots, often ranging 5e-9 to 5e-8 m s-1 MPa-1.",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545. (General review context for root water transport).",
+      "Jackson, R. B., et al. (2000). Plant and Soil, 220(1), 1-19. (Review discussing root structure and function, including conifers).",
+      "Mycorrhizal influence can significantly alter Lpr/Rr.",
+      "Calculation requires converting s-1 to h-1 (dividing by 3600)."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 40,
+    "high value": 100,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "Conifers typically have lower rates per area than C3 crops."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.15,
+    "high value": 0.3,
+    "Reference": [
+      "Warren, C. R. (2008). Tree Physiology, 28(11), 1585-1599. (Conifers invest less in Rubisco relative to structural/defense compounds).",
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 250,
+    "high value": 500,
+    "Reference": [
+      "Calculated as Jmax (70-150) / Chlorophyll Carbon content (~0.20-0.42 gC m-2)."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "m2 gC-1",
+    "low value": 0.005,
+    "high value": 0.02,
+    "Reference": [
+      "Wright, I. J., et al. (2004). Nature, 428(6985), 821-827.",
+      "Needles are very dense (low SLA).",
+      "Calculation based on SLA_DM of 0.002-0.01 m2/gDM and Carbon fraction ~0.50 gC/gDM."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 5,
+    "high value": 30,
+    "Reference": [
+      "Woody plants generally have lower Vmax per gram than herbaceous.",
+      "Derived from dry weight Vmax (e.g., 2-12 umolN gDW-1 h-1) and root carbon fraction (~45%).",
+      "Garnett, T. P., et al. (2003). Plant and Soil, 248(1-2), 1-15."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 3,
+    "high value": 20,
+    "Reference": [
+      "Derived from dry weight Vmax (e.g., 1-9 umolN gDW-1 h-1) and root carbon fraction (~45%).",
+      "Garnett, T. P., et al. (2003). Plant and Soil, 248(1-2), 1-15."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Britto, D. T., & Kronzucker, H. J. (2002). Plant, Cell & Environment, 25(6), 687-699."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "hairs m-1 root length",
+    "low value": 10000,
+    "high value": 80000,
+    "Reference": [
+      "Derived from typical densities of 10-80 hairs/mm.",
+      "Often lower than grasses and heavily dependent on mycorrhizal associations (which act in place of root hairs)."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "laterals m-1 root length",
+    "low value": 200,
+    "high value": 1500,
+    "Reference": [
+      "Derived from typical densities of 2-15 laterals/cm.",
+      "Highly variable based on root order and soil exploration strategy.",
+      "Jackson, R. B., et al. (1997). PNAS, 94(14), 7370-7375."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "uM",
+    "low value": 230,
+    "high value": 350,
+    "Reference": [
+      "Values for conifers are significantly higher than crops.",
+      "Kronzucker, H. J., et al. (1999). Plant Physiology, 119(3), 1041-1047. (reports ~340-350 uM for spruce/pine)."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.0,
+    "high value": 2.0,
+    "Reference": [
+      "Warren, C. R. (2008). Tree Physiology, 28(11), 1585-1599. (Conifer kcat is often lower than C3 angiosperms)."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "m2 gC-1",
+    "low value": 0.06,
+    "high value": 0.12,
+    "Reference": [
+      "Wright, I. J., et al. (2004). Nature, 428(6985), 821-827. (High SLA typical of herbaceous legumes).",
+      "Calculation assumes ~48% C mass fraction."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "gC m-2 leaf area",
+    "low value": 3.0,
+    "high value": 7.0,
+    "Reference": [
+      "High N content due to N-fixation, but thinner leaves than alfalfa.",
+      "Based on SLN of ~1.3-2.8 gN/m2 and ~75% protein-N."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.25,
+    "high value": 0.4,
+    "Reference": [
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19. (Standard C3 range)."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "mgC m-2 leaf area",
+    "low value": 180,
+    "high value": 400,
+    "Reference": [
+      "Similar to other productive C3 dicots; ~250-550 mg/m2 total chlorophyll."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 80,
+    "high value": 160,
+    "Reference": [
+      "Woledge, J., & Dennis, W. D. (1982). Annals of Botany, 50(1), 25-35. (Context for white clover photosynthesis)."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 150,
+    "high value": 260,
+    "Reference": [
+      "Coupled to high Vcmax; Wullschleger (1993) general C3 range."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 600,
+    "high value": 900,
+    "Reference": [
+      "Calculated as Jmax (150-260) / Chlorophyll Carbon content (~0.18-0.40 gC m-2)."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "gC m-2 yr-1",
+    "low value": 1000,
+    "high value": 2500,
+    "Reference": [
+      "High productivity, often mixed in productive pastures (e.g., in grass/clover mixes).",
+      "Scurlock, J. M. O., et al. (2002). Global Change Biology, 8(1), 20-36."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "MPa h m-4",
+    "low value": 400000000.0,
+    "high value": 4000000000.0,
+    "Reference": [
+      "Meunier, F., et al. (2018). Vadose Zone Journal, 17(1), 170068. (General herbaceous dicot)."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "MPa h m-1",
+    "low value": 18000.0,
+    "high value": 180000.0,
+    "Reference": [
+      "Meunier, F., et al. (2018). Vadose Zone Journal, 17(1), 170068. (General herbaceous dicot)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 15,
+    "high value": 70,
+    "Reference": [
+      "General range for herbaceous dicots."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 40,
+    "Reference": [
+      "General range for herbaceous dicots."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "hairs m-1 root length",
+    "low value": 30000,
+    "high value": 150000,
+    "Reference": [
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants. (General dicot range)."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "laterals m-1 root length",
+    "low value": 500,
+    "high value": 2000,
+    "Reference": [
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants. (General dicot range)."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range for C3 dicots.",
+      "Crawford, N. M., & Glass, A. D. M. (1998). Trends in Plant Science, 3(10), 389-395."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.5,
+    "high value": 2.5,
+    "Reference": [
+      "Sage, R. F., & Seemann, J. R. (1993). Plant Physiology, 102(1), 21-30. (General kcat for C3 crops)."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "m2 gC-1",
+    "low value": 0.03,
+    "high value": 0.06,
+    "Reference": [
+      "Poorter, H., et al. (2009). New Phytologist, 182(3), 565-588.",
+      "Cotton leaves are relatively thick/leathery.",
+      "Calculation based on SLA_DM of 0.015-0.03 m2/gDM and Carbon fraction ~0.48 gC/gDM."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "gC m-2 leaf area",
+    "low value": 3.0,
+    "high value": 6.0,
+    "Reference": [
+      "Based on SLN of 1.3-2.5 gN/m2. Pettigrew, W. T. (1999). Agronomy Journal, 91(6), 962-966."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.25,
+    "high value": 0.4,
+    "Reference": [
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19. (Standard C3 range)."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "mgC m-2 leaf area",
+    "low value": 200,
+    "high value": 400,
+    "Reference": [
+      "Gitelson, A. A., et al. (2003). Journal of Plant Physiology, 160(3), 271-282. (Range for C3 crops)."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 80,
+    "high value": 140,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 150,
+    "high value": 240,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 500,
+    "high value": 800,
+    "Reference": [
+      "Calculated as Jmax (150-240) / Chlorophyll Carbon content (~0.20-0.40 gC m-2)."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "gC m-2 yr-1",
+    "low value": 700,
+    "high value": 1500,
+    "Reference": [
+      "Productive C3 crop, but partitioning C to fiber.",
+      "Snow, V. O., et al. (2005). Field Crops Research, 91(2-3), 195-212."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "MPa h m-4",
+    "low value": 300000000.0,
+    "high value": 3000000000.0,
+    "Reference": [
+      "Meunier, F., et al. (2018). Vadose Zone Journal, 17(1), 170068. (General herbaceous dicot)."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "MPa h m-1",
+    "low value": 20000.0,
+    "high value": 200000.0,
+    "Reference": [
+      "Meunier, F., et al. (2018). Vadose Zone Journal, 17(1), 170068. (General herbaceous dicot)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 60,
+    "Reference": [
+      "Derived from general dicot Vmax values (e.g., 4.5-27 umolN gDW-1 h-1)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 8,
+    "high value": 35,
+    "Reference": [
+      "Derived from general dicot Vmax values (e.g., 3.5-16 umolN gDW-1 h-1)."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "hairs m-1 root length",
+    "low value": 30000,
+    "high value": 150000,
+    "Reference": [
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants. (General dicot range)."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "laterals m-1 root length",
+    "low value": 500,
+    "high value": 2000,
+    "Reference": [
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants. (General dicot range)."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range for C3 dicots.",
+      "ResearchGate. (2025). Nitrogen uptake kinetics in... cotton. (Mentions low Km for HATS)."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.5,
+    "high value": 2.5,
+    "Reference": [
+      "Sage, R. F., & Seemann, J. R. (1993). Plant Physiology, 102(1), 21-30. (General kcat for C3 crops)."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "MPa h m-4",
+    "low value": 30000000.0,
+    "high value": 300000000.0,
+    "Reference": [
+      "Derived from inverse of typical axial hydraulic conductivity (kh) values for maize, often ranging 1e-12 to 1e-11 m4 s-1 MPa-1.",
+      "Doussan, C., Pagès, L., & Vercambre, G. (1998). Annals of Botany, 81(2), 225-232. (Provides kh values used in maize models).",
+      "Ahmed, M. A., et al. (2018). Plant Physiology, 177(2), 658-673. (Study on maize root hydraulics).",
+      "Calculation requires converting s-1 to h-1 (dividing by 3600)."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "MPa h m-1",
+    "low value": 2500.0,
+    "high value": 30000.0,
+    "Reference": [
+      "Derived from inverse of typical radial hydraulic conductivity (Lpr) values for maize, often ranging 1e-8 to 1e-7 m s-1 MPa-1.",
+      "Hachez, C., et al. (2012). Plant Physiology, 160(1), 478-490. (Study on maize aquaporins and Lpr).",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545. (Review context).",
+      "Calculation requires converting s-1 to h-1 (dividing by 3600)."
+    ]
+  },
+  {
+    "variable": "typical Intercellular-to-atmospheric CO2 concentration ratio (Ci/Ca)",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "unitless",
+    "low value": 0.2,
+    "high value": 0.4,
+    "Reference": [
+      "von Caemmerer, S., & Furbank, R. T. (2003). Photosynthesis Research, 77(2-3), 191-211. (Review of C4 photosynthesis mechanisms explaining low Ci).",
+      "Taiz, L., Zeiger, E., Møller, I. M., & Murphy, A. (2015). Plant Physiology and Development (6th ed.). Sinauer Associates. (Textbook comparing C3 and C4 Ci/Ca ratios).",
+      "Gas exchange studies on Zea mays consistently show low Ci relative to Ca under optimal conditions."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in bundle sheath",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "mgC m-2 leaf area",
+    "low value": 20,
+    "high value": 110,
+    "Reference": [
+      "Derived from typical total leaf chlorophyll (300-600 mg m-2), estimated fraction in bundle sheath (10-25%), and high Chl a/b ratio (using C fraction ~73.9%).",
+      "Edwards, G. E., & Walker, D. A. (1983). C3, C4: mechanisms, and cellular and environmental regulation, of photosynthesis. University of California Press.",
+      "Ghannoum, O., et al. (2005). Plant, Cell & Environment, 28(8), 980-993. (Discusses chlorophyll partitioning in C4 grasses)."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "mgC m-2 leaf area",
+    "low value": 170,
+    "high value": 400,
+    "Reference": [
+      "Derived from typical total leaf chlorophyll (300-600 mg m-2), estimated fraction in mesophyll (75-90%), and C3-like Chl a/b ratio (using C fraction ~73.6%).",
+      "Edwards, G. E., & Walker, D. A. (1983). C3, C4: mechanisms, and cellular and environmental regulation, of photosynthesis. University of California Press.",
+      "Ghannoum, O., et al. (2005). Plant, Cell & Environment, 28(8), 980-993. (Discusses chlorophyll partitioning in C4 grasses)."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "gC m-2 leaf area",
+    "low value": 1.09,
+    "high value": 1.09,
+    "Reference": [
+      "Calculated value based on typical Specific Leaf Nitrogen (SLN) of 1.0 gN m-2, a protein-N fraction of 33%, and a C:N mass ratio of ~3.31.",
+      "C:N ratio derived from standard biochemical principles (Protein ~53% C, ~16% N).",
+      "SLN reference: Muchow, R. C. (1988). Field Crops Research, 18(1), 17-30.",
+      "Protein-N fraction reference: Based on C4 physiology (lower Rubisco content)."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 20,
+    "high value": 60,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162. (Indicates lower Vcmax for C4 vs C3).",
+      "Kattge, J., et al. (2011). Global Change Biology, 17(9), 2905-2935. (TRY database context).",
+      "C4 plants concentrate CO2, requiring less Rubisco and thus having a lower Vcmax per leaf area than C3s."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 100,
+    "high value": 250,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "C4 photosynthesis has an additional ATP demand, but Jmax is often comparable to or slightly higher than C3 grasses to support this."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.05,
+    "high value": 0.15,
+    "Reference": [
+      "Feller et al. (2008). J Exp Botany, 59(7), 1615-1624. (Notes Rubisco is ~5-9% of total leaf N in C4 plants).",
+      "C4 plants concentrate CO2, requiring far less Rubisco protein than C3 plants.",
+      "Assumes C:N ratio of Rubisco is similar to other proteins, so N-fraction is proxy for C-fraction."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 400,
+    "high value": 900,
+    "Reference": [
+      "Calculated as Jmax (100-250) / Chlorophyll Carbon content (~0.19-0.51 gC m-2).",
+      "Reflects high electron transport rates relative to total chlorophyll."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "m2 gC-1",
+    "low value": 0.03,
+    "high value": 0.06,
+    "Reference": [
+      "Poorter, H., et al. (2009). New Phytologist, 182(3), 565-588. (General range for herbaceous plants).",
+      "Maize leaves are relatively thick, similar to other productive grasses.",
+      "Calculation based on typical SLA_DM of 0.015-0.03 m2/gDM and Carbon fraction of ~0.48 gC/gDM."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "gC m-2 yr-1",
+    "low value": 1500,
+    "high value": 3000,
+    "Reference": [
+      "Suyker, A. E., & Verma, S. B. (2009). Agricultural and Forest Meteorology, 149(3-4), 445-452. (Shows high seasonal GPP in maize).",
+      "C4 crops are among the most productive ecosystems on Earth during their growing season.",
+      "Range represents high-productivity agricultural settings."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 60,
+    "Reference": [
+      "Derived from dry weight Vmax (e.g., 5-25 umolN gDW-1 h-1) and root carbon fraction (~40-45%).",
+      "Garnett, T., et al. (2001). Plant and Soil, 236(1), 67-75. (Study on maize N uptake kinetics).",
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants. (General ranges)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 5,
+    "high value": 30,
+    "Reference": [
+      "Derived from dry weight Vmax (e.g., 2-12 umolN gDW-1 h-1) and root carbon fraction (~40-45%).",
+      "Garnett, T., et al. (2001). Plant and Soil, 236(1), 67-75. (Study on maize N uptake kinetics).",
+      "Crawford, N. M., & Glass, A. D. M. (1998). Trends in Plant Science, 3(10), 389-395."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Britto, D. T., & Kronzucker, H. J. (2002). Plant, Cell & Environment, 25(6), 687-699.",
+      "Value is characteristic of High-Affinity Transport Systems (HATS) common across many plants, including maize."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "hairs m-1 root length",
+    "low value": 40000,
+    "high value": 200000,
+    "Reference": [
+      "Derived from typical densities of 40-200 hairs/mm.",
+      "Ma, Z., et al. (2001). Plant Physiology, 127(3), 941-951. (Discusses maize root hair development).",
+      "General plant anatomy texts."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "laterals m-1 root length",
+    "low value": 200,
+    "high value": 1000,
+    "Reference": [
+      "Derived from typical densities of 2-10 laterals/cm.",
+      "Pagès, L., et al. (2004). Plant and Soil, 258(1), 1-21.",
+      "Maize has a highly branched fibrous root system."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "York, L. M., et al. (2016). Journal of Experimental Botany, 67(16), 4931-4944. (Reports range of 2.7-52.2 uM)."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 2.5,
+    "high value": 4.0,
+    "Reference": [
+      "Sage, R. F. (2002). Oecologia, 132(4), 481-495. (C4 kcat is generally higher than C3)."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "m2 gC-1",
+    "low value": 0.04,
+    "high value": 0.08,
+    "Reference": [
+      "Poorter, H., et al. (2009). New Phytologist, 182(3), 565-588.",
+      "General range for temperate C3 grasses."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "gC m-2 leaf area",
+    "low value": 2.3,
+    "high value": 6.0,
+    "Reference": [
+      "Based on typical SLN for C3 cereals (1.0-2.5 gN/m2), 75% protein-N, and ~3.31 C:N ratio.",
+      "Peltonen-Sainio, P., et al. (2007). Agronomy Journal, 99(2), 441-449."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.25,
+    "high value": 0.4,
+    "Reference": [
+      "Standard range for C3 plants (e.g., Evans, 1989)."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "mgC m-2 leaf area",
+    "low value": 150,
+    "high value": 370,
+    "Reference": [
+      "Typical range for C3 cereals, derived from 200-500 mg/m2 total chlorophyll.",
+      "Assumes ~73.6% C in chlorophyll."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 60,
+    "high value": 120,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "Similar to winter wheat."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 120,
+    "high value": 220,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "Similar to winter wheat."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 500,
+    "high value": 800,
+    "Reference": [
+      "Calculated as Jmax (120-220) / Chlorophyll Carbon content (~0.15-0.37 gC m-2)."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "gC m-2 yr-1",
+    "low value": 800,
+    "high value": 2000,
+    "Reference": [
+      "Reflects typical GPP for temperate C3 annual crops.",
+      "Amiro, B. D., et al. (2006). Agricultural and Forest Meteorology, 139(3-4), 163-176."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range, similar to other C3 grasses.",
+      "Britto, D. T., & Kronzucker, H. J. (2002). Plant, Cell & Environment, 25(6), 687-699."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "MPa h m-4",
+    "low value": 50000000.0,
+    "high value": 600000000.0,
+    "Reference": [
+      "Similar to other C3 grasses (e.g., wheat, barley).",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "MPa h m-1",
+    "low value": 2500.0,
+    "high value": 30000.0,
+    "Reference": [
+      "Similar to other C3 grasses.",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 50,
+    "Reference": [
+      "Similar to other C3 grasses.",
+      "Derived from typical Vmax values on dry weight basis (5-20 umolN gDW-1 h-1)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 5,
+    "high value": 25,
+    "Reference": [
+      "Similar to other C3 grasses.",
+      "Derived from typical Vmax values on dry weight basis (2-10 umolN gDW-1 h-1)."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "hairs m-1 root length",
+    "low value": 50000,
+    "high value": 300000,
+    "Reference": [
+      "Dittmer, H. J. (1937). American Journal of Botany, 24(7), 417-420."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "laterals m-1 root length",
+    "low value": 100,
+    "high value": 1000,
+    "Reference": [
+      "Fibrous root system typical of grasses."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range for C3 cereals, similar to wheat/barley.",
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.5,
+    "high value": 2.5,
+    "Reference": [
+      "Sage, R. F., & Seemann, J. R. (1993). Plant Physiology, 102(1), 21-30. (General kcat for C3 crops)."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "MPa h m-4",
+    "low value": 60000000.0,
+    "high value": 800000000.0,
+    "Reference": [
+      "Derived from inverse of typical axial hydraulic conductivity (kh) values for sedges/monocots in moist habitats, potentially slightly lower than some grasses (e.g., 4.5e-13 to 4.5e-12 m4 s-1 MPa-1).",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545. (General review context for monocot root hydraulics).",
+      "Literature on specific sedge species (e.g., Carex) and wetland plants."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "MPa h m-1",
+    "low value": 3000.0,
+    "high value": 40000.0,
+    "Reference": [
+      "Derived from inverse of typical radial hydraulic conductivity (Lpr) values for sedges/monocots, often ranging 7e-9 to 9e-8 m s-1 MPa-1.",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545. (General review context for monocot root hydraulics).",
+      "Miyamoto, N., et al. (2001). Plant Physiology, 125(4), 1915-1927. (Example study showing Lpr in rice, another wetland monocot).",
+      "Adaptations to wet soils might influence Lpr/Rr compared to upland grasses.",
+      "Calculation requires converting s-1 to h-1 (dividing by 3600)."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "mgC m-2 leaf area",
+    "low value": 150,
+    "high value": 370,
+    "Reference": [
+      "Assuming typical C3 grass chlorophyll ranges (~200-550 mg m-2) and C fraction (~73.6%).",
+      "Values are for C3 sedges, which are most common."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 100,
+    "high value": 200,
+    "Reference": [
+      "Similar to other productive C3 grasses.",
+      "Starr, G., et al. (2004). Oecologia, 140(2), 241-250."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "gC m-2 yr-1",
+    "low value": 800,
+    "high value": 2200,
+    "Reference": [
+      "Sedges in wetlands/tundra can be highly productive.",
+      "Oechel, W. C., et al. (1998). Arctic and Alpine Research, 30(3), 254-260."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "gC m-2 leaf area",
+    "low value": 2.3,
+    "high value": 6.6,
+    "Reference": [
+      "Assuming similar to productive C3 grass (e.g., SLN 1.0-2.5 gN/m2)."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "m2 gC-1",
+    "low value": 0.04,
+    "high value": 0.09,
+    "Reference": [
+      "Poorter, H., et al. (2009). New Phytologist, 182(3), 565-588.",
+      "Similar to C3 grasses, though some wetland species have high SLA."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.25,
+    "high value": 0.4,
+    "Reference": [
+      "Standard range for C3 plants."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 60,
+    "high value": 120,
+    "Reference": [
+      "Similar to productive C3 grasses.",
+      "Starr, G., et al. (2004). Oecologia, 140(2), 241-250."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 500,
+    "high value": 800,
+    "Reference": [
+      "Calculated as Jmax (100-200) / Chlorophyll Carbon content (~0.15-0.37 gC m-2)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 60,
+    "Reference": [
+      "Sedges, especially in wetlands, are often adapted to high NH4+ availability.",
+      "Derived from dry weight Vmax (e.g., 5-25 umolN gDW-1 h-1) and root carbon fraction (~40-45%)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 5,
+    "high value": 25,
+    "Reference": [
+      "Similar to C3 grass."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "hairs m-1 root length",
+    "low value": 50000,
+    "high value": 300000,
+    "Reference": [
+      "Dittmer, H. J. (1937). American Journal of Botany, 24(7), 417-420."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "laterals m-1 root length",
+    "low value": 100,
+    "high value": 1000,
+    "Reference": [
+      "Fibrous root system typical of grasses."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range for C3 monocots."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.5,
+    "high value": 2.5,
+    "Reference": [
+      "Assuming typical C3 kcat (e.g., Sage & Seemann, 1993)."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "MPa h m-4",
+    "low value": 300000000.0,
+    "high value": 3000000000.0,
+    "Reference": [
+      "Derived from inverse of typical axial hydraulic conductivity (kh) values for herbaceous dicots like soybean, often ranging 1e-13 to 1e-12 m4 s-1 MPa-1.",
+      "Meunier, F., et al. (2018). Vadose Zone Journal, 17(1), 170068. (Review including soybean hydraulic properties).",
+      "Bramley, H., et al. (2009). Plant Physiology, 150(1), 348-364. (Compares dicot - lupin - vs monocot hydraulics).",
+      "Calculation requires converting s-1 to h-1 (dividing by 3600)."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "MPa h m-1",
+    "low value": 15000.0,
+    "high value": 150000.0,
+    "Reference": [
+      "Derived from inverse of typical radial hydraulic conductivity (Lpr) values for soybean/herbaceous dicots, often ranging 2e-9 to 2e-8 m s-1 MPa-1.",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1531-1542. (General review context).",
+      "Maurel, C., et al. (2015). Annual Review of Plant Biology, 66, 195-220. (Review covering aquaporins and Lpr variability).",
+      "Calculation requires converting s-1 to h-1 (dividing by 3600)."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "mgC m-2 leaf area",
+    "low value": 220,
+    "high value": 440,
+    "Reference": [
+      "Derived from typical total leaf chlorophyll (300-600 mg m-2) and C3 carbon fraction (~73.6%).",
+      "Gitelson, A. A., et al. (2003). Journal of Plant Physiology, 160(3), 271-282. (Provides chlorophyll data for various crops including soybean).",
+      "PubChem. (n.d.). (Source for molecular formulas and carbon mass fraction)."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "gC m-2 leaf area",
+    "low value": 3.72,
+    "high value": 3.72,
+    "Reference": [
+      "Calculated value based on typical Specific Leaf Nitrogen (SLN) of 1.5 gN m-2, a protein-N fraction of 75%, and a C:N mass ratio of ~3.31.",
+      "C:N ratio derived from standard biochemical principles (Protein ~53% C, ~16% N).",
+      "SLN reference: Sinclair, T. R., & Horie, T. (1989). Crop Sciences, 29(1), 90-95.",
+      "Protein-N fraction reference: e.g., Evans (1989). Oecologia, 78(1), 9-19."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 80,
+    "high value": 150,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "Kattge, J., et al. (2011). Global Change Biology, 17(9), 2905-2935.",
+      "Values typical for high-N, productive C3 crops."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 150,
+    "high value": 250,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "Reflects high photosynthetic capacity, tightly coupled to Vcmax."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.25,
+    "high value": 0.4,
+    "Reference": [
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19.",
+      "Typical range for C3 plants, similar to C3 grass."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 500,
+    "high value": 800,
+    "Reference": [
+      "Calculated as Jmax (150-250) / Chlorophyll Carbon content (~0.22-0.44 gC m-2)."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "m2 gC-1",
+    "low value": 0.03,
+    "high value": 0.07,
+    "Reference": [
+      "Poorter, H., et al. (2009). New Phytologist, 182(3), 565-588.",
+      "Calculation based on typical SLA_DM of 0.015-0.035 m2/gDM and Carbon fraction of ~0.48 gC/gDM."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "gC m-2 yr-1",
+    "low value": 800,
+    "high value": 1800,
+    "Reference": [
+      "Reflects high productivity of C3 crops during the growing season.",
+      "Suyker, A. E., et al. (2005). Agricultural and Forest Meteorology, 132(3-4), 216-229."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 15,
+    "high value": 70,
+    "Reference": [
+      "Derived from dry weight Vmax (e.g., 6-30 umolN gDW-1 h-1) and root carbon fraction (~40-45%).",
+      "General values for herbaceous dicots."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 40,
+    "Reference": [
+      "Derived from dry weight Vmax (e.g., 4-18 umolN gDW-1 h-1) and root carbon fraction (~40-45%)."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range, similar to C3 grass."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "hairs m-1 root length",
+    "low value": 30000,
+    "high value": 150000,
+    "Reference": [
+      "Derived from typical densities of 30-150 hairs/mm.",
+      "Dicots often have lower root hair density than grasses."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "laterals m-1 root length",
+    "low value": 500,
+    "high value": 2000,
+    "Reference": [
+      "Derived from typical densities of 5-20 laterals/cm.",
+      "Reflects taproot system with extensive lateral branching."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range for C3 dicots.",
+      "NRT1.1 transporter shows affinity in this range (e.g., ~40 uM)."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.5,
+    "high value": 2.5,
+    "Reference": [
+      "Sage, R. F., & Seemann, J. R. (1993). Plant Physiology, 102(1), 21-30. (General kcat for C3 crops)."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "m2 gC-1",
+    "low value": 0.04,
+    "high value": 0.08,
+    "Reference": [
+      "Poorter, H., et al. (2009). New Phytologist, 182(3), 565-588. (General range for C3 grasses)."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "gC m-2 leaf area",
+    "low value": 2.3,
+    "high value": 6.6,
+    "Reference": [
+      "Based on SLN of 1.0-2.5 gN/m2, 75% protein-N, and ~3.31 C:N ratio.",
+      "Dreccer, M. F., et al. (2000). Field Crops Research, 67(3), 209-224."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.25,
+    "high value": 0.4,
+    "Reference": [
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19. (Standard C3 range)."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "mgC m-2 leaf area",
+    "low value": 150,
+    "high value": 370,
+    "Reference": [
+      "Typical range for C3 cereals, derived from 200-500 mg/m2 total chlorophyll."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 60,
+    "high value": 120,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "Amdall, J., et al. (2018). Field Crops Research, 221, 135-144."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 120,
+    "high value": 220,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 500,
+    "high value": 800,
+    "Reference": [
+      "Calculated as Jmax (120-220) / Chlorophyll Carbon content (~0.15-0.37 gC m-2)."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "gC m-2 yr-1",
+    "low value": 800,
+    "high value": 2000,
+    "Reference": [
+      "Typical for annual C3 crops.",
+      "Amiro, B. D., et al. (2006). Agricultural and Forest Meteorology, 139(3-4), 163-176."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "MPa h m-4",
+    "low value": 50000000.0,
+    "high value": 600000000.0,
+    "Reference": [
+      "Similar to C3 grass.",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "MPa h m-1",
+    "low value": 2500.0,
+    "high value": 30000.0,
+    "Reference": [
+      "Similar to C3 grass.",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 50,
+    "Reference": [
+      "Similar to C3 grass.",
+      "Derived from typical Vmax values on dry weight basis (5-20 umolN gDW-1 h-1)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 5,
+    "high value": 25,
+    "Reference": [
+      "Similar to C3 grass.",
+      "Derived from typical Vmax values on dry weight basis (2-10 umolN gDW-1 h-1)."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "hairs m-1 root length",
+    "low value": 50000,
+    "high value": 300000,
+    "Reference": [
+      "Dittmer, H. J. (1937). American Journal of Botany, 24(7), 417-420."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "laterals m-1 root length",
+    "low value": 100,
+    "high value": 1000,
+    "Reference": [
+      "Similar to C3 grass."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range for C3 cereals.",
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.5,
+    "high value": 2.5,
+    "Reference": [
+      "Sage, R. F., & Seemann, J. R. (1993). Plant Physiology, 102(1), 21-30. (General kcat for C3 crops)."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "temperate C3 grass",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Britto, D. T., & Kronzucker, H. J. (2002). Plant, Cell & Environment, 25(6), 687-699. (Review on NH4+ toxicity and transport, discusses Km values for HATS).",
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants: Principles and Perspectives (2nd ed.). Sinauer Associates. (Textbook covering nutrient uptake kinetics, including typical Km ranges for HATS).",
+      "Specific studies on grasses (e.g., Lolium, Hordeum) generally report Km values for high-affinity NH4+ uptake within this range."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "temperate C3 grass",
+    "unit": "MPa h m-4",
+    "low value": 50000000.0,
+    "high value": 600000000.0,
+    "Reference": [
+      "Derived from inverse of typical axial hydraulic conductivity (kh) values for grasses, often ranging 5e-13 to 5e-12 m4 s-1 MPa-1.",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545. (Review discussing axial and radial water transport components and typical conductivity ranges).",
+      "Sanderson, J. (1983). Journal of Experimental Botany, 34(3), 227-248. (Study measuring hydraulic conductivity in barley roots, providing examples of kh values).",
+      "Calculation requires converting s-1 to h-1 (dividing by 3600)."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "temperate C3 grass",
+    "unit": "MPa h m-1",
+    "low value": 2500.0,
+    "high value": 30000.0,
+    "Reference": [
+      "Derived from inverse of typical radial hydraulic conductivity (Lpr) values for grasses/herbaceous plants, often ranging 1e-8 to 1e-7 m s-1 MPa-1.",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545. (Review discussing radial transport, aquaporins, and typical Lpr ranges).",
+      "Bramley, H., et al. (2009). Plant, Cell & Environment, 32(9), 1234-1246. (Provides Lpr values for different grass species under varying conditions).",
+      "Calculation requires converting s-1 to h-1 (dividing by 3600)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "temperate C3 grass",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 50,
+    "Reference": [
+      "Derived from typical Vmax values on dry weight basis (5-20 umolN gDW-1 h-1) and root carbon fraction (~40-45%).",
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants: Principles and Perspectives (2nd ed.). Sinauer Associates. (General ranges for Vmax).",
+      "Jackson, L. E., et al. (1993). Plant, Cell & Environment, 16(5), 567-577. (Example study measuring Vmax in grasses).",
+      "Calculation: Vmax_gC = Vmax_gDW / (gC/gDW fraction)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "temperate C3 grass",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 5,
+    "high value": 25,
+    "Reference": [
+      "Derived from typical Vmax values on dry weight basis (2-10 umolN gDW-1 h-1) and root carbon fraction (~40-45%).",
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants: Principles and Perspectives (2nd ed.). Sinauer Associates. (General ranges for Vmax, typically lower for NO3- HATS than NH4+).",
+      "Crawford, N. M., & Glass, A. D. M. (1998). Trends in Plant Science, 3(10), 389-395. (Review of nitrate uptake systems).",
+      "Calculation: Vmax_gC = Vmax_gDW / (gC/gDW fraction)."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "temperate C3 grass",
+    "unit": "hairs m-1 root length",
+    "low value": 50000,
+    "high value": 300000,
+    "Reference": [
+      "Derived from typical densities of 50-300 hairs/mm.",
+      "Dittmer, H. J. (1937). American Journal of Botany, 24(7), 417-420. (Classic study providing high-end estimates for grass root hairs).",
+      "Ge, Z., et al. (2000). Plant and Soil, 218(1), 159-170. (Discusses root hair responses to P availability).",
+      "General plant anatomy and physiology texts (e.g., Esau's Plant Anatomy)."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "temperate C3 grass",
+    "unit": "laterals m-1 root length",
+    "low value": 100,
+    "high value": 1000,
+    "Reference": [
+      "Derived from typical densities of 1-10 laterals/cm.",
+      "Fitter, A. H. (1987). New Phytologist, 106(Supplement), 87-101. (Provides examples for Poa annua).",
+      "Pagès, L., et al. (2004). Plant and Soil, 258(1), 1-21. (Discusses variability in branching density).",
+      "Range reflects variation with root order and soil conditions."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "temperate C3 grass",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 200,
+    "high value": 700,
+    "Reference": [
+      "Calculated as Jmax / Chlorophyll Carbon content.",
+      "Jmax range (60-140 umol e- m-2 s-1) from Wullschleger (1993), Kattge et al. (2011).",
+      "Chlorophyll Carbon range (0.15-0.40 gC m-2) derived from general C3 grass values."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "temperate C3 grass",
+    "unit": "m2 gC-1",
+    "low value": 0.04,
+    "high value": 0.1,
+    "Reference": [
+      "General range for C3 grasses, encompassing temperate and other types.",
+      "Poorter, H., et al. (2009). New Phytologist, 182(3), 565-588."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "temperate C3 grass",
+    "unit": "gC m-2 leaf area",
+    "low value": 2.0,
+    "high value": 7.0,
+    "Reference": [
+      "Broad range covering different nutrient statuses.",
+      "Based on SLN of ~1.0-3.0 gN/m2, 75% protein-N, and ~3.31 C:N ratio."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "temperate C3 grass",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.25,
+    "high value": 0.4,
+    "Reference": [
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "temperate C3 grass",
+    "unit": "mgC m-2 leaf area",
+    "low value": 150,
+    "high value": 400,
+    "Reference": [
+      "General range for C3 grasses, ~200-550 mg/m2 total chlorophyll.",
+      "Assumes ~73.6% C in chlorophyll."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "temperate C3 grass",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 50,
+    "high value": 130,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "temperate C3 grass",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 100,
+    "high value": 220,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "temperate C3 grass",
+    "unit": "gC m-2 yr-1",
+    "low value": 500,
+    "high value": 2000,
+    "Reference": [
+      "Broad range covering natural grasslands (lower end) to productive pastures (higher end).",
+      "Scurlock, J. M. O., et al. (2002). Global Change Biology, 8(1), 20-36."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "temperate C3 grass",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Crawford, N. M., & Glass, A. D. M. (1998). Trends in Plant Science, 3(10), 389-395. (Review of HATS/LATS systems).",
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants: Principles and Perspectives (2nd ed.). (General textbook range for HATS)."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "temperate C3 grass",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.5,
+    "high value": 2.5,
+    "Reference": [
+      "Sage, R. F., & Seemann, J. R. (1993). Plant Physiology, 102(1), 21-30. (General kcat for C3 crops)."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "m2 gC-1",
+    "low value": 0.04,
+    "high value": 0.08,
+    "Reference": [
+      "Wright, I. J., et al. (2004). Nature, 428(6985), 821-827. (General context for high SLA in grasses).",
+      "Poorter, H., et al. (2009). New Phytologist, 182(3), 565-588. (Supports SLA range for herbaceous plants in productive environments).",
+      "Poorter, H., & Villar, R. (1997). Plant resource allocation. Academic Press. (Supports carbon fraction of dry mass ~45-50%).",
+      "Calculation based on typical SLA_DM of 0.02-0.04 m2/gDM and Carbon fraction of ~0.48 gC/gDM."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "gC m-2 leaf area",
+    "low value": 2.3,
+    "high value": 6.6,
+    "Reference": [
+      "Plant trait databases (e.g., TRY) and general plant physiology literature support leaf N area for productive C3 grasses in the range of 1.0-2.5 g N m⁻².",
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19. (Supports fraction of N in protein ~70-80%).",
+      "Jones, D. B. (1931, revised 1941). USDA Circular No. 183. (Source for N-to-protein factor 6.25).",
+      "Standard biochemical principles (Supports ~53% C in protein).",
+      "Calculation combines these typical ranges."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.25,
+    "high value": 0.4,
+    "Reference": [
+      "BioNumbers BNID 110003, citing Feller et al. (2008). J Exp Botany, 59(7), 1615-1624. (States Rubisco up to 50% of soluble leaf protein in C3 plants).",
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19. (Provides context on partitioning N between soluble and insoluble protein fractions).",
+      "Calculation assumes soluble protein is ~50-75% of total protein, leading to Rubisco being ~25-40% of total protein mass.",
+      "Assumption that carbon mass fraction is similar for Rubisco and the total protein pool (~53%), making the protein mass ratio approximately equal to the protein carbon mass ratio."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "mgC m-2 leaf area",
+    "low value": 150,
+    "high value": 370,
+    "Reference": [
+      "General plant physiology literature and trait databases (e.g., TRY) support total chlorophyll ranges of 200-500 mg m⁻² for C3 grasses in productive environments.",
+      "PubChem. (n.d.). (Source for molecular formulas and carbon mass fraction ~73.6%).",
+      "Calculation based on typical chlorophyll range and carbon fraction."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 60,
+    "high value": 120,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162. (Provides a broad synthesis of Vcmax across plant types).",
+      "Kattge, J., et al. (2011). Global Change Biology, 17(9), 2905-2935. (TRY database paper, showing trait distributions including Vcmax for grasses).",
+      "Literature on specific temperate C3 grasses (e.g., Lolium, Festuca) often reports values within this range, influenced by N availability and light.",
+      "Range reflects generally high capacity in favorable temperate oceanic conditions."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 120,
+    "high value": 220,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "Reflects high N and favorable conditions."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "gC m-2 yr-1",
+    "low value": 1000,
+    "high value": 2500,
+    "Reference": [
+      "High end of C3 grass productivity due to favorable moisture and temperature.",
+      "Scurlock, J. M. O., et al. (2002). Global Change Biology, 8(1), 20-36."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 500,
+    "high value": 800,
+    "Reference": [
+      "Calculated as Jmax (120-220) / Chlorophyll Carbon content (~0.15-0.37 gC m-2)."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range, same as base C3 grass."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.5,
+    "high value": 2.5,
+    "Reference": [
+      "Sage, R. F., & Seemann, J. R. (1993). Plant Physiology, 102(1), 21-30. (General kcat for C3 crops)."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "C3 annual grass",
+    "unit": "m2 gC-1",
+    "low value": 0.04,
+    "high value": 0.08,
+    "Reference": [
+      "Poorter, H., et al. (2009). New Phytologist, 182(3), 565-588.",
+      "General range for temperate C3 cereals like wheat and oats."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "C3 annual grass",
+    "unit": "gC m-2 leaf area",
+    "low value": 2.3,
+    "high value": 6.6,
+    "Reference": [
+      "Based on SLN of 1.0-2.5 gN/m2, 75% protein-N, and ~3.31 C:N ratio.",
+      "General C3 cereal range (e.g., Dreccer et al. 2000)."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "C3 annual grass",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.25,
+    "high value": 0.4,
+    "Reference": [
+      "Evans, J. R. (1989). Oecologia, 78(1), 9-19. (Standard C3 range)."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "C3 annual grass",
+    "unit": "mgC m-2 leaf area",
+    "low value": 150,
+    "high value": 370,
+    "Reference": [
+      "Typical range for C3 cereals, derived from 200-500 mg/m2 total chlorophyll."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "C3 annual grass",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 60,
+    "high value": 120,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "General range for C3 cereals."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "C3 annual grass",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 120,
+    "high value": 220,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "General range for C3 cereals."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "C3 annual grass",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 500,
+    "high value": 800,
+    "Reference": [
+      "Calculated as Jmax (120-220) / Chlorophyll Carbon content (~0.15-0.37 gC m-2)."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "C3 annual grass",
+    "unit": "gC m-2 yr-1",
+    "low value": 800,
+    "high value": 2000,
+    "Reference": [
+      "Typical for annual C3 crops.",
+      "Amiro, B. D., et al. (2006). Agricultural and Forest Meteorology, 139(3-4), 163-176."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "C3 annual grass",
+    "unit": "MPa h m-4",
+    "low value": 50000000.0,
+    "high value": 600000000.0,
+    "Reference": [
+      "Similar to C3 grass (e.g., wheat, oats).",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "C3 annual grass",
+    "unit": "MPa h m-1",
+    "low value": 2500.0,
+    "high value": 30000.0,
+    "Reference": [
+      "Similar to C3 grass (e.g., wheat, oats).",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "C3 annual grass",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 50,
+    "Reference": [
+      "Similar to C3 grass.",
+      "Derived from typical Vmax values on dry weight basis (5-20 umolN gDW-1 h-1)."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "C3 annual grass",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 5,
+    "high value": 25,
+    "Reference": [
+      "Similar to C3 grass.",
+      "Derived from typical Vmax values on dry weight basis (2-10 umolN gDW-1 h-1)."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "C3 annual grass",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range.",
+      "Britto, D. T., & Kronzucker, H. J. (2002). Plant, Cell & Environment, 25(6), 687-699."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "C3 annual grass",
+    "unit": "hairs m-1 root length",
+    "low value": 50000,
+    "high value": 300000,
+    "Reference": [
+      "Dittmer, H. J. (1937). American Journal of Botany, 24(7), 417-420."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "C3 annual grass",
+    "unit": "laterals m-1 root length",
+    "low value": 100,
+    "high value": 1000,
+    "Reference": [
+      "Fibrous root system typical of C3 cereals."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "C3 annual grass",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range for C3 cereals.",
+      "Epstein, E., & Bloom, A. J. (2005). Mineral Nutrition of Plants."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "C3 annual grass",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 1.5,
+    "high value": 2.5,
+    "Reference": [
+      "Sage, R. F., & Seemann, J. R. (1993). Plant Physiology, 102(1), 21-30. (General kcat for C3 crops)."
+    ]
+  },
+  {
+    "variable": "typical Specific leaf area vs mass",
+    "plant_type": "C4 perennial grass",
+    "unit": "m2 gC-1",
+    "low value": 0.025,
+    "high value": 0.05,
+    "Reference": [
+      "Poorter, H., et al. (2009). New Phytologist, 182(3), 565-588.",
+      "Range typical for productive C4 grasses (e.g., Miscanthus, Panicum) with relatively tough leaves.",
+      "Calculation based on SLA_DM of 0.012-0.025 m2/gDM and Carbon fraction ~0.48 gC/gDM."
+    ]
+  },
+  {
+    "variable": "typical Protein carbon mass per unit of leaf area",
+    "plant_type": "C4 perennial grass",
+    "unit": "gC m-2 leaf area",
+    "low value": 0.5,
+    "high value": 1.7,
+    "Reference": [
+      "Based on typical SLN of 0.5-1.5 gN m-2 for C4 grasses.",
+      "Based on C4 physiology (lower Rubisco, ~33% N in protein, 3.31 C:N).",
+      "Sage, R. F. (2004). New Phytologist, 143(1), 4-16. (Context for C4 N-use)."
+    ]
+  },
+  {
+    "variable": "typical Carbon mass ratio of rubisco enzyme to total leaf protein",
+    "plant_type": "C4 perennial grass",
+    "unit": "gC rubisco / gC protein (unitless)",
+    "low value": 0.05,
+    "high value": 0.15,
+    "Reference": [
+      "Feller et al. (2008). J Exp Botany, 59(7), 1615-1624. (Notes Rubisco is ~5-9% of total leaf N in C4 plants).",
+      "C4 plants require far less Rubisco protein than C3 plants."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in bundle sheath",
+    "plant_type": "C4 perennial grass",
+    "unit": "mgC m-2 leaf area",
+    "low value": 20,
+    "high value": 110,
+    "Reference": [
+      "Typical C4 partitioning (10-25% of total Chl).",
+      "Edwards, G. E., & Walker, D. A. (1983). C3, C4: mechanisms...",
+      "Ghannoum, O., et al. (2005). Plant, Cell & Environment, 28(8), 980-993."
+    ]
+  },
+  {
+    "variable": "typical Cholorophyll carbon in mesophyll",
+    "plant_type": "C4 perennial grass",
+    "unit": "mgC m-2 leaf area",
+    "low value": 150,
+    "high value": 380,
+    "Reference": [
+      "Typical C4 partitioning (75-90% of total Chl).",
+      "Edwards, G. E., & Walker, D. A. (1983). C3, C4: mechanisms...",
+      "Ghannoum, O., et al. (2005). Plant, Cell & Environment, 28(8), 980-993."
+    ]
+  },
+  {
+    "variable": "typical Maximum carboxylation rate by Rubisco at 25oC",
+    "plant_type": "C4 perennial grass",
+    "unit": "umol CO2 s-1 m-2 leaf area",
+    "low value": 20,
+    "high value": 60,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "Long, S. P. (1999). Photosynthesis in C4 plants. (Context for *Miscanthus*).",
+      "Similar to other C4 monocots like Maize."
+    ]
+  },
+  {
+    "variable": "typical Maximum electron transport rate at 25oC",
+    "plant_type": "C4 perennial grass",
+    "unit": "umol e- s-1 m-2 leaf area",
+    "low value": 100,
+    "high value": 250,
+    "Reference": [
+      "Wullschleger, S. D. (1993). Environmental Pollution, 83(1-2), 137-162.",
+      "Range similar to Maize, supporting high C4 ATP demand."
+    ]
+  },
+  {
+    "variable": "Specific chlorophyll activity (at light saturation)",
+    "plant_type": "C4 perennial grass",
+    "unit": "umol e- (gC chl)-1 s-1",
+    "low value": 400,
+    "high value": 900,
+    "Reference": [
+      "Calculated as Jmax (100-250) / Total Chlorophyll Carbon content (~0.17-0.49 gC m-2).",
+      "Similar to Maize."
+    ]
+  },
+  {
+    "variable": "typical Intercellular-to-atmospheric CO2 concentration ratio (Ci/Ca)",
+    "plant_type": "C4 perennial grass",
+    "unit": "unitless",
+    "low value": 0.2,
+    "high value": 0.4,
+    "Reference": [
+      "von Caemmerer, S., & Furbank, R. T. (2003). Photosynthesis Research, 77(2-3), 191-211.",
+      "Fundamental trait of C4 photosynthesis."
+    ]
+  },
+  {
+    "variable": "typical annual Gross Primary Production (GPP)",
+    "plant_type": "C4 perennial grass",
+    "unit": "gC m-2 yr-1",
+    "low value": 1500,
+    "high value": 3500,
+    "Reference": [
+      "C4 perennial grasses (e.g., *Miscanthus*, *Panicum*) are among the most productive ecosystems.",
+      "Long, S. P., et al. (2006). Science, 312(5779), 1508-1512. (Context for bioenergy grasses).",
+      "Scurlock, J. M. O., et al. (2002). Global Change Biology, 8(1), 20-36."
+    ]
+  },
+  {
+    "variable": "typical Axial resistivity per m root length for water uptake",
+    "plant_type": "C4 perennial grass",
+    "unit": "MPa h m-4",
+    "low value": 30000000.0,
+    "high value": 400000000.0,
+    "Reference": [
+      "Similar to other C4 monocots (Maize).",
+      "Doussan, C., et al. (1998). Annals of Botany, 81(2), 225-232. (Context for monocot hydraulics)."
+    ]
+  },
+  {
+    "variable": "typical Radial resistance per m2 root surface area for water uptake",
+    "plant_type": "C4 perennial grass",
+    "unit": "MPa h m-1",
+    "low value": 2500.0,
+    "high value": 30000.0,
+    "Reference": [
+      "Similar to other C4 monocots (Maize).",
+      "Steudle, E. (2000). Journal of Experimental Botany, 51(350), 1533-1545."
+    ]
+  },
+  {
+    "variable": "typical Maximum NH4 uptake rate (Vmax)",
+    "plant_type": "C4 perennial grass",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 10,
+    "high value": 60,
+    "Reference": [
+      "Similar to C4 monocots (Maize).",
+      "Garnett, T., et al. (2001). Plant and Soil, 236(1), 67-75."
+    ]
+  },
+  {
+    "variable": "typical Maximum NO3 uptake rate (Vmax)",
+    "plant_type": "C4 perennial grass",
+    "unit": "umolN h-1 (gC root)-1",
+    "low value": 5,
+    "high value": 30,
+    "Reference": [
+      "Similar to C4 monocots (Maize).",
+      "Garnett, T., et al. (2001). Plant and Soil, 236(1), 67-75."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NH4",
+    "plant_type": "C4 perennial grass",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range.",
+      "Britto, D. T., & Kronzucker, H. J. (2002). Plant, Cell & Environment, 25(6), 687-699."
+    ]
+  },
+  {
+    "variable": "typical root hair frequency on fine roots",
+    "plant_type": "C4 perennial grass",
+    "unit": "hairs m-1 root length",
+    "low value": 40000,
+    "high value": 200000,
+    "Reference": [
+      "General range for C4 monocots (e.g., Maize).",
+      "General plant anatomy texts."
+    ]
+  },
+  {
+    "variable": "typical fine root branching frequency",
+    "plant_type": "C4 perennial grass",
+    "unit": "laterals m-1 root length",
+    "low value": 200,
+    "high value": 1000,
+    "Reference": [
+      "General range for C4 monocots (e.g., Maize).",
+      "Pagès, L., et al. (2004). Plant and Soil, 258(1), 1-21."
+    ]
+  },
+  {
+    "variable": "typical Half saturation Km for root uptake of NO3",
+    "plant_type": "C4 perennial grass",
+    "unit": "uM",
+    "low value": 10,
+    "high value": 100,
+    "Reference": [
+      "Typical HATS range for C4 monocots.",
+      "York, L. M., et al. (2016). Journal of Experimental Botany, 67(16), 4931-4944."
+    ]
+  },
+  {
+    "variable": "Saturated specific carboxylation rate by Rubisco at 25oC",
+    "plant_type": "C4 perennial grass",
+    "unit": "umol CO2 (g rubisco)-1 s-1",
+    "low value": 2.5,
+    "high value": 4.0,
+    "Reference": [
+      "Sage, R. F. (2002). Oecologia, 132(4), 481-495. (C4 kcat is generally higher than C3)."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "Alfalfa (C3 Dicot)",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 3.0,
+    "high value": 11.0,
+    "Reference": [
+      "This range reflects values from a single regrowth cycle (low end) to a peak in a highly productive, irrigated field (high end)."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "C3 needle leaf tree",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 5.0,
+    "high value": 10.0,
+    "Reference": [
+      "This range represents mature temperate evergreen and dense conifer forests."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "Clover (C3 Dicot)",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 2.5,
+    "high value": 5.0,
+    "Reference": [
+      "This is a typical range for a productive clover pasture, which is generally less dense than an alfalfa monoculture."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "Cotton (C3 Dicot)",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 2.5,
+    "high value": 5.0,
+    "Reference": [
+      "Peak LAI for cotton crops under typical to good irrigation and nitrogen management."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "Maize (C4 Monocot)",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 4.0,
+    "high value": 6.0,
+    "Reference": [
+      "This is a typical range for a mature, productive maize crop at its peak vegetative stage."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "Oats (C3 Monocot)",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 4.0,
+    "high value": 7.0,
+    "Reference": [
+      "Based on Green Area Index (GAI) values for mature oat canopies around the panicle emergence stage."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "Sedge grass (Monocot)",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 1.0,
+    "high value": 2.0,
+    "Reference": [
+      "This range is typical for wet sedge tundra environments."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "Soybean (C3 Dicot)",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 3.5,
+    "high value": 6.5,
+    "Reference": [
+      "This range covers the optimal LAI for yield (low end) to the maximum observed peak LAI in productive fields (high end)."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "Winter Wheat (C3 Monocot)",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 3.0,
+    "high value": 7.0,
+    "Reference": [
+      "This range reflects values from typical to high-density winter wheat canopies at their peak."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "temperate C3 grass",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 3.0,
+    "high value": 6.0,
+    "Reference": [
+      "This range is representative of a productive, managed temperate grassland or pasture, as opposed to a sparse, natural grassland."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "temperate C3 grass (Temperate oceanic climate)",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 3.0,
+    "high value": 6.0,
+    "Reference": [
+      "This range is representative of a productive, managed temperate grassland or pasture."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "C3 annual grass",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 3.0,
+    "high value": 7.0,
+    "Reference": [
+      "This range is based on the typical peak values for C3 annual crops like oats and winter wheat."
+    ]
+  },
+  {
+    "variable": "typical Leaf area index",
+    "plant_type": "C4 perennial grass",
+    "unit": "m2 m-2 (unitless)",
+    "low value": 6.0,
+    "high value": 12.0,
+    "Reference": [
+      "This range reflects highly productive C4 grasses, such as *Miscanthus*, which can achieve a canopy density up to double that of maize."
+    ]
+  }
+]
