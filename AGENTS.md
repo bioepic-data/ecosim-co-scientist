@@ -1,8 +1,142 @@
 # AGENTS.md for ecosim-co-scientist
 
-This is the project description.
+## Project Overview
 
-TODO: fill in extra description here
+The **EcoSIM Co-Scientist** is an AI-powered agent system designed to assist researchers in working with EcoSIM, a biogeochemical modeling library for simulating ecosystem processes. This project aims to create an intelligent co-pilot that can help with the entire workflow of ecosystem modeling, from data preparation and parameter calibration to simulation execution and results analysis.
+
+### What is EcoSIM?
+
+[EcoSIM](https://github.com/jinyun1tang/EcoSIM) is a biogeochemical modeling library spun off from the ECOSYS model. It simulates complex ecosystem biogeochemical processes including:
+- Carbon and nitrogen cycling
+- Soil-plant-atmosphere interactions
+- Microbial dynamics and decomposition
+- Nutrient transformations (mineralization, nitrification, denitrification)
+- Plant growth and productivity under varying environmental conditions
+
+EcoSIM is written primarily in Fortran, uses NetCDF input formats, and can run parallel simulations via MPI.
+
+## Hackathon Case Study: Experimental Warming and Nitrogen Response
+
+The initial implementation focuses on a meta-analysis of experimental warming effects on nitrogen cycling in various ecosystems.
+
+### Data Assets
+
+Located in `hackathon-case_study-experimental_warming_nitrogen/`:
+
+1. **Literature Sources** (`sources/`): 50 peer-reviewed papers examining warming experiments across diverse ecosystems:
+   - Arctic and alpine tundra
+   - Boreal and temperate forests
+   - Grasslands, heathlands, and meadows
+   - Agricultural systems
+
+2. **Meta-Analysis Database** (`experimental_warming_nitrogen-benchmark_data.xlsx`):
+   - **Experiment metadata**: Geographic coordinates, ecosystem types, warming methods (greenhouses, nighttime curtains, heating cables), temperature increases (0.5-5°C), durations (1-98 months)
+   - **N measurements** (626 observations): N2O emissions, gross/net mineralization, nitrification, denitrification, soil moisture
+   - **EcoSIM input mappings**: NetCDF variable specifications for climate, soil, and vegetation data
+   - **Plant functional types**: 31 PFTs for EcoSIM parameterization
+
+3. **Plant Traits Database** (`plant_traits.json`):
+   - Physiological parameters for various plant types (e.g., Alfalfa, barley, broadleaf trees)
+   - Specific leaf area, protein content, Rubisco enzyme ratios
+   - Chlorophyll concentrations, maximum carboxylation rates (Vcmax), electron transport rates (Jmax)
+   - Root hydraulic properties, gross primary production estimates
+
+4. **EcoSIM Input Files** (`ecosim-inputs-netcdf/`):
+   - Climate data (Blodget site, 2012-2022)
+   - Grid specifications
+   - Plant functional type parameters
+   - Soil management configurations
+
+5. **Data Sources**:
+   - Climate: ERA5 reanalysis
+   - Soil: Harmonized World Soil Database (HWSD), SSURGO
+
+### Scientific Goals
+
+1. **Calibration**: Use meta-analysis data to calibrate EcoSIM parameters for nitrogen cycling under warming scenarios
+2. **Validation**: Compare EcoSIM predictions against observed nitrogen responses across ecosystems
+3. **Synthesis**: Identify key mechanisms controlling nitrogen-warming interactions
+4. **Prediction**: Generate projections for future warming scenarios
+
+## Vision: The EcoSIM Co-Scientist
+
+The long-term goal is to develop an agentic AI system that serves as a research collaborator for ecosystem modeling. Key capabilities:
+
+### 1. Literature Integration and Knowledge Synthesis
+- Automatically extract experimental designs, measurements, and environmental conditions from scientific papers
+- Build structured databases from unstructured literature
+- Identify knowledge gaps and suggest experiments to fill them
+- Track provenance of all data back to original sources
+
+### 2. Data Preparation and Harmonization
+- Convert diverse data formats to EcoSIM-compatible NetCDF inputs
+- Harmonize units, spatial scales, and temporal resolutions
+- Access and process climate data (ERA5, gridded weather)
+- Query soil databases (HWSD, SSURGO) based on coordinates
+- Handle missing data intelligently with documented assumptions
+
+### 3. Parameter Calibration and Uncertainty Quantification
+- Automated parameter optimization against observational benchmarks
+- Bayesian inference for parameter uncertainty
+- Sensitivity analysis to identify influential parameters
+- Multi-objective calibration balancing different response variables
+
+### 4. Simulation Execution and Management
+- Generate appropriate configuration files for EcoSIM runs
+- Execute simulations locally or on HPC systems
+- Monitor long-running jobs and handle failures gracefully
+- Manage simulation ensembles for uncertainty propagation
+
+### 5. Results Analysis and Interpretation
+- Statistical comparison of simulations vs. observations
+- Visualization of spatiotemporal patterns
+- Mechanistic interpretation of model behaviors
+- Identification of model-data mismatches requiring investigation
+
+### 6. Hypothesis Generation and Experimental Design
+- Suggest new experiments based on model predictions
+- Design optimal sampling strategies
+- Identify high-leverage measurements for reducing uncertainty
+- Generate testable hypotheses about ecosystem processes
+
+### 7. Communication and Documentation
+- Generate technical reports with reproducible workflows
+- Create visualizations for publications and presentations
+- Maintain audit trails of all modeling decisions
+- Produce documentation suitable for both experts and non-specialists
+
+## Technical Architecture
+
+### Agent Framework
+- **Agentic AI**: Autonomous task planning and execution using LLM-based reasoning
+- **Model Context Protocol (MCP)**: Integration with external tools and data sources
+- **Workflow Orchestration**: Multi-step scientific workflows with error handling and checkpointing
+
+### Core Components
+- **Data Manager**: ETL pipelines for scientific data
+- **EcoSIM Interface**: Python wrappers for Fortran simulation engine
+- **Calibration Engine**: Optimization and uncertainty quantification
+- **Analysis Toolkit**: Statistical methods and visualization
+- **Knowledge Base**: Structured storage of literature, experiments, and model runs
+
+### Technology Stack
+- **Language**: Python 3.12+ (with Fortran interoperability for EcoSIM)
+- **Data Models**: Pydantic or LinkML for type-safe structured data
+- **Testing**: pytest with extensive doctests
+- **Dependencies**: Managed via `uv`
+- **Documentation**: mkdocs
+- **Data Formats**: NetCDF (xarray), JSON, Excel (openpyxl)
+
+## Current Status
+
+This is an early-stage project emerging from a hackathon. The immediate focus is:
+
+1. Building data loaders for the warming/nitrogen meta-analysis
+2. Creating EcoSIM input generators from experimental metadata
+3. Establishing validation frameworks comparing simulations to observations
+4. Developing initial agent workflows for common tasks
+
+Future development will expand to the full co-scientist vision as use cases mature.
 
 ## Repo management
 
