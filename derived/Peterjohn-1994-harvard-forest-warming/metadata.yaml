@@ -1,0 +1,895 @@
+study:
+  id: peterjohn-1994-harvard-forest-warming
+  title: "Responses of trace gas fluxes and N availability to experimentally elevated soil temperatures"
+
+  citation:
+    authors:
+      - Peterjohn, William T.
+      - Melillo, Jerry M.
+      - Steudler, Paul A.
+      - Newkirk, Kathleen M.
+      - Bowles, Francis P.
+      - Aber, John D.
+    year: 1994
+    journal: "Ecological Applications"
+    volume: 4
+    issue: 3
+    pages: "617-625"
+    doi: null  # Not provided in paper
+
+  related_studies:
+    - id: butler-2012-harvard-forest-warming
+      relationship: "continuation"
+      description: "Butler et al. 2012 reports years 1-7 of the same experiment; Peterjohn et al. 1994 reports the first 6 months"
+      note: "Same site, same plots, same warming treatment, extended timeline"
+
+site:
+  name: "Prospect Hill Tract, Harvard Forest"
+
+  location:
+    site_name: "Harvard Forest"
+    region: "Central Massachusetts"
+    country: "USA"
+    latitude: 42.5
+    longitude: -72.167
+    coordinates_note: "Reported as 42°30' N, 72°10' W"
+    elevation_m: null  # Not provided
+
+  ecosystem:
+    biome: "Temperate deciduous forest"
+    ecosystem_type: "Mixed deciduous forest"
+    vegetation_description: "Even-aged, mixed deciduous forest established after agricultural abandonment at turn of century"
+    stand_age_years: "~90"
+    stand_age_note: "Established ~1900 after abandonment"
+
+    dominant_species:
+      trees:
+        - "Betula papyrifera (paper birch)"
+        - "Acer rubrum (red maple)"
+        - "Quercus velutina (black oak)"
+        - "Acer pensylvanicum (striped maple)"
+      note: "Some firewood cutting occurred after forest establishment"
+
+  land_use:
+    historical: "Agricultural until ~1900"
+    current: "Long-term ecological research forest (Harvard Forest LTER)"
+    disturbance_history: "Cultivated historically (distinct Ap horizon present); abandoned at turn of century; some subsequent firewood cutting"
+
+  soil:
+    classification: "Gloucester series (fine loamy, mixed, mesic Typic Dystrochrept)"
+    ph:
+      surface: 3.83
+      subsurface: 4.85
+      description: "Very acidic"
+    bulk_density_g_cm3: 0.64
+    bulk_density_depth_cm: "0-15"
+    texture: "Fine loamy"
+    horizon_note: "Distinct Ap horizon indicates past cultivation"
+
+  climate:
+    climate_type: "Cool temperate and humid"
+    temperature:
+      mean_annual_c: null
+      july_mean_c: ~20
+      january_mean_c: ~-6
+      description: "Mean weekly air temperature varies from ~20°C in July to ~-6°C in January"
+    precipitation:
+      annual_mm: ~1080
+      distribution: "Distributed evenly throughout the year"
+      note: "~108 cm annually"
+
+experimental_design:
+  study_type: "Field manipulation experiment"
+  design_type: "Randomized complete block design"
+
+  duration:
+    start_date: "1991-07"
+    end_date: "1991-11"
+    duration_months: 6
+    note: "This paper reports first 6 months; experiment continued for at least 7 years (Butler et al. 2012)"
+
+  pretreatment:
+    period: "June 1991"
+    measurements: "Twice in June to confirm absence of preexisting differences"
+    heating_start: "July 1, 1991"
+
+  spatial_design:
+    total_plots: 18
+    plot_size_m: "6 × 6"
+    sampling_area_m: "5 × 5 nested within each 6 × 6 m plot"
+    sampling_area_note: "Edge effects (suboptimal heating) avoided by nested sampling area"
+    blocks: 6
+    plots_per_block: 3
+    total_area_m2: ~1300
+
+  replication: 6  # blocks
+
+  treatments:
+    - name: heated
+      abbreviation: "H"
+      description: "Soil temperature elevated +5°C above ambient using buried heating cables"
+      n_plots: 6
+
+      warming:
+        target_increase_c: 5
+        achieved_increase_c: 5
+        method: "Buried heating cables"
+
+        cable_details:
+          type: "Smith-Gates Easy Heat"
+          depth_cm: 10
+          configuration: "Four cables per plot, 6 m long rows, spaced 20 cm apart"
+          power_per_meter_w: 13.6
+          voltage: "240 V AC"
+          power_density_w_m2: 77
+
+        control_system:
+          type: "Automated datalogger control"
+          datalogger_thermistors: 42
+          thermistors_per_heated_plot: 5
+          thermistor_depth_cm: 5
+          measurement_interval_min: 10
+          control_logic: "If (heated plot temp - control temp) < 5°C, power ON; if ≥ 5°C, power OFF"
+          individual_plot_control: true
+
+    - name: disturbance_control
+      abbreviation: "DC"
+      description: "Identical cable installation but no electrical power supplied"
+      purpose: "Control for soil disturbance effects from cable installation"
+      n_plots: 6
+
+    - name: undisturbed_control
+      abbreviation: "C"
+      description: "No cables, no heat; natural state"
+      n_plots: 6
+
+  statistical_design:
+    pretreatment_analysis: "Two-way ANOVA (randomized complete block) with Scheffé pairwise comparison; Friedman nonparametric two-way ANOVA; each June sampling date analyzed separately"
+    post_treatment_analysis: "Paired t-tests for three effect types: (1) heating effect (H vs DC), (2) disturbance effect (DC vs C), (3) heating+disturbance effect (H vs C); Sign test as nonparametric alternative"
+    pairing: "Daily average values paired spatially by blocks and temporally by sampling date"
+    significance_level: 0.05
+
+measurements:
+  temporal_sampling:
+    frequency: "Twice monthly (9 plots first half of month, 9 plots second half)"
+    each_plot_frequency: "Once per month"
+    trace_gas_sampling: "4 times daily (0600, 1000, 1400, 1800 h) on measurement days"
+
+  variables:
+    soil_physical:
+      - variable: soil_temperature
+        depths_cm: [2, 4]
+        frequency: "4× daily during trace gas measurements"
+        method: "Thermistors"
+
+      - variable: soil_moisture_gravimetric
+        layers: ["forest floor", "mineral soil"]
+        frequency: "Twice monthly"
+        method: "Gravimetric (oven drying)"
+
+    nitrogen_cycling:
+      - variable: net_N_mineralization
+        layers: ["forest floor", "mineral soil"]
+        frequency: "Twice monthly"
+        method: "Buried bag technique"
+        incubation_duration_days: "22-36"
+
+      - variable: net_nitrification
+        layers: ["forest floor", "mineral soil"]
+        frequency: "Twice monthly"
+        method: "Buried bag technique"
+
+      - variable: extractable_NH4
+        layers: ["forest floor", "mineral soil"]
+        frequency: "Twice monthly"
+        extractant: "2 mol/L KCl"
+        extraction_time_hours: 48
+        analysis: "Continuous flow colorimetry (Technicon Method 780-86T)"
+
+      - variable: extractable_NO3
+        layers: ["forest floor", "mineral soil"]
+        frequency: "Twice monthly"
+        extractant: "2 mol/L KCl"
+        extraction_time_hours: 48
+        analysis: "Continuous flow colorimetry (Technicon Method 782-86T)"
+
+      - variable: soil_water_N
+        depth_cm: 50
+        frequency: "Twice monthly"
+        method: "Porous cup lysimeters"
+        evacuation: "50 cm Hg, 24 h before sampling"
+        analytes: ["NH4", "NO3"]
+        detection_limit_mg_N_L: 0.1
+        period: "August-November 1991"
+
+    trace_gases:
+      - variable: CO2_efflux
+        frequency: "4× daily (0600, 1000, 1400, 1800 h)"
+        method: "Static chambers, 30 min deployment, headspace sampling at 10 min intervals"
+        analysis: "Gas chromatography"
+        chamber_location: "Fixed (same location throughout experiment)"
+        chambers_per_plot: 1
+
+      - variable: CH4_flux
+        frequency: "4× daily (0600, 1000, 1400, 1800 h)"
+        method: "Static chambers, 30 min deployment, headspace sampling at 10 min intervals"
+        analysis: "Gas chromatography"
+        chamber_location: "Fixed (same location throughout experiment)"
+
+      - variable: N2O_flux
+        frequency: "4× daily (0600, 1000, 1400, 1800 h)"
+        method: "Static chambers, 30 min deployment, headspace sampling at 10 min intervals"
+        analysis: "Gas chromatography"
+        chamber_location: "Fixed (same location throughout experiment)"
+
+results:
+  pretreatment_verification:
+    finding: "No significant preexisting differences among treatments"
+    exception:
+      variable: "Soil temperature at 4 cm"
+      pattern: "~2°C cooler in plots assigned to heating treatment"
+      significance: "Significant for only one sampling date and only for parametric test"
+      interpretation: "No systematic bias; random variation acceptable"
+
+  soil_temperature:
+    heating_effect:
+      target_c: 5
+      achieved_c: 5
+      significance: "Significant"
+      pattern: "Successfully maintained +5°C elevation throughout study"
+      monthly_heated_plot_temperatures:
+        july_c: ~20
+        august_c: ~24
+        september_c: ~22
+        october_c: ~17
+        november_c: ~9
+      context: "Heating achieved soil temperatures higher than any measured at Harvard Forest during previous 3 years"
+
+    disturbance_effect:
+      significance: "Not significant"
+      pattern: "DC = C"
+
+  soil_moisture:
+    forest_floor:
+      heating_effect:
+        significance: "Not significant"
+        range_pct_dry_mass: "~100-180"
+        variability: "High"
+
+      disturbance_effect:
+        significance: "Not significant"
+
+    mineral_soil:
+      heating_effect:
+        significance: "Significant (P < 0.05)"
+        direction: "Decrease"
+        interpretation: "Warmer soil → increased evaporation → drier soil"
+
+      disturbance_effect:
+        significance: "Not significant"
+
+      temperature_moisture_relationship:
+        description: "Strong inverse relationship between soil temperature and moisture"
+        R_squared: 0.55
+        note: "With one outlier removed"
+
+  nitrogen_availability:
+    extractable_NH4:
+      forest_floor:
+        heating_effect:
+          monthly_average_pattern: "Consistently elevated"
+          daily_average_significance: "Not significant"
+
+        disturbance_effect:
+          monthly_average_pattern: "Tended to elevate"
+          daily_average_significance: "Not significant"
+
+        heating_plus_disturbance_effect:
+          significance: "Significant"
+
+      mineral_soil:
+        heating_effect:
+          monthly_average_pattern: "Consistently elevated"
+          daily_average_significance: "Not significant"
+
+        disturbance_effect:
+          monthly_average_pattern: "Tended to elevate"
+          daily_average_significance: "Not significant"
+
+        heating_plus_disturbance_effect:
+          significance: "Significant"
+
+    extractable_NO3:
+      all_treatments:
+        pattern: "Very little extractable NO3 throughout study"
+        heating_effect_significance: "Not significant"
+        disturbance_effect_significance: "Not significant"
+        interpretation: "NH4-dominated system; minimal nitrification"
+
+  net_N_mineralization:
+    forest_floor:
+      control_mg_kg_d: 1.20
+      heated_mg_kg_d: 2.47
+      change_pct: +106
+      change_description: "More than doubled"
+      heating_effect_significance: "P < 0.05"
+      disturbance_effect_significance: "Not significant"
+
+    mineral_soil:
+      control_mg_kg_d: 0.09
+      heated_mg_kg_d: 0.19
+      change_pct: +111
+      change_description: "More than doubled"
+      heating_effect_significance: "P < 0.05"
+      disturbance_effect_significance: "Not significant"
+
+    key_finding: "Heating doubled net N mineralization in both soil layers—a dramatic and consistent response"
+
+  net_nitrification:
+    pattern: "Little to no net nitrification detected in any treatment"
+    interpretation: "Forest floor and mineral soil are NH4-dominated; NO3 production minimal in first 6 months"
+    contrast_to_butler_2012: "Butler et al. 2012 showed 3× nitrification increase by year 5—a delayed response taking years to develop"
+
+  soil_water_chemistry:
+    period: "August-November 1991"
+    total_samples: 158
+
+    NO3_detections:
+      n_samples: 3
+      concentration_range_mg_N_L: "0.18-0.57"
+      treatment_effect: "No apparent treatment effects"
+
+    NH4_detections:
+      n_samples: 14
+      concentration_range_mg_N_L: "0.10-2.0"
+      treatment_effect: "No apparent treatment effects"
+
+    interpretation: "Very low inorganic N in deep soil water; no N leaching losses detected; no N saturation symptoms; closed N cycle maintained"
+
+  CO2_flux:
+    heating_effect:
+      significance: "Significant (P < 0.05)"
+      direction: "Increase"
+      magnitude: "~3× greater than disturbance effect"
+
+    disturbance_effect:
+      significance: "Significant (P < 0.05)"
+      direction: "Increase"
+      magnitude: "Smaller than heating effect"
+
+    temperature_relationship:
+      type: "Exponential"
+      functional_form: "ln(CO2 flux) vs. temperature (linear)"
+      R_squared: 0.92
+      interpretation: "Temperature explained 92% of CO2 flux variability"
+
+    moisture_relationship:
+      type: "Linear (inverse)"
+      R_squared: 0.44
+      note: "With one outlier removed"
+      interpretation: "CO2 flux decreased with increasing soil moisture; weaker predictor than temperature"
+
+    multiple_regression:
+      variables: "Temperature + moisture"
+      R_squared: 0.94
+      interpretation: "Soil moisture significantly improved predictions beyond temperature alone (added 2% to R²)"
+
+    arrhenius_parameters:
+      Q10: 2.5
+      activation_energy_kJ_mol: 63
+      note: "63 kJ/mol is slightly higher than typical enzyme catalysis range (20.9-62.8 kJ/mol)"
+      interpretation: "Relationship between soil temperature and CO2 flux is in good agreement with Arrhenius equation"
+
+  annual_CO2_flux_prediction:
+    method:
+      step_1: "Measured relationship: air temperature ↔ soil temperature (R² = 0.90)"
+      step_2: "Measured relationship: soil temperature ↔ CO2 flux (R² = 0.92)"
+      step_3: "Applied 1991 air temperature data from Harvard Forest weather station"
+
+    predictions_for_1991:
+      unheated_soil_g_C_m2_yr: 712
+      heated_soil_g_C_m2_yr: 1250
+      additional_release_from_warming_g_C_m2_yr: 538
+      percent_increase: 76
+
+    validation:
+      unheated_R_squared: 0.885
+      heated_R_squared: 0.823
+      interpretation: "Actual measurements agreed closely with predictions"
+
+    mechanism:
+      possibilities:
+        - "Enhanced microbial decomposition"
+        - "Increased root respiration"
+        - "Combination of both"
+      note: "Cannot partition root vs. microbial respiration without additional measurements"
+
+    global_context:
+      temperate_deciduous_forest_area_m2: 3.6e12
+      global_additional_release_5C_warming_g_C_yr: 1.9e15
+      note: "If representative of all temperate deciduous forest"
+
+    caveats:
+      - "May represent short-lived depletion of labile C pool"
+      - "Enhanced soil respiration may be offset by enhanced aboveground NPP"
+      - "Experiment decoupled below- and aboveground processes (soil warming only)"
+      - "Cannot determine whole-ecosystem C balance"
+      - "Increased N availability might increase NPP faster than respiration"
+
+  comparison_to_other_hardwood_forests:
+    finding: "Exponential temperature-CO2 relationship from Harvard Forest is consistent with data from other hardwood forests worldwide"
+    sites:
+      - "Minnesota (Reiners 1968)"
+      - "Tennessee (Edwards 1975)"
+      - "Missouri (Garrett and Cox 1973)"
+      - "United Kingdom (Anderson 1973)"
+      - "Italy (Virzo De Santo et al. 1976)"
+      - "Japan (Nakane 1980)"
+    interpretation: "Response observed at Harvard Forest appears generalizable to temperate hardwood forests globally"
+
+  CH4_uptake:
+    heating_effect:
+      significance: "Significant (P < 0.05)"
+      direction: "Increase"
+
+    disturbance_effect:
+      significance: "Not significant"
+
+    temperature_relationship:
+      type: "Linear (positive)"
+      R_squared: 0.46
+      note: "With one outlier removed"
+
+    moisture_relationship:
+      type: "Linear (inverse)"
+      R_squared: 0.49
+      note: "With one outlier removed"
+
+    multiple_regression:
+      variables: "Temperature + moisture"
+      R_squared: 0.61
+      moisture_significance: "P = 0.0994 (nearly significant)"
+      note: "Moisture effect may have been weakened by missing data (7 cases removed)"
+
+    range_mg_C_m2_h: "0.09-0.16"
+
+    unexpected_finding:
+      description: "CH4 uptake INCREASED rather than decreased with warming"
+      contradiction: "Contradicts N saturation expectation (high N should decrease CH4 uptake)"
+      interpretation: "No evidence of N saturation in first 6 months"
+
+  N2O_flux:
+    range_ug_N_m2_h: "-4 to +8 (mostly near zero)"
+    pattern: "Low flux in all treatments; relatively constant over time"
+
+    heating_effect:
+      significance: "Not significant"
+
+    disturbance_effect:
+      significance: "Not significant"
+
+    temperature_relationship:
+      R_squared: 0.14
+      interpretation: "Weak"
+
+    moisture_relationship:
+      R_squared: 0.23
+      note: "With one outlier removed"
+      interpretation: "Weak"
+
+    multiple_regression:
+      R_squared: 0.28
+      interpretation: "Did not significantly improve predictions"
+
+    explanation: "Absence of nitrate and net nitrification likely accounts for low N2O flux"
+
+major_findings:
+  - finding: "Large and immediate increase in CO2 efflux"
+    details:
+      - "Exponential relationship with temperature (Q10 = 2.5)"
+      - "Consistent with Arrhenius kinetics (Ea = 63 kJ/mol)"
+      - "Warming (+5°C) would release additional 538 g C·m⁻²·yr⁻¹"
+      - "76% increase in annual soil CO2 flux"
+    significance: "Major potential positive feedback to global warming"
+
+  - finding: "Doubled net N mineralization"
+    details:
+      - "Forest floor: 1.20 → 2.47 mg·kg⁻¹·d⁻¹ (+106%)"
+      - "Mineral soil: 0.09 → 0.19 mg·kg⁻¹·d⁻¹ (+111%)"
+      - "Statistically significant and consistent across both layers"
+    significance: "Suggests enhanced decomposition and N cycling; could increase plant productivity"
+
+  - finding: "No nitrogen saturation in first 6 months"
+    expected_symptoms_NOT_observed:
+      - "No increase in net nitrification (remained minimal)"
+      - "No increase in N2O flux (remained low)"
+      - "No increase in soil water inorganic N (remained near detection limit)"
+      - "CH4 uptake increased (opposite of N saturation effect)"
+    interpretation: "System is responding, but N saturation has not developed in short term"
+
+  - finding: "Closed nitrogen cycle maintained"
+    details:
+      - "Very low soil water N concentrations"
+      - "No apparent N leaching losses"
+      - "N retained in forest floor and mineral soil"
+      - "Tight plant-microbial-soil N cycling"
+    significance: "No N losses despite doubled mineralization"
+
+  - finding: "Methane uptake increased"
+    description: "Unexpected finding (contrary to N saturation hypothesis)"
+    details:
+      - "Increased linearly with temperature"
+      - "Suggests methanotroph activity enhanced by warming"
+    significance: "Further evidence against N saturation in first 6 months"
+
+  - finding: "Temperature is primary driver"
+    details:
+      - "Temperature explained 92% of CO2 flux variability"
+      - "Soil moisture had secondary role (added 2% in multiple regression)"
+      - "Linear temperature relationships for CH4 uptake"
+      - "Weak relationships for N2O flux"
+    significance: "Temperature dominates over moisture for most responses"
+
+  - finding: "Disturbance effects"
+    details:
+      - "Significant for CO2 flux (but 1/3 magnitude of heating effect)"
+      - "Not significant for N mineralization, CH4 uptake, N2O flux, or soil moisture"
+    significance: "Justifies inclusion of disturbance controls; minimal confounding"
+
+  - finding: "Consistent with global data"
+    details:
+      - "Temperature-CO2 relationship matches other hardwood forests worldwide"
+    significance: "Suggests findings may be broadly applicable to temperate deciduous forests"
+
+comparison_to_butler_2012:
+  note: "Butler et al. 2012 reports years 1-7 of the same experiment at the same site"
+
+  timeline:
+    peterjohn_1994: "First 6 months (July-November 1991)"
+    butler_2012: "Years 1-7 (1991-1998)"
+    connection: "Same experimental site, plots, and warming treatment"
+
+  short_term_vs_long_term:
+    net_N_mineralization:
+      peterjohn_6_months: "Doubled in both layers (+106-111%)"
+      butler_7_years: "+45% sustained increase in forest floor"
+      pattern: "Initial spike, then partial acclimation or depletion of labile pool"
+
+    nitrification:
+      peterjohn_6_months: "Little to no net nitrification detected"
+      butler_7_years: "3× increase by year 5; 25% of mineralized N → NO3⁻ by year 7"
+      pattern: "Delayed response; nitrification developed over years"
+
+    nitrogen_leaching:
+      peterjohn_6_months: "No N in lysimeters (closed cycle)"
+      butler_7_years: "Closed N cycle maintained (no losses detected)"
+      pattern: "Tight retention even with long-term warming"
+
+    CO2_flux:
+      peterjohn_6_months: "+538 g C·m⁻²·yr⁻¹ (76% increase predicted)"
+      butler_7_years: "Not primary focus, but sustained elevated respiration implied"
+      pattern: "Likely some acclimation over time"
+
+  ecological_interpretation:
+    - "Initial responses are rapid: N mineralization and CO2 flux responded immediately"
+    - "Some acclimation occurs: Mineralization increase moderated from +106% to +45%"
+    - "Nitrification is a delayed response: Took years to develop significantly"
+    - "Closed cycle is robust: No N losses even after 7 years"
+    - "Labile C pools: May have been partially depleted in first 6 months"
+
+  what_peterjohn_missed:
+    - "Plant responses: Species-specific growth and N uptake (Butler showed red maple doubled RGR)"
+    - "Long-term nitrification: 3× increase took 5 years to develop"
+    - "Acclimation patterns: Moderation of initial large responses"
+    - "Interannual variability: Year-to-year patterns in responses"
+    - "Ecosystem-level N retention: Demonstrated over years, not just months"
+
+  what_peterjohn_established:
+    - "Proof of concept: Heating system worked effectively"
+    - "Immediate responses: Demonstrated rapid temperature sensitivity"
+    - "Arrhenius parameters: Q10 and activation energy for temperate forest"
+    - "No artifacts: Disturbance controls showed minimal confounding"
+    - "Baseline data: Established pre-acclimation response magnitudes"
+
+ecosim_modeling_relevance:
+  direct_parameterization:
+    - parameter: "Q10 for soil respiration"
+      value: 2.5
+      application: "Can be directly implemented in EcoSIM's temperature functions"
+
+    - parameter: "Activation energy (Ea)"
+      value: 63
+      units: "kJ/mol"
+      application: "Arrhenius equation confirmed for temperate hardwood forest"
+
+    - parameter: "N mineralization temperature response"
+      value: "Doubling with +5°C in first 6 months"
+      layers: ["forest floor", "mineral soil"]
+      application: "Initial response magnitude before acclimation; can calibrate EcoSIM's temperature-dependent mineralization"
+
+    - parameter: "Moisture-respiration interaction"
+      relationship: "Inverse linear (R² = 0.44)"
+      combined_model: "Temperature + moisture (R² = 0.94)"
+      application: "Can calibrate EcoSIM's moisture limitation functions"
+
+    - parameter: "CH4 oxidation"
+      relationship: "Positive linear with temperature"
+      rates_mg_C_m2_h: "0.09-0.16"
+      application: "Can parameterize methanotroph activity in EcoSIM"
+
+    - parameter: "Nitrification"
+      pattern: "Minimal in first 6 months (NH4-dominated system)"
+      application: "Helps calibrate nitrifier populations and activity; contrast with Butler 2012 for delayed response"
+
+  model_testing_opportunities:
+    - test: "Short-term vs. long-term responses"
+      question: "Does EcoSIM predict acclimation? (compare to Butler et al. 2012)"
+      specifics:
+        - "Does model show initial spike in mineralization followed by moderation?"
+        - "Does model develop nitrification over time?"
+
+    - test: "Labile vs. recalcitrant C pools"
+      observations:
+        - "Large initial C flux (538 g·m⁻²·yr⁻¹ increase)"
+        - "Test whether EcoSIM's C pools deplete realistically"
+        - "Does model predict sustained vs. transient responses?"
+
+    - test: "Temperature-moisture interaction"
+      observations:
+        - "Warming reduced soil moisture (confounding factor)"
+        - "Test whether EcoSIM captures evaporation feedback"
+        - "Does model predict realistic moisture changes?"
+
+    - test: "Closed N cycle"
+      observations:
+        - "No N leaching despite doubled mineralization"
+        - "Test whether EcoSIM's plant-microbial competition prevents losses"
+        - "Does model maintain closed cycle under warming?"
+
+    - test: "Disturbance effects"
+      observations:
+        - "Small but significant CO2 increase from cable installation"
+        - "Test whether EcoSIM's initialization handles disturbance"
+        - "Does model capture short-term disturbance response?"
+
+  process_understanding:
+    decoupling:
+      description: "Heating only soil (not air or canopy)"
+      benefit: "Demonstrates direct soil process responses"
+      application: "Useful for isolating soil sub-model behavior in EcoSIM"
+
+    vertical_structure:
+      description: "Separate measurements for forest floor and mineral soil"
+      benefit: "Tests EcoSIM's vertical structure"
+      note: "Different response magnitudes in different layers"
+
+    trace_gas_integration:
+      description: "CO2, CH4, N2O measured simultaneously"
+      benefit: "Tests EcoSIM's coupled C and N cycling"
+      note: "Captures both aerobic and anaerobic processes"
+
+    temporal_scales:
+      daily: "4× per day for trace gases"
+      monthly: "Patterns over growing season"
+      annual: "Predictions from empirical relationships"
+      benefit: "Tests EcoSIM across multiple temporal scales"
+
+  limitations_for_modeling:
+    - limitation: "Short duration (6 months only)"
+      impact: "Initial 'shock' responses may not represent steady state"
+      solution: "Need long-term data (Butler et al. 2012) for sustained behavior"
+
+    - limitation: "Soil warming only (decoupled from plants)"
+      impact: "Cannot validate whole-ecosystem C balance in EcoSIM"
+      solution: "Couple with aboveground measurements or whole-ecosystem warming"
+
+    - limitation: "No plant measurements"
+      impact: "Cannot calibrate plant sub-models directly"
+      details:
+        - "Root respiration vs. microbial respiration not partitioned"
+        - "Plant N uptake not measured"
+
+    - limitation: "Confounding moisture effect"
+      impact: "Difficult to isolate pure temperature effect"
+      solution: "Need to account for indirect moisture changes in model"
+
+    - limitation: "Missing mechanisms"
+      details:
+        - "Root respiration vs. heterotrophic respiration not separated"
+        - "Microbial biomass not measured"
+        - "Enzyme activities not measured"
+      impact: "Limits mechanistic calibration of EcoSIM"
+
+    - limitation: "Single site"
+      impact: "Limited generalizability"
+      details:
+        - "Harvard Forest only"
+        - "One soil type (Gloucester series)"
+        - "One forest type (mixed deciduous)"
+
+  key_insights:
+    - insight: "Non-linear temperature responses"
+      details:
+        - "Exponential (Arrhenius) is appropriate functional form for respiration"
+        - "Q10 varies by process (2.5 for respiration, but linear for CH4 uptake)"
+        - "EcoSIM should use process-specific temperature functions"
+
+    - insight: "Rapid vs. slow processes"
+      details:
+        - "CO2 flux responded immediately (hours to days)"
+        - "N mineralization responded quickly (weeks)"
+        - "Nitrification responded slowly (years; from Butler et al. 2012)"
+        - "EcoSIM must capture different time scales"
+
+    - insight: "Soil layer differences"
+      details:
+        - "Forest floor and mineral soil had similar % increases but different absolute rates"
+        - "Layer-specific parameterization needed in EcoSIM"
+
+    - insight: "Multiple limiting factors"
+      details:
+        - "Temperature primary driver (R² = 0.92)"
+        - "Moisture secondary but important (added 2% to R²)"
+        - "EcoSIM should implement hierarchical limitations"
+
+    - insight: "Initial transient responses"
+      details:
+        - "Large initial spikes may reflect labile pool depletion"
+        - "Models need multiple C and N pools with different turnover rates"
+        - "EcoSIM's multi-pool structure is appropriate"
+
+data_quality:
+  strengths:
+    - "Rigorous experimental design: Randomized complete block, true replication (18 plots, 6 blocks)"
+    - "Disturbance controls: Separate cable installation effects"
+    - "Pretreatment verification: No preexisting differences confirmed"
+    - "Comprehensive measurements: Trace gases, N cycling, environmental drivers simultaneously"
+    - "Temporal coverage: Diurnal (4× daily), twice-monthly, entire active season"
+    - "Statistical rigor: Parametric and nonparametric tests, appropriate handling of heteroscedasticity"
+    - "Successful warming: Achieved target +5°C, extended temperature range beyond natural variability"
+    - "Global context: Compared to other hardwood forests worldwide"
+
+  limitations:
+    - "Short duration: Only 6 months (initial shock responses, no acclimation assessment)"
+    - "Confounding moisture: Warming reduced soil moisture (indirect effect)"
+    - "Soil warming only: Decoupled below- and aboveground processes"
+    - "No mechanistic measurements: Root vs. microbial respiration not partitioned, no microbial biomass or enzyme activities"
+    - "Pseudoreplication concern: Single large heated area per plot (6×6 m), static chambers never moved"
+    - "Limited lysimeter data: Only 4 months, most samples below detection limit"
+    - "Missing nitrification detail: Very low NO3 throughout (need Butler 2012 for delayed response)"
+    - "No plant N uptake: Cannot close N budget"
+    - "Single site: Harvard Forest only, limited generalizability"
+    - "Statistical power: Some effects consistent but not significant (e.g., monthly NH4 averages)"
+
+  quality_assessment:
+    high_quality:
+      - "Trace gas measurements (replicated, diurnal coverage, automated)"
+      - "Soil temperature (continuous monitoring, 42 thermistors)"
+      - "N mineralization (standard buried bag technique)"
+    moderate_quality:
+      - "Soil moisture (adequate but confounded with temperature)"
+      - "Extractable N (high variability, some effects not significant)"
+      - "Lysimeter N (many samples below detection, limited temporal coverage)"
+    missing:
+      - "Microbial data"
+      - "Root data"
+      - "Plant data"
+      - "Respiration partitioning"
+
+conclusions:
+  main:
+    - "Soil warming dramatically increased CO2 efflux (exponential, Q10 = 2.5; +5°C would release additional 538 g C·m⁻²·yr⁻¹)"
+    - "Enhanced N availability (doubled net N mineralization in both forest floor and mineral soil)"
+    - "No immediate N saturation (no increased nitrification, N2O flux, or N leaching in first 6 months)"
+    - "Temperature is dominant control (explained 92% of CO2 flux variability)"
+    - "Responses consistent globally (temperature-CO2 relationship matches other hardwood forests)"
+
+  uncertainties:
+    - "Short-term vs. long-term: Observed responses may represent depletion of labile C pool"
+    - "Whole-ecosystem balance unclear: Soil respiration increased, but net ecosystem C balance unknown"
+    - "Decoupled processes: Warming only soil (not air or plants); cannot determine how global warming would affect full ecosystem interactions"
+    - "Mechanism uncertainty: Enhanced respiration could be microbial, root, or both"
+
+  forward_looking:
+    need: "Long-term field measurements needed"
+    purposes:
+      - "Determine if responses are sustained or transient"
+      - "Assess whole-ecosystem C balance"
+      - "Understand plant-soil feedbacks"
+      - "Test predictions of ecosystem models"
+    fulfillment: "This call was answered by Butler et al. (2012), who continued measurements for 7 additional years at the same site"
+
+impact:
+  scientific:
+    - "Pioneering soil warming experiment in temperate forest"
+    - "Established methodology for long-term warming experiments"
+    - "Demonstrated feasibility of buried cable heating in forest settings"
+    - "Directly tested global warming effects on soil processes"
+    - "Quantified potential C feedback (538 g·m⁻²·yr⁻¹ additional release)"
+    - "Provided empirical Arrhenius parameters for models"
+    - "Experiment continued for at least 7 more years (Butler et al. 2012)"
+    - "One of longest-running soil warming experiments"
+
+  modeling:
+    - "Provided Q10 and activation energy for decomposition"
+    - "Quantified N mineralization response magnitude"
+    - "Established temperature-CO2 relationships"
+    - "Data used to parameterize and test ecosystem models"
+    - "Referenced in McGuire et al. 1992, Rastetter et al. 1992, Melillo et al. (in press at time)"
+
+  methodological:
+    - "Demonstrated importance of disturbance controls"
+    - "Validated buried cable heating method (Peterjohn et al. 1993)"
+    - "Integrated trace gases and N cycling measurements"
+
+  context:
+    lter: "Harvard Forest Long-Term Ecological Research site"
+    global_change: "Complements elevated CO2 experiments; addresses temperature component of climate change"
+
+summary_for_meta_analysis:
+  ecosystem: "Temperate mixed deciduous forest (old-field, ~90 years old)"
+  location: "Harvard Forest, Massachusetts (42°30' N, 72°10' W)"
+  soil_ph: "3.83-4.85 (very acidic)"
+  warming: "+5°C soil temperature (buried cables, 77 W/m²)"
+  duration: "6 months (July-November 1991)"
+  replication: "6 blocks × 3 treatments"
+
+  key_responses:
+    - variable: "Net N mineralization (forest floor)"
+      control: "1.20 mg·kg⁻¹·d⁻¹"
+      heated: "2.47 mg·kg⁻¹·d⁻¹"
+      change: "+106%"
+      p_value: "<0.05"
+
+    - variable: "Net N mineralization (mineral soil)"
+      control: "0.09 mg·kg⁻¹·d⁻¹"
+      heated: "0.19 mg·kg⁻¹·d⁻¹"
+      change: "+111%"
+      p_value: "<0.05"
+
+    - variable: "Annual CO2-C flux (predicted)"
+      control: "712 g·m⁻²·yr⁻¹"
+      heated: "1250 g·m⁻²·yr⁻¹"
+      change: "+538 g·m⁻²·yr⁻¹ (+76%)"
+      significance: "Significant"
+
+    - variable: "CH4 uptake"
+      pattern: "Increased with warming"
+      p_value: "<0.05"
+
+    - variable: "N2O flux"
+      pattern: "Low, no change"
+      significance: "NS"
+
+    - variable: "Nitrification"
+      pattern: "Minimal, no change"
+      significance: "NS"
+
+    - variable: "Soil water N"
+      pattern: "Below detection limit (<0.1 mg/L), no change"
+      significance: "NS"
+
+  key_parameters:
+    Q10: 2.5
+    activation_energy_kJ_mol: 63
+    temperature_CO2_R_squared: 0.92
+    temperature_moisture_CO2_R_squared: 0.94
+
+  conclusions:
+    - "Soil warming immediately increased CO2 efflux (exponential, Arrhenius)"
+    - "Doubled net N mineralization in first 6 months"
+    - "No N saturation symptoms detected"
+    - "Closed N cycle maintained (no leaching)"
+    - "CH4 uptake increased (unexpected)"
+    - "Temperature > moisture as driver of respiration"
+
+  limitations:
+    - "Short duration (6 months only)"
+    - "Soil warming only (decoupled from plants)"
+    - "Confounding moisture effect"
+    - "No mechanistic measurements"
+    - "Single site"
+
+  follow_up:
+    study: "Butler et al. (2012)"
+    description: "Continued experiment for 7 years, showing sustained +45% mineralization, delayed 3× nitrification increase, species-specific plant responses, maintained closed N cycle"
