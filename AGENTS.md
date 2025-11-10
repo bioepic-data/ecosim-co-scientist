@@ -41,13 +41,37 @@ Located in `hackathon-case_study-experimental_warming_nitrogen/`:
    - Chlorophyll concentrations, maximum carboxylation rates (Vcmax), electron transport rates (Jmax)
    - Root hydraulic properties, gross primary production estimates
 
-4. **EcoSIM Input Files** (`ecosim-inputs-netcdf/`):
+4. **BERVO Ontology** (`bervo/bervo-terms.tsv`):
+   - **B**iogeochemical **E**coSIM **R**esearch **V**ariables **O**ntology
+   - **2,076 terms** spanning ~70 categories covering all EcoSIM variables and parameters
+   - Each term includes: unique ID (e.g., BERVO:0000001), label, definition, units, EcoSIM variable names, source file
+   - **Major categories**:
+     - Canopy data type (148 terms)
+     - Plant trait data type (143 terms)
+     - Constants for chemical reactions (125 terms)
+     - Soil biogeochemical data type (115 terms)
+     - Plant data rate type (101 terms)
+     - Climate force data type (101 terms)
+     - Soil and water data type (90 terms)
+     - Root data type (75 terms)
+     - Microbial parameters (55 terms)
+     - And 60+ additional categories
+   - **Key functions**:
+     - Controlled vocabulary for EcoSIM modeling
+     - Maps human-readable variable descriptions to EcoSIM internal variable names
+     - Standardizes units and defines valid ranges
+     - Links model variables to NetCDF file specifications
+     - Provides semantic infrastructure for automated parameter population
+   - **Curation status**: Terms include flags for group curation and definition curation, with definitions from AI-assisted sources, manual curation, and model documentation
+   - See `PLANT_TRAITS.md` for details on BERVO-trait alignment
+
+5. **EcoSIM Input Files** (`ecosim-inputs-netcdf/`):
    - Climate data (Blodget site, 2012-2022)
    - Grid specifications
    - Plant functional type parameters
    - Soil management configurations
 
-5. **Data Sources**:
+6. **Data Sources**:
    - Climate: ERA5 reanalysis
    - Soil: Harmonized World Soil Database (HWSD), SSURGO
 
