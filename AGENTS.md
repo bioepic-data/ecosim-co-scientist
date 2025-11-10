@@ -29,11 +29,16 @@ Located in `hackathon-case_study-experimental_warming_nitrogen/`:
    - Grasslands, heathlands, and meadows
    - Agricultural systems
 
-2. **Meta-Analysis Database** (`experimental_warming_nitrogen-benchmark_data.xlsx`):
-   - **Experiment metadata**: Geographic coordinates, ecosystem types, warming methods (greenhouses, nighttime curtains, heating cables), temperature increases (0.5-5°C), durations (1-98 months)
-   - **N measurements** (626 observations): N2O emissions, gross/net mineralization, nitrification, denitrification, soil moisture
-   - **EcoSIM input mappings**: NetCDF variable specifications for climate, soil, and vegetation data
-   - **Plant functional types**: 31 PFTs for EcoSIM parameterization
+2. **Meta-Analysis Database**:
+   - **Original**: `experimental_warming_nitrogen-benchmark_data.xlsx` (7 sheets)
+   - **TSV exports**: `derived/*.tsv` (7 files, one per sheet for easier programmatic access):
+     - `sources.tsv` (49 rows): Literature sources with DOIs and citations
+     - `experiment-metadata.tsv` (51 rows): Geographic coordinates, ecosystem types, warming methods (greenhouses, nighttime curtains, heating cables), temperature increases (0.5-5°C), durations (1-98 months)
+     - `N_measurements.tsv` (626 rows): N2O emissions, gross/net mineralization, nitrification, denitrification, soil moisture observations
+     - `response_variables.tsv` (14 rows): Definitions of nitrogen response variables
+     - `ecosim_input-netcdf_variables.tsv` (264 rows): NetCDF variable specifications for climate, soil, and vegetation data
+     - `ecosim-plant_names-forPFTs.tsv` (31 rows): Plant functional types for EcoSIM parameterization
+     - `climate-soil_datasources.tsv` (2 rows): Data source documentation
 
 3. **Plant Traits Database** (`plant_traits.json`):
    - Physiological parameters for various plant types (e.g., Alfalfa, barley, broadleaf trees)
