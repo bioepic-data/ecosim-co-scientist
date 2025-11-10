@@ -1,0 +1,3 @@
+climate	ERA5	https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=download
+soil	Harmonized World Soil Database (HWSD)	https://www.fao.org/soils-portal/data-hub/soil-maps-and-databases/harmonized-world-soil-database-v12/en/
+soil	Soil Survey Geographic Database (SSURGO)	https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-geographic-gssurgo-database

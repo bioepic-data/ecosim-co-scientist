@@ -1,0 +1,15 @@
+variable	type	Unnamed: 2
+soil moisture	soil	
+gross N mineralization	N flux	
+net N mineralization	N flux	
+N2O	N flux	
+net nitrification	N flux	
+plant N	N pool	
+soil inorganic N	N pool	1.0
+denitrification	N flux	
+N leaching	N flux	
+N immobilization	N flux	
+microbial N	N pool	
+soil N	N pool	
+N fixation	N flux	
+gross nitrification	N flux	

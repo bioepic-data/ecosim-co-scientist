@@ -1,0 +1,265 @@
+source_file	type	variable-data_type	variable-name	variable-shape	variable-FillValue	variable-long_name	variable-unit	variable-flags	variable-missing_value
+Blodget.clim.2012-2022.nc.cdl	climate	float	CALRG	year,ngrid		Al conc in precip	gAl m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	CCARG	year,ngrid		Ca conc in precip	gCa m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	CCLRG	year,ngrid		Cl conc in precip	gCl m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	CFERG	year,ngrid		Fe conc in precip	gFe m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	CKARG	year,ngrid		K conc in precip	gK m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	CMGRG	year,ngrid		Mg conc in precip	gMg m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	CN4RIG	year,ngrid		NH4 conc in precip	gN m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	CNARG	year,ngrid		Na conc in precip	gNa m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	CNORIG	year,ngrid		NO3 conc in precip	gN m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	CPORG	year,ngrid		H2PO4 conc in precip	gP m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	CSORG	year,ngrid		SO4 conc in precip	gS m^-3		
+Blodget.clim.2012-2022.nc.cdl	climate	float	DWPTH	year,day,hour,ngrid	1.e+30f	atmospheric vapor pressure	kPa		1.e+30f 
+Blodget.clim.2012-2022.nc.cdl	climate	int	IFLGW	year,ngrid		flag for raising Z0G with vegeation			
+Blodget.clim.2012-2022.nc.cdl	climate	float	PHRG	year,ngrid		pH in precipitation			
+Blodget.clim.2012-2022.nc.cdl	climate	float	RAINH	year,day,hour,ngrid	1.e+30f	Total precipitation	mm m^-2 hr^-1		1.e+30f 
+Blodget.clim.2012-2022.nc.cdl	climate	float	SRADH	year,day,hour,ngrid	1.e+30f	Incident solar radiation	W m^-2		1.e+30f 
+Blodget.clim.2012-2022.nc.cdl	climate	float	TMPH	year,day,hour,ngrid	1.e+30f	hourly air temperature	oC		1.e+30f 
+Blodget.clim.2012-2022.nc.cdl	climate	float	WINDH	year,day,hour,ngrid	1.e+30f	horizontal wind speed	m s^-1		1.e+30f 
+Blodget.clim.2012-2022.nc.cdl	climate	int	year	year		year AD			
+Blodget.clim.2012-2022.nc.cdl	climate	float	Z0G	year,ngrid	1.e+30f	windspeed measurement height	m		1.e+30f 
+Blodget.clim.2012-2022.nc.cdl	climate	float	ZNOONG	year,ngrid	1.e+30f	time of solar noon	hour		1.e+30f 
+Blodget_grid_20240622.nc.cdl	grid	float	AEC	ntopou,nlevs	-999.9	Anion exchange capacity	cmol kg soil-1		
+Blodget_grid_20240622.nc.cdl	grid	float	ALATG	ngrid		Latitude	degrees north		
+Blodget_grid_20240622.nc.cdl	grid	float	ALBS	ntopou		Wet soil albedo	none		
+Blodget_grid_20240622.nc.cdl	grid	float	ALTIG	ngrid		Altitude above sea-level	m		
+Blodget_grid_20240622.nc.cdl	grid	float	ASPX	ntopou		Aspect	degrees		
+Blodget_grid_20240622.nc.cdl	grid	float	ATCAG	ngrid		Mean annual temperaure	oC		
+Blodget_grid_20240622.nc.cdl	grid	float	BKDSI	ntopou,nlevs	-999.9	Initial bulk density	Mg m-3	0 for water	
+Blodget_grid_20240622.nc.cdl	grid	float	CAL	ntopou,nlevs	-999.9	Soluble soil Al content	g Al/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CALOH	ntopou,nlevs	-999.9	Soil Al(OH)3 content	g Al/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CALPO	ntopou,nlevs	-999.9	Soil AlPO4 content	g P/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CCA	ntopou,nlevs	-999.9	Soluble soil Ca content	g Ca/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CCACO	ntopou,nlevs	-999.9	Soil CaCO3 content	g Ca/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CCAPD	ntopou,nlevs	-999.9	Soil CaHPO4 content	g P/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CCAPH	ntopou,nlevs	-999.9	Soil apatite content	g P/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CCASO	ntopou,nlevs	-999.9	Soil CaSO4 content	g Ca/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CCL	ntopou,nlevs	-999.9	Soluble soil Cl content	g Cl/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CDPTH	ntopou,nlevs	-999.9	Depth to bottom of soil layer	m		
+Blodget_grid_20240622.nc.cdl	grid	float	CEC	ntopou,nlevs	-999.9	Cation exchange capacity	cmol kg soil-1		
+Blodget_grid_20240622.nc.cdl	grid	float	CFE	ntopou,nlevs	-999.9	Soluble soil Fe content	g Fe/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CFEOH	ntopou,nlevs	-999.9	Soil Fe(OH)3 content	g Fe/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CFEPO	ntopou,nlevs	-999.9	Soil FePO4 content	g P/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CH4EG	ngrid		Atmospheric CH4	ppm		
+Blodget_grid_20240622.nc.cdl	grid	float	CKA	ntopou,nlevs	-999.9	Soluble soil K content	g K/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CMG	ntopou,nlevs	-999.9	Soluble soil MG content	g MG/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CNA	ntopou,nlevs	-999.9	Soluble soil Na content	g Na/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CNH4	ntopou,nlevs	-999.9	Total soil NH4 concentration	gN/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CNO3	ntopou,nlevs	-999.9	Total soil NO3 concentration	gN/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CO2EIG	ngrid		Atmospheric CO2	ppm		
+Blodget_grid_20240622.nc.cdl	grid	float	CORGC	ntopou,nlevs	-999.9	Total soil organic carbon	kg C/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CORGN	ntopou,nlevs	-999.9	Total soil organic nitrogen	g N/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CORGP	ntopou,nlevs	-999.9	Total soil organic phosphorus	g P/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CORGR	ntopou,nlevs	-999.9	POC (part of SOC)	kg C/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CPO4	ntopou,nlevs	-999.9	Total soil H2PO4 concentration	gP/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	CSAND	ntopou,nlevs	-999.9	Sand content	kg Mg-1		
+Blodget_grid_20240622.nc.cdl	grid	float	CSILT	ntopou,nlevs	-999.9	Silt content	kg Mg-1		
+Blodget_grid_20240622.nc.cdl	grid	float	CSO4	ntopou,nlevs	-999.9	Soluble soil SO4 content	g S/Mg soil		
+Blodget_grid_20240622.nc.cdl	grid	float	DHI	ngrid,ncol					
+Blodget_grid_20240622.nc.cdl	grid	float	DPTHSX	ntopou		Initial snowpack depth	m		
+Blodget_grid_20240622.nc.cdl	grid	float	DTBLDIG	ngrid		Depth of artificial water table	m		
+Blodget_grid_20240622.nc.cdl	grid	float	DTBLGG	ngrid		Slope of natural water table relative to landscape surface	none		
+Blodget_grid_20240622.nc.cdl	grid	float	DTBLIG	ngrid		Depth of natural water table	m		
+Blodget_grid_20240622.nc.cdl	grid	float	DVI	ngrid,nrow					
+Blodget_grid_20240622.nc.cdl	grid	float	FC	ntopou,nlevs	-999.9	Field capacity	m3 m-3		
+Blodget_grid_20240622.nc.cdl	grid	float	FHOL	ntopou,nlevs	-999.9	Macropore fraction in the non-rock fraction of soil	none	0-1	
+Blodget_grid_20240622.nc.cdl	grid	float	GKC4	ntopou,nlevs	-999.9	Ca-NH4 Gapon selectivity coefficient	none		
+Blodget_grid_20240622.nc.cdl	grid	float	GKCA	ntopou,nlevs	-999.9	Ca-Al Gapon selectivity coefficient	none		
+Blodget_grid_20240622.nc.cdl	grid	float	GKCH	ntopou,nlevs	-999.9	Ca-H Gapon selectivity coefficient	none		
+Blodget_grid_20240622.nc.cdl	grid	float	GKCK	ntopou,nlevs	-999.9	Ca-K Gapon selectivity coefficient	none		
+Blodget_grid_20240622.nc.cdl	grid	float	GKCM	ntopou,nlevs	-999.9	Ca-Mg Gapon selectivity coefficient	none		
+Blodget_grid_20240622.nc.cdl	grid	float	GKCN	ntopou,nlevs	-999.9	Ca-Na Gapon selectivity coefficient	none		
+Blodget_grid_20240622.nc.cdl	grid	byte	IDTBLG	ngrid		Water table flag	none	0=No water table,1=Natural stationary water table,2=Natural mobile water table,3=Artificialstationary water table,4=Artificial mobile water table	
+Blodget_grid_20240622.nc.cdl	grid	byte	IETYPG	ngrid		Koppen climate zone	none		
+Blodget_grid_20240622.nc.cdl	grid	byte	ISOILR	ntopou		Flag for soil profile type	none	0=natural,1=reconstructed	
+Blodget_grid_20240622.nc.cdl	grid	byte	IXTYP1	ntopou		plant surface fine litter type	none	1=maize,2=wheat,3=soybean,4=new straw,5=old straw,6=compost,7=green manure,8=new deciduos forest,9=new coniferous forest,10=old deciduous forest,11=old coniferous forest,12=default	
+Blodget_grid_20240622.nc.cdl	grid	byte	IXTYP2	ntopou		manure surface litter type	none	1=ruminant,2=non ruminant,3=others	
+Blodget_grid_20240622.nc.cdl	grid	byte	NH1	ntopou		Starting column from the west	none		
+Blodget_grid_20240622.nc.cdl	grid	byte	NH2	ntopou		Ending column at the east	none		
+Blodget_grid_20240622.nc.cdl	grid	int	NHE						
+Blodget_grid_20240622.nc.cdl	grid	int	NHW						
+Blodget_grid_20240622.nc.cdl	grid	byte	NJ	ntopou		Layer number of maximum rooting layer	none		
+Blodget_grid_20240622.nc.cdl	grid	byte	NL1	ntopou		Number of additional layers below NJ with data in file	none		
+Blodget_grid_20240622.nc.cdl	grid	byte	NL2	ntopou		Number of additional layers below NJ without data in file	none		
+Blodget_grid_20240622.nc.cdl	grid	byte	NUI	ntopou		Initial layer number of soil surface layer	none	usually is 1	
+Blodget_grid_20240622.nc.cdl	grid	byte	NV1	ntopou		Starting row from the north	none		
+Blodget_grid_20240622.nc.cdl	grid	byte	NV2	ntopou		Ending row at the south	none		
+Blodget_grid_20240622.nc.cdl	grid	int	NVN						
+Blodget_grid_20240622.nc.cdl	grid	int	NVS						
+Blodget_grid_20240622.nc.cdl	grid	float	OXYEG	ngrid		Atmospheric O2	ppm		
+Blodget_grid_20240622.nc.cdl	grid	float	PH	ntopou,nlevs	-999.9	depth-resolved pH	none		
+Blodget_grid_20240622.nc.cdl	grid	float	PH0	ntopou		Litter pH	none		
+Blodget_grid_20240622.nc.cdl	grid	float	PSIFC	ntopou		Water potential at field capacity	MPa		
+Blodget_grid_20240622.nc.cdl	grid	float	PSIWP	ntopou		Water potential at wilting point	MPa		
+Blodget_grid_20240622.nc.cdl	grid	float	RCHGDG	ngrid		Lower boundary conditions for water flow	none	varying between 0 and 1	
+Blodget_grid_20240622.nc.cdl	grid	float	RCHGETG	ngrid		East edge distance to water table	m		
+Blodget_grid_20240622.nc.cdl	grid	float	RCHGEUG	ngrid		Bound condition for E subsurf flow	none		
+Blodget_grid_20240622.nc.cdl	grid	float	RCHGNTG	ngrid		North edge distance to water table	m		
+Blodget_grid_20240622.nc.cdl	grid	float	RCHGNUG	ngrid		Bound condition for N subsurf flow	none		
+Blodget_grid_20240622.nc.cdl	grid	float	RCHGSTG	ngrid		South edge distance to water table	m		
+Blodget_grid_20240622.nc.cdl	grid	float	RCHGSUG	ngrid		Bound condition for S subsurf flow	none		
+Blodget_grid_20240622.nc.cdl	grid	float	RCHGWTG	ngrid		West edge distance to water table	m		
+Blodget_grid_20240622.nc.cdl	grid	float	RCHGWUG	ngrid		Bound condition for W subsurf flow	none		
+Blodget_grid_20240622.nc.cdl	grid	float	RCHQEG	ngrid		Boundary condition for East surface runoff	none	varying between 0 and 1	
+Blodget_grid_20240622.nc.cdl	grid	float	RCHQNG	ngrid		Boundary condition for North surface runoff	none	varying between 0 and 1	
+Blodget_grid_20240622.nc.cdl	grid	float	RCHQSG	ngrid		Boundary condition for S surface runoff	none	varying between 0 and 1	
+Blodget_grid_20240622.nc.cdl	grid	float	RCHQWG	ngrid		Boundary condition for W surface runoff	none	varying between 0 and 1	
+Blodget_grid_20240622.nc.cdl	grid	float	ROCK	ntopou,nlevs	-999.9	Rock fraction of the whole soil	none	0-1	
+Blodget_grid_20240622.nc.cdl	grid	float	RSCf	ntopou		C in surface fine litter	gC m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSCfL	ntopou,nlevs	-999.9	Initial fine litter C	gC m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSCm	ntopou		C in manure	gC m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSCmL	ntopou,nlevs	-999.9	Initial manure liter C	gC m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSCw	ntopou		C in surface woody litter	gC m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSCwL	ntopou,nlevs	-999.9	Initial woody litter C	gC m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSNf	ntopou		N in surface fine litter	gN m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSNfL	ntopou,nlevs	-999.9	Initial fine litter N	gN m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSNm	ntopou		N in manure	gN m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSNmL	ntopou,nlevs	-999.9	Initial manure litter N	gN m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSNw	ntopou		N in surface woody litter	gN m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSNwL	ntopou,nlevs	-999.9	Initial woody litter N	gN m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSPf	ntopou		P in surface fine litter	gP m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSPfL	ntopou,nlevs	-999.9	Initial fine litter P	gP m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSPm	ntopou		P in manure	gP m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSPmL	ntopou,nlevs	-999.9	Initial manure litter P	gP m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSPw	ntopou		P in surface woody litter	gP m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	RSPwL	ntopou,nlevs	-999.9	Initial woody litter P	gP m-2		
+Blodget_grid_20240622.nc.cdl	grid	float	SCNH	ntopou,nlevs	-999.9	Lateral hydraulic conductivity Ksat	mm h-1		
+Blodget_grid_20240622.nc.cdl	grid	float	SCNV	ntopou,nlevs	-999.9	Vertical hydraulic conductivity Ksat	mm h-1		
+Blodget_grid_20240622.nc.cdl	grid	float	SL0	ntopou		Slope	degrees		
+Blodget_grid_20240622.nc.cdl	grid	float	THI	ntopou,nlevs	-999.9	Initial soil ice content	m3/m3		
+Blodget_grid_20240622.nc.cdl	grid	float	THW	ntopou,nlevs	-999.9	Initial soil water content	m3/m3		
+Blodget_grid_20240622.nc.cdl	grid	int	topo_grid	ntopou		grid ID of the topo unit	none		
+Blodget_grid_20240622.nc.cdl	grid	float	WP	ntopou,nlevs	-999.9	Wilting point	m3 m-3		
+Blodget_grid_20240622.nc.cdl	grid	float	Z2GEG	ngrid		Atmospheric N2	ppm		
+Blodget_grid_20240622.nc.cdl	grid	float	Z2OEG	ngrid		Atmospheric N2O	ppm		
+Blodget_grid_20240622.nc.cdl	grid	float	ZNH3EG	ngrid		Atmospheric NH3	ppm		
+Blodget_pft_20240622.ENF.nc.cdl	pft	int	NH1	ntopou		Starting column from the west for a topo unit			
+Blodget_pft_20240622.ENF.nc.cdl	pft	int	NH2	ntopou		Starting row from the north  for a topo unit			
+Blodget_pft_20240622.ENF.nc.cdl	pft	short	nmgnts	year,ntopou,maxpfts		Number of managements for a given pft in in given topo unit in a year ;			
+Blodget_pft_20240622.ENF.nc.cdl	pft	int	NV1	ntopou		Ending column at the east for a topo unit			
+Blodget_pft_20240622.ENF.nc.cdl	pft	int	NV2	ntopou		Ending row at the south  for a topo unit			
+Blodget_pft_20240622.ENF.nc.cdl	pft	int	NZ	ntopou		Number of pfts on a topo unit			
+Blodget_pft_20240622.ENF.nc.cdl	pft	int	pft_dflag			Flag for plant management data		-1 no pft data, 0 only plantation information, 1 transient pft data	
+Blodget_pft_20240622.ENF.nc.cdl	pft	char	pft_mgmt	year,ntopou,maxpfts,maxpmgt,ncharmgnt		string containing plant management information ;			
+Blodget_pft_20240622.ENF.nc.cdl	pft	char	pft_pltinfo	year,ntopou,maxpfts,ncharmgnt		string containing planting information ;			
+Blodget_pft_20240622.ENF.nc.cdl	pft	char	pft_type	year,ntopou,maxpfts,nchar1					
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	char	fertf	year,ntopou,nchar1		Fertilization info for a topo unit ;			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	char	irrigf	year,ntopou,nchar1		Irrigation info for a topo unit ;			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	char	me2001f	nfert,ncharf		fertilization file ;			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	char	me2001t	ntill,nchart		Tillage file ;			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	char	me2003f	nfert,ncharf		fertilization file ;			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	char	me2005f	nfert,ncharf		fertilization file ;			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	char	me2007f	nfert,ncharf		fertilization file ;			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	char	me2009f	nfert,ncharf		fertilization file ;			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	char	me2011f	nfert,ncharf		fertilization file ;			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	int	NH1	ntopou		Starting column from the west for a topo unit			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	int	NH2	ntopou		Starting row from the north  for a topo unit			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	int	NV1	ntopou		Ending column at the east for a topo unit			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	int	NV2	ntopou		Ending row at the south  for a topo unit			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	char	tillf	year,ntopou,nchar1		Tillage info for a topo unit ;			
+crop-ne3_soilmgmt_20250602.nc.cdl	soilmanagement	int	year	year		year AD ;			
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	ALBP	npfts		leaf PAR albedo	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	ALBR	npfts		leaf SW albedo	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	ANGBR	npfts		stem angle from horizontal	degree		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	ANGSH	npfts		petiole angle from horizontal	degree		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CFI	npfts		initial clumping factor	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CHL	npfts		fraction of leaf protein in mesophyll(C3) chlorophyll	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CHL4	npfts		fraction of leaf protein in bundle sheath(C4) chlorophyll	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CLASS	npfts, JLI		fraction of leaf area in 0-22.5,45,67.5,90o inclination classes	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CNEAR	npfts		NC ratio in plant ear	gN gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CNGR	npfts		NC ratio in plant grain	gN gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CNHSK	npfts		NC ratio in plant husk	gN gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CNLF	npfts		NC ratio in plant leaves	gN gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CNND	npfts		NC ratio in plant nodule	gN gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CNRSV	npfts		NC ratio in plant stalk reserve	gN gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CNRT	npfts		NC ratio in plant root	gN gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CNSHE	npfts		NC ratio in plant petiole	gN gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CNSTK	npfts		NC ratio in plant stalk	gN gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CPEAR	npfts		PC ratio in plant ear	gP gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CPGR	npfts		PC ratio in plant grain	gP gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CPHSK	npfts		PC ratio in plant husk	gP gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CPLF	npfts		PC ratio in plant leaves	gP gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CPND	npfts		PC ratio in plant nodule	gP gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CPRSV	npfts		PC ratio in plant stalk reserve	gP gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CPRT	npfts		PC ratio in plant root	gP gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CPSHE	npfts		PC ratio in plant petiole	gP gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CPSTK	npfts		PC ratio in plant stalk	gP gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	CTC	npfts		chilling temperature for CO2 fixation, seed loss	oC		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	DMEAR	npfts		ear dry matter C production vs nonstructural Cconsumption	gC gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	DMGR	npfts		grain C production vs nonstructural C consumption	gC gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	DMHSK	npfts		husk dry matter C production vs nonstructural Cconsumption	gC gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	DMLF	npfts		leaf dry matter C production vs nonstructural C consumption	gC gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	DMND	npfts		nodule bacteria in root nodule,canopy dry matter C production vs nonstructural C consumption	gC gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	DMRSV	npfts		stalk reserve C production vs nonstructural C consumption	gC gC-1)		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	DMRT	npfts		root dry matter C production vs nonstructural C consumption	gC gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	DMSHE	npfts		petiole dry matter C production vs nonstructural C consumption	gC gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	DMSTK	npfts		stalk dry matter C production vs nonstructural C consumption	gC gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	ETMX	npfts		specific chlorophyll activity	umol e- g-1 s-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	FCO2	npfts		intercellular	none	atmospheric CO2 concentration ratio	
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	GFILL	npfts		grain filling rate at 25 oC	gC seed-1 h-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	GRDM	npfts		seed size at planting	gC seed-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	GRMX	npfts		maximum seed size per seed	gC seed-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	GROUPX	npfts		initial plant maturity group, aka minimum number of vegetative nodes initiated before floral	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	byte	IBTYP	npfts		turnover of aboveground biomass	none	0,1=rapid(fully deciduous),2=very slow(needle evergreen),3=(broadleaf evergreen),4=slow(semi-deciduous),5=(semi-evergreen)	
+ecosim_pftpar_20240723.nc.cdl	pftpar	byte	ICTYP	npfts		photosynthesis type	none	C3 or C4	
+ecosim_pftpar_20240723.nc.cdl	pftpar	byte	IDTYP	npfts		growth habit	none	0=determinate,1=indetermimate	
+ecosim_pftpar_20240723.nc.cdl	pftpar	byte	IGTYP	npfts		root profile	none	0=shallow (eg bryophytes),1=intermediate(eg herbs),2=deep (eg trees)	
+ecosim_pftpar_20240723.nc.cdl	pftpar	byte	INTYP	npfts		N2 fixation	none	1,2,3=rapid to slow root symbiosis (e.g.legumes),4,5,6=rapid to slow canopy symbiosis (e.g. cyanobacteria)	
+ecosim_pftpar_20240723.nc.cdl	pftpar	byte	IPTYP	npfts		photoperiod type	none	0=day neutral,1=short day,2=long day	
+ecosim_pftpar_20240723.nc.cdl	pftpar	byte	IRTYP	npfts		storage organ	none	0=above ground,1=below ground	
+ecosim_pftpar_20240723.nc.cdl	pftpar	byte	ISTYP	npfts		growth habit	none	0=annual,1=perennial	
+ecosim_pftpar_20240723.nc.cdl	pftpar	byte	IWTYP	npfts		phenology type	none	0=evergreen,1=cold deciduous,2=drought deciduous,3=1+2	
+ecosim_pftpar_20240723.nc.cdl	pftpar	char	koppen_clim_long	nkopenclms, nchars6					
+ecosim_pftpar_20240723.nc.cdl	pftpar	char	koppen_clim_no	nkopenclms, nchars4					
+ecosim_pftpar_20240723.nc.cdl	pftpar	char	koppen_clim_short	nkopenclms, nchars5					
+ecosim_pftpar_20240723.nc.cdl	pftpar	byte	MY	npfts		mycorrhizal	none	1=no,2=yes	
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	OSMO	npfts		leaf osmotic potential at zero leaf water potential	MPa		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	PB	npfts		nonstructural C concentration needed for branching	gC gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	PEPC	npfts		fraction of leaf protein in PEP carboxylase	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	char	pfts	npfts, nchars1					
+ecosim_pftpar_20240723.nc.cdl	pftpar	char	pfts_long	npft, nchars3					
+ecosim_pftpar_20240723.nc.cdl	pftpar	char	pfts_short	npft, nchars2					
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	PORT	npfts		root porosity	m3 m-3		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	PR	npfts		nonstructural C concentration needed for root branching	gC gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	PTSHT	npfts		rate constant for equilibrating shoot-root nonstructural C concentration	h-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	RCS	npfts		e-folding turgor pressure for stomatal resistance	MPa		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	RRAD1M	npfts		radius of primary roots	m		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	RRAD2M	npfts		radius of secondary roots	m		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	RSMX	npfts		cuticular resistance	s m-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	RSRA	npfts		axial root resistivity	m2 MPa-1 h-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	RSRR	npfts		radial root resistivity	m2 MPa-1 h-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	RTFQ	npfts		root branching frequency	m-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	RUBP	npfts		fraction of leaf protein in rubisco	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	SDMX	npfts		maximum seed number per site	seeds site-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	SLA1	npfts		growth in leaf area vs mass	m2 gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	SNL1	npfts		growth in internode stalk length vs mass	m gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	SSL1	npfts		growth in petiole length vs mass	m gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	STMX	npfts		maximum potential seed sites for pre-anthesis stalk growth	sites gC-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	TAUP	npfts		leaf PAR transmission	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	TAUR	npfts		leaf SW transmission	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	UPKMPO	npfts		H2PO4 uptake Km	uM		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	UPKMZH	npfts		NH4 uptake Km	uM		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	UPKMZO	npfts		NO3 uptake Km	uM		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	UPMNPO	npfts		H2PO4 uptake minimum conconcentration	uM		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	UPMNZH	npfts		NH4 uptake minimum conconcentration	uM		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	UPMNZO	npfts		NO3 uptake minimum conconcentration	uM		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	UPMXPO	npfts		H2PO4 max uptake	gP m-2 h-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	UPMXZH	npfts		NH4 max uptake	g m-2 h-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	UPMXZO	npfts		NO3 max uptake	g m-2 h-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	VCMX	npfts		specific C3 rubisco carboxylase	umol C g-1 s-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	VCMX4	npfts		specific PEP carboxylase activity	umol g-1 s-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	VOMX	npfts		specific rubisco oxygenase activity	umol O g-1 s-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	VRNLI	npfts		hour requirement for spring leafout	h		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	VRNXI	npfts		hour requirement for autumn leafoff	h		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	WDLF	npfts		leaf length vs width ratio	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	WTSTDI	npfts		mass of dead standing biomass at planting	gC m-2		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	XDL	npfts		critical daylength for phenological progress	h		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	XKCO2	npfts		Km for VCMX	uM		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	XKCO24	npfts		Km for VCMX4	uM		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	XKO2	npfts		Km for VOMX	uM		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	XPPD	npfts		photoperiod sensitivity, i.e. difference between current and critical daylengths used to calculate  phenological progress	node h-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	XRLA	npfts		rate of leaf appearance at 25oC	h-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	XRNI	npfts		rate of node initiation at 25oC	h-1		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	XTLI	npfts		node number in seed at planting	none		
+ecosim_pftpar_20240723.nc.cdl	pftpar	float	ZTYPI	npfts		thermal adaptation zone	none	1=arctic,boreal,2=cool temperate	

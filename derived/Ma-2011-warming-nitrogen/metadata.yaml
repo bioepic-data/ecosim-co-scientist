@@ -1,0 +1,621 @@
+# Ma et al. 2011 - Warming and Nitrogen Addition Effects on Soil N Cycling
+# Machine-readable structured metadata
+
+study:
+  id: ma-2011-warming-nitrogen
+
+  citation:
+    authors:
+      - family: Ma
+        given: L-N
+      - family: Lü
+        given: X-T
+      - family: Liu
+        given: Y
+      - family: Guo
+        given: J-X
+      - family: Zhang
+        given: N-Y
+      - family: Yang
+        given: J-Q
+      - family: Wang
+        given: R-Z
+    title: "The Effects of Warming and Nitrogen Addition on Soil Nitrogen Cycling in a Temperate Grassland, Northeastern China"
+    journal: PLoS ONE
+    year: 2011
+    volume: 6
+    issue: 11
+    pages: e27645
+    doi: 10.1371/journal.pone.0027645
+
+  study_period:
+    treatment_start: 2006
+    measurement_start: 2007
+    measurement_end: 2009
+    duration_years: 3
+    description: "Treatments began 2006, measurements during 2007-2009 growing seasons"
+
+site:
+  location:
+    name: "Research Station of Songnen Grassland Ecosystem"
+    region: "Jilin Province"
+    country: "China"
+    latitude: 44.75
+    longitude: 123.75
+
+  ecosystem:
+    type: "Temperate continental grassland"
+    biome: "Eurasian steppe"
+    vegetation_type: "Perennial C3 grass-dominated"
+
+  climate:
+    mean_annual_temperature_c: 4.9
+    mean_annual_land_surface_temperature_c: 6.2
+    mean_annual_precipitation_mm: 410
+    precipitation_long_term_period: "1980-2006"
+    growing_season_precipitation_fraction: 0.90
+    growing_season_months: "May to October"
+
+  climate_study_years:
+    year_2007:
+      precipitation_mm: 275.9
+      anomaly_pct: -32.7
+      classification: "dry year"
+    year_2008:
+      precipitation_mm: 384.2
+      anomaly_pct: -6.2
+      classification: "near normal"
+    year_2009:
+      precipitation_mm: 390
+      anomaly_pct: -4.9
+      classification: "near normal"
+
+  soil:
+    type: "Sodic saline meadow soil"
+    ph: 8.2
+    soil_organic_matter_pct: "3-4"
+    notes: "Alkaline soil - rare in warming literature"
+
+  vegetation:
+    dominant_species:
+      - species: "Leymus chinensis (Trin.) Tzvel."
+        functional_type: "C3 perennial grass"
+        height_cm: "30-40"
+        notes: "Primary indicator species, dominant"
+    other_species:
+      - "Kalimeris integrifolia"
+      - "Carex duriuscula"
+      - "Phragmites spp."
+    maximum_litter_kg_m2: 0.5
+
+experimental_design:
+  design_type: "2×2 factorial, randomized complete block"
+  replication: 6
+  plot_size_m2: 6
+  plot_dimensions: "2 m × 3 m"
+  total_plots: 24
+
+  treatments:
+    - name: warming
+      abbreviation: W
+      method: "Infrared heating"
+      equipment: "Kalglo Electronics MSR-2420"
+      power_w: 1700
+      position: "2.25 m above plot center"
+      operation: "Continuous"
+      achieved_increase_c: 1.8
+      measurement_depth_cm: 15
+      control: "Dummy heaters (same shading)"
+      notes: "Active infrared heating system"
+
+    - name: nitrogen_addition
+      abbreviation: N
+      amount_g_n_m2_yr: 10
+      form: "Ammonium nitrate (NH4NO3)"
+      state: "Aqueous solution"
+      timing: "Single pulse in early May each year"
+      water_equivalent_mm: 2
+      control: "Water addition without N"
+
+  treatment_combinations:
+    - Control
+    - W
+    - N
+    - WN
+
+measurements:
+  soil_microclimate:
+    equipment: "ECH2O dielectric aquameter (Em50)"
+    frequency: "6 times per growing season"
+    timing:
+      - "Late May"
+      - "Mid-June"
+      - "Mid-July"
+      - "Early August"
+      - "Mid-September"
+      - "Mid-October"
+    time_of_day: "08:00-09:00"
+    variables:
+      - name: soil_temperature
+        depth_cm: 15
+        unit: celsius
+      - name: soil_water_content
+        depth_cm: "0-15"
+        unit: volumetric_percent
+
+  soil_nitrogen_mineralization:
+    method: "Laboratory aerobic incubation"
+    sampling:
+      depth_cm: "0-15"
+      core_diameter_cm: 5
+      core_length_cm: 15
+      cores_per_plot: 2
+      pooled: true
+      soil_state: "fresh, not dried"
+
+    incubation_procedure:
+      soil_mass_g: 10
+      sand_mass_g: 10
+      sand_type: "acid-washed"
+      container: "250 mL triangle bottle"
+      water_holding_capacity_pct: 60
+      cover: "0.01 mm plastic film"
+      temperature_c: 25
+      duration_days: 14
+
+    extraction:
+      solution: "2 M KCl"
+      shaking_duration_hours: 1
+      separation: "centrifuge"
+
+    analytes:
+      - name: NH4_N
+        method: "Steam distillation + titration"
+      - name: NO3_N
+        method: "UV photometry"
+        wavelength_nm: 210
+
+    calculated_rates:
+      - name: net_N_mineralization_rate
+        abbreviation: NMR
+        formula: "Change in (NH4-N + NO3-N)"
+        unit: "mg N kg-1 soil 14d-1"
+      - name: net_nitrification_rate
+        abbreviation: NNR
+        formula: "Change in NO3-N"
+        unit: "mg N kg-1 soil 14d-1"
+
+  microbial_biomass:
+    method: "Chloroform fumigation-extraction"
+    conversion_factor: 0.45
+    parameter: "Microbial biomass N (MBN)"
+    unit: "mg N kg-1 soil"
+
+  microbial_community:
+    method: "Phospholipid fatty acid (PLFA) analysis"
+    sample_mass_g: 8
+    equipment: "Gas Chromatograph HP 6850"
+    software: "Sherlock Microbial ID System V3.1"
+
+    bacterial_markers:
+      - i15:0
+      - a15:0
+      - i16:1c
+      - i16:0
+      - 16:1ω7c
+      - i17:0
+      - 17:1ω6c
+      - a17:0
+      - 17:0cy
+      - 18:1ω7c
+      - 18:1ω5c
+      - 19:0cy
+
+    fungal_markers:
+      - 16:1ω5c
+      - 18:2ω6,9c
+      - 18:1ω9c
+
+    derived_metrics:
+      - name: bacterial_to_fungal_ratio
+        abbreviation: B:F
+        importance: "Key indicator of decomposition rate"
+      - name: total_PLFAs
+        interpretation: "Total microbial biomass proxy"
+
+  soil_chemistry:
+    - name: soil_organic_carbon
+      abbreviation: SOC
+      method: "Dichromate oxidation"
+    - name: total_nitrogen
+      abbreviation: TN
+      method: "Kjeldahl digestion with H2SO4"
+    - name: C_to_N_ratio
+      calculation: "SOC / TN"
+    - name: available_nitrogen
+      calculation: "NH4-N + NO3-N"
+      extraction: "2 M KCl"
+
+  plant_nitrogen:
+    species: "Leymus chinensis"
+    sampling:
+      timing: "Fall of each year (2007, 2008, 2009)"
+      plants_per_plot: 20
+      root_system: "intact"
+
+    fractions:
+      - name: aboveground
+        drying: "70°C oven"
+        analysis: "Kjeldahl digestion"
+      - name: belowground
+        drying: "70°C oven"
+        analysis: "Kjeldahl digestion"
+
+results:
+  soil_microclimate:
+    temperature:
+      warming_effect:
+        statistic: "F(1,20) = 6.33"
+        p_value: "<0.05"
+        direction: "increase"
+      interaction_WxN:
+        statistic: "F(1,20) = 4.97"
+        p_value: "<0.05"
+        interpretation: "Warming effect significant under ambient N but not under N addition"
+
+    soil_moisture:
+      warming_effect:
+        statistic: "F(1,20) = 6.74"
+        p_value: "<0.05"
+        direction: "decrease"
+      interaction_WxN:
+        statistic: "F(1,20) = 5.56"
+        p_value: "<0.05"
+        interpretation: "N addition decreased moisture more under warming"
+      year_effect:
+        p_value: "<0.001"
+        pattern: "2007 (dry) significantly drier than 2008 and 2009"
+
+  microbial_community:
+    bacterial_to_fungal_ratio:
+      N_effect:
+        year_2007: +60%
+        year_2008: +63%
+        year_2009: +56%
+        p_value: "<0.001"
+      warming_effect:
+        year_2007: +58%
+        year_2008: +57%
+        year_2009: +47%
+        p_value: "<0.001"
+      interaction_WxN:
+        p_value: "<0.001"
+        type: "Antagonistic - combined effect smaller than additive"
+
+    fungal_PLFAs:
+      N_effect:
+        year_2007: -28%
+        year_2008: -25.4%
+        year_2009: -21%
+        p_value: "<0.001"
+        direction: "decrease"
+      warming_effect:
+        year_2007: -23.2%
+        year_2008: -24.7%
+        year_2009: -17.4%
+        p_value: "<0.001"
+        direction: "decrease"
+      interaction_WxN:
+        p_value: "<0.001"
+
+    total_PLFAs:
+      N_effect:
+        year_2007: +13.2%
+        year_2008: +20.3%
+        year_2009: +21.5%
+        p_value: "<0.01"
+      warming_effect:
+        year_2007: +16.8%
+        year_2008: +18.7%
+        year_2009: +19.2%
+        p_value: "<0.01"
+
+    microbial_biomass_N:
+      N_effect:
+        year_2007: +13.2%
+        year_2008: +15.7%
+        year_2009: +16.6%
+        p_value: "<0.01"
+      warming_effect:
+        year_2007: +17.7%
+        year_2008: +12.5%
+        year_2009: +16.6%
+        p_value: "<0.01"
+
+  soil_chemistry:
+    C_to_N_ratio:
+      N_effect:
+        year_2007: -10.2%
+        year_2008: -9.7%
+        year_2009: -10%
+        p_value: "<0.05"
+        interpretation: "Soil quality improved"
+
+    available_N:
+      treatment_effects: "No significant effects"
+      interpretation: "N uptake by plants and microbes balanced increased mineralization"
+
+  plant_nitrogen:
+    aboveground:
+      N_effect:
+        year_2007: +27%
+        year_2008: +30.4%
+        year_2009: +29.4%
+        p_value: "<0.001"
+      warming_effect:
+        main_effect: "No significant effect"
+      interaction_WxN:
+        p_value: "<0.01"
+        interpretation: "Warming increased plant N only under N addition"
+
+    belowground:
+      N_effect:
+        year_2007: +14.2%
+        year_2008: +13.5%
+        year_2009: +11.2%
+        p_value: "<0.05"
+
+  nitrogen_mineralization:
+    net_mineralization_rate:
+      warming_effect:
+        year_2007: +18%
+        year_2008: +16.9%
+        year_2009: +17%
+        p_value: "<0.01"
+
+      N_effect:
+        year_2007: +12.3%
+        year_2008: +11.8%
+        year_2009: +11.9%
+        p_value: "<0.05"
+
+      interaction_WxN:
+        p_value: "<0.05"
+        type: "ANTAGONISTIC"
+        combined_effect:
+          year_2007: +17.5%
+          year_2008: +20.1%
+        expected_additive:
+          year_2007: +30.3%
+          year_2008: +28.7%
+        reduction_from_additive_pct: "30-40"
+        interpretation: "Combined effect significantly less than sum of individual effects"
+
+    net_nitrification_rate:
+      warming_effect:
+        year_2007: +14.8%
+        year_2008: +17.6%
+        year_2009: +18.3%
+        p_value: "<0.01"
+
+      N_effect:
+        year_2007: +11%
+        year_2008: +12.9%
+        year_2009: +15.3%
+        p_value: "<0.05"
+
+      interaction_WxN:
+        p_value: "<0.05"
+        type: "ANTAGONISTIC"
+        combined_effect: "+16.2% to +20.2%"
+        expected_additive: "+28.6% to +31.6%"
+
+    temporal_patterns:
+      seasonal: "Unimodal - higher in summer, lower in spring/autumn"
+      dry_year_effect:
+        comparison: "2007 < 2008, 2009"
+        p_value: "<0.001"
+        interpretation: "Lower absolute rates in dry year"
+      treatment_consistency: "Response percentages similar across years despite precipitation differences"
+
+mechanistic_analyses:
+  temporal_controls:
+    method: "Stepwise regression across seasons"
+
+    for_NMR:
+      soil_temperature:
+        partial_R2: 0.43
+        p_value: "<0.001"
+      soil_moisture:
+        partial_R2: 0.29
+        p_value: "<0.01"
+      combined_R2: 0.72
+
+    for_NNR:
+      soil_temperature:
+        partial_R2: 0.42
+        p_value: "<0.001"
+      soil_moisture:
+        partial_R2: 0.32
+        p_value: "<0.01"
+      combined_R2: 0.74
+
+  spatial_controls:
+    method: "Stepwise regression across 24 plots"
+
+    year_2007:
+      NMR:
+        predictors: ["B:F ratio", "Total PLFAs"]
+        variance_explained: 0.58
+      NNR:
+        predictors: ["B:F ratio", "Total PLFAs"]
+        variance_explained: 0.58
+
+    year_2008:
+      NMR:
+        predictors: ["B:F ratio", "Total PLFAs", "C:N"]
+        variance_explained: 0.73
+      NNR:
+        predictors: ["B:F ratio", "Total PLFAs"]
+        variance_explained: 0.59
+
+    year_2009:
+      NMR:
+        predictors: ["B:F ratio", "Total PLFAs", "C:N"]
+        variance_explained: 0.71
+      NNR:
+        predictors: ["B:F ratio", "Total PLFAs", "C:N"]
+        variance_explained: 0.67
+
+major_findings:
+  - finding: "Both warming and N addition stimulate N mineralization"
+    magnitude:
+      warming: "+16-18%"
+      N_addition: "+11-13%"
+    consistency: "Consistent across 3 years with varying precipitation"
+
+  - finding: "Antagonistic interaction between warming and N addition"
+    magnitude: "Combined effect 30-40% less than additive prediction"
+    significance: "P < 0.05"
+    importance: "First documentation in temperate grassland"
+    mechanisms:
+      - "Increased fungal biomass under combined treatment"
+      - "Higher fungal:bacterial ratio → slower decomposition"
+      - "Strong plant N uptake captured added N"
+      - "Reduced substrate for mineralization"
+
+  - finding: "Microbial community shift from bacteria to fungi"
+    B_to_F_increase: "+47-60%"
+    fungal_decrease: "-17 to -28%"
+    consequence: "Slower organic matter decomposition"
+
+  - finding: "Precipitation variation affects magnitude but not response direction"
+    dry_year_effect: "Lower absolute rates in 2007"
+    treatment_effect: "Response percentages stable across wet/dry years"
+    implication: "Climate change responses independent of weather variability"
+
+  - finding: "Added N directly utilized, not accumulated in soil"
+    plant_uptake: "Aboveground +27-30%, Belowground +11-14%"
+    microbial_uptake: "MBN +13-17%"
+    soil_pool: "No change in available N despite increased mineralization"
+
+ecosim_relevance:
+  validation_targets:
+    NMR_warming_response_pct: "+16 to +18"
+    NMR_N_response_pct: "+11 to +13"
+    interaction_reduction_pct: "-30 to -40"
+    B_to_F_ratio_increase_pct: "+47 to +60"
+    fungal_PLFA_decrease_pct: "-17 to -28"
+
+  process_relationships:
+    NMR_vs_temperature_R2: 0.43
+    NMR_vs_moisture_R2: 0.29
+    NMR_vs_B_to_F_R2: "0.23-0.27"
+    NMR_vs_total_PLFA_R2: "0.32-0.39"
+
+  model_testing_questions:
+    - "Can EcoSIM reproduce antagonistic W×N interaction?"
+    - "Is interaction emergent from plant-microbe competition?"
+    - "Does model track bacterial vs. fungal shifts?"
+    - "Can it simulate slower fungal-dominated decomposition?"
+    - "Does model capture enhanced plant N uptake under warming + N?"
+    - "Can model reproduce stable treatment responses across wet/dry years?"
+    - "What is predicted fate of added N (plant vs. microbial vs. gaseous)?"
+
+  key_parameters:
+    warming_magnitude_c: 1.8
+    N_addition_rate_g_m2_yr: 10
+    N_application_timing: "Single pulse, early May"
+    precipitation_range_mm: "276-390"
+    soil_pH: 8.2
+    dominant_PFT: "C3 perennial grass"
+
+data_quality:
+  strengths:
+    - "Factorial design with good replication (n=6)"
+    - "Multi-year data (3 years)"
+    - "Consistent measurements across years"
+    - "Mechanistic measurements (PLFAs for community structure)"
+    - "Multiple process measurements (rates, pools, community)"
+    - "Standardized incubation method"
+    - "Open access publication (PLoS ONE)"
+
+  limitations:
+    - "Lab incubation at constant 25°C and 60% WHC (not field conditions)"
+    - "Potential N mineralization, not actual field rates"
+    - "Incubation severs plant-soil connections"
+    - "Single site (no spatial replication)"
+    - "Grassland dominated by one species"
+    - "No direct drought treatment"
+    - "No CO2 treatment"
+    - "No litter decomposition measurements"
+    - "Seasonal measurements only (6 per year)"
+    - "Plant sampling limited to Leymus chinensis"
+
+  uncertainty_sources:
+    - "Spatial variability within plots"
+    - "Extrapolation from lab to field"
+    - "PLFAs only (no molecular microbial methods)"
+    - "Gaseous N losses not measured"
+    - "High variability in root N content"
+
+meta_analysis_value:
+  relevance: "High - direct test of warming × N interaction"
+  unique_contributions:
+    - "Alkaline soil (pH 8.2) - rare in literature"
+    - "Antagonistic interaction - contrasts with additive assumptions"
+    - "Fungal increase mechanism - unexpected"
+    - "Precipitation-independent responses"
+    - "Continental Asian grassland - geographic diversity"
+  integration_potential:
+    - "Provides interaction term estimate (~-35% from additive)"
+    - "Mechanistic pathway (fungal biomass → slower decomposition)"
+    - "Can test if interaction direction varies by ecosystem/soil type"
+
+comparison_to_other_studies:
+  andresen_2010:
+    similarities:
+      - "Multi-factorial with warming"
+      - "Temperate ecosystem"
+      - "~3 year duration"
+      - "Measured microbial biomass"
+      - "Found treatment interactions"
+
+    differences:
+      ecosystem: "Grassland vs. Heathland"
+      soil_pH: "8.2 vs. 4.6"
+      precipitation_mm: "276-410 vs. 600"
+      warming_method: "Infrared continuous vs. Nighttime curtains"
+      warming_magnitude_c: "1.8 vs. 1.5"
+      nutrient_treatment: "N addition vs. none"
+      additional_factors: "None vs. Drought + CO2"
+      interaction_type: "Antagonistic W×N vs. Synergistic multi-factor"
+      incubation: "Lab constant temp vs. In situ buried bags"
+
+    complementarity: "Together span pH gradient, ecosystem types, and climate factor combinations"
+
+notes:
+  - "First study documenting antagonistic W×N interaction in temperate grassland"
+  - "Microbial community structure (B:F ratio) emerged as key control"
+  - "Plant N uptake synergistic under W+N (opposite of soil N mineralization)"
+  - "Lab incubation allows controlled comparison but limits field applicability"
+  - "Emphasizes biotic controls (microbial community, plant uptake) over abiotic"
+  - "Leymus chinensis grasslands important for C storage in NE China"
+  - "Alkaline soil chemistry creates different nutrient dynamics than acidic systems"
+
+data_availability:
+  journal: "PLoS ONE (open access)"
+  figures: "All data presented in figures (digitizable)"
+  statistics: "F-values and P-values reported throughout"
+  contact: "malinna27@gmail.com"
+
+related_publications:
+  - "Zhang et al. 2009 - N addition effects on Leymus chinensis mineralization"
+  - "Zhou et al. 2009 - Prescribed burning and N mineralization in Inner Mongolia steppe"
+  - "Bai et al. 2010 - N addition thresholds in Inner Mongolia grasslands"
+
+metadata_info:
+  created: "2025-11-10"
+  created_for: "EcoSIM Co-Scientist project - warming/nitrogen meta-analysis"
+  schema_version: "0.1.0"
+  notes: "To be formalized with LinkML schema"
