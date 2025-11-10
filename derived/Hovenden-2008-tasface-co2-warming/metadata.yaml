@@ -1,0 +1,868 @@
+# Hovenden et al. 2008 - Warming Prevents CO₂-Induced Soil N Reduction
+# Machine-readable structured metadata
+
+study:
+  id: hovenden-2008-tasface-co2-warming
+
+  citation:
+    authors:
+      - family: Hovenden
+        given: MJ
+      - family: Newton
+        given: PCD
+      - family: Carran
+        given: RA
+      - family: Theobald
+        given: P
+      - family: Wills
+        given: KE
+      - family: Vander Schoor
+        given: JK
+      - family: Williams
+        given: AL
+      - family: Osanai
+        given: Y
+    title: "Warming prevents the elevated CO₂-induced reduction in available soil nitrogen in a temperate, perennial grassland"
+    journal: Global Change Biology
+    year: 2008
+    volume: 14
+    pages: "1018-1024"
+    doi: 10.1111/j.1365-2486.2008.01558.x
+
+  project:
+    name: "TasFACE (Tasmanian Free Air CO₂ Enrichment)"
+    description: "Climate change impacts experiment on native temperate grassland"
+    location: "Pontville, Tasmania, Australia"
+
+  study_period:
+    treatment_start: "2002-02"
+    measurement_start: "2004 spring"
+    measurement_end: "2006 spring"
+    duration_years: 5
+    measurement_years: "3-5"
+    description: "Treatments commenced February 2002, soil N measurements spring 2004-2006"
+
+  institutions:
+    - "School of Plant Science, University of Tasmania, Australia"
+    - "AgResearch Grasslands Research Centre, New Zealand"
+
+site:
+  location:
+    name: "Pontville Small Arms Range Complex"
+    region: "Southeastern Tasmania"
+    country: "Australia"
+    latitude: -42.7
+    longitude: 147.267
+    latitude_dms: "42°42'S"
+    longitude_dms: "147°16'E"
+    elevation_m: 40
+
+  ecosystem:
+    type: "Temperate perennial grassland"
+    classification: "Species-rich native grassland"
+    biome: "Temperate grassland"
+    vegetation_type: "C₃ + C₄ perennial grass mixture with diverse forbs"
+    species_richness: 64
+    notes: "One of the most species-rich FACE experiments globally"
+
+  climate:
+    mean_annual_temperature_c: 11.6
+    mean_annual_precipitation_mm: 560
+    precipitation_pattern: "Mainly April-October (cooler months)"
+    drought: "Long annual droughts with reliable rainfall only May-October"
+    growing_season: "Spring (August-November) when soil is moist and warm"
+    limitation: "Soil moisture and temperature limit growth to spring months"
+
+  climate_study_years:
+    note: "All years drier than long-term mean"
+    year_2002_2006_mean_precipitation_mm: 322
+    precipitation_range_mm: "223-457"
+    anomaly_pct: -42.5
+    interpretation: "Drought-stressed conditions throughout study"
+
+    spring_soil_water_potential_kPa:
+      year_2004: "Dry (control: -97)"
+      year_2005: "Wet (control: -29)"
+      year_2006: "Very dry (control: -164)"
+
+  soil:
+    type: "Black vertisol"
+    parent_material: "Basaltic clay"
+    ph: 6.0
+    total_N_pct: 0.2
+    extractable_P_mg_kg: 20
+    classification: "Low N, low P"
+    notes: "Clay soil, low nutrient status"
+
+  vegetation:
+    dominant_species:
+      - species: "Themeda triandra"
+        common_name: "Kangaroo grass"
+        functional_type: "C₄ perennial grass"
+        notes: "Co-dominant"
+      - species: "Austrodanthonia caespitosa"
+        common_name: "Common wallaby grass"
+        functional_type: "C₃ perennial grass"
+        notes: "Co-dominant"
+
+    herbaceous_dicots: "Common but not dominant"
+
+    nitrogen_fixing_species:
+      - species: "Trifolium subterraneum"
+        common_name: "Subterranean clover"
+        biomass_fraction: "<0.0001"
+        notes: "N-fixing forb, extremely rare"
+      - species: "Trifolium striatum"
+        common_name: "Striated clover"
+        biomass_fraction: "<0.0001"
+        notes: "N-fixing forb, extremely rare"
+      - species: "Bossiaea prostrata"
+        functional_type: "Woody twining species"
+        biomass_fraction: ~0.01
+        notes: "N-fixing, small fraction of biomass"
+
+    total_N_fixing_biomass_fraction: "<0.01"
+    species_richness: ~64
+    notes: "Species-rich community typical of native Tasmanian grasslands"
+
+experimental_design:
+  design_type: "2×2 factorial CO₂ × warming"
+  replication: 3
+  plot_shape: "Circular (mini-FACE rings)"
+  plot_diameter_m: 1.4
+  plot_area_m2: 1.54
+  total_plots: 12
+
+  treatments:
+    - name: elevated_CO2
+      abbreviation: FACE
+      method: "Pure-CO₂ FACE (Free Air CO₂ Enrichment)"
+      target_ppm: 550
+      ambient_ppm: ~385
+      technology: "Mini-FACE rings"
+      ring_diameter_m: 1.4
+      operation: "Continuous"
+      start_date: "2002-02"
+      notes: "Small rings suitable for species-rich communities"
+
+    - name: warming
+      abbreviation: T
+      method: "Infrared radiation"
+      equipment: "240V 250W Emerson solid ceramic infrared emitters"
+      power_w_m2: 140
+      position: "1.2 m above soil surface above ring center"
+      operation: "Continuous"
+      achieved_warming:
+        leaf_temperature_c: 1.98
+        soil_temperature_1cm_c: 0.82
+        measurement_period: "Growing season average"
+      uniformity: "92% of plot area warmed by 1.5-2.5°C"
+      side_effects:
+        canopy_RH_reduction_pct: 5.1
+        depth: "5 cm canopy height"
+      notes: "Tall plants warmed more than short (but height variation only 5-10 cm)"
+      start_date: "2002-02"
+
+  treatment_combinations:
+    - code: Control
+      description: "Ambient CO₂ + ambient temperature"
+      n: 3
+    - code: Warmed
+      description: "Ambient CO₂ + elevated temperature"
+      n: 3
+    - code: FACE
+      description: "Elevated CO₂ + ambient temperature"
+      n: 3
+    - code: F+W
+      description: "Elevated CO₂ + elevated temperature"
+      n: 3
+
+  soil_monitoring:
+    equipment: "Gypsum blocks (ICT International, Armidale, Australia)"
+    blocks_per_plot: 2
+    depth_cm: "5-15"
+    frequency: "Weekly"
+    variable: "Soil water potential"
+
+  root_distribution:
+    depth_0_50mm_fraction: 0.81
+    depth_0_50mm_se: 0.10
+    notes: "Ion exchange membranes placed in top 50 mm where most roots occur"
+
+measurements:
+  soil_nitrogen_availability:
+    method: "Ion exchange membranes"
+    purpose: "Measure plant-available N (acts as artificial roots)"
+    reference: "Cain et al. 1999; Bowatte et al. 2007"
+
+    membrane_specifications:
+      size_mm: "50 × 10"
+      manufacturer: "VWR International Ltd, Poole, UK"
+      type: "Mixed-bed ion exchange resin"
+      mounting: "Fixed to plastic plant labels (100 × 15 mm)"
+      descriptor: "Membrane soil sticks"
+
+    deployment:
+      replication: 10
+      per_plot: "10 membrane soil sticks"
+      insertion: "Pushed into soil until top of sheet at soil surface"
+      depth_sampled_mm: 50
+      location: "Random locations in each plot"
+      root_zone: "81 ± 10% of roots in this region"
+
+    sampling_strategy:
+      timing: "During maximum spring growth"
+      rationale: "Only period with sufficient soil moisture and warm temperatures"
+      plant_activity: "Plants dormant rest of year (drought and/or cold)"
+      frequency_per_year: 2
+      deployment_duration_days: 14
+      years: [2004, 2005, 2006]
+      measurement_years: "Years 3-5 of treatment"
+
+    processing:
+      removal: "After 14 days"
+      cleaning: "Washed with distilled water"
+      extraction_solution: "0.05 M HCl"
+      extraction_volume_ml: 25
+      analysis_equipment: "FIAstar 5000 flow injection analyzer (Foss Tecator AB, Hoeganaes, Sweden)"
+
+    analytes:
+      - name: NO3_N
+        description: "Nitrate-nitrogen"
+      - name: NH4_N
+        description: "Ammonium-nitrogen"
+      - name: total_soluble_N
+        description: "Total soluble nitrogen"
+      - name: DON
+        description: "Dissolved organic nitrogen"
+        calculation: "Total soluble N minus mineral N"
+
+    data_handling:
+      raw_estimates_per_plot: 20
+      calculation: "2 samples × 10 sticks"
+      pooling: "Pooled to single estimate per plot per spring"
+
+    interpretation:
+      - "Ion exchange membranes interact with soil solution"
+      - "Act as artificial roots"
+      - "Measure plant-available N, not just concentration"
+      - "Effective for low MW DON (predominantly amino acids)"
+      - "Compete for NH₄⁺, NO₃⁻, and low MW DON"
+      - "Provide integrative measure over 14-day period"
+
+results:
+  ambient_baseline:
+    total_available_N_ug_resin_14d:
+      year_2004: ~10
+      year_2005: ~13
+      year_2006: ~12
+
+    DON_fraction_of_total:
+      year_2004: 0.624
+      year_2005: 0.212
+      year_2006: 0.144
+      trend: "Strong temporal decline (natural, not treatment-driven)"
+
+    soil_water_potential_spring_kPa:
+      year_2004: -97.2 ± 17.4
+      year_2005: -29.4 ± 5.8
+      year_2006: -164.4 ± 34.5
+      interpretation: "2005 wettest, 2006 driest"
+
+  year_3_spring_2004:
+    total_available_N:
+      p_value: 0.15
+      significant: false
+      interpretation: "No treatment effects yet"
+    mineral_N:
+      p_value: 0.15
+      significant: false
+    ammonium:
+      p_value: 0.55
+      significant: false
+    nitrate:
+      p_value: 0.28
+      significant: false
+    DON:
+      significant: false
+
+  year_4_spring_2005:
+    total_available_N:
+      CO2_x_warming_x_time_interaction:
+        p_value: "<0.001"
+        significant: true
+        interpretation: "Both warming and CO₂ affect temporal response"
+
+      FACE_unwarmed_vs_control:
+        percent_change: -47.3
+        p_value: "<0.001"
+        direction: "Major reduction"
+        control_value_ug: ~13
+        FACE_value_ug: ~6
+
+      FACE_warmed_vs_control:
+        percent_change: 0
+        interpretation: "No reduction (warming prevented CO₂ effect)"
+        FACE_warmed_value_ug: ~13
+
+      warming_alone_vs_control:
+        significant: false
+        interpretation: "Warming alone no effect"
+
+    mineral_N:
+      pattern: "Mirrors total N (DON unchanged)"
+      FACE_unwarmed_effect:
+        percent_change: -47.3
+        p_value: "<0.001"
+      interpretation: "FACE prevented substantial increase in mineral N that occurred in all other treatments"
+
+    ammonium:
+      CO2_main_effect:
+        direction: "decrease"
+        p_value: "<0.001"
+        FACE_unwarmed: "Lower than control"
+        FACE_warmed: "Lower than control"
+      warming_effect_on_CO2_response:
+        significant: false
+        interpretation: "No warming effect on CO₂ response for ammonium"
+      context: "2005 had highest spring rainfall and soil water potential"
+
+    nitrate:
+      FACE_unwarmed_vs_FACE_warmed:
+        p_value: 0.03
+        significant: true
+        ratio: "FACE warmed had >2× nitrate of FACE unwarmed"
+
+      FACE_warmed_value:
+        comparison: "HIGHEST nitrate of any treatment"
+        value_ug: ~10
+
+      FACE_unwarmed_value:
+        comparison: "LOWEST nitrate"
+        value_ug: ~2
+
+      control_unwarmed_value_ug: ~3
+      control_warmed_value_ug: ~5
+
+    DON:
+      effects: "No significant treatment effects"
+
+    soil_water_potential_kPa:
+      control_unwarmed: -29.4 ± 5.8
+      control_warmed: -41.2 ± 8.1
+      FACE_unwarmed: -21.0 ± 3.0
+      FACE_warmed: -42.7 ± 11.3
+      FACE_vs_control_unwarmed:
+        significant: false
+        interpretation: "Moisture NOT primary driver of N differences"
+
+  year_5_spring_2006:
+    total_available_N:
+      FACE_unwarmed_vs_control:
+        percent_change: -49.6
+        p_value: "<0.004"
+        control_value_ug: ~12
+        FACE_value_ug: ~6
+
+      FACE_warmed_vs_control:
+        percent_change: 0
+        interpretation: "No reduction (pattern consistent with 2005)"
+        FACE_warmed_value_ug: ~12
+
+    mineral_N:
+      pattern: "Mirrors total N"
+      FACE_unwarmed: "Remained low while others increased"
+
+    ammonium:
+      effects: "No significant treatment effects in 2006"
+      interpretation: "Differences from 2005 disappeared"
+      temporal: "Declined 2005→2006 in all treatments"
+
+    nitrate:
+      temporal_pattern_2005_to_2006:
+        all_except_FACE_unwarmed: "Substantial increases"
+        FACE_unwarmed: "Remained largely unchanged"
+      conclusion: "Reduction in mineral N in FACE unwarmed primarily due to nitrate"
+
+    DON:
+      effects: "No significant treatment effects"
+
+    soil_water_potential_kPa:
+      control_unwarmed: -164.4 ± 34.5
+      control_warmed: -132.1 ± 33.2
+      FACE_unwarmed: -148.0 ± 17.3
+      FACE_warmed: -167.9 ± 8.4
+      interpretation: "Very dry year"
+
+major_findings:
+  - finding: "Delayed CO₂ effect on soil N availability (Progressive Nitrogen Limitation)"
+    timeline:
+      year_3: "No effects"
+      year_4: "Strong CO₂ effect emerges (-47.3%)"
+      year_5: "Effect persists and strengthens (-49.6%)"
+    support: "Supports PNL theory (Luo et al. 2004)"
+    interpretation: "Gradual development, not immediate response"
+
+  - finding: "Warming completely prevented CO₂-induced N reduction (SIGNIFICANT INTERACTION)"
+    interaction:
+      statistic: "CO₂ × Warming × Time"
+      p_value: "<0.001"
+      type: "Antagonistic"
+    effect_patterns:
+      FACE_alone_pct: "-47 to -50"
+      warming_alone: "No significant effect"
+      FACE_plus_warming: "No reduction (like ambient)"
+    interpretation: "Warming nullified elevated CO₂-induced reduction in available N"
+    contrast:
+      study: "Dijkstra et al. 2010"
+      pattern: "NO CO₂ × warming interaction (additive effects)"
+      interpretation: "Different ecosystems respond differently"
+
+  - finding: "CO₂ effect primarily on nitrate availability"
+    pattern_years_4_5:
+      total_N: "Reduced by CO₂"
+      mineral_N: "Drives total N reduction"
+      nitrate: "Primary component reduced"
+      ammonium: "Transient CO₂ effect in 2005 only"
+      DON: "Unaffected"
+    nitrate_specific_2005:
+      FACE_warmed: "HIGHEST nitrate of all treatments"
+      FACE_unwarmed: "LOWEST nitrate"
+      difference: "More than 2× between warmed and unwarmed FACE"
+    pathway: "Organic N → ammonium → nitrite → nitrate (CO₂ affects later stages)"
+
+  - finding: "No CO₂ stimulation of plant productivity"
+    biomass_response: "Elevated CO₂ did NOT increase biomass in any year"
+    contrast: "Differs from many FACE experiments showing CO₂ fertilization"
+    implication: "Increased plant N sink NOT the mechanism for N reduction"
+    hypothesis: "N limitation may have PREVENTED CO₂ fertilization effect in years 4-5"
+
+  - finding: "Microbial mechanisms likely (inferred, not measured)"
+    evidence:
+      - "No increased plant N sink"
+      - "CO₂ effect emerged years 4-5 (time for microbial responses)"
+      - "Ammonium reduction in 2005 wet year (enhanced microbial activity)"
+    literature_support:
+      meta_analysis: "de Graaff et al. 2006"
+      finding: "Elevated CO₂ → average +1.2% soil C per annum, +17.7% microbial activity"
+    proposed_mechanism:
+      CO2_priming_effect:
+        step_1: "Elevated CO₂ → increased plant C inputs to soil"
+        step_2: "Increased soil C → C-limited microbes stimulated"
+        step_3: "Enhanced microbial activity → increased N immobilization"
+        step_4: "Reduced plant-available N"
+      warming_effect:
+        observation: "Plants in unwarmed FACE allocated MORE biomass to roots"
+        observation2: "Plants in warmed FACE allocated LESS to roots"
+        hypothesis: "CO₂-priming effect only occurs without warming"
+        mechanism: "Warming alters plant C allocation → prevents enhanced root C inputs → prevents microbial N immobilization"
+
+  - finding: "Alternative mechanism: Reduced nitrification"
+    pathway:
+      step_1: "Organic N → ammonium"
+      step_2: "Ammonium → (nitrifiers) → nitrite → nitrate"
+    elevated_CO2_effect:
+      step_1: "Elevated CO₂ + increased root C inputs"
+      step_2: "Enhanced heterotrophic ammonium uptake"
+      step_3: "Heterotrophs compete with nitrifiers for ammonium"
+      step_4: "Reduced nitrification"
+      step_5: "Reduced nitrate"
+    literature_support:
+      - reference: "Ross et al. 2001"
+        finding: "Trenching (reducing root C) increased nitrification"
+      - reference: "Hungate et al. 1997, 1999"
+        finding: "Elevated CO₂ increased heterotrophic NH₄⁺ uptake, decreased nitrification"
+      - reference: "Mikan et al. 2000"
+        finding: "Similar results"
+    warming_effect:
+      mechanism: "Warming alters plant C allocation (less root allocation under warming + CO₂)"
+      result: "Reduced root C inputs → less heterotrophic competition → maintained nitrification → maintained nitrate"
+
+  - finding: "Precipitation/moisture NOT primary driver"
+    evidence: "Soil water potential did NOT differ significantly between unwarmed FACE and control"
+    yet: "N availability differed greatly between these treatments"
+    interpretation: "Rules out moisture differences as primary mechanism"
+    contrast:
+      study: "Dijkstra et al. 2010"
+      finding: "Soil moisture KEY mediator (CO₂ increased moisture → microbial immobilization)"
+      interpretation: "Different ecosystems, different mechanisms"
+
+  - finding: "DON temporal pattern unaffected by treatments"
+    natural_decline_2004_to_2006:
+      fraction_2004: 0.624
+      fraction_2005: 0.212
+      fraction_2006: 0.144
+    cause: "Possibly related to interannual climate variation"
+    treatment_effect: "NOT affected by CO₂ or warming"
+    interpretation: "DON responds to natural climate variability but not experimental treatments (short term)"
+
+  - finding: "Plant productivity not stimulated by CO₂"
+    observation: "No CO₂ fertilization effect observed"
+    possible_cause: "N limitation preventing response"
+    alternative: "Other factors limiting"
+    uncertainty: "Would N addition restore CO₂ fertilization?"
+
+mechanistic_relationships:
+  CO2_pathway_proposed:
+    step_1: "Elevated CO₂ → increased photosynthesis"
+    step_2: "Increased C fixation → increased root C allocation (in absence of warming)"
+    step_3: "Increased root C inputs to soil → 'priming' of soil microbes"
+    step_4: "C-limited microbes stimulated → enhanced activity"
+    step_5a: "Enhanced microbial NH₄⁺ uptake → reduced nitrification → reduced NO₃⁻"
+    step_5b: "Enhanced microbial N immobilization → reduced plant-available N"
+    evidence: "Indirect (no direct measurements)"
+
+  warming_modulation_pathway_proposed:
+    step_1: "Warming → altered plant resource allocation"
+    step_2: "Warming + CO₂ → REDUCED root biomass allocation (vs CO₂ alone)"
+    step_3: "Reduced root allocation → reduced root C inputs to soil"
+    step_4: "Reduced soil C inputs → microbes NOT primed"
+    step_5: "Without priming → no enhanced microbial N immobilization"
+    step_6: "Maintained plant-available N"
+    evidence: "Root allocation differences mentioned but not shown"
+
+  alternative_pathway:
+    temperature_direct_effect:
+      step_1: "Warming → increased soil temperature (+0.82°C at 1 cm)"
+      step_2: "Increased temperature → enhanced enzymatic rates"
+      step_3: "Enhanced mineralization → increased NH₄⁺ production"
+      step_4: "Increased NH₄⁺ → overcomes CO₂-induced reduction"
+    limitation: "Warming alone did not significantly affect N availability"
+    interpretation: "Temperature effect only manifests in combination with CO₂"
+
+  nitrification_pathway:
+    affected_process: "Ammonium oxidation to nitrate"
+    CO2_effect: "Reduced nitrification (heterotroph competition)"
+    warming_effect: "Maintained nitrification (reduced root C inputs)"
+    result: "Nitrate most affected N form"
+
+ecosim_relevance:
+  validation_targets:
+    total_available_N_ug_resin_14d:
+      year_3_all_treatments: ~10
+      year_4_control: ~13
+      year_4_FACE_unwarmed: ~6
+      year_4_FACE_warmed: ~13
+      year_4_warming_alone: ~13
+      year_5_control: ~12
+      year_5_FACE_unwarmed: ~6
+      year_5_FACE_warmed: ~12
+      year_5_warming_alone: ~12
+
+    DON_fraction:
+      year_3: 0.624
+      year_4: 0.212
+      year_5: 0.144
+      treatment_effect: "None"
+
+    nitrate_year_4_ug_resin_14d:
+      control_unwarmed: ~3
+      FACE_unwarmed: ~2
+      FACE_warmed: ~10
+      control_warmed: ~5
+
+    ammonium_year_4_ug_resin_14d:
+      control_both: ~7
+      FACE_both: ~4
+
+    interaction_strength:
+      CO2_main_effect_pct: "-47 to -50"
+      warming_main_effect: "Not significant"
+      CO2_x_warming_interaction: "Antagonistic (warming prevents CO₂ effect)"
+
+  key_parameters:
+    CO2_concentration_ppm: 550
+    CO2_ambient_ppm: 385
+    warming_leaf_c: 1.98
+    warming_soil_1cm_c: 0.82
+    infrared_power_w_m2: 140
+    canopy_RH_reduction_pct: 5.1
+    mean_annual_temperature_c: 11.6
+    mean_annual_precipitation_mm: 560
+    study_period_precipitation_mm: 322
+    soil_pH: 6.0
+    total_soil_N_pct: 0.2
+    extractable_P_mg_kg: 20
+    dominant_PFTs: ["C₃ perennial grass", "C₄ perennial grass"]
+    species_richness: 64
+    growing_season: "Spring only (Aug-Nov)"
+
+  model_testing_questions:
+    - "Can EcoSIM reproduce the CO₂ × warming interaction (warming prevents CO₂ effect)?"
+    - "What ecosystem differences lead to interactions (Hovenden) vs additivity (Dijkstra)?"
+    - "Does model capture delayed CO₂ effects (year 3: no effect, years 4-5: strong effect)?"
+    - "Can model simulate warming effect on plant C allocation?"
+    - "Does model reproduce nitrate-specific effects (strongest CO₂ impact on NO₃⁻)?"
+    - "Can model capture microbial competition for ammonium (heterotrophs vs nitrifiers)?"
+    - "Does model predict PNL development and temporal trajectory?"
+    - "What conditions lead to CO₂ stimulation of productivity (absent here)?"
+    - "Would model predict different results in normal rainfall years vs drought years?"
+    - "Can model simulate spring-only growth window characteristic of Mediterranean climates?"
+    - "Does model capture DON dynamics and natural temporal decline?"
+    - "Long-term: Will interaction persist beyond 5 years?"
+
+  process_relationships_inferred:
+    plant_C_allocation_vs_CO2: "Positive (CO₂ increases root allocation without warming)"
+    plant_C_allocation_vs_warming: "Negative (warming reduces root allocation under CO₂)"
+    root_C_inputs_vs_microbial_N_immobilization: "Positive (more C → more immobilization)"
+    microbial_activity_vs_nitrification: "Negative (heterotroph competition for NH₄⁺)"
+    temperature_vs_nitrification: "Positive (enzymatic stimulation)"
+    soil_C_vs_heterotroph_activity: "Positive (C-limited microbes)"
+
+data_quality:
+  strengths:
+    - "2×2 factorial design (CO₂ × warming)"
+    - "Long-term experiment (5 years)"
+    - "Multi-year measurements (years 3-5)"
+    - "Demonstrates temporal development of effects"
+    - "Multiple N forms measured (DON, NH₄⁺, NO₃⁻, total)"
+    - "Ecologically relevant measurement (plant-available N during growth season)"
+    - "Integrative method (14-day ion exchange membranes)"
+    - "Species-rich community (64 species)"
+    - "Both C₃ and C₄ grasses"
+    - "Continuous treatments (not seasonal)"
+    - "Published in major journal (Global Change Biology)"
+    - "Clear demonstration of CO₂ × warming interaction"
+    - "Supports PNL theory with delayed effects"
+
+  limitations:
+    experimental:
+      - limitation: "Small replication (n=3 per treatment)"
+        impact: "Lower statistical power, may miss small effects"
+      - limitation: "Small plot size (1.4 m diameter)"
+        impact: "Edge effects possible, limited spatial heterogeneity"
+      - limitation: "Mini-FACE rings"
+        impact: "Smaller than standard FACE, may have different microclimates"
+      - limitation: "Infrared warming artifacts"
+        impacts:
+          - "Non-uniform warming (92% of plot 1.5-2.5°C)"
+          - "Tall plants warmed more than short (5-10 cm variation)"
+          - "Reduced RH by 5.1% (confounds temperature effect)"
+      - limitation: "Single site"
+        impact: "No geographic replication"
+
+    measurements:
+      - limitation: "Ion exchange membranes provide index, not absolute concentrations"
+        impact: "Cannot quantify total N pools"
+      - limitation: "14-day integration"
+        impact: "May miss short-term dynamics"
+      - limitation: "No direct microbial measurements"
+        impact: "Mechanisms inferred, not measured; no biomass, community, or activity data"
+      - limitation: "No plant productivity data presented"
+        impact: "Cannot assess biomass, C allocation directly; root allocation mentioned but not shown"
+      - limitation: "No soil C measurements"
+        impact: "Cannot verify CO₂-priming hypothesis; soil C inputs not quantified"
+      - limitation: "No process rates measured"
+        impact: "Only pools, not fluxes; cannot assess mineralization, nitrification, immobilization rates"
+      - limitation: "No gaseous N losses"
+        impact: "N₂O, N₂ not measured; complete N budget not possible; denitrification unknown"
+
+    temporal:
+      - limitation: "Spring-only measurements"
+        impact: "Captures growth season but misses rest of year (though plants dormant)"
+      - limitation: "Two samples per spring"
+        impact: "Limited temporal resolution within season"
+      - limitation: "Only years 3-5 measured"
+        impact: "No data for immediate responses (years 1-2)"
+      - limitation: "5 years total duration"
+        impact: "Longer-term trajectories unknown"
+
+    environmental:
+      - limitation: "Drought during study period"
+        impact: "Mean 322 mm vs 560 mm long-term (-42%); all 3 years drier than normal"
+      - limitation: "2005 unusual (much higher spring rainfall)"
+        impact: "Strongest effects in this year; suggests moisture interactions"
+
+    analysis:
+      - limitation: "Limited statistical power (n=3)"
+        impact: "May miss small effects or subtle interactions"
+      - limitation: "No multivariate analysis"
+        impact: "Each N form analyzed separately"
+      - limitation: "No path analysis or SEM"
+        impact: "Mechanisms inferred, not tested statistically"
+
+    interpretation:
+      - limitation: "Mechanisms uncertain"
+        impact: "No direct measurements of proposed pathways; alternatives possible"
+      - limitation: "Interaction with drought"
+        impact: "Would results differ in normal/wet years?"
+
+  uncertainty_sources:
+    - "Small sample size (n=3)"
+    - "Spatial heterogeneity within small plots"
+    - "Temporal variability (especially 2005 vs 2004/2006)"
+    - "Drought effects (all years drier than normal)"
+    - "Ion exchange membrane method assumptions"
+    - "Inferring mechanisms without direct measurements"
+    - "Plot size effects (small rings)"
+    - "Infrared warming artifacts (RH reduction)"
+    - "Extrapolation from Mediterranean-type climate to other climates"
+
+meta_analysis_value:
+  relevance: "Very high - CO₂ × warming factorial with significant interaction"
+
+  unique_contributions:
+    - "Southern Hemisphere (Australia) - complements Northern sites"
+    - "Significant CO₂ × warming interaction (antagonistic)"
+    - "Warming PREVENTS CO₂ effect (contrasts with Dijkstra additive)"
+    - "Progressive Nitrogen Limitation demonstrated with delayed effects"
+    - "Species-rich community (64 species) - most diverse FACE experiment"
+    - "Mini-FACE technology (1.4 m rings) - suitable for diverse communities"
+    - "Ion exchange membrane method - plant-available N (not just concentration)"
+    - "Mediterranean-type climate (winter rainfall, summer drought)"
+    - "Spring-only growth window - extreme seasonality"
+    - "Plant C allocation as mechanism - plant-mediated climate effects"
+    - "Nitrate-specific effects - nitrification pathway affected"
+    - "Multi-year development - temporal trajectory of PNL"
+
+  integration_potential:
+    - "Test when CO₂ × warming interactions occur vs not (compare to Dijkstra, Larsen)"
+    - "Compare across precipitation gradients and patterns"
+    - "Compare across soil pH (6.0 vs Dijkstra 7.9, Ma 8.2, Larsen 4-5)"
+    - "Assess ecosystem complexity effects (64 species vs simpler systems)"
+    - "Evaluate Southern vs Northern Hemisphere responses"
+    - "Test PNL theory across systems and timescales"
+    - "Identify conditions where warming offsets CO₂ effects"
+    - "Understand plant C allocation as climate response mechanism"
+    - "Assess drought sensitivity of climate responses"
+
+comparison_to_other_studies:
+  hovenden_vs_dijkstra:
+    similarities:
+      - "CO₂ × warming factorial design"
+      - "Both C₃ + C₄ grass mixtures"
+      - "FACE + infrared warming technology"
+      - "Both found CO₂ reduced soil N availability"
+      - "Both found no CO₂ stimulation of productivity"
+
+    differences:
+      ecosystem: "Temperate grassland vs semiarid grassland"
+      precipitation_mm: "560 (322 study) vs 384"
+      rainfall_pattern: "Winter-spring vs more even"
+      soil_pH: "6.0 vs 7.9"
+      species_richness: "64 vs lower"
+      CO2_ppm: "550 vs 600"
+      warming_soil_c: "0.82 (1 cm) vs 2.45 (3 cm)"
+      replication: "n=3 vs n=5"
+      duration_years: "5 vs 3"
+      N_method: "Ion exchange vs soil cores + ¹⁵N"
+      CO2_x_warming_interaction: "SIGNIFICANT vs NONE"
+      interaction_type: "Antagonistic (warming prevents CO₂ effect) vs additive"
+      mechanism_CO2: "Plant C allocation + microbial vs moisture + microbial"
+      warming_effect_on_N: "No main effect (only in interaction) vs increased N"
+      soil_moisture_CO2: "No effect vs +2.36%"
+
+    key_contrast: "Hovenden found SIGNIFICANT interaction; Dijkstra found NONE"
+    interpretation: "Ecosystem characteristics determine whether interactions occur"
+    importance: "Shows CO₂ × warming interactions are context-dependent, not universal"
+
+  hovenden_vs_ma:
+    similarities:
+      - "Both found significant antagonistic interactions"
+      - "Both grassland ecosystems"
+      - "Similar duration (5 vs 3 years)"
+
+    differences:
+      treatments: "CO₂ × warming vs warming × N addition"
+      location: "Australia vs China"
+      N_method: "Ion exchange vs lab incubation"
+      microbial_data: "Inferred vs measured (PLFAs)"
+      mechanism: "Plant C allocation vs fungal community shifts"
+
+    complementarity: "Together test CO₂, warming, AND N addition; different interaction types"
+
+  hovenden_vs_larsen:
+    similarities:
+      - "Both CO₂ × warming (Larsen also drought)"
+      - "Both FACE technology"
+      - "Both found interactions (mostly antagonistic)"
+      - "Both found CO₂ → closed N cycle"
+
+    differences:
+      ecosystem: "Temperate grassland vs temperate heathland"
+      precipitation_mm: "560 vs 613"
+      soil_pH: "6.0 vs 4-5"
+      species_richness: "64 vs lower"
+      warming_method: "Infrared continuous vs passive nighttime"
+      variables: "N availability vs 47 N-cycle variables"
+      interaction_frequency: "One major vs multiple"
+
+    complementarity: "Both show CO₂ × warming interactions; different ecosystems and complexity"
+
+notes:
+  - "Directly referenced by Dijkstra et al. 2010 as having opposite finding"
+  - "TasFACE is one of few mini-FACE experiments suitable for species-rich communities"
+  - "KEY FINDING: Warming completely prevented CO₂ effect (significant interaction)"
+  - "Mechanism uncertain: Plant C allocation inferred but not measured"
+  - "PNL clearly demonstrated: Delayed effects (years 4-5, not year 3)"
+  - "No CO₂ fertilization: May indicate N limitation from start"
+  - "Drought context: All years 42% drier than normal"
+  - "2005 anomaly: Wettest year, strongest effects - suggests moisture sensitivity"
+  - "Nitrate key: Primary form reduced, implicating nitrification pathway"
+  - "Contrast with Dijkstra: Same treatments, opposite interaction patterns"
+  - "Implications: Warming could prevent PNL in some ecosystems but not universal"
+  - "Open questions: Would results differ if CO₂ stimulated productivity? In wet years? Beyond year 5?"
+  - "Mini-FACE rings (1.4 m) allow species-rich community experiments"
+  - "Ion exchange membranes: Plant-centric measurement approach"
+  - "Southern Hemisphere data rare in FACE literature"
+  - "Species richness (64) higher than most FACE experiments"
+
+data_availability:
+  status: "Published data in figures"
+
+  figures:
+    - "Figure 1a: Total soil N availability (2004-2006, all treatments)"
+    - "Figure 1b: DON availability (2004-2006, all treatments)"
+    - "Figure 1c: Mineral N availability (2004-2006, all treatments)"
+    - "Figure 2a: Ammonium availability (2004-2006, all treatments)"
+    - "Figure 2b: Nitrate availability (2004-2006, all treatments)"
+
+  tables:
+    - "Table 1: Soil water potential (2004-2006, all treatments, spring means)"
+
+  text_data:
+    - "Statistical results (F-values, P-values, percent changes)"
+    - "Mean ± SE values throughout"
+
+  additional_data_potentially_available:
+    - "Plant biomass data (mentioned but not shown)"
+    - "Root allocation data (mentioned but not shown)"
+    - "Continuous soil water potential (weekly readings)"
+    - "Related TasFACE publications"
+
+  contact:
+    author: "Mark J. Hovenden"
+    institution: "School of Plant Science, University of Tasmania"
+    address: "Locked Bag 55, Hobart, Tasmania 7001, Australia"
+    email: "Mark.Hovenden@utas.edu.au"
+    phone: "+61 3 6226 7874"
+    fax: "+61 3 6226 2698"
+
+  related_publications:
+    - reference: "Hovenden et al. 2006"
+      title: "TasFACE experimental design and system performance"
+      journal: "Australian Journal of Botany"
+      volume: 54
+      pages: "1-10"
+
+  journal: "Global Change Biology (subscription typically required)"
+
+metadata_info:
+  created: "2025-11-10"
+  created_for: "EcoSIM Co-Scientist project - warming/nitrogen meta-analysis"
+  schema_version: "0.1.0"
+  notes: "To be formalized with LinkML schema"
+  paper_keywords:
+    - "elevated CO₂"
+    - "FACE"
+    - "warming"
+    - "soil nitrogen"
+    - "progressive nitrogen limitation"
+    - "temperate grassland"
+    - "Tasmania"
+    - "CO₂ × warming interaction"
+    - "ion exchange membranes"
+    - "plant-available nitrogen"
+    - "nitrate"
+    - "nitrification"
+    - "microbial immobilization"
