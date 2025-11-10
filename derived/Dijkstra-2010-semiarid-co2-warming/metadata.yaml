@@ -1,0 +1,1016 @@
+# Dijkstra et al. 2010 - Contrasting CO₂ and Warming Effects in Semiarid Grassland
+# Machine-readable structured metadata
+
+study:
+  id: dijkstra-2010-semiarid-co2-warming
+
+  citation:
+    authors:
+      - family: Dijkstra
+        given: FA
+      - family: Blumenthal
+        given: D
+      - family: Morgan
+        given: JA
+      - family: Pendall
+        given: E
+      - family: Carrillo
+        given: Y
+      - family: Follett
+        given: RF
+    title: "Contrasting effects of elevated CO₂ and warming on nitrogen cycling in a semiarid grassland"
+    journal: New Phytologist
+    year: 2010
+    volume: 187
+    pages: "426-437"
+    doi: 10.1111/j.1469-8137.2010.03293.x
+
+  project:
+    name: "PHACE (Prairie Heating and CO₂ Enrichment)"
+    description: "Long-term manipulation experiment on semiarid northern mixed-grass prairie"
+
+  study_period:
+    CO2_start: "2006-04"
+    warming_start: "2007-04"
+    measurement_period: "2006-2008"
+    duration_years: 3
+    warming_duration_years: 2
+    description: "CO₂ treatment began April 2006, warming began April 2007, measurements 2006-2008"
+
+site:
+  location:
+    name: "USDA-ARS High Plains Grasslands Research Station"
+    region: "Wyoming"
+    country: "USA"
+    latitude: 41.183
+    longitude: -104.9
+    latitude_dms: "41°11'N"
+    longitude_dms: "104°54'W"
+
+  ecosystem:
+    type: "Semiarid northern mixed-grass prairie"
+    abbreviation: "NMP"
+    biome: "Great Plains grassland"
+    vegetation_type: "C₃ + C₄ perennial grass mixture"
+    limitation: "Water-limited, N-limited"
+
+  climate:
+    mean_annual_precipitation_mm: 384
+    mean_july_temperature_c: 17.5
+    mean_january_temperature_c: -2.5
+    mean_annual_temperature_c: 7.5
+    description: "Semiarid continental climate with biological activity constrained by soil moisture"
+
+  soil:
+    type: "Fine-loamy, mixed, mesic Aridic Argiustoll"
+    series: ["Ascalon (north)", "Altvan (south, with gravel layer at 70 cm)"]
+    ph: 7.9
+    classification: "Alkaline"
+    notes: "Previously grazed until 2004; carbonate-containing soil"
+
+  vegetation:
+    dominant_species:
+      - species: "Pascopyrum smithii (Rydb.) A. Love"
+        common_name: "Western wheatgrass"
+        functional_type: "C₃ perennial cool-season grass"
+        biomass_fraction: 0.25
+      - species: "Bouteloua gracilis (H.B.K) Lag."
+        common_name: "Blue grama"
+        functional_type: "C₄ perennial warm-season grass"
+        biomass_fraction: 0.25
+    other_species:
+      - species: "Hesperostipa comata Trin and Rupr."
+        functional_type: "C₃ grass"
+      - species: "Carex eleocharis L. Bailey"
+        functional_type: "Sedge"
+      - species: "Artemisia frigida Willd."
+        functional_type: "Sub-shrub"
+      - "Other grasses and forbs"
+    notes: "No N-fixing plants present in experimental plots"
+
+experimental_design:
+  design_type: "2×2 factorial CO₂ × warming, plus irrigation control"
+  replication: 5
+  plot_shape: "Circular"
+  plot_diameter_m: 3.4
+  plot_area_m2: 9.1
+  total_plots: 30
+  core_plots: 20
+  irrigation_plots: 10
+
+  treatments:
+    - name: elevated_CO2
+      abbreviation: C
+      method: "FACE (Free Air CO₂ Enrichment)"
+      target_ppm: 600
+      ambient_ppm: 385
+      achieved_ppm: 600
+      variability_ppm: 40
+      technology: "3.4-m diameter perforated plastic pipe with 300-μm laser-drilled holes"
+      delivery: "Pure CO₂ injected through perforations"
+      operation: "Daylight hours only, growing season (April-November)"
+      start_date: "2006-04"
+
+    - name: warming
+      abbreviation: T
+      method: "Infrared heating"
+      equipment: "Ceramic infrared heaters"
+      power_w: 1000
+      heaters_per_plot: 6
+      configuration: "Triangular frame 1.5 m above ground"
+      control_system: "Proportional-integral-derivative feedback loop"
+      target_increase_day_c: 1.5
+      target_increase_night_c: 3.0
+      achieved_increase_3cm_c: 2.45
+      achieved_increase_10cm_c: 1.81
+      measurement: "Soil temperature at 3 cm and 10 cm depth"
+      start_date: "2007-04"
+      reference: "Kimball et al. 2008 Global Change Biology"
+
+    - name: irrigation
+      abbreviation: i
+      purpose: "Test soil moisture mediation of CO₂ effect"
+      design: "Separate 10 plots (5 irrigated, 5 controls)"
+      year_2006:
+        applications: 8
+        application_amount_mm: 20
+        total_mm: 160
+        timing: "June-August"
+        notes: "ALL 30 plots irrigated in 2006 for establishment"
+      year_2007:
+        applications: 5
+        dates: ["2007-06-07", "2007-06-20", "2007-07-11", "2007-09-21", "2007-11-15"]
+        application_amount_mm: 20
+        total_mm: 100
+      year_2008:
+        applications: 3
+        dates: ["2008-06-26", "2008-07-18", "2008-09-19"]
+        application_amount_mm: 20
+        total_mm: 60
+      goal: "Maintain ct-i soil moisture similar to Ct plots during growing season"
+
+  treatment_combinations:
+    - code: ct
+      description: "Ambient CO₂ + ambient temperature (control)"
+      n: 5
+    - code: cT
+      description: "Ambient CO₂ + elevated temperature"
+      n: 5
+    - code: Ct
+      description: "Elevated CO₂ + ambient temperature"
+      n: 5
+    - code: CT
+      description: "Elevated CO₂ + elevated temperature"
+      n: 5
+    - code: ct-i
+      description: "Ambient CO₂ + ambient temperature + irrigation"
+      n: 5
+
+  plot_design:
+    flanges: "3.7-m diameter plastic flange buried to 60 cm"
+    division: "Plot divided in half for invasive vs native species"
+    study_area: "Native NMP side only"
+    notes: "Flanges reduce lateral water movement and roots"
+
+measurements:
+  soil_microclimate:
+    soil_moisture:
+      equipment: "EnviroSMART probe"
+      depths_cm: [10, 20, 40, 60, 80]
+      frequency: "Hourly"
+      start_date: "2006-07"
+      unit: "Volumetric percent (v/v)"
+      analysis_depth_cm: 10
+
+    soil_temperature:
+      equipment: "Thermocouples"
+      depths_cm: [3, 10]
+      frequency: "Hourly"
+      start_date: "2006-07"
+      unit: "Celsius"
+
+  soil_inorganic_nitrogen:
+    sampling:
+      dates: ["2007-08", "2008-04", "2008-08"]
+      cores_per_plot: 3
+      core_diameter_cm: 3
+      core_depth_cm: 30
+      pooling: "Pooled by depth"
+      depths_cm: [0-5, 5-15, 15-30]
+      depths_analyzed: [0-5, 5-15]
+      notes: "April 2008 sampling only to 15 cm in 20 core plots"
+
+    extraction:
+      solution: "0.05 M K₂SO₄"
+      method: "Shaking extraction"
+
+    analysis:
+      equipment: "QuickChem FIA+ (Flow injection analyzer)"
+      analytes:
+        - NH4_N
+        - NO3_N
+      unit: "g N m⁻²"
+
+    forms:
+      NO3_fraction_soil_cores: 0.72
+      NO3_fraction_PRS_probes: 0.93
+
+  PRS_available_nitrogen:
+    method: "Plant Root Simulator (PRS) resin probes"
+    manufacturer: "Western Ag Innovations"
+    probe_type: "Ion exchange resin membranes"
+    membrane_area_cm2: 17.5
+    placement: "Vertical, 2-7.6 cm below soil surface"
+    replication: "4 pairs (cation + anion) per plot"
+    location: "≥25 cm inside plot edge"
+
+    insertion_periods:
+      year_2006:
+        duration: "May - September (growing season)"
+        notes: "Full growing season integration"
+      year_2007:
+        duration: "May - October (growing season)"
+        notes: "Full growing season integration"
+      year_2008:
+        period_1:
+          duration: "March - April (1 month)"
+          notes: "Spring period"
+        period_2:
+          duration: "July (attempted)"
+          status: "Failed - soil too dry, poor contact"
+          notes: "Data not presented"
+
+    processing:
+      cleaning: "Immediately after removal"
+      elution_solution: "0.5 M HCl"
+      elution_volume_ml: 17.5
+      elution_duration_hours: 1
+      analysis_equipment: "Technicon Autoanalyzer II"
+      analysis_method: "Colorimetric determination"
+
+    units: "μg N 10 cm⁻² (per area of resin membrane)"
+    interpretation: "Index of inorganic N present during burial period"
+
+  plant_biomass_and_nitrogen:
+    shoot_sampling:
+      timing: "Last week of July each year (2006, 2007, 2008)"
+      method: "Grid-based clipping"
+      grid: "1 m × 1.5 m metal wire grid with 24 quadrats (25 × 25 cm each)"
+      area_clipped: "12 quadrats = 0.75 m²"
+      quadrat_selection: "Every other quadrat, rotated among years"
+      clipping_height_cm: 1
+      interpretation: "Moderate grazing intensity simulation"
+      reference: "Milchunas et al. 1988"
+
+    root_sampling:
+      timing: "August 2007 and 2008"
+      method: "Soil cores (same as inorganic N sampling)"
+      core_depth_cm: 30
+      depths_cm: [0-5, 5-15, 15-30]
+      extraction: "Sieving (2 mm) + hand-picking of roots that fell through"
+
+    analysis:
+      drying_temperature_c: 60
+      N_concentration_equipment: "Elemental analyzer"
+      isotope_equipment: "Mass spectrometer (20-20 Stable Isotope Analyzer, Europa Scientific)"
+      measured:
+        - "Dry biomass"
+        - "N concentration"
+        - "¹⁵N atom %"
+        - "N pool size"
+
+  N15_tracer_study:
+    purpose: "Measure plant and microbial NO₃⁻ uptake partitioning"
+    timing: "June 2007"
+    replication: 30
+    plots: "All 30 plots (20 core + 10 irrigation)"
+
+    collar_setup:
+      date: "2007-05"
+      material: "PVC"
+      height_cm: 25
+      diameter_cm: 10
+      insertion_depth_cm: 22
+      depth_above_ground_cm: 3
+      location: "1 per plot"
+      off_plot_controls: 5
+      vegetation: "P. smithii and B. gracilis (two dominant species)"
+
+    labeling:
+      date: "2007-06-23"
+      plant_stage: "Vegetative"
+      tracer: "K¹⁵NO₃"
+      enrichment_atom_pct: 98
+      application_rate_g_N_m2: 0.4
+      injection_method: "18-gauge Quincke spinal needles"
+      injection_depths_cm: [2.5, 7.5, 12.5]
+      injections_per_depth: 3
+      total_injections_per_collar: 9
+      solution_volume_ml: 27
+      volume_per_injection_ml: 3
+      soil_moisture_increase_volumetric_pct: 2.3
+      soil_moisture_increase_gravimetric_pct: 1.9
+      tracer_choice_rationale: "NO₃⁻ chosen over NH₄⁺ due to high pH (7.9) to avoid ammonia volatilization"
+
+    harvest:
+      timing: "48 hours after injection"
+      components:
+        - "Aboveground biomass (clipped)"
+        - "Soil 0-5 cm"
+        - "Soil 5-15 cm"
+        - "Roots (field-sieved through 2 mm)"
+        - "Crowns (separated from roots)"
+      transport: "On ice, refrigerated overnight"
+
+    processing:
+      soil_drying_c: 60
+      root_washing: true
+      crown_washing: true
+      sample_grinding: true
+      analysis: "Total N and ¹⁵N by mass spectrometer"
+
+    microbial_biomass_analysis:
+      method: "Fumigation-extraction"
+      reference: "Bruulsema & Duxbury 1996"
+      soil_mass_g: 25
+      fumigation:
+        agent: "CHCl₃"
+        duration_days: 5
+      extraction:
+        solution: "0.05 M K₂SO₄"
+        volume_ml: 60
+        shaking_duration_hours: 1
+        filtration: "Whatman No. 1 filter paper"
+      TOC_analysis:
+        equipment: "Shimadzu TOC-VCPN with N unit"
+        measured: ["Total organic C", "Total N"]
+      N15_analysis:
+        sample_volume_ml: 6
+        preparation: "Freeze-dried"
+        equipment: "Mass spectrometer"
+      calculation:
+        formula: "(N_fumigated - N_nonfumigated) / 0.54"
+        conversion_factor: 0.54
+        reference: "Brookes et al. 1985"
+
+    N15_recovery_calculations:
+      microbial_atom_pct: "Equation 1: (fumigated - nonfumigated) extrapolation"
+      N15_recovery: "Equation 2: (labeled - unlabeled off-plot) × N pool / tracer added"
+      fractions:
+        - "Shoots"
+        - "Crowns"
+        - "Roots (0-15 cm)"
+        - "Microbial biomass (0-15 cm)"
+        - "Total plant (sum)"
+        - "Total recovery (plant + soil)"
+
+results:
+  ambient_baseline_2007:
+    plant_N_pools_g_N_m2:
+      shoots: 1.1 ± 0.1
+      crowns: 4.7 ± 0.4
+      roots_0_15cm: 4.9 ± 0.8
+      total_plant: 9.2 ± 0.4
+    microbial_N_g_N_m2:
+      depth_0_5cm: 6.2 ± 0.5
+      depth_5_15cm: 6.5 ± 0.3
+      total_0_15cm: 12.7
+    soil_inorganic_N_g_N_m2:
+      aug_2007_0_5cm: 0.30 ± 0.04
+      aug_2007_5_15cm: 0.27 ± 0.05
+      apr_2008_0_5cm: 0.12 ± 0.01
+      apr_2008_5_15cm: 0.24 ± 0.03
+      aug_2008_0_5cm: 0.28 ± 0.04
+      aug_2008_5_15cm: 0.34 ± 0.03
+    PRS_N_ug_10cm2:
+      year_2006: ~15
+      year_2007: ~15
+      year_2008: ~13
+    root_biomass_g_m2:
+      year_2007: 376 ± 30
+      year_2008: 417 ± 51
+    shoot_N_g_m2:
+      year_2006: ~2.0
+      year_2007: 1.4 ± 0.1
+      year_2008: 1.2 ± 0.1
+
+  soil_microclimate:
+    soil_moisture_10cm:
+      period: "May 2007 - Dec 2008"
+      CO2_effect:
+        change_v_v_pct: +2.36
+        p_value: 0.007
+        direction: "increase"
+        consistency: "Similar pattern in 2006"
+      warming_effect:
+        change_v_v_pct: -1.3 to -1.4
+        p_value: 0.04
+        direction: "decrease"
+        consistency: "Similar reduction under ambient and elevated CO₂"
+      interaction_CO2xWarming:
+        p_value: 0.92
+        significant: false
+
+    soil_temperature:
+      period: "May 2007 - Dec 2008"
+      warming_effect:
+        depth_3cm_c: +2.45
+        depth_3cm_p: 0.008
+        depth_10cm_c: +1.81
+        depth_10cm_p: 0.02
+        consistency: "Similar effects under ambient and elevated CO₂"
+
+  soil_inorganic_nitrogen:
+    CO2_effect:
+      direction: "decrease"
+      magnitude_aug_2007_pct: -25
+      magnitude_apr_2008_pct: -17
+      magnitude_aug_2008_pct: -38
+      depth_0_5cm_pct: -34
+      depth_5_15cm_pct: -25
+      significance: "P ≤ 0.05 for all dates and depths except 5-15 cm April 2008 (P=0.12)"
+      consistency: "Decreased at all measurement times"
+
+    warming_effect:
+      direction: "increase"
+      timing: "Mid-summer only"
+      aug_2007:
+        depth_0_5cm_pct: +31
+        depth_0_5cm_p: 0.04
+        depth_5_15cm: "No effect"
+      apr_2008:
+        depth_0_5cm_pct: +17
+        depth_0_5cm_p: 0.08
+        depth_5_15cm: "No effect"
+      aug_2008:
+        depth_0_5cm_pct: +63
+        depth_0_5cm_p: 0.04
+        depth_5_15cm_pct: +42
+        depth_5_15cm_p: 0.02
+
+    irrigation_effect:
+      aug_2008:
+        depth_0_5cm_pct: -43
+        depth_0_5cm_p: 0.03
+      other_times: "No effect"
+      interpretation: "Similar to elevated CO₂ effect"
+
+    interaction_CO2xWarming:
+      significant: false
+      interpretation: "Additive effects"
+
+  PRS_available_nitrogen:
+    CO2_effect:
+      direction: "decrease"
+      year_2006_pct: -54
+      year_2006_p: 0.0003
+      year_2007_pct: -53
+      year_2007_p: 0.0009
+      year_2008_pct: -36
+      year_2008_p: 0.02
+      consistency: "Decreased all years"
+
+    warming_effect:
+      year_2007_pct: +100
+      year_2007_p: 0.009
+      year_2008: "No effect"
+      interpretation: "Strong effect in 2007 only"
+
+    irrigation_effect:
+      year_2007_pct: -61
+      year_2007_p: 0.02
+      year_2008: "No effect"
+      interpretation: "Similar to elevated CO₂ effect"
+
+    interaction_CO2xWarming:
+      significant: false
+
+  shoot_biomass_and_nitrogen:
+    shoot_N_concentration:
+      CO2_effect:
+        direction: "decrease"
+        year_2006_p: "<0.0001"
+        year_2007_p: "<0.0001"
+        year_2008_p: "<0.0001"
+        consistency: "Decreased all 3 years"
+      warming_effect:
+        year_2007: "No effect"
+        year_2008_pct: +16
+        year_2008_p: 0.0009
+
+    shoot_N_pool:
+      CO2_effect: "No effect (all years)"
+      CO2_note: "Despite increased shoot biomass in 2007 and 2008"
+      warming_effect:
+        year_2007_pct: +19
+        year_2007_p: 0.08
+        year_2008_pct: +22
+        year_2008_p: 0.02
+      irrigation_effect:
+        year_2007_pct: +23
+        year_2007_p: 0.02
+        year_2008_pct: +33
+        year_2008_p: 0.002
+
+    interaction_CO2xWarming:
+      significant: false
+
+  root_biomass_and_nitrogen:
+    root_biomass_0_30cm:
+      CO2_effect:
+        year_2007: "No effect"
+        year_2008_pct: +33
+        year_2008_p: 0.04
+        interpretation: "Developed in year 3"
+      warming_effect: "No effect"
+      irrigation_effect: "No effect"
+
+    root_N_concentration:
+      CO2_effect:
+        year_2007: "No effect"
+        year_2008_pct: -15
+        year_2008_p: 0.005
+      warming_effect:
+        year_2007: "Marginal increase only in elevated CO₂ (interaction P=0.09)"
+        year_2008: "No effect"
+      irrigation_effect: "No effect"
+
+    root_N_pool_0_30cm:
+      CO2_effect: "No effect (both years)"
+      warming_effect:
+        year_2007: "No effect"
+        year_2008_pct: +33
+        year_2008_p: 0.06
+      irrigation_effect:
+        year_2008_pct: -28
+        year_2008_p: 0.07
+
+  N15_tracer_study_june_2007:
+    plant_N_pools:
+      CO2_effect:
+        crown_N_pct: -17
+        crown_N_p: 0.02
+        shoots_roots_total: "No effect"
+      warming_effect: "No effect on any fraction"
+      irrigation_effect: "No effect"
+      interaction: "Not significant"
+
+    plant_N_concentrations:
+      CO2_effect:
+        shoot_N_pct: -19
+        ambient_pct: 1.77 ± 0.07
+        elevated_pct: 1.43 ± 0.06
+        p: "<0.05"
+        other_fractions: "No effect"
+      warming_effect: "No effect"
+      irrigation_effect: "No effect"
+
+    microbial_biomass_N:
+      CO2_effect:
+        depth_0_5cm_pct: +23
+        depth_0_5cm_p: 0.05
+        depth_5_15cm: "No effect"
+      warming_effect: "No effect"
+      irrigation_effect: "No effect"
+
+    N15_recovery_shoots:
+      CO2_effect: "No effect"
+      warming_effect:
+        change_pct: -28
+        p: 0.07
+        interpretation: "Delayed transport from roots to shoots"
+      irrigation_effect: "No effect"
+
+    N15_recovery_roots:
+      CO2_effect:
+        change_pct: +57
+        p: 0.02
+      warming_effect:
+        change_pct: +40
+        p: 0.07
+      irrigation_effect: "No effect"
+
+    N15_recovery_total_plant:
+      effects: "No significant treatment effects"
+
+    N15_recovery_microbial:
+      CO2_effect:
+        change_pct: +186
+        p: 0.0009
+        magnitude: "LARGEST EFFECT IN ENTIRE STUDY"
+        interpretation: "Increased microbial NO₃⁻ immobilization"
+      warming_effect: "No effect"
+      irrigation_effect:
+        change_pct: +119
+        p: 0.09
+        interpretation: "Marginal, similar to CO₂ effect"
+
+    total_N15_recovery:
+      effects: "No treatment effects"
+      average_pct: 90
+
+major_findings:
+  - finding: "Contrasting effects of CO₂ vs warming on N cycling"
+    CO2_effect:
+      direction: "More closed N cycle"
+      soil_inorganic_N: "Decreased -17% to -38%"
+      PRS_N: "Decreased -36% to -54%"
+      microbial_immobilization: "Increased +186%"
+      plant_N: "No change"
+      mechanism: "CO₂ → increased soil moisture → increased microbial immobilization"
+    warming_effect:
+      direction: "More open N cycle"
+      soil_inorganic_N: "Increased +31% to +63% in summer"
+      PRS_N: "Increased +100% in 2007"
+      plant_N: "Increased +22% in 2008"
+      microbial_immobilization: "No change"
+      mechanism: "Direct temperature stimulation of gross and net mineralization > indirect soil moisture reduction"
+
+  - finding: "No CO₂ × warming interactions (additive effects)"
+    variables:
+      - "Soil inorganic N pool sizes"
+      - "PRS-available N"
+      - "Plant N pool sizes"
+      - "Plant and microbial NO₃⁻ uptake"
+    significance: "All P > 0.05 for interactions"
+    contrast: "Differs from Hovenden et al. 2008 (Tasmania grassland with significant interaction)"
+    support: "Supports DAYCENT model predictions (Parton et al. 2007)"
+
+  - finding: "Soil moisture as key mediator of CO₂ effect"
+    CO2_moisture_effect:
+      change_pct: +2.36
+      p: 0.007
+    irrigation_parallel:
+      - "Increased microbial ¹⁵N recovery (+119%, marginal)"
+      - "Decreased PRS-available N in 2007 (-61%)"
+      - "Decreased soil inorganic N in Aug 2008 (-43% at 0-5 cm)"
+    interpretation: "CO₂-induced moisture increase caused increased microbial immobilization"
+
+  - finding: "Temperature dominates over moisture for warming effect"
+    warming_moisture_effect:
+      change_pct: -1.3
+      p: 0.04
+    net_result: "Still increased soil inorganic N and plant N"
+    interpretation: "Direct temperature stimulation of mineralization > moisture reduction effect"
+    model_support: "Parton et al. 2007 predicted temperature more important than moisture"
+
+  - finding: "Microbial immobilization key to CO₂ response"
+    evidence:
+      - "No change in total plant ¹⁵N uptake"
+      - "Large increase in microbial ¹⁵N uptake (+186%)"
+      - "Increased microbial biomass N at surface (+23%)"
+    conclusion: "Reduced soil inorganic N under CO₂ due to microbial immobilization, NOT increased plant uptake"
+    implications:
+      short_term: "Microbial immobilization reduces N availability (3 years)"
+      long_term: "Could constrain CO₂ fertilization effect (Progressive Nitrogen Limitation)"
+      uncertainty: "Some studies show sustained N mineralization increase (Dijkstra et al. 2008)"
+
+  - finding: "Delayed ¹⁵N transport under warming"
+    shoot_N15_recovery:
+      change_pct: -28
+      p: 0.07
+    root_N15_recovery:
+      change_pct: +40
+      p: 0.07
+    interpretation: "48-hour harvest may have been too soon to capture full root-to-shoot transport"
+
+  - finding: "No evidence for Progressive N Limitation yet"
+    duration: "3 years of elevated CO₂"
+    evidence:
+      - "Plant N pools unchanged"
+      - "Root biomass increased in 2008 (+33%)"
+    hypothesis: "Increased soil exploration by roots → maintained N uptake"
+    limitation: "Did not measure root length density"
+
+  - finding: "Model predictions partially supported"
+    DAYCENT_predictions_confirmed:
+      - "Elevated CO₂ increases soil moisture ✓"
+      - "Warming decreases soil moisture ✓"
+      - "Warming increases N mineralization ✓"
+      - "Additive effects (no CO₂ × warming interactions) ✓"
+    DAYCENT_predictions_contradicted:
+      - "Elevated CO₂ increases N mineralization ✗ (actually DECREASED inorganic N)"
+    novel_finding: "Microbial immobilization overwhelmed any mineralization increase under CO₂"
+
+  - finding: "Temporal patterns in treatment effects"
+    CO2_effects: "Consistent across all dates, stronger in mid-summer"
+    warming_effects: "Strong in mid-summer, weak/absent in spring"
+    interpretation: "Low plant activity in spring → less N uptake → inorganic N accumulates"
+    interannual: "Patterns generally consistent 2007-2008"
+
+mechanistic_relationships:
+  CO2_pathway:
+    step_1: "Elevated CO₂ → reduced stomatal conductance"
+    step_2: "Reduced transpiration → increased soil moisture (+2.36%)"
+    step_3: "Increased moisture → enhanced microbial activity"
+    step_4: "Enhanced microbes → increased NO₃⁻ immobilization (+186%)"
+    step_5: "Increased immobilization → decreased soil inorganic N (-17% to -38%)"
+    evidence: "Irrigation produced similar effects to elevated CO₂"
+
+  warming_pathway:
+    step_1: "Warming → increased soil temperature (+2.45°C at 3 cm)"
+    step_2a: "Temperature → stimulated gross mineralization"
+    step_2b: "Temperature → stimulated net mineralization"
+    step_3a: "Warming → decreased soil moisture (-1.3%)"
+    step_3b: "Moisture decrease → inhibited mineralization (opposite effect)"
+    net_result: "Temperature stimulation > moisture inhibition"
+    step_4: "Net increased mineralization → increased soil inorganic N (+31% to +63%)"
+    step_5: "Increased N availability → increased plant N uptake (+22% in 2008)"
+
+  microbial_vs_plant_competition:
+    under_ambient: "Microbes and plants co-limited by N availability"
+    under_elevated_CO2: "Microbes gain competitive advantage (+186% NO₃⁻ uptake)"
+    under_warming: "Plants gain competitive advantage (+22% N pools)"
+    under_CO2_plus_warming: "Effects offset (additive, no interaction)"
+
+ecosim_relevance:
+  validation_targets:
+    soil_moisture:
+      CO2_response_v_v_pct: +2.36
+      warming_response_v_v_pct: -1.3
+      interaction: "None"
+
+    soil_inorganic_N:
+      ambient_aug_2008_0_5cm_g_m2: 0.28
+      ambient_aug_2008_5_15cm_g_m2: 0.34
+      CO2_response_pct: -38
+      warming_response_0_5cm_pct: +63
+      warming_response_5_15cm_pct: +42
+      interaction: "None"
+
+    microbial_biomass_N:
+      ambient_0_5cm_g_m2: 6.2
+      ambient_5_15cm_g_m2: 6.5
+      CO2_response_0_5cm_pct: +23
+      CO2_response_5_15cm: "No effect"
+
+    microbial_N15_uptake:
+      ambient_mg_m2: ~37
+      CO2_response_pct: +186
+      warming_response: "No effect"
+      irrigation_response_pct: +119
+
+    plant_N_pools:
+      shoot_N_ambient_2008_g_m2: 1.2
+      root_N_ambient_2008_g_m2: 4.17
+      CO2_response: "No effect"
+      warming_response_shoot_pct: +22
+      warming_response_root_pct: +33
+
+    plant_N15_uptake:
+      root_N15_ambient_mg_m2: ~17
+      CO2_response_root_pct: +57
+      warming_response_root_pct: +40
+      shoot_N15_warming_response_pct: -28
+
+  key_parameters:
+    CO2_concentration_ppm: 600
+    CO2_ambient_ppm: 385
+    warming_soil_3cm_c: +2.45
+    warming_soil_10cm_c: +1.81
+    irrigation_2007_mm: 100
+    irrigation_2008_mm: 60
+    mean_annual_precipitation_mm: 384
+    soil_pH: 7.9
+    dominant_PFTs: ["C₃ perennial grass", "C₄ perennial grass"]
+    C3_fraction: 0.5
+    C4_fraction: 0.5
+
+  model_testing_questions:
+    - "Can EcoSIM reproduce contrasting CO₂ (closed) vs warming (open) N cycle effects?"
+    - "Does model capture soil moisture as mediator of CO₂ effect?"
+    - "Can model simulate temperature vs moisture tradeoff in warming response?"
+    - "Does model predict additive effects (no CO₂ × warming interactions)?"
+    - "Can model capture temporal dynamics (seasonal, interannual)?"
+    - "Does model reproduce microbial vs plant ¹⁵NO₃⁻ partitioning?"
+    - "What are long-term predictions for Progressive Nitrogen Limitation?"
+    - "Can irrigation treatment be used to validate moisture mechanisms?"
+
+  process_relationships:
+    NMR_vs_temperature: "Positive (temperature stimulates mineralization)"
+    NMR_vs_moisture: "Positive under elevated CO₂ (enhances microbial activity)"
+    microbial_immobilization_vs_moisture: "Positive (+186% when moisture +2.36%)"
+    plant_N_uptake_vs_temperature: "Positive (+22% when temperature +2.45°C)"
+
+data_quality:
+  strengths:
+    - "2×2 factorial design (clean separation of CO₂ and warming effects)"
+    - "Good replication (n=5 per treatment)"
+    - "FACE technology (realistic CO₂ exposure)"
+    - "Mechanistic ¹⁵N tracer (partitions microbial vs plant uptake)"
+    - "Continuous environmental monitoring (hourly soil moisture and temperature, 3+ years)"
+    - "Multiple measurement types (pools, integrative PRS probes, tracer fluxes)"
+    - "Irrigation control (tests soil moisture hypothesis)"
+    - "Multi-year data (3 years, 2006-2008)"
+    - "Replicated harvest grid (reduces spatial variability)"
+    - "Included both aboveground and belowground plant fractions"
+
+  limitations:
+    temporal:
+      - "Short duration (3 years total, 2 years of warming)"
+      - "Early transient responses may not persist"
+      - "PNL may develop with longer exposure"
+      - "Single ¹⁵N tracer study (June 2007 only, 2.5 months after warming started)"
+      - "Few soil N sampling dates (3 dates over 2 years)"
+      - "48-hour ¹⁵N harvest may be too soon for full uptake dynamics"
+
+    spatial:
+      - "Single site (no geographic replication)"
+      - "Small plot size (3.4 m diameter)"
+      - "Two soil series within site (Ascalon and Altvan)"
+
+    methodological:
+      - "¹⁵N tracer only traced NO₃⁻ (not NH₄⁺ due to volatilization concerns)"
+      - "¹⁵N injection increased soil moisture by 1.9% (potential artifact)"
+      - "Root biomass high spatial heterogeneity"
+      - "Hand-picking may miss fine roots"
+      - "No root length density measured"
+      - "Microbial biomass fumigation-extraction has inherent limitations"
+      - "No microbial community composition (cf. Ma et al. 2011 PLFAs)"
+      - "PRS probes provide index, not absolute N availability"
+      - "July 2008 PRS probes failed (soil too dry)"
+
+    treatment_specific:
+      - "2006: All plots irrigated 8× (160 mm) for establishment"
+      - "Warming started 1 year after CO₂ (limits interaction assessment early on)"
+      - "Passive warming variability (depends on weather)"
+      - "Plot divided for invasive vs native (steel flange only to 25 cm)"
+
+    analysis:
+      - "n=5 may limit detection of small effects or interactions"
+      - "Some effects marginal (P=0.06-0.09)"
+      - "No gaseous N losses measured (N₂O, N₂)"
+      - "No litter decomposition measurements"
+      - "Complete N budget not possible"
+
+  uncertainty_sources:
+    - "Spatial heterogeneity (especially roots)"
+    - "Temporal variability (few sampling dates)"
+    - "Treatment effect development (early in warming treatment)"
+    - "¹⁵N tracer timing and duration"
+    - "Microbial biomass conversion factors (0.54)"
+    - "Root exploration vs biomass increase (unmeasured)"
+
+meta_analysis_value:
+  relevance: "Very high - clean CO₂ × warming factorial in water-limited grassland"
+
+  unique_contributions:
+    - "Semiarid ecosystem (water-limited, different from mesic systems)"
+    - "Alkaline soil (pH 7.9, complements acidic heathlands)"
+    - "Clean CO₂ × warming factorial (rare in grassland literature)"
+    - "Mechanistic ¹⁵N tracer (quantifies microbial vs plant uptake)"
+    - "Soil moisture as key mediator (continuous monitoring, irrigation test)"
+    - "Contrasting CO₂ (closed) vs warming (open) N cycle effects"
+    - "No interactions (additive effects, contrasts with other studies)"
+    - "Model-experiment integration (DAYCENT predictions tested)"
+    - "C₃ + C₄ grass mixture (functional type diversity)"
+    - "Short-term microbial response (fast immobilization increase)"
+
+  integration_potential:
+    - "Test when interactions occur vs not (compare to Larsen, Hovenden)"
+    - "Test ecosystem characteristics leading to additivity vs interactions"
+    - "Moisture × temperature × CO₂ interaction space"
+    - "Alkaline vs acidic soil comparison"
+    - "Semiarid vs mesic ecosystem comparison"
+    - "Microbial immobilization mechanism (quantified with ¹⁵N)"
+    - "Provides FACE + infrared warming combination"
+
+  cross_study_comparisons:
+    similar_to_Ma_2011:
+      - "Alkaline soil (7.9 vs 8.2)"
+      - "Similar precipitation (384 vs 276-410 mm)"
+      - "Grassland ecosystem"
+      - "Warming increases N availability"
+    different_from_Ma_2011:
+      - "CO₂ × warming vs warming × N addition"
+      - "Additive vs antagonistic interactions"
+      - "¹⁵N tracer vs lab incubation"
+
+    similar_to_Larsen_2011:
+      - "CO₂ × warming factorial"
+      - "FACE + warming technology"
+      - "CO₂ → closed N cycle, warming → open N cycle"
+    different_from_Larsen_2011:
+      - "Semiarid vs temperate wet"
+      - "Alkaline vs acidic soil"
+      - "Simple vs complex vegetation"
+      - "Additive vs frequent antagonistic interactions"
+
+comparison_to_other_studies:
+  dijkstra_vs_ma:
+    similarities:
+      - "Alkaline soil (pH 7.9 vs 8.2)"
+      - "Similar precipitation (384 vs 276-410 mm yr⁻¹)"
+      - "Grassland ecosystem"
+      - "Warming increases soil N availability"
+      - "3-year duration"
+      - "Factorial design with good replication"
+
+    differences:
+      ecosystem: "Semiarid mixed C₃+C₄ vs temperate C₃-dominated"
+      treatments: "CO₂ × warming vs warming × N addition"
+      methods: "FACE + infrared vs infrared + fertilizer"
+      N_measurements: "¹⁵N tracer vs lab incubation"
+      microbial: "Fumigation-extraction vs PLFAs"
+      interactions: "Additive (none) vs antagonistic (-35%)"
+      mechanism: "Microbial immobilization (CO₂) vs fungal increase (W×N)"
+
+    complementarity: "Together test CO₂, warming, AND N addition effects; different mechanisms for altered N cycling"
+
+  dijkstra_vs_larsen:
+    similarities:
+      - "CO₂ × warming factorial (plus drought in Larsen)"
+      - "FACE technology for CO₂"
+      - "Multi-year duration"
+      - "CO₂ → closed N cycle"
+      - "Warming → open N cycle"
+
+    differences:
+      ecosystem: "Semiarid grassland vs temperate heathland"
+      precipitation_mm: "384 vs 613"
+      soil_pH: "7.9 (alkaline) vs 4-5 (acidic)"
+      vegetation: "C₃+C₄ grasses vs Calluna + Deschampsia + mosses"
+      warming_method: "Infrared continuous vs passive nighttime curtains"
+      soil_moisture_CO2: "Both increased"
+      soil_moisture_warming: "Both decreased"
+      interactions: "None (additive) vs common (mostly antagonistic)"
+      mechanism_CO2: "Microbial immobilization vs multiple species-specific"
+      mechanism_warming: "Direct temperature > moisture vs temperature stimulation"
+
+    key_difference: "Dijkstra shows clean additive effects; Larsen shows frequent antagonistic interactions"
+
+  dijkstra_vs_hovenden_2008:
+    similarity: "CO₂ × warming factorial in grassland"
+    key_difference: "Hovenden found significant CO₂ × warming interaction (Tasmania temperate grassland); Dijkstra found none"
+    interpretation: "Ecosystem or climate differences affect whether interactions occur"
+
+notes:
+  - "PHACE experiment - one of the premier CO₂ × warming experiments in North America"
+  - "Model predictions (DAYCENT) made BEFORE field experiment (rare)"
+  - "Key surprise: CO₂ DECREASED soil inorganic N (predicted increase)"
+  - "Microbial dominance: 186% increase in NO₃⁻ uptake (largest effect size)"
+  - "Temperature vs moisture tradeoff: Temperature effect dominates under warming"
+  - "Additive paradigm: No interactions suggest simpler combined response"
+  - "Water limitation critical context for all responses"
+  - "PNL implications: Microbial immobilization could lead to progressive N limitation"
+  - "Long-term uncertainty: Will immobilization persist or will mineralization increase?"
+  - "Irrigation insight: ct-i treatment confirms soil moisture mechanism"
+  - "Root exploration hypothesis: Increased root biomass may explain maintained plant N uptake"
+  - "Seasonal gaps: Spring responses less clear than summer"
+  - "Clean factorial design ideal for testing model predictions"
+  - "Contrasting effects paper: CO₂ and warming have opposite effects on soil inorganic N"
+
+data_availability:
+  status: "Published data in tables and figures"
+
+  tables:
+    - "Table 1: Soil inorganic N (3 dates, 2 depths, all treatments)"
+    - "Table 2: Root biomass and N (2 years, all treatments)"
+    - "Table 3: Plant and microbial N pools from ¹⁵N study (all treatments)"
+
+  figures:
+    - "Figure 1: Soil moisture time series (2006-2008, by treatment)"
+    - "Figure 2: PRS-available N (3 years, all treatments)"
+    - "Figure 3: Shoot N pools and concentrations (3 years, all treatments)"
+    - "Figure 4: ¹⁵N recovery in plants (all fractions, all treatments)"
+    - "Figure 5: ¹⁵N recovery in microbes (all treatments)"
+    - "Supplemental Figure S1: Soil temperature time series"
+
+  additional_data_potentially_available:
+    - "Hourly soil moisture and temperature (3+ years, all depths)"
+    - "Additional ¹⁵N measurements (soil total N and ¹⁵N)"
+    - "Related PHACE publications (plant productivity, soil C, etc.)"
+
+  contact:
+    author: "Feike A. Dijkstra"
+    email: "feike.dijkstra@ars.usda.gov"
+
+  related_publications:
+    - reference: "Parton et al. 2007"
+      title: "DAYCENT model predictions"
+      journal: "New Phytologist"
+    - reference: "Morgan et al. 2008"
+      title: "Plant production responses"
+      journal: "IGC Proceedings"
+    - reference: "Blumenthal 2009"
+      title: "Carbon addition × water interactions"
+      journal: "Biol Invasions"
+    - reference: "Kimball et al. 2008"
+      title: "Infrared heater design"
+      journal: "Global Change Biology"
+
+metadata_info:
+  created: "2025-11-10"
+  created_for: "EcoSIM Co-Scientist project - warming/nitrogen meta-analysis"
+  schema_version: "0.1.0"
+  notes: "To be formalized with LinkML schema"
+  paper_keywords:
+    - "CO₂ enrichment"
+    - "FACE"
+    - "global warming"
+    - "microbial immobilization"
+    - "nitrogen"
+    - "¹⁵N tracer"
+    - "PHACE"
+    - "semiarid grassland"
+    - "soil moisture"
