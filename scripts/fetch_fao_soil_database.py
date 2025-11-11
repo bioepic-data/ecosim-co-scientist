@@ -315,14 +315,21 @@ class HWSDFetcher:
         logger.info(f"Found {len(bil_files)} .bil files: {[f.name for f in bil_files]}")
         return bil_files
     
-    def process_bil_to_csv(self, bil_path: Path, output_path: Optional[Path] = None, sample_rate: float = 1.0) -> Path:
+    def process_bil_to_csv(self, bil_path: Path, output_path: Optional[Path] = None, sample_rate: float = 1.0, 
+                          sqlite_db_path: Optional[Path] = None) -> Path:
         """
-        Convert BIL raster file to CSV format.
+        Convert BIL raster file to CSV format with soil mapping unit codes.
+        
+        HWSD2 BIL files contain soil mapping unit codes (integers) that link to the 
+        attribute database containing actual soil properties. This method extracts 
+        the mapping unit codes and can optionally join with database tables to 
+        include actual soil variable values.
         
         Args:
             bil_path: Path to .bil raster file
             output_path: Path to output CSV file (default: bil filename + .csv)
             sample_rate: Fraction of pixels to sample (1.0 = all pixels, 0.1 = 10% sample)
+            sqlite_db_path: Optional path to SQLite database for joining soil variables
             
         Returns:
             Path to created CSV file
@@ -345,13 +352,13 @@ class HWSDFetcher:
                 logger.info(f"Coordinate system: {crs}")
                 logger.info(f"NoData value: {nodata}")
                 
-                # Read the first band
+                # Read the first band (soil mapping unit codes)
                 data = src.read(1)
                 
                 # Create coordinate grids
                 x_coords = []
                 y_coords = []
-                values = []
+                mapping_units = []
                 
                 # Calculate sampling step
                 step = int(1.0 / sample_rate) if sample_rate < 1.0 else 1
@@ -360,28 +367,35 @@ class HWSDFetcher:
                     for col in range(0, width, step):
                         # Convert pixel coordinates to geographic coordinates
                         x, y = rasterio.transform.xy(transform, row, col)
-                        value = data[row, col]
+                        mapping_unit_code = int(data[row, col])
                         
                         # Skip nodata values
-                        if nodata is not None and value == nodata:
+                        if nodata is not None and mapping_unit_code == nodata:
                             continue
                         
                         x_coords.append(x)
                         y_coords.append(y)
-                        values.append(value)
+                        mapping_units.append(mapping_unit_code)
                 
-                # Create DataFrame
+                # Create DataFrame with mapping unit codes
                 df = pd.DataFrame({
                     'longitude': x_coords,
                     'latitude': y_coords,
-                    'value': values
+                    'soil_mapping_unit': mapping_units
                 })
+                
+                # Join with soil properties if database provided
+                if sqlite_db_path and sqlite_db_path.exists():
+                    df = self._join_soil_properties(df, sqlite_db_path)
                 
                 # Save to CSV
                 df.to_csv(output_path, index=False)
                 
                 logger.info(f"✓ Exported {len(df)} valid pixels to {output_path.name}")
-                logger.info(f"Value range: {df['value'].min():.2f} to {df['value'].max():.2f}")
+                logger.info(f"Unique mapping units: {df['soil_mapping_unit'].nunique()}")
+                logger.info(f"Mapping unit range: {df['soil_mapping_unit'].min()} to {df['soil_mapping_unit'].max()}")
+                if 'soc_topsoil' in df.columns:
+                    logger.info(f"Soil variables joined from database")
                 
         except Exception as e:
             logger.error(f"Failed to process {bil_path.name}: {e}")
@@ -389,14 +403,138 @@ class HWSDFetcher:
         
         return output_path
     
-    def process_raster_directory_to_csv(self, raster_dir: Path, output_dir: Optional[Path] = None, sample_rate: float = 0.1) -> Path:
+    def _join_soil_properties(self, df: pd.DataFrame, sqlite_db_path: Path) -> pd.DataFrame:
         """
-        Process all BIL files in a directory to CSV format.
+        Join raster mapping unit codes with soil properties from the database.
+        
+        Args:
+            df: DataFrame with longitude, latitude, and soil_mapping_unit columns
+            sqlite_db_path: Path to SQLite database with soil property tables
+            
+        Returns:
+            Enhanced DataFrame with soil property columns
+        """
+        try:
+            conn = sqlite3.connect(sqlite_db_path)
+            
+            # Common HWSD2 soil variables to extract
+            # Note: Actual table and column names may vary - this is based on typical HWSD structure
+            soil_variables = {
+                'SOC': 'soil_organic_carbon',      # Soil organic carbon (%)
+                'BULK_DENSITY': 'bulk_density',    # Bulk density (g/cm³)
+                'AWC': 'available_water_capacity', # Available water capacity (%)
+                'SAND': 'sand_percent',            # Sand content (%)
+                'SILT': 'silt_percent',            # Silt content (%)
+                'CLAY': 'clay_percent',            # Clay content (%)
+                'PH_H2O': 'ph_water',              # pH in water
+                'CEC': 'cation_exchange_capacity'  # CEC (cmol/kg)
+            }
+            
+            # Try to find the main soil properties table
+            # Common table names in HWSD databases
+            possible_tables = ['D_SOIL', 'HWSD_DATA', 'SOIL_PROPERTIES', 'HWSD2_DATA']
+            
+            # Check which tables exist
+            cursor = conn.cursor()
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+            available_tables = [row[0] for row in cursor.fetchall()]
+            logger.info(f"Available database tables: {available_tables}")
+            
+            # Find the main soil data table
+            soil_table = None
+            for table_name in possible_tables:
+                if table_name in available_tables:
+                    soil_table = table_name
+                    break
+            
+            if not soil_table and available_tables:
+                # Use the first available table as fallback
+                soil_table = available_tables[0]
+                logger.warning(f"Using fallback table: {soil_table}")
+            
+            if not soil_table:
+                logger.warning("No suitable soil data table found in database")
+                return df
+            
+            # Get table schema to understand column names
+            cursor.execute(f"PRAGMA table_info({soil_table});")
+            columns = [row[1] for row in cursor.fetchall()]
+            logger.info(f"Table {soil_table} columns: {columns[:10]}...")  # Show first 10 columns
+            
+            # Find mapping unit column (common names)
+            mapping_unit_cols = ['MU_GLOBAL', 'MAPPING_UNIT', 'MU_CODE', 'SMU_ID']
+            mapping_col = None
+            for col in mapping_unit_cols:
+                if col in columns:
+                    mapping_col = col
+                    break
+            
+            if not mapping_col:
+                logger.warning("Could not identify mapping unit column")
+                return df
+            
+            # Build query to extract available soil properties
+            available_vars = []
+            query_cols = [mapping_col]
+            
+            for hw_var, friendly_name in soil_variables.items():
+                # Try different possible column name variations
+                possible_names = [hw_var, hw_var.lower(), hw_var.upper(), 
+                                f"T_{hw_var}", f"S_{hw_var}"]
+                
+                for col_name in possible_names:
+                    if col_name in columns:
+                        available_vars.append((col_name, friendly_name))
+                        query_cols.append(f"{col_name} as {friendly_name}")
+                        break
+            
+            if not available_vars:
+                logger.warning("No recognized soil variables found in database")
+                return df
+            
+            # Query the database for soil properties
+            query = f"""
+            SELECT {', '.join(query_cols)}
+            FROM {soil_table}
+            WHERE {mapping_col} IS NOT NULL
+            """
+            
+            logger.info(f"Extracting {len(available_vars)} soil variables: {[v[1] for v in available_vars]}")
+            soil_df = pd.read_sql_query(query, conn)
+            
+            # Join with the raster data
+            merged_df = df.merge(
+                soil_df, 
+                left_on='soil_mapping_unit', 
+                right_on=mapping_col, 
+                how='left'
+            )
+            
+            # Drop the duplicate mapping unit column
+            if mapping_col in merged_df.columns:
+                merged_df = merged_df.drop(columns=[mapping_col])
+            
+            # Log join statistics
+            matched_units = merged_df[merged_df.iloc[:, 3:].notna().any(axis=1)].shape[0]
+            logger.info(f"✓ Joined soil properties for {matched_units}/{len(df)} pixels")
+            
+            conn.close()
+            return merged_df
+            
+        except Exception as e:
+            logger.warning(f"Failed to join soil properties: {e}")
+            return df
+    
+    def process_raster_directory_to_csv(self, raster_dir: Path, output_dir: Optional[Path] = None, 
+                                       sample_rate: float = 0.1, sqlite_db_path: Optional[Path] = None) -> Path:
+        """
+        Process all BIL files in a directory to CSV format with optional soil variable joining.
         
         Args:
             raster_dir: Directory containing .bil files
-            output_dir: Directory to save CSV files (default: raster_dir + "_csv")
+            output_dir: Directory to save CSV files (default: raster_dir + "_csv") 
             sample_rate: Fraction of pixels to sample (default: 0.1 for 10% sample)
+            sqlite_db_path: Optional path to SQLite database for joining soil variables
             
         Returns:
             Path to directory containing CSV files
@@ -409,6 +547,11 @@ class HWSDFetcher:
         logger.info(f"Processing raster files from {raster_dir} to CSV in {output_dir}")
         logger.info(f"Using {sample_rate*100:.1f}% pixel sampling rate")
         
+        if sqlite_db_path and sqlite_db_path.exists():
+            logger.info(f"Will join with soil properties from: {sqlite_db_path.name}")
+        else:
+            logger.info("Processing mapping unit codes only (no database join)")
+        
         # Find all .bil files in the directory
         bil_files = list(raster_dir.rglob("*.bil"))
         
@@ -419,7 +562,7 @@ class HWSDFetcher:
         for bil_file in bil_files:
             csv_path = output_dir / f"{bil_file.stem}.csv"
             try:
-                self.process_bil_to_csv(bil_file, csv_path, sample_rate)
+                self.process_bil_to_csv(bil_file, csv_path, sample_rate, sqlite_db_path)
             except Exception as e:
                 logger.warning(f"Failed to process {bil_file.name}: {e}")
                 continue
@@ -529,12 +672,14 @@ def main():
         
         # Find and convert .mdb files
         mdb_files = fetcher.find_mdb_files()
+        sqlite_files = []
         if mdb_files:
             logger.info("\n=== Converting Databases ===")
             for mdb_file in mdb_files:
                 try:
                     # Convert to SQLite
                     sqlite_file = fetcher.convert_mdb_to_sqlite(mdb_file)
+                    sqlite_files.append(sqlite_file)
                     logger.info(f"✓ SQLite database: {sqlite_file}")
                     
                     # Export to CSV
@@ -549,12 +694,18 @@ def main():
         logger.info("\n=== Extracting Raster Data ===")
         raster_extract_dir = fetcher.extract_zip(raster_zip)
         
-        # Process .bil files to CSV
+        # Process .bil files to CSV with soil variable joining
         bil_files = fetcher.find_bil_files()
         if bil_files:
             logger.info("\n=== Converting Raster Files to CSV ===")
             try:
-                csv_dir = fetcher.process_raster_directory_to_csv(raster_extract_dir, sample_rate=0.1)
+                # Use the first SQLite database if available for joining soil variables
+                sqlite_db = sqlite_files[0] if sqlite_files else None
+                csv_dir = fetcher.process_raster_directory_to_csv(
+                    raster_extract_dir, 
+                    sample_rate=0.1, 
+                    sqlite_db_path=sqlite_db
+                )
                 logger.info(f"✓ Raster CSV export: {csv_dir}")
             except Exception as e:
                 logger.error(f"Failed to process raster files: {e}")

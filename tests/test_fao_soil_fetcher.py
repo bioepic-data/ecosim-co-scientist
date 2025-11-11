@@ -243,8 +243,69 @@ class TestHWSDFetcher(unittest.TestCase):
         
         self.assertIn('longitude', df.columns)
         self.assertIn('latitude', df.columns)
-        self.assertIn('value', df.columns)
+        self.assertIn('soil_mapping_unit', df.columns)
         self.assertEqual(len(df), 9)  # 3x3 grid
+    
+    @patch('fetch_fao_soil_database.rasterio')
+    @patch('fetch_fao_soil_database.sqlite3')
+    def test_process_bil_with_soil_variables(self, mock_sqlite3, mock_rasterio):
+        """Test BIL to CSV conversion with soil variable joining."""
+        # Create mock BIL file
+        bil_file = Path(self.temp_dir) / "test.bil"
+        bil_file.write_text("mock bil")
+        
+        # Create mock SQLite database file
+        db_file = Path(self.temp_dir) / "test.db"
+        db_file.write_text("mock db")
+        
+        # Mock rasterio behavior
+        mock_src = Mock()
+        mock_src.width = 2
+        mock_src.height = 2
+        mock_src.transform = Mock()
+        mock_src.crs = "EPSG:4326"
+        mock_src.nodata = -9999
+        mock_src.read.return_value = [[101, 102], [103, 104]]
+        
+        mock_rasterio.open.return_value.__enter__.return_value = mock_src
+        mock_rasterio.transform.xy.side_effect = lambda t, r, c: (c * 0.1, r * 0.1)
+        
+        # Mock SQLite database behavior
+        mock_conn = Mock()
+        mock_cursor = Mock()
+        mock_conn.cursor.return_value = mock_cursor
+        
+        # Mock table listing
+        mock_cursor.execute.side_effect = [
+            None,  # SELECT name FROM sqlite_master 
+            None,  # PRAGMA table_info
+            None   # SELECT query
+        ]
+        mock_cursor.fetchall.side_effect = [
+            [('D_SOIL',), ('HWSD_META',)],  # Available tables
+            [('cid', 'MU_GLOBAL', 'INTEGER'), ('cid', 'SOC', 'REAL')],  # Column info
+            []  # Query result
+        ]
+        
+        mock_sqlite3.connect.return_value = mock_conn
+        
+        # Mock pandas read_sql_query to return soil data
+        import pandas as pd
+        with patch('fetch_fao_soil_database.pd.read_sql_query') as mock_read_sql:
+            mock_soil_df = pd.DataFrame({
+                'MU_GLOBAL': [101, 102, 103, 104],
+                'soil_organic_carbon': [1.5, 2.0, 1.8, 2.2]
+            })
+            mock_read_sql.return_value = mock_soil_df
+            
+            # Test conversion with database join
+            csv_file = self.fetcher.process_bil_to_csv(bil_file, sample_rate=1.0, sqlite_db_path=db_file)
+            
+            self.assertTrue(csv_file.exists())
+            self.assertEqual(csv_file.suffix, ".csv")
+            
+            # Verify the method was called with database path
+            mock_sqlite3.connect.assert_called_with(db_file)
 
 
 class TestIntegration(unittest.TestCase):
