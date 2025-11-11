@@ -189,6 +189,62 @@ class TestHWSDFetcher(unittest.TestCase):
         self.assertIn(str(mdb_file), info["mdb_files"])
         self.assertIn(str(db_file), info["sqlite_files"])
         self.assertIn(str(csv_dir), info["csv_directories"])
+    
+    def test_find_bil_files(self):
+        """Test finding BIL files in the data directory."""
+        # Create mock BIL files
+        bil_file1 = Path(self.temp_dir) / "test1.bil"
+        bil_file2 = Path(self.temp_dir) / "subdir" / "test2.bil"
+        
+        bil_file1.write_text("mock bil content")
+        bil_file2.parent.mkdir(exist_ok=True)
+        bil_file2.write_text("mock bil content")
+        
+        # Test find_bil_files method
+        bil_files = self.fetcher.find_bil_files()
+        
+        self.assertEqual(len(bil_files), 2)
+        self.assertIn(bil_file1, bil_files)
+        self.assertIn(bil_file2, bil_files)
+    
+    def test_find_bil_files_empty(self):
+        """Test finding BIL files when none exist."""
+        bil_files = self.fetcher.find_bil_files()
+        self.assertEqual(len(bil_files), 0)
+    
+    @patch('fetch_fao_soil_database.rasterio')
+    def test_process_bil_to_csv_mock(self, mock_rasterio):
+        """Test BIL to CSV conversion with mocked rasterio."""
+        # Create mock BIL file
+        bil_file = Path(self.temp_dir) / "test.bil"
+        bil_file.write_text("mock bil")
+        
+        # Mock rasterio open context manager
+        mock_src = Mock()
+        mock_src.width = 3
+        mock_src.height = 3
+        mock_src.transform = Mock()
+        mock_src.crs = "EPSG:4326"
+        mock_src.nodata = -9999
+        mock_src.read.return_value = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        
+        mock_rasterio.open.return_value.__enter__.return_value = mock_src
+        mock_rasterio.transform.xy.side_effect = lambda t, r, c: (c, r)  # Simple coordinate transform
+        
+        # Test processing
+        csv_file = self.fetcher.process_bil_to_csv(bil_file, sample_rate=1.0)
+        
+        self.assertTrue(csv_file.exists())
+        self.assertEqual(csv_file.suffix, ".csv")
+        
+        # Verify CSV content
+        import pandas as pd
+        df = pd.read_csv(csv_file)
+        
+        self.assertIn('longitude', df.columns)
+        self.assertIn('latitude', df.columns)
+        self.assertIn('value', df.columns)
+        self.assertEqual(len(df), 9)  # 3x3 grid
 
 
 class TestIntegration(unittest.TestCase):

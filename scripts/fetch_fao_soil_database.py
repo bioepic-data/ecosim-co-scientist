@@ -25,6 +25,8 @@ from urllib.request import urlopen, urlretrieve
 from urllib.parse import urlparse
 
 import pandas as pd
+import rasterio
+import numpy as np
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -49,7 +51,8 @@ class HWSDFetcher:
     Fetcher for the FAO Harmonized World Soil Database v2.0.
     
     Handles downloading, extracting, and converting the Microsoft Access
-    database to more accessible formats like SQLite and CSV.
+    database to more accessible formats like SQLite and CSV. Also processes
+    raster data (.bil files) to CSV format for spatial analysis.
     
     Examples:
         >>> fetcher = HWSDFetcher(data_dir="./hwsd_data")
@@ -58,6 +61,9 @@ class HWSDFetcher:
         >>> 
         >>> # Convert database to SQLite for easier access
         >>> fetcher.convert_mdb_to_sqlite()
+        >>> 
+        >>> # Process raster data to CSV
+        >>> fetcher.process_raster_directory_to_csv(raster_dir, sample_rate=0.1)
         >>> 
         >>> # Extract specific soil properties
         >>> soil_data = fetcher.get_soil_properties(['organic_carbon', 'bulk_density'])
@@ -238,7 +244,7 @@ class HWSDFetcher:
             logger.info("✓ mdb-tools are available")
             return True
         except (subprocess.TimeoutExpired, FileNotFoundError):
-            logger.warning("✗ mdb-tools not found. Install with: sudo apt-get install mdb-tools")
+            logger.warning("✗ mdb-tools not found. Install with: sudo apt-get install mdbtools")
             return False
     
     def convert_mdb_to_sqlite(self, mdb_path: Path, sqlite_path: Optional[Path] = None) -> Path:
@@ -297,6 +303,129 @@ class HWSDFetcher:
         conn.close()
         logger.info(f"✓ SQLite conversion complete: {sqlite_path}")
         return sqlite_path
+    
+    def find_bil_files(self) -> list[Path]:
+        """
+        Find all BIL (Band Interleaved by Line) raster files in the data directory.
+        
+        Returns:
+            List of .bil file paths
+        """
+        bil_files = list(self.data_dir.rglob("*.bil"))
+        logger.info(f"Found {len(bil_files)} .bil files: {[f.name for f in bil_files]}")
+        return bil_files
+    
+    def process_bil_to_csv(self, bil_path: Path, output_path: Optional[Path] = None, sample_rate: float = 1.0) -> Path:
+        """
+        Convert BIL raster file to CSV format.
+        
+        Args:
+            bil_path: Path to .bil raster file
+            output_path: Path to output CSV file (default: bil filename + .csv)
+            sample_rate: Fraction of pixels to sample (1.0 = all pixels, 0.1 = 10% sample)
+            
+        Returns:
+            Path to created CSV file
+        """
+        if output_path is None:
+            output_path = bil_path.with_suffix('.csv')
+        
+        logger.info(f"Converting {bil_path.name} to CSV: {output_path.name}")
+        
+        try:
+            with rasterio.open(bil_path) as src:
+                # Get raster metadata
+                width = src.width
+                height = src.height
+                transform = src.transform
+                crs = src.crs
+                nodata = src.nodata
+                
+                logger.info(f"Raster dimensions: {width} x {height} pixels")
+                logger.info(f"Coordinate system: {crs}")
+                logger.info(f"NoData value: {nodata}")
+                
+                # Read the first band
+                data = src.read(1)
+                
+                # Create coordinate grids
+                x_coords = []
+                y_coords = []
+                values = []
+                
+                # Calculate sampling step
+                step = int(1.0 / sample_rate) if sample_rate < 1.0 else 1
+                
+                for row in range(0, height, step):
+                    for col in range(0, width, step):
+                        # Convert pixel coordinates to geographic coordinates
+                        x, y = rasterio.transform.xy(transform, row, col)
+                        value = data[row, col]
+                        
+                        # Skip nodata values
+                        if nodata is not None and value == nodata:
+                            continue
+                        
+                        x_coords.append(x)
+                        y_coords.append(y)
+                        values.append(value)
+                
+                # Create DataFrame
+                df = pd.DataFrame({
+                    'longitude': x_coords,
+                    'latitude': y_coords,
+                    'value': values
+                })
+                
+                # Save to CSV
+                df.to_csv(output_path, index=False)
+                
+                logger.info(f"✓ Exported {len(df)} valid pixels to {output_path.name}")
+                logger.info(f"Value range: {df['value'].min():.2f} to {df['value'].max():.2f}")
+                
+        except Exception as e:
+            logger.error(f"Failed to process {bil_path.name}: {e}")
+            raise
+        
+        return output_path
+    
+    def process_raster_directory_to_csv(self, raster_dir: Path, output_dir: Optional[Path] = None, sample_rate: float = 0.1) -> Path:
+        """
+        Process all BIL files in a directory to CSV format.
+        
+        Args:
+            raster_dir: Directory containing .bil files
+            output_dir: Directory to save CSV files (default: raster_dir + "_csv")
+            sample_rate: Fraction of pixels to sample (default: 0.1 for 10% sample)
+            
+        Returns:
+            Path to directory containing CSV files
+        """
+        if output_dir is None:
+            output_dir = self.data_dir / f"{raster_dir.name}_csv"
+        
+        output_dir.mkdir(exist_ok=True, parents=True)
+        
+        logger.info(f"Processing raster files from {raster_dir} to CSV in {output_dir}")
+        logger.info(f"Using {sample_rate*100:.1f}% pixel sampling rate")
+        
+        # Find all .bil files in the directory
+        bil_files = list(raster_dir.rglob("*.bil"))
+        
+        if not bil_files:
+            logger.warning(f"No .bil files found in {raster_dir}")
+            return output_dir
+        
+        for bil_file in bil_files:
+            csv_path = output_dir / f"{bil_file.stem}.csv"
+            try:
+                self.process_bil_to_csv(bil_file, csv_path, sample_rate)
+            except Exception as e:
+                logger.warning(f"Failed to process {bil_file.name}: {e}")
+                continue
+        
+        logger.info(f"✓ Raster processing complete: {output_dir}")
+        return output_dir
     
     def export_tables_to_csv(self, mdb_path: Path, output_dir: Optional[Path] = None) -> Path:
         """
@@ -360,6 +489,7 @@ class HWSDFetcher:
             "data_directory": str(self.data_dir.absolute()),
             "downloaded_files": [],
             "mdb_files": [],
+            "bil_files": [],
             "sqlite_files": [],
             "csv_directories": []
         }
@@ -370,6 +500,7 @@ class HWSDFetcher:
         
         # Find processed files
         info["mdb_files"] = [str(f) for f in self.find_mdb_files()]
+        info["bil_files"] = [str(f) for f in self.find_bil_files()]
         info["sqlite_files"] = [str(f) for f in self.data_dir.rglob("*.db")]
         info["csv_directories"] = [str(d) for d in self.data_dir.glob("*_csv") if d.is_dir()]
         
@@ -416,7 +547,17 @@ def main():
         # Extract raster data
         raster_zip = components["raster"] 
         logger.info("\n=== Extracting Raster Data ===")
-        fetcher.extract_zip(raster_zip)
+        raster_extract_dir = fetcher.extract_zip(raster_zip)
+        
+        # Process .bil files to CSV
+        bil_files = fetcher.find_bil_files()
+        if bil_files:
+            logger.info("\n=== Converting Raster Files to CSV ===")
+            try:
+                csv_dir = fetcher.process_raster_directory_to_csv(raster_extract_dir, sample_rate=0.1)
+                logger.info(f"✓ Raster CSV export: {csv_dir}")
+            except Exception as e:
+                logger.error(f"Failed to process raster files: {e}")
         
         # Show final summary
         logger.info("\n=== HWSD Setup Complete ===")
