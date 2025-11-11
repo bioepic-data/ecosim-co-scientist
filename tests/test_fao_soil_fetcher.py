@@ -289,14 +289,26 @@ class TestHWSDFetcher(unittest.TestCase):
         
         mock_sqlite3.connect.return_value = mock_conn
         
-        # Mock pandas read_sql_query to return soil data
+        # Mock pandas read_sql_query to return soil data for multiple tables
         import pandas as pd
         with patch('fetch_fao_soil_database.pd.read_sql_query') as mock_read_sql:
-            mock_soil_df = pd.DataFrame({
-                'MU_GLOBAL': [101, 102, 103, 104],
-                'soil_organic_carbon': [1.5, 2.0, 1.8, 2.2]
-            })
-            mock_read_sql.return_value = mock_soil_df
+            # Mock multiple table responses for the new multi-table approach
+            def mock_query_response(query, conn):
+                if 'D_AWC' in query:
+                    return pd.DataFrame({
+                        'MU_GLOBAL': [101, 102, 103],
+                        'd_awc_awc_t_percent': [15.2, 18.5, 16.1]
+                    })
+                elif 'D_TEXTURE' in query:
+                    return pd.DataFrame({
+                        'MU_GLOBAL': [101, 102, 104],
+                        'd_texture_sand_percent': [45.0, 52.3, 38.7],
+                        'd_texture_clay_percent': [25.5, 20.1, 32.8]
+                    })
+                else:
+                    return pd.DataFrame()  # Empty for other tables
+            
+            mock_read_sql.side_effect = mock_query_response
             
             # Test conversion with database join
             csv_file = self.fetcher.process_bil_to_csv(bil_file, sample_rate=1.0, sqlite_db_path=db_file)

@@ -405,121 +405,141 @@ class HWSDFetcher:
     
     def _join_soil_properties(self, df: pd.DataFrame, sqlite_db_path: Path) -> pd.DataFrame:
         """
-        Join raster mapping unit codes with soil properties from the database.
+        Join raster mapping unit codes with soil properties from ALL database tables.
         
         Args:
             df: DataFrame with longitude, latitude, and soil_mapping_unit columns
             sqlite_db_path: Path to SQLite database with soil property tables
             
         Returns:
-            Enhanced DataFrame with soil property columns
+            Enhanced DataFrame with soil property columns from all available tables
         """
         try:
             conn = sqlite3.connect(sqlite_db_path)
-            
-            # Common HWSD2 soil variables to extract
-            # Note: Actual table and column names may vary - this is based on typical HWSD structure
-            soil_variables = {
-                'SOC': 'soil_organic_carbon',      # Soil organic carbon (%)
-                'BULK_DENSITY': 'bulk_density',    # Bulk density (g/cm³)
-                'AWC': 'available_water_capacity', # Available water capacity (%)
-                'SAND': 'sand_percent',            # Sand content (%)
-                'SILT': 'silt_percent',            # Silt content (%)
-                'CLAY': 'clay_percent',            # Clay content (%)
-                'PH_H2O': 'ph_water',              # pH in water
-                'CEC': 'cation_exchange_capacity'  # CEC (cmol/kg)
-            }
-            
-            # Try to find the main soil properties table
-            # Common table names in HWSD databases
-            possible_tables = ['D_SOIL', 'HWSD_DATA', 'SOIL_PROPERTIES', 'HWSD2_DATA']
-            
-            # Check which tables exist
             cursor = conn.cursor()
+            
+            # Get all available tables
             cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
             available_tables = [row[0] for row in cursor.fetchall()]
             logger.info(f"Available database tables: {available_tables}")
             
-            # Find the main soil data table
-            soil_table = None
-            for table_name in possible_tables:
-                if table_name in available_tables:
-                    soil_table = table_name
-                    break
+            # Start with the base dataframe
+            result_df = df.copy()
+            total_joined_columns = 0
             
-            if not soil_table and available_tables:
-                # Use the first available table as fallback
-                soil_table = available_tables[0]
-                logger.warning(f"Using fallback table: {soil_table}")
-            
-            if not soil_table:
-                logger.warning("No suitable soil data table found in database")
-                return df
-            
-            # Get table schema to understand column names
-            cursor.execute(f"PRAGMA table_info({soil_table});")
-            columns = [row[1] for row in cursor.fetchall()]
-            logger.info(f"Table {soil_table} columns: {columns[:10]}...")  # Show first 10 columns
-            
-            # Find mapping unit column (common names)
-            mapping_unit_cols = ['MU_GLOBAL', 'MAPPING_UNIT', 'MU_CODE', 'SMU_ID']
-            mapping_col = None
-            for col in mapping_unit_cols:
-                if col in columns:
-                    mapping_col = col
-                    break
-            
-            if not mapping_col:
-                logger.warning("Could not identify mapping unit column")
-                return df
-            
-            # Build query to extract available soil properties
-            available_vars = []
-            query_cols = [mapping_col]
-            
-            for hw_var, friendly_name in soil_variables.items():
-                # Try different possible column name variations
-                possible_names = [hw_var, hw_var.lower(), hw_var.upper(), 
-                                f"T_{hw_var}", f"S_{hw_var}"]
-                
-                for col_name in possible_names:
-                    if col_name in columns:
-                        available_vars.append((col_name, friendly_name))
-                        query_cols.append(f"{col_name} as {friendly_name}")
-                        break
-            
-            if not available_vars:
-                logger.warning("No recognized soil variables found in database")
-                return df
-            
-            # Query the database for soil properties
-            query = f"""
-            SELECT {', '.join(query_cols)}
-            FROM {soil_table}
-            WHERE {mapping_col} IS NOT NULL
-            """
-            
-            logger.info(f"Extracting {len(available_vars)} soil variables: {[v[1] for v in available_vars]}")
-            soil_df = pd.read_sql_query(query, conn)
-            
-            # Join with the raster data
-            merged_df = df.merge(
-                soil_df, 
-                left_on='soil_mapping_unit', 
-                right_on=mapping_col, 
-                how='left'
-            )
-            
-            # Drop the duplicate mapping unit column
-            if mapping_col in merged_df.columns:
-                merged_df = merged_df.drop(columns=[mapping_col])
-            
-            # Log join statistics
-            matched_units = merged_df[merged_df.iloc[:, 3:].notna().any(axis=1)].shape[0]
-            logger.info(f"✓ Joined soil properties for {matched_units}/{len(df)} pixels")
+            # Process each table to extract variables
+            for table_name in available_tables:
+                try:
+                    # Get table schema
+                    cursor.execute(f"PRAGMA table_info({table_name});")
+                    table_info = cursor.fetchall()
+                    columns = [row[1] for row in table_info]
+                    
+                    logger.info(f"Processing table {table_name} with {len(columns)} columns")
+                    
+                    # Find potential mapping unit columns
+                    mapping_unit_cols = ['MU_GLOBAL', 'MAPPING_UNIT', 'MU_CODE', 'SMU_ID', 'CODE', 'ID']
+                    mapping_col = None
+                    for col in mapping_unit_cols:
+                        if col in columns:
+                            mapping_col = col
+                            break
+                    
+                    if not mapping_col:
+                        logger.info(f"  Skipping {table_name}: No mapping unit column found")
+                        continue
+                    
+                    # Build column list for extraction (excluding the mapping column)
+                    data_columns = [col for col in columns if col != mapping_col]
+                    
+                    if not data_columns:
+                        logger.info(f"  Skipping {table_name}: No data columns found")
+                        continue
+                    
+                    # Create table-prefixed column names to avoid conflicts
+                    prefixed_columns = []
+                    for col in data_columns:
+                        # Create descriptive column name with table context and units hint
+                        col_name = f"{table_name.lower()}_{col.lower()}"
+                        
+                        # Add unit hints based on common HWSD variable patterns
+                        if 'ph' in col.lower():
+                            col_name += "_ph_units"
+                        elif 'awc' in col.lower() or 'water' in col.lower():
+                            col_name += "_percent"
+                        elif 'bulk' in col.lower() or 'density' in col.lower():
+                            col_name += "_g_cm3"
+                        elif any(texture in col.lower() for texture in ['sand', 'silt', 'clay']):
+                            col_name += "_percent"
+                        elif 'soc' in col.lower() or 'carbon' in col.lower():
+                            col_name += "_percent"
+                        elif 'cec' in col.lower():
+                            col_name += "_cmol_kg"
+                        elif 'drainage' in col.lower():
+                            col_name += "_class"
+                        elif 'coverage' in col.lower():
+                            col_name += "_percent"
+                        elif 'depth' in col.lower():
+                            col_name += "_cm"
+                        elif 'value' in col.lower():
+                            col_name += "_value"
+                        else:
+                            col_name += "_units_unknown"
+                            
+                        prefixed_columns.append(f"{col} as {col_name}")
+                    
+                    # Query the table
+                    query = f"""
+                    SELECT {mapping_col}, {', '.join(prefixed_columns)}
+                    FROM {table_name}
+                    WHERE {mapping_col} IS NOT NULL
+                    """
+                    
+                    table_df = pd.read_sql_query(query, conn)
+                    
+                    if table_df.empty:
+                        logger.info(f"  Skipping {table_name}: No data rows")
+                        continue
+                    
+                    # Join with result dataframe
+                    before_cols = len(result_df.columns)
+                    result_df = result_df.merge(
+                        table_df,
+                        left_on='soil_mapping_unit',
+                        right_on=mapping_col,
+                        how='left',
+                        suffixes=('', f'_{table_name}')
+                    )
+                    
+                    # Drop duplicate mapping column
+                    if mapping_col in result_df.columns:
+                        result_df = result_df.drop(columns=[mapping_col])
+                    
+                    after_cols = len(result_df.columns)
+                    joined_cols = after_cols - before_cols
+                    total_joined_columns += joined_cols
+                    
+                    logger.info(f"  ✓ Joined {joined_cols} variables from {table_name}")
+                    
+                except Exception as e:
+                    logger.warning(f"  Failed to process table {table_name}: {e}")
+                    continue
             
             conn.close()
-            return merged_df
+            
+            # Log final statistics
+            logger.info(f"✓ Multi-table join complete: {total_joined_columns} total variables from {len(available_tables)} tables")
+            logger.info(f"Final DataFrame shape: {result_df.shape}")
+            
+            # Log a sample of joined columns (excluding coordinate columns)
+            data_cols = [col for col in result_df.columns if col not in ['longitude', 'latitude', 'soil_mapping_unit']]
+            if data_cols:
+                sample_cols = data_cols[:5]  # Show first 5 data columns
+                logger.info(f"Sample variables: {sample_cols}")
+                if len(data_cols) > 5:
+                    logger.info(f"... and {len(data_cols) - 5} more variables")
+            
+            return result_df
             
         except Exception as e:
             logger.warning(f"Failed to join soil properties: {e}")
