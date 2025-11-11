@@ -189,6 +189,135 @@ class TestHWSDFetcher(unittest.TestCase):
         self.assertIn(str(mdb_file), info["mdb_files"])
         self.assertIn(str(db_file), info["sqlite_files"])
         self.assertIn(str(csv_dir), info["csv_directories"])
+    
+    def test_find_bil_files(self):
+        """Test finding BIL files in the data directory."""
+        # Create mock BIL files
+        bil_file1 = Path(self.temp_dir) / "test1.bil"
+        bil_file2 = Path(self.temp_dir) / "subdir" / "test2.bil"
+        
+        bil_file1.write_text("mock bil content")
+        bil_file2.parent.mkdir(exist_ok=True)
+        bil_file2.write_text("mock bil content")
+        
+        # Test find_bil_files method
+        bil_files = self.fetcher.find_bil_files()
+        
+        self.assertEqual(len(bil_files), 2)
+        self.assertIn(bil_file1, bil_files)
+        self.assertIn(bil_file2, bil_files)
+    
+    def test_find_bil_files_empty(self):
+        """Test finding BIL files when none exist."""
+        bil_files = self.fetcher.find_bil_files()
+        self.assertEqual(len(bil_files), 0)
+    
+    @patch('fetch_fao_soil_database.rasterio')
+    def test_process_bil_to_csv_mock(self, mock_rasterio):
+        """Test BIL to CSV conversion with mocked rasterio."""
+        # Create mock BIL file
+        bil_file = Path(self.temp_dir) / "test.bil"
+        bil_file.write_text("mock bil")
+        
+        # Mock rasterio open context manager
+        mock_src = Mock()
+        mock_src.width = 3
+        mock_src.height = 3
+        mock_src.transform = Mock()
+        mock_src.crs = "EPSG:4326"
+        mock_src.nodata = -9999
+        mock_src.read.return_value = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        
+        mock_rasterio.open.return_value.__enter__.return_value = mock_src
+        mock_rasterio.transform.xy.side_effect = lambda t, r, c: (c, r)  # Simple coordinate transform
+        
+        # Test processing
+        csv_file = self.fetcher.process_bil_to_csv(bil_file, sample_rate=1.0)
+        
+        self.assertTrue(csv_file.exists())
+        self.assertEqual(csv_file.suffix, ".csv")
+        
+        # Verify CSV content
+        import pandas as pd
+        df = pd.read_csv(csv_file)
+        
+        self.assertIn('longitude', df.columns)
+        self.assertIn('latitude', df.columns)
+        self.assertIn('soil_mapping_unit', df.columns)
+        self.assertEqual(len(df), 9)  # 3x3 grid
+    
+    @patch('fetch_fao_soil_database.rasterio')
+    @patch('fetch_fao_soil_database.sqlite3')
+    def test_process_bil_with_soil_variables(self, mock_sqlite3, mock_rasterio):
+        """Test BIL to CSV conversion with soil variable joining."""
+        # Create mock BIL file
+        bil_file = Path(self.temp_dir) / "test.bil"
+        bil_file.write_text("mock bil")
+        
+        # Create mock SQLite database file
+        db_file = Path(self.temp_dir) / "test.db"
+        db_file.write_text("mock db")
+        
+        # Mock rasterio behavior
+        mock_src = Mock()
+        mock_src.width = 2
+        mock_src.height = 2
+        mock_src.transform = Mock()
+        mock_src.crs = "EPSG:4326"
+        mock_src.nodata = -9999
+        mock_src.read.return_value = [[101, 102], [103, 104]]
+        
+        mock_rasterio.open.return_value.__enter__.return_value = mock_src
+        mock_rasterio.transform.xy.side_effect = lambda t, r, c: (c * 0.1, r * 0.1)
+        
+        # Mock SQLite database behavior
+        mock_conn = Mock()
+        mock_cursor = Mock()
+        mock_conn.cursor.return_value = mock_cursor
+        
+        # Mock table listing
+        mock_cursor.execute.side_effect = [
+            None,  # SELECT name FROM sqlite_master 
+            None,  # PRAGMA table_info
+            None   # SELECT query
+        ]
+        mock_cursor.fetchall.side_effect = [
+            [('D_SOIL',), ('HWSD_META',)],  # Available tables
+            [('cid', 'MU_GLOBAL', 'INTEGER'), ('cid', 'SOC', 'REAL')],  # Column info
+            []  # Query result
+        ]
+        
+        mock_sqlite3.connect.return_value = mock_conn
+        
+        # Mock pandas read_sql_query to return soil data for multiple tables
+        import pandas as pd
+        with patch('fetch_fao_soil_database.pd.read_sql_query') as mock_read_sql:
+            # Mock multiple table responses for the new multi-table approach
+            def mock_query_response(query, conn):
+                if 'D_AWC' in query:
+                    return pd.DataFrame({
+                        'MU_GLOBAL': [101, 102, 103],
+                        'd_awc_awc_t_percent': [15.2, 18.5, 16.1]
+                    })
+                elif 'D_TEXTURE' in query:
+                    return pd.DataFrame({
+                        'MU_GLOBAL': [101, 102, 104],
+                        'd_texture_sand_percent': [45.0, 52.3, 38.7],
+                        'd_texture_clay_percent': [25.5, 20.1, 32.8]
+                    })
+                else:
+                    return pd.DataFrame()  # Empty for other tables
+            
+            mock_read_sql.side_effect = mock_query_response
+            
+            # Test conversion with database join
+            csv_file = self.fetcher.process_bil_to_csv(bil_file, sample_rate=1.0, sqlite_db_path=db_file)
+            
+            self.assertTrue(csv_file.exists())
+            self.assertEqual(csv_file.suffix, ".csv")
+            
+            # Verify the method was called with database path
+            mock_sqlite3.connect.assert_called_with(db_file)
 
 
 class TestIntegration(unittest.TestCase):

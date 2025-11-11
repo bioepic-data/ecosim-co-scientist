@@ -15,7 +15,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         # Debian/Ubuntu
         echo "Installing on Debian/Ubuntu..."
         sudo apt-get update
-        sudo apt-get install -y mdb-tools
+        sudo apt-get install -y mdbtools
     elif command -v yum &> /dev/null; then
         # RHEL/CentOS
         echo "Installing on RHEL/CentOS..."
