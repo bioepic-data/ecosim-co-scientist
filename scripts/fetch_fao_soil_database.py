@@ -501,6 +501,28 @@ class HWSDFetcher:
                         logger.info(f"  Skipping {table_name}: No data rows")
                         continue
                     
+                    # Ensure compatible data types for merging
+                    # Convert both mapping unit columns to consistent type (int64)
+                    try:
+                        # Convert table mapping column to int64, handling any non-numeric values
+                        table_df[mapping_col] = pd.to_numeric(table_df[mapping_col], errors='coerce')
+                        # Remove rows where conversion failed (NaN values)
+                        table_df = table_df.dropna(subset=[mapping_col])
+                        # Convert to int64
+                        table_df[mapping_col] = table_df[mapping_col].astype('int64')
+                        
+                        # Ensure main dataframe mapping column is also int64
+                        result_df['soil_mapping_unit'] = result_df['soil_mapping_unit'].astype('int64')
+                        
+                        # Check if table still has data after conversion
+                        if table_df.empty:
+                            logger.warning(f"  Skipping {table_name}: No valid mapping units after type conversion")
+                            continue
+                            
+                    except (ValueError, TypeError) as e:
+                        logger.warning(f"  Failed to convert data types for {table_name}: {e}")
+                        continue
+                    
                     # Join with result dataframe
                     before_cols = len(result_df.columns)
                     result_df = result_df.merge(
