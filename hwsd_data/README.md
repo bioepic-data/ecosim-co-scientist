@@ -1,5 +1,18 @@
 # HWSD2 Data Schema
 
+> **📦 Note:** The HWSD2 schemas, data, and tools have been moved to a dedicated repository:
+> - **Repository**: [bioepic-data/fao-soils](https://github.com/bioepic-data/fao-soils)
+> - **Documentation**: [bioepic-data.github.io/fao-soils](https://bioepic-data.github.io/fao-soils/)
+>
+> The dedicated repository includes:
+> - LinkML schemas for FAO soil databases
+> - Pre-built DuckDB database (32 MB, ready to use)
+> - Complete CSV data files
+> - Data extraction scripts (by coordinates)
+> - Comprehensive documentation
+>
+> This directory contains a local copy for the EcoSIM Co-Scientist project.
+
 This directory contains schema definitions and data from the FAO Harmonized World Soil Database (HWSD) version 2.0.
 
 ## Files
@@ -212,21 +225,146 @@ Standard USDA texture triangle classifications (Clay, Silt, Loam, etc.)
 ### SOTER Texture
 SOTER (Soil and Terrain) texture classification (C=Coarse, M=Medium, F=Fine, V=Very Fine, Z=Medium Fine)
 
+## Python Extractor Module
+
+> **Note:** The canonical version of the extractor is maintained in the [fao-soils repository](https://github.com/bioepic-data/fao-soils/tree/main/scripts). This is a local copy for the EcoSIM project.
+
+The `hwsd2_extractor.py` module provides easy access to soil profiles by geographic coordinates.
+
+### Quick Start
+
+```python
+from hwsd2_extractor import get_soil_profile
+
+# Get soil profile for a location
+profile = get_soil_profile(lat=40.0, lon=-105.0)
+
+if profile:
+    print(f"Soil Type: {profile['metadata']['WRB2_NAME']}")
+    print(f"Drainage: {profile['metadata']['DRAINAGE_NAME']}")
+
+    # Access 7-layer soil profile
+    layers = profile['layers']
+    for _, layer in layers.iterrows():
+        print(f"Layer {layer['LAYER']}: {layer['TOPDEP']}-{layer['BOTDEP']} cm")
+        print(f"  Sand: {layer['SAND']}%, Clay: {layer['CLAY']}%, OC: {layer['ORG_CARBON']}%")
+```
+
+### Command-Line Usage
+
+```bash
+# Extract soil profile for Boulder, Colorado
+uv run python hwsd2_extractor.py 40.0 -105.0
+
+# Run test suite
+uv run python test_extractor.py
+```
+
+### Features
+
+- **Coordinate lookup**: Convert lat/lon → HWSD2_SMU_ID from raster
+- **Database query**: Retrieve full soil profiles with all 7 layers
+- **Automatic joins**: Resolves lookup codes to human-readable names
+- **Error handling**: Gracefully handles missing data (oceans, etc.)
+
+### Class Usage
+
+```python
+from hwsd2_extractor import HWSD2Extractor
+
+extractor = HWSD2Extractor(
+    raster_path="HWSD2_RASTER/HWSD2.bil",
+    db_path="hwsd2.db"
+)
+
+# Get SMU_ID from coordinates
+smu_id = extractor.latlon_to_smu_id(40.0, -105.0)
+
+# Get soil properties for SMU_ID
+profile = extractor.get_smu_properties(smu_id)
+
+# Or do both in one step
+profile = extractor.get_soil_profile(40.0, -105.0)
+```
+
 ## For EcoSIM Integration
+
+> **💡 Tip:** For more tools and examples, see the [fao-soils repository](https://github.com/bioepic-data/fao-soils) which includes additional scripts, pre-built databases, and comprehensive documentation.
 
 To use this soil data with EcoSIM:
 
-1. **Query by coordinates**: Join with spatial data to get soil properties for specific locations
-2. **Extract layer profiles**: Use HWSD2_LAYERS to get depth-resolved soil properties
+1. **Query by coordinates**: Use `hwsd2_extractor.py` to get soil properties for experimental sites
+2. **Extract layer profiles**: Access the 7-layer depth profile (0-200 cm) with all physical/chemical properties
 3. **Map to EcoSIM parameters**: Convert HWSD2 properties to EcoSIM NetCDF inputs:
-   - Texture classes → EcoSIM soil texture codes
+   - Texture classes (SAND, SILT, CLAY %) → EcoSIM soil texture codes
    - Bulk density → directly usable
    - Organic carbon → convert to soil organic matter
    - pH → directly usable
    - CEC → cation exchange capacity inputs
+   - Layer depths → EcoSIM soil horizon configuration
+
+### Understanding Soil Sequences
+
+Each Soil Mapping Unit (SMU) can contain multiple soil sequences, representing spatial heterogeneity within the mapped area. Each sequence has a `SHARE` percentage indicating its proportional coverage.
+
+For example, SMU 4726 contains:
+- Sequence 1 (60%): Dominant soil type
+- Sequence 2 (30%): Secondary soil type
+- Sequence 3 (10%): Minor soil type
+
+When extracting profiles, you'll get all sequences. You can:
+
+```python
+profile = get_soil_profile(lat, lon)
+
+# Get only the dominant sequence (highest SHARE)
+layers = profile['layers']
+dominant_seq = layers[layers['SEQUENCE'] == 1]  # Usually sequence 1 is dominant
+
+# Or compute weighted average properties
+for prop in ['SAND', 'CLAY', 'ORG_CARBON']:
+    weighted_avg = (layers.groupby('LAYER').apply(
+        lambda x: (x[prop] * x['SHARE']).sum() / x['SHARE'].sum()
+    ))
+```
+
+### Example: Extract Soil for NEON Sites
+
+```python
+from hwsd2_extractor import get_soil_profile
+import pandas as pd
+
+# NEON site coordinates
+sites = {
+    'Boulder Creek': (40.015, -105.270),
+    'Konza Prairie': (39.103, -96.563),
+    'Harvard Forest': (42.538, -72.172),
+}
+
+for site_name, (lat, lon) in sites.items():
+    profile = get_soil_profile(lat, lon)
+    if profile:
+        print(f"\n{site_name}:")
+        print(f"  Soil: {profile['metadata']['WRB2_NAME']}")
+        print(f"  Drainage: {profile['metadata']['DRAINAGE_NAME']}")
+
+        # Extract topsoil properties for EcoSIM
+        topsoil = profile['layers'].iloc[0]  # First layer (0-20 cm)
+        print(f"  Topsoil texture: {topsoil['SAND']:.1f}% sand, {topsoil['CLAY']:.1f}% clay")
+        print(f"  Organic C: {topsoil['ORG_CARBON']:.2f}%")
+        print(f"  pH: {topsoil['PH_WATER']:.1f}")
+```
 
 See `../CLAUDE.md` for more details on the EcoSIM Co-Scientist project.
+
+## Related Resources
+
+- **[fao-soils Repository](https://github.com/bioepic-data/fao-soils)** - Dedicated repository for FAO soil data schemas and tools
+- **[fao-soils Documentation](https://bioepic-data.github.io/fao-soils/)** - Comprehensive documentation site
+- **[FAO HWSD v2.0 Portal](https://www.fao.org/soils-portal/data-hub/soil-maps-and-databases/harmonized-world-soil-database-v20/en/)** - Official FAO data source
 
 ## License
 
 The HWSD v2.0 data is distributed under CC-BY-4.0 license by FAO.
+
+See the [fao-soils repository](https://github.com/bioepic-data/fao-soils) for the canonical LinkML schemas and tools (BSD-3-Clause license).
