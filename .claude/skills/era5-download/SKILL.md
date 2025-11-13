@@ -41,7 +41,7 @@ result = client.retrieve(
         "month": "01",
         "day": ["01", "02"],
         "time": ["00:00", "06:00", "12:00", "18:00"],
-        "area": [46, -123, 44, -121],  # [N, W, S, E]
+        "area": [45.5, -122.5, 45.5, -122.5],  # Single point: [lat, lon, lat, lon]
         "format": "netcdf",
     },
 )
@@ -52,17 +52,18 @@ result.download("output.nc")
 For more complex downloads or command-line usage, use `scripts/download_era5.py`:
 
 ```bash
-# Download 2m temperature for January 2023
+# Download 2m temperature for January 2023 at a single point
 uv run python scripts/download_era5.py \
   -v 2m_temperature \
   -s 2023-01-01 -e 2023-01-31 \
+  --lat 45.5 --lon -122.5 \
   -o temperature_jan2023.nc
 
-# Download multiple variables for a specific region
+# Download multiple variables for a specific site
 uv run python scripts/download_era5.py \
   -v 2m_temperature total_precipitation surface_pressure \
   -s 2023-01-01 -e 2023-01-02 \
-  -a 46 -123 44 -121 \
+  --lat 45.5 --lon -122.5 \
   -o climate_data.nc
 
 # Download 6-hourly data at pressure levels (3D atmosphere)
@@ -71,6 +72,7 @@ uv run python scripts/download_era5.py \
   -s 2023-01-01 -e 2023-01-01 \
   --hours 00:00 06:00 12:00 18:00 \
   --pressure-levels 1000 850 500 \
+  --lat 45.5 --lon -122.5 \
   -o upper_air.nc
 ```
 
@@ -105,11 +107,15 @@ ERA5 uses underscored names (e.g., `2m_temperature`, not `t2m` or `2m-temperatur
 
 ## Spatial and Temporal Subsetting
 
-### Geographic Area
-Subset downloads to specific regions using bounding box `[north, west, south, east]` in degrees:
-- Script: `--area 46 -123 44 -121`
-- Direct API: `"area": [46, -123, 44, -121]`
+### Geographic Location
+For site-specific modeling, use single lat/long points for maximum efficiency:
+- Script: `--lat 45.5 --lon -122.5`
+- Direct API: `"area": [45.5, -122.5, 45.5, -122.5]` (format: [lat, lon, lat, lon])
+- This downloads only the nearest grid point (~0.25° resolution)
+- Much more efficient than bounding boxes for single-site studies
 - Omit for global data
+
+**Note**: Only use bounding boxes if you truly need a spatial region, not for single sites.
 
 ### Temporal Selection
 Control time range and resolution:
@@ -119,7 +125,7 @@ Control time range and resolution:
 
 ### Best Practices
 1. **Start small**: Test with 1-2 days before downloading years of data
-2. **Geographic subsetting**: Always use `--area` when possible to reduce download size
+2. **Single points for sites**: Use `--lat`/`--lon` for single-site modeling (much faster than bounding boxes)
 3. **Temporal subsetting**: Use `--hours` for sub-daily data if hourly resolution isn't needed
 4. **Batch large requests**: Break multi-year downloads into yearly or monthly chunks
 
@@ -163,22 +169,32 @@ When users need climate data to drive ecosystem/biogeochemical models:
 
 Example:
 ```python
-# For EcoSIM forcing at experimental site
-download_era5(
-    variables=[
-        "2m_temperature",
-        "total_precipitation",
-        "surface_pressure",
-        "surface_solar_radiation_downwards",
-        "10m_u_component_of_wind",
-        "10m_v_component_of_wind",
-        "2m_dewpoint_temperature",
-    ],
-    start_date="2012-01-01",
-    end_date="2022-12-31",
-    area=[46.5, -122.5, 46.0, -122.0],  # Blodget site region
-    output_file="ecosim_forcing_blodget.nc",
+# For EcoSIM forcing at experimental site (using cdsapi directly)
+import cdsapi
+
+client = cdsapi.Client()
+result = client.retrieve(
+    "reanalysis-era5-single-levels",
+    {
+        "product_type": "reanalysis",
+        "variable": [
+            "2m_temperature",
+            "total_precipitation",
+            "surface_pressure",
+            "surface_solar_radiation_downwards",
+            "10m_u_component_of_wind",
+            "10m_v_component_of_wind",
+            "2m_dewpoint_temperature",
+        ],
+        "year": [str(y) for y in range(2012, 2023)],
+        "month": [f"{m:02d}" for m in range(1, 13)],
+        "day": [f"{d:02d}" for d in range(1, 32)],
+        "time": [f"{h:02d}:00" for h in range(24)],
+        "area": [46.25, -122.25, 46.25, -122.25],  # Blodget site single point
+        "format": "netcdf",
+    },
 )
+result.download("ecosim_forcing_blodget.nc")
 ```
 
 ### Pattern 2: Multi-Site Meta-Analysis
@@ -212,9 +228,9 @@ If cdsapi can't authenticate:
 3. Check environment variable `COPERNICUS_API_KEY` if using that method
 
 ### Large Downloads Timing Out
-For multi-year global datasets:
+For multi-year datasets:
 1. Break into smaller chunks (monthly/yearly)
-2. Use geographic subsetting with `--area`
+2. Use single point locations (`--lat`/`--lon`) instead of bounding boxes for site-specific data
 3. Reduce temporal resolution with `--hours`
 4. Consider using ERA5-Land for land-only variables (higher resolution, smaller files)
 
