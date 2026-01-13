@@ -1,5 +1,10 @@
-output
+# Large data files
+hwsd_data/
 gSSURGO_gridded
+
+# Temporary outputs (keep netcdf_files/)
+output/*.nc
+output/tier1_sites.txt
 
 hackathon-case_study-experimental_warming_nitrogen/~$*
 
