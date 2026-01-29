@@ -8,7 +8,10 @@ dimensions:
 variables:
 	float ALATG(ngrid) ;
 		ALATG:long_name = "Latitude" ;
-		ALATG:units = "degrees north" ;
+		ALATG:units = "degrees north or south" ;
+	float ALONG(ngrid) ;
+		ALONG:long_name = "Longitude" ;
+		ALONG:units = "degrees east or west" ;
 	float ALTIG(ngrid) ;
 		ALTIG:long_name = "Altitude above sea-level" ;
 		ALTIG:units = "m" ;
