@@ -76,15 +76,13 @@ def calculate_vapor_pressure(dewpoint_k):
     # Convert hPa to kPa (1 hPa = 0.1 kPa)
     return es_hpa * 0.1
 
-def create_clm_file(input_filename, lon, lat,output_filename):
+def create_clm_file(input_filename, output_filename):
     """
     convert era5 climate forcing stored in file input_filename for 
     location specified by lon, lat to ecosim climate forcing
     specified by output_filename
     Args:
         input_filename(str): name of input file
-        lon(float): longitude of the selected location
-        lat(float): latitude of the selected location
         output_filename(str): name of the output file to be used by ecosim
     """
     print(f"Opening source file: {input_filename}")
@@ -107,7 +105,8 @@ def create_clm_file(input_filename, lon, lat,output_filename):
     d2m = src.variables['d2m'][:]  # Kelvin
     ssrd = src.variables['ssrd'][:] # J/m^2 (Accumulated)
     sp = src.variables['sp'][:]    # Pa (Surface Pressure)
-
+    lon= src.variables['longitude'][:]
+    lat= src.variables['latitude'][:]
     src.close()
 
     # --- Process Time Dimensions ---
