@@ -97,7 +97,11 @@ variables:
 		RCHGDG:units = "none" ;
 		RCHGDG:flags = "varying between 0 and 1" ;
 	float DHI(ngrid, ncol) ;
+		DHI: long_name = "Grid width in west east direction" ;
+		DHI: units = "m" ;
 	float DVI(ngrid, nrow) ;
+		DVI: long_name = "Grid height in north south direction" ;
+		DVI: units = "m" ;
 	int topo_grid(ntopou) ;
 		topo_grid:long_name = "grid ID of the topo unit" ;
 		topo_grid:units = "none" ;
@@ -402,9 +406,15 @@ variables:
 		RSPmL:long_name = "Initial manure litter P" ;
 		RSPmL:units = "gP m-2" ;
 	int NHW ;
+		NHW: FillValue = 1;
+		NHW: long_name = "westernmost index for the grid" ;
 	int NHE ;
+		NHE: long_name = "easternmost index for the grid" ;
 	int NVN ;
+		NVN: FillValue = 1;
+		NVN: long_name = "northenmost index for the grid" ;
 	int NVS ;
+		NVN: long_name = "southernmost index for the grid" ;
 
 // global attributes:
 		:description = "Grid input data created" ;
