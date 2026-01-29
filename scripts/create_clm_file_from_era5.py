@@ -3,6 +3,59 @@ import numpy as np
 from datetime import datetime, timedelta
 import math
 
+import math
+from datetime import datetime, time, timedelta
+
+def calculate_solar_noon_utc(year, month, day, longitude, latitude):
+  """
+  Calculates the time of solar noon in Coordinated Universal Time (UTC).
+
+  Solar noon is the time when the sun is at its highest point in the sky
+  (transiting the local celestial meridian).
+
+  This calculation depends on the date (for Equation of Time) and longitude.
+  Latitude is not required for the *time* of solar noon, but is included
+  in this function's parameters as requested.
+
+  Args:
+    year (int): The year (e.g., 2024).
+    month (int): The month (1-12).
+    day (int): The day (1-31).
+    longitude (float): The observer's longitude in degrees.
+                       (Positive for East, Negative for West).
+    latitude (float): The observer's latitude in degrees (not used in this calc).
+
+  Returns:
+    float: The time of solar noon in UTC hours (e.g., 12.5 = 12:30 PM UTC).
+  """
+  
+  # 1. Calculate the Day of the Year (DOY)
+  d = datetime(year, month, day)
+  doy = d.timetuple().tm_yday
+
+  # 2. Calculate the Equation of Time (EoT) in minutes
+  # This is a common approximation
+  # B is in degrees
+  B_deg = (360 / 365.24) * (doy - 81)
+  # B is in radians
+  B_rad = math.radians(B_deg)
+  
+  eot = 9.87 * math.sin(2 * B_rad) - 7.53 * math.cos(B_rad) - 1.5 * math.sin(B_rad)
+  
+  # 3. Calculate Solar Noon in minutes from UTC midnight
+  # 720 = 12:00 (noon) in minutes (12 * 60)
+  # 4 * longitude = longitude correction in minutes (Earth rotates 1 degree in 4 mins)
+  # We subtract eot from the mean solar noon
+  
+  solar_noon_minutes_from_utc_midnight = 720 - (4 * longitude) - eot
+  
+  # 4. Convert the minutes into hours
+  solar_noon_utc_hours = solar_noon_minutes_from_utc_midnight / 60
+  
+  return solar_noon_utc_hours
+
+
+
 def calculate_vapor_pressure(dewpoint_k):
     """
     Convert Dewpoint Temperature (Kelvin) to Vapor Pressure (kPa)
@@ -23,7 +76,17 @@ def calculate_vapor_pressure(dewpoint_k):
     # Convert hPa to kPa (1 hPa = 0.1 kPa)
     return es_hpa * 0.1
 
-def create_clm_file(input_filename, output_filename):
+def create_clm_file(input_filename, lon, lat,output_filename):
+    """
+    convert era5 climate forcing stored in file input_filename for 
+    location specified by lon, lat to ecosim climate forcing
+    specified by output_filename
+    Args:
+        input_filename(str): name of input file
+        lon(float): longitude of the selected location
+        lat(float): latitude of the selected location
+        output_filename(str): name of the output file to be used by ecosim
+    """
     print(f"Opening source file: {input_filename}")
     try:
         src = nc.Dataset(input_filename, 'r')
@@ -177,12 +240,39 @@ def create_clm_file(input_filename, output_filename):
     var_z0g.units = "m"
     var_z0g[:] = np.full((num_years, 1), 10.0) # ERA5 is 10m wind
 
+    def_vars={'IFLGW':["flag for raising Z0G with vegeation",'','0','i4'],'PHRG':["pH in precipitation",'','7','f4'],
+      'CN4RIG':["NH4 conc in precip","gN m^-3",'0','f4'],'CNORIG':["NO3 conc in precip", "gN m^-3",'0','f4'],
+    'CPORG':["H2PO4 conc in precip","gP m^-3",'0','f4'],'CALRG':["Al conc in precip","gAl m^-3",'0','f4'],
+    'CFERG':["Fe conc in precip","gFe m^-3",'0','f4'],'CCARG':["Ca conc in precip","gCa m^-3",'0','f4'],
+    'CMGRG':["Mg conc in precip","gMg m^-3",'0','f4'],'CNARG':["Na conc in precip","gNa m^-3",'0','f4'],
+      'CKARG':["K conc in precip","gK m^-3",'0','f4'],'CSORG':["SO4 conc in precip","gS m^-3",'0','f4'],
+      'CCLRG':["Cl conc in precip","gCl m^-3",'0','f4']}
+
+    for key,val in def_vars.items():
+        var_=dst.createVariable(key,val[-1],('year','ngrid'))
+        var_.long_name=val[0]
+        var_.units=val[1]
+        if val[-1]=='i4':
+            var_[:]=int(val[2])
+        elif val[-1]=='f4':
+            var_[:]=float(val[2])
+
+    var_=dst.createVariable('ZNOONG','f4',('year','ngrid'),fill_value=fill_value)
+    var_.long_name='time of solar noon'
+    var_.units='hour'
+    var_.missing_value = fill_value
+    for k in range(num_years):
+        date2_year, date2_month, date2_day = years[k], 6, 1
+        solar_noon_2 = calculate_solar_noon_utc(date2_year, date2_month, date2_day, lon, lat)
+        var_[k]=solar_noon_2
+
+    
     dst.close()
     print("Conversion complete.")
 
 if __name__ == "__main__":
     # Update these filenames as needed
     input_nc = 'reanalysis-era5-single-levels-timeseries-sfcs0p4wh0i.nc' 
-    output_nc = 'dryland_clm_converted.nc'
-    
-    create_clm_file(input_nc, output_nc)
+    lon,lat=-122.27,37.87
+    output_nc = 'berkeley_clm_converted.nc'
+    create_clm_file(input_nc, lon, lat, output_nc)
