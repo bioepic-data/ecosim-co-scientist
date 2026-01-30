@@ -1,3 +1,4 @@
+import json
 import netCDF4 as nc
 import numpy as np
 from datetime import datetime, timedelta
@@ -97,7 +98,7 @@ def create_clm_file(input_filename, output_filename):
     # Times are seconds since 1970-01-01
     valid_times = src.variables['valid_time'][:]
     
-    # Meteorology variables
+    # Meteorology variables stored in ERA5
     t2m = src.variables['t2m'][:]  # Kelvin
     u10 = src.variables['u10'][:]  # m/s
     v10 = src.variables['v10'][:]  # m/s
@@ -137,7 +138,7 @@ def create_clm_file(input_filename, output_filename):
 
     # --- Perform Conversions and Slotting ---
     print("Converting and slotting data...")
-    
+    # the conversions should be done according to the source of climate data, e.g. era5
     for i, dt in enumerate(dates):
         y_idx = year_map[dt.year]
         
@@ -239,6 +240,7 @@ def create_clm_file(input_filename, output_filename):
     var_z0g.units = "m"
     var_z0g[:] = np.full((num_years, 1), 10.0) # ERA5 is 10m wind
 
+    # Other static variables with default values
     def_vars={'IFLGW':["flag for raising Z0G with vegeation",'','0','i4'],'PHRG':["pH in precipitation",'','7','f4'],
       'CN4RIG':["NH4 conc in precip","gN m^-3",'0','f4'],'CNORIG':["NO3 conc in precip", "gN m^-3",'0','f4'],
     'CPORG':["H2PO4 conc in precip","gP m^-3",'0','f4'],'CALRG':["Al conc in precip","gAl m^-3",'0','f4'],
@@ -246,15 +248,19 @@ def create_clm_file(input_filename, output_filename):
     'CMGRG':["Mg conc in precip","gMg m^-3",'0','f4'],'CNARG':["Na conc in precip","gNa m^-3",'0','f4'],
       'CKARG':["K conc in precip","gK m^-3",'0','f4'],'CSORG':["SO4 conc in precip","gS m^-3",'0','f4'],
       'CCLRG':["Cl conc in precip","gCl m^-3",'0','f4']}
-
-    for key,val in def_vars.items():
-        var_=dst.createVariable(key,val[-1],('year','ngrid'))
-        var_.long_name=val[0]
-        var_.units=val[1]
-        if val[-1]=='i4':
-            var_[:]=int(val[2])
-        elif val[-1]=='f4':
-            var_[:]=float(val[2])
+    
+    with open('clmvars_default.json', 'r') as f:
+        loaded_vars = json.load(f)
+    
+    for i, (key, value) in enumerate(loaded_vars.items()):
+        print(value)
+        var_=dst.createVariable(key,value[-1],('year','ngrid'))
+        var_.long_name=value[0]
+        var_.units=value[1]
+        if value[-1]=='i4':
+            var_[:]=int(value[2])
+        elif value[-1]=='f4':
+            var_[:]=float(value[2])
 
     var_=dst.createVariable('ZNOONG','f4',('year','ngrid'),fill_value=fill_value)
     var_.long_name='time of solar noon'
@@ -271,7 +277,8 @@ def create_clm_file(input_filename, output_filename):
 
 if __name__ == "__main__":
     # Update these filenames as needed
+    #input name of the era5 netcdf file
     input_nc = 'reanalysis-era5-single-levels-timeseries-sfcs0p4wh0i.nc' 
-    lon,lat=-122.27,37.87
+    #output name of the clm netcdf file for ecosim
     output_nc = 'berkeley_clm_converted.nc'
-    create_clm_file(input_nc, lon, lat, output_nc)
+    create_clm_file(input_nc, output_nc)
