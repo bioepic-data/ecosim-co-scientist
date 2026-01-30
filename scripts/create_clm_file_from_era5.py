@@ -241,13 +241,6 @@ def create_clm_file(input_filename, output_filename):
     var_z0g[:] = np.full((num_years, 1), 10.0) # ERA5 is 10m wind
 
     # Other static variables with default values
-    def_vars={'IFLGW':["flag for raising Z0G with vegeation",'','0','i4'],'PHRG':["pH in precipitation",'','7','f4'],
-      'CN4RIG':["NH4 conc in precip","gN m^-3",'0','f4'],'CNORIG':["NO3 conc in precip", "gN m^-3",'0','f4'],
-    'CPORG':["H2PO4 conc in precip","gP m^-3",'0','f4'],'CALRG':["Al conc in precip","gAl m^-3",'0','f4'],
-    'CFERG':["Fe conc in precip","gFe m^-3",'0','f4'],'CCARG':["Ca conc in precip","gCa m^-3",'0','f4'],
-    'CMGRG':["Mg conc in precip","gMg m^-3",'0','f4'],'CNARG':["Na conc in precip","gNa m^-3",'0','f4'],
-      'CKARG':["K conc in precip","gK m^-3",'0','f4'],'CSORG':["SO4 conc in precip","gS m^-3",'0','f4'],
-      'CCLRG':["Cl conc in precip","gCl m^-3",'0','f4']}
     
     with open('clmvars_default.json', 'r') as f:
         loaded_vars = json.load(f)
