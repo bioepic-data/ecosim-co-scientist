@@ -1,22 +1,50 @@
-# CLAUDE.md for 
+# Copilot Instructions for ecosim-co-scientist
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+`AGENTS.md` is the source of truth for project context, priorities, constraints, and skill inventory. If this file and `AGENTS.md` differ, follow `AGENTS.md`.
 
-WARNING: read this closely as it gets a bit meta.
+## Project Scope
 
-This is a repo for a copier project intended to allow people to set up their github repo with AI github actions.
+EcoSIM Co-Scientist is a Python-first repository for ecosystem modeling workflows around EcoSIM, with a near-term focus on experimental warming and nitrogen cycling.
 
-- template files are in `template/`
-- all other files are for this repo itself
+## Repository Conventions
 
-So for example
+- Use `uv` for dependencies and execution (`uv run ...`).
+- Prefer `just` targets for routine workflows:
+  - `just --list`
+  - `just test`
+  - `just test-full`
+- Code lives in `src/ecosim_co_scientist/`.
+- Tests live in `tests/` and should use pytest functional style.
+- Favor doctests for executable examples.
 
-- template/.github/workflows/claude.yml - A template that is copied into a users target repo to set up claude gh actions
-- .github/workflows/claude.yml - The actual github actions for this repo itself.
+## Agent Skills
 
-This repo eats its own dogfood! We will occasionally run
+Skill files are under `.claude/skills/<skill-name>/SKILL.md`.
 
-`copier copy template .`
+BERIL-derived skills:
+- `berdl`
+- `berdl-query`
+- `berdl-discover`
+- `berdl-minio`
+- `pitfall-capture`
+- `literature-review`
+- `synthesize`
+- `suggest-research`
 
+Existing EcoSIM skills:
+- `era5-download`
+- `netcdf-metadata`
 
+## MCP and Access Notes
 
+- MCP configuration is in `.claude/.mcp.json`.
+- BERDL workflows generally require `KBASE_AUTH_TOKEN` and environment checks in BERDL skill docs.
+- Literature workflows use `pubmed` and `paper-search` MCP servers.
+
+## Documentation Alignment Rule
+
+When updating docs or instructions that describe agent capabilities, update `AGENTS.md` first, then propagate the same information to:
+- `README.md`
+- `.github/copilot-instructions.md`
+
+For a concise prerequisites/fallback matrix, see `docs/agent-skills.md`.
