@@ -93,6 +93,10 @@ If discovery surfaces non-derivable knowledge (NULL convention, ID format, missi
 
 Present discovery results inline to the user: a compact summary of tables, schemas, and any new pitfalls proposed. Keep the output focused on what the user asked about — full structural snapshots are derivable on demand and need not be persisted.
 
+When discovery reveals reusable query or join patterns, add or update notes in:
+- `../berdl/references/query-patterns.md`
+- `../berdl/references/cross-database.md`
+
 ## Error Handling
 
 - **`berdl_env.py --check` fails:** stop. Surface the error.

@@ -113,6 +113,8 @@ If these scripts are not present in this repository, use direct Spark SQL and eq
 - `references/off-cluster-mechanics.md`: MinIO `mc` proxy variables, Spark Connect sidecar startup race, and the local-machine Spark session pattern.
 - `references/query-limits.md`: query tiering and fallback guidance.
 - `references/export-paths.md`: recommended MinIO path conventions and format choices.
+- `../berdl/references/query-patterns.md`: shared SQL safety checklist and canonical query patterns.
+- `../berdl/references/cross-database.md`: shared cross-database join guidance.
 
 ## Access Denied Errors
 

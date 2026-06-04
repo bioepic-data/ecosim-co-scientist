@@ -73,6 +73,7 @@ If helper scripts are missing in this repository, use direct `mc` and environmen
 
 - `references/minio-endpoints.md`: environment endpoints and path patterns.
 - See berdl-query `references/proxy-setup.md` for proxy chain setup.
+- For downstream query/export conventions, see `../berdl/references/query-patterns.md` and `../berdl/references/cross-database.md`.
 
 ## Safety Rules
 
