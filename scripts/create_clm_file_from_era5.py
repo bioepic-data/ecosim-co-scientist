@@ -1,13 +1,19 @@
 import json
+import math
+from datetime import datetime, timedelta
+from pathlib import Path
+
 import netCDF4 as nc
 import numpy as np
-from datetime import datetime, timedelta
-import math
 
-import math
-from datetime import datetime, time, timedelta
+# Default scalar climate variables that are not derived from ERA5 live in a
+# sidecar JSON file next to this script so they can be edited without code changes.
+DEFAULT_VARS_PATH = Path(__file__).with_name("clmvars_default.json")
 
-def calculate_solar_noon_utc(year, month, day, longitude, latitude):
+
+def calculate_solar_noon_utc(
+    year: int, month: int, day: int, longitude: float, latitude: float
+) -> float:
   """
   Calculates the time of solar noon in Coordinated Universal Time (UTC).
 
@@ -28,6 +34,19 @@ def calculate_solar_noon_utc(year, month, day, longitude, latitude):
 
   Returns:
     float: The time of solar noon in UTC hours (e.g., 12.5 = 12:30 PM UTC).
+
+  Examples:
+    At the prime meridian solar noon is close to 12:00 UTC:
+
+    >>> 11.5 < calculate_solar_noon_utc(2024, 6, 21, 0.0, 0.0) < 12.5
+    True
+
+    Moving 15 degrees east shifts solar noon one hour earlier in UTC:
+
+    >>> noon = calculate_solar_noon_utc(2024, 6, 21, 0.0, 0.0)
+    >>> east = calculate_solar_noon_utc(2024, 6, 21, 15.0, 0.0)
+    >>> round(noon - east, 2)
+    1.0
   """
   
   # 1. Calculate the Day of the Year (DOY)
@@ -57,10 +76,13 @@ def calculate_solar_noon_utc(year, month, day, longitude, latitude):
 
 
 
-def calculate_vapor_pressure(dewpoint_k):
+def calculate_vapor_pressure(dewpoint_k: float) -> float:
     """
     Convert Dewpoint Temperature (Kelvin) to Vapor Pressure (kPa)
     using the August-Roche-Magnus approximation.
+
+    >>> round(float(calculate_vapor_pressure(273.15)), 4)
+    0.6112
     """
     # Convert Kelvin to Celsius
     dewpoint_c = dewpoint_k - 273.15
@@ -77,7 +99,7 @@ def calculate_vapor_pressure(dewpoint_k):
     # Convert hPa to kPa (1 hPa = 0.1 kPa)
     return es_hpa * 0.1
 
-def create_clm_file(input_filename, output_filename):
+def create_clm_file(input_filename: str, output_filename: str) -> None:
     """
     convert era5 climate forcing stored in file input_filename for 
     location specified by lon, lat to ecosim climate forcing
@@ -240,13 +262,12 @@ def create_clm_file(input_filename, output_filename):
     var_z0g.units = "m"
     var_z0g[:] = np.full((num_years, 1), 10.0) # ERA5 is 10m wind
 
-    # Other static variables with default values
-    
-    with open('clmvars_default.json', 'r') as f:
+    # Other static variables with default values, loaded from the JSON sidecar.
+    # Each entry maps a variable name to [long_name, units, default_value, dtype].
+    with open(DEFAULT_VARS_PATH, 'r') as f:
         loaded_vars = json.load(f)
-    
-    for i, (key, value) in enumerate(loaded_vars.items()):
-        print(value)
+
+    for key, value in loaded_vars.items():
         var_=dst.createVariable(key,value[-1],('year','ngrid'))
         var_.long_name=value[0]
         var_.units=value[1]
@@ -259,9 +280,13 @@ def create_clm_file(input_filename, output_filename):
     var_.long_name='time of solar noon'
     var_.units='hour'
     var_.missing_value = fill_value
+    # lon/lat are read from the source file as length-1 arrays; the solar-noon
+    # math is scalar, so pass the single grid-cell coordinates.
+    site_lon = float(np.ravel(lon)[0])
+    site_lat = float(np.ravel(lat)[0])
     for k in range(num_years):
         date2_year, date2_month, date2_day = years[k], 6, 1
-        solar_noon_2 = calculate_solar_noon_utc(date2_year, date2_month, date2_day, lon, lat)
+        solar_noon_2 = calculate_solar_noon_utc(date2_year, date2_month, date2_day, site_lon, site_lat)
         var_[k]=solar_noon_2
 
     
