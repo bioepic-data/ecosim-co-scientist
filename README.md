@@ -80,6 +80,13 @@ This repository includes specialized agent skills for BERIL and EcoSIM workflows
 
 Source of truth: see the **Agent Skills (Source of Truth)** section in [`AGENTS.md`](AGENTS.md).
 
+Current catalog: **10 skills total** (8 BERIL-derived + 2 EcoSIM).
+
+### Complete Skill Catalog
+
+- BERIL-derived: [`berdl`](.claude/skills/berdl/SKILL.md), [`berdl-query`](.claude/skills/berdl-query/SKILL.md), [`berdl-discover`](.claude/skills/berdl-discover/SKILL.md), [`berdl-minio`](.claude/skills/berdl-minio/SKILL.md), [`pitfall-capture`](.claude/skills/pitfall-capture/SKILL.md), [`literature-review`](.claude/skills/literature-review/SKILL.md), [`synthesize`](.claude/skills/synthesize/SKILL.md), [`suggest-research`](.claude/skills/suggest-research/SKILL.md)
+- EcoSIM: [`era5-download`](.claude/skills/era5-download/SKILL.md), [`netcdf-metadata`](.claude/skills/netcdf-metadata/SKILL.md)
+
 ### BERIL-derived Skills
 
 - [`berdl`](.claude/skills/berdl/SKILL.md): Query BERDL databases for pangenome, genome statistics, annotations, and biochemistry data.
