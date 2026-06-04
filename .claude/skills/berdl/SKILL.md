@@ -40,23 +40,17 @@ spark.sql("DESCRIBE EXTENDED DATABASE.TABLE").toPandas()
 
 > **Discovery returns JSON by default.** Always pass `return_json=False`. Without it you get a JSON *string*, and `in`, iteration, and `display()` will silently misbehave.
 
-For pattern guidance, read [`modules/query-patterns.md`](modules/query-patterns.md) (universal SQL safety/perf rules) and [`modules/cross-database.md`](modules/cross-database.md) (cross-DB join recipes).
+For pattern guidance, read [`references/query-patterns.md`](references/query-patterns.md) (universal SQL safety/perf rules) and [`references/cross-database.md`](references/cross-database.md) (cross-DB join recipes).
 
-For curated database-specific gotchas (NULL conventions, ID formats, missing-column workarounds, JOIN-key surprises, large-table guards), grep both the central archive and per-project memories:
+For curated database-specific gotchas (NULL conventions, ID formats, missing-column workarounds, JOIN-key surprises, large-table guards), check repo pitfall memory and capture new findings there:
 
-```bash
-grep -A 20 "^## kbase\.ke_pangenome$" docs/pitfalls.md         # frozen historical archive
-grep -l "kbase\.ke_pangenome" projects/*/memories/pitfalls.md  # per-project gotchas (recent)
-```
+- `/memories/repo/berdl-pitfalls.md`
 
-The central file is the historical archive; per-project memories may contain newer or project-specific gotchas hit during analysis.
-
-**Read the appropriate module** for database-specific tables, schemas, and query patterns.
-**Read [query-patterns.md](modules/query-patterns.md)** before writing any SQL — it contains mandatory safety rules and performance guidance.
+**Read [query-patterns.md](references/query-patterns.md)** before writing any SQL — it contains mandatory safety rules and performance guidance.
 
 ## Query Execution
 
-Choose the query path from the environment detected by `scripts/detect_berdl_environment.py`:
+Choose the query path from the environment check result (`on-cluster` vs `off-cluster`):
 
 - **On-cluster / BERDL JupyterHub**: use the active Spark session directly. Do not add `--berdl-proxy`.
 - **Off-cluster / local machine**: use `/berdl-query` or the local `scripts/run_sql.py --berdl-proxy` wrapper.
@@ -105,19 +99,18 @@ LIMIT 1000 OFFSET 1000  -- Second page
 ## Instructions for Claude
 
 1. **Read auth token** from `.env` first
-2. **Read [query-patterns.md](modules/query-patterns.md)** — contains mandatory validation checklist and performance tiers
-3. **Read the appropriate module** for the target database (pangenome, biochemistry, etc.)
-4. **Read [cross-database.md](modules/cross-database.md)** if the query spans multiple databases
-5. **Start with helper discovery** if unfamiliar with available databases, tables, or schemas
-6. **Check row counts** with bounded Spark SQL before querying large tables
-7. **Use Spark SQL** through `spark.sql(query)` or `scripts/run_sql.py`
-8. **Run the validation checklist** from query-patterns.md before executing any SQL query
-9. **Handle pagination** for large result sets
-10. **Include ORDER BY** in queries for consistent pagination
+2. **Read [query-patterns.md](references/query-patterns.md)** — contains mandatory validation checklist and performance tiers
+3. **Read [cross-database.md](references/cross-database.md)** if the query spans multiple databases
+4. **Start with helper discovery** if unfamiliar with available databases, tables, or schemas
+5. **Check row counts** with bounded Spark SQL before querying large tables
+6. **Use Spark SQL** through `spark.sql(query)` or `scripts/run_sql.py`
+7. **Run the validation checklist** from query-patterns.md before executing any SQL query
+8. **Handle pagination** for large result sets
+9. **Include ORDER BY** in queries for consistent pagination
 
 ### Query Validation (mandatory)
 
-Before executing any query, verify against the checklist in [query-patterns.md](modules/query-patterns.md):
+Before executing any query, verify against the checklist in [query-patterns.md](references/query-patterns.md):
 - Partitioned column filter present?
 - Large tables guarded?
 - Results bounded?
@@ -152,30 +145,16 @@ Before executing any query, verify against the checklist in [query-patterns.md](
 
 ## Adding New Databases
 
-Use the `/berdl-discover` skill to introspect new databases and generate module files.
+Use the `/berdl-discover` skill to introspect new databases and update notes in the local `references/` directory when reusable query guidance emerges.
 
-## Scripts
+## Script Availability
 
-The following scripts exist and are referenced by skills. **Do not invent script names** — only the paths below exist. If you need behavior not covered here, ask the user.
+This repository may not include BERDL helper scripts locally. Use these rules:
 
-| Script | Purpose |
-|---|---|
-| `scripts/berdl_env.py` | Canonical environment check (Step 0 of every BERDL skill) |
-| `scripts/berdl_inventory.py` | Pretty-printed inventory (tenant / database / table count / sample tables) |
-| `scripts/detect_berdl_environment.py` | Underlying detector (called by `berdl_env.py`) |
-| `scripts/run_sql.py` | Bounded SQL via Spark Connect (`--berdl-proxy` for off-cluster) |
-| `scripts/export_sql.py` | SQL → MinIO export (`--berdl-proxy` for off-cluster) |
-| `scripts/get_minio_creds.py` | MinIO credential resolver |
-| `scripts/configure_mc.sh` | MinIO CLI alias setup |
-| `scripts/get_spark_session.py` | Local drop-in for the BERDL `get_spark_session()` |
-| `scripts/bootstrap_client.sh` | Create `.venv-berdl` and install query packages |
-| `scripts/bootstrap_ingest.sh` | Install ingest packages on top of `.venv-berdl` |
-| `scripts/ingest_lib.py` | JH-side ingest helpers |
-| `scripts/ingest_preflight.py` | Pre-flight ingest plan printer |
-| `scripts/start_pproxy.sh` | pproxy startup |
-| `scripts/discover_berdl_collections.py` | UI snapshot builder |
-| `scripts/build_data_cache.py` | UI data cache builder |
+- If local helper scripts exist, you may use them.
+- If scripts are missing, run equivalent commands in the active Spark/Jupyter environment.
+- For off-cluster helpers and proxy mechanics, consult `berdl-query` and its local references.
 
 ## Pitfall Detection
 
-When you encounter errors, unexpected results, retry cycles, performance issues, or data surprises during this task, follow the pitfall-capture protocol. Read `.claude/skills/pitfall-capture/SKILL.md` and follow its instructions to determine whether the issue should be added to the active project's `projects/<id>/memories/pitfalls.md`.
+When you encounter errors, unexpected results, retry cycles, performance issues, or data surprises during this task, follow the pitfall-capture protocol. Read `.claude/skills/pitfall-capture/SKILL.md` and capture reusable notes in repo memory.
