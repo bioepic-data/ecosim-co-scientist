@@ -167,6 +167,32 @@ This is an early-stage project emerging from a hackathon. The immediate focus is
 
 Future development will expand to the full co-scientist vision as use cases mature.
 
+## Agent Skills (Source of Truth)
+
+This section is the canonical list of agent skills for this repository. Other documentation (including `README.md` and `.github/copilot-instructions.md`) should align to this section.
+
+### BERIL-derived Skills
+
+- `berdl` - Query BERDL databases for pangenome, genome statistics, annotations, and biochemistry data.
+- `berdl-query` - Run off-cluster SQL queries against BERDL Spark compute.
+- `berdl-discover` - Discover and document BERDL databases and table schemas.
+- `berdl-minio` - Transfer BERDL query artifacts via MinIO and manage credentials.
+- `literature-review` - Multi-source literature search and review with optional full-text and citation expansion.
+- `synthesize` - Compare analysis outputs with literature and draft project findings.
+- `suggest-research` - Propose high-impact next research directions grounded in completed work and available BERDL data.
+
+### Existing EcoSIM Skills
+
+- `era5-download` - Download ERA5 climate forcing data from Copernicus CDS.
+- `netcdf-metadata` - Extract NetCDF variable metadata and attributes to CSV.
+
+### MCP and Access Notes
+
+- MCP servers configured in `.claude/.mcp.json`: `ols-mcp`, `pubmed`, and `paper-search`.
+- BERDL access workflows require environment-specific setup and typically a `KBASE_AUTH_TOKEN`.
+- BERDL transfer workflows may also require MinIO credentials (`MINIO_ACCESS_KEY`, `MINIO_SECRET_KEY`) when not auto-derived.
+- Repo-level skill files are in `.claude/skills/<skill-name>/SKILL.md`.
+
 ## Repo management
 
 This repo uses `uv` for managing dependencies. Never use commands like `pip` to add or manage dependencies.

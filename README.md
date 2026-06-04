@@ -4,7 +4,7 @@ An AI-powered research assistant for working with [EcoSIM](https://github.com/ji
 
 This project aims to create an intelligent co-pilot that assists with the entire ecosystem modeling workflow: data preparation, parameter calibration, simulation execution, and results analysis.
 
-## =€ Quick Start
+## =ï¿½ Quick Start
 
 This project uses `uv` for dependency management:
 
@@ -19,7 +19,7 @@ just test
 just --list
 ```
 
-## =Á Repository Structure
+## =ï¿½ Repository Structure
 
 ### Data and Analysis
 
@@ -53,7 +53,7 @@ just --list
 - **`src/ecosim_co_scientist/`** - Python package for EcoSIM workflows (in development)
 - **`tests/`** - Test suite using pytest
 
-## <¯ Current Focus: Warming Experiments & Nitrogen Cycling
+## <ï¿½ Current Focus: Warming Experiments & Nitrogen Cycling
 
 The initial implementation focuses on using meta-analysis data to:
 
@@ -66,7 +66,7 @@ The initial implementation focuses on using meta-analysis data to:
 
 - **626 nitrogen measurements** from warming experiments spanning:
   - Arctic/alpine tundra, boreal/temperate forests, grasslands, heathlands, agricultural systems
-  - Temperature increases: 0.5-5°C
+  - Temperature increases: 0.5-5ï¿½C
   - Experiment durations: 1-98 months
   - Warming methods: greenhouses, nighttime curtains, infrared heaters, heating cables
 
@@ -74,35 +74,31 @@ The initial implementation focuses on using meta-analysis data to:
 - **Soil data**: Harmonized World Soil Database (HWSD), SSURGO
 - **Plant traits**: Physiological parameters for 31 plant functional types
 
-## > AI Skills
+## AI Skills
 
-This repository includes specialized AI skills (Claude Code plugins) for domain-specific workflows:
+This repository includes specialized agent skills for BERIL and EcoSIM workflows.
 
-### NetCDF Metadata Extraction
+Source of truth: see the **Agent Skills (Source of Truth)** section in [`AGENTS.md`](AGENTS.md).
 
-**Location:** [`.claude/skills/netcdf-metadata/`](.claude/skills/netcdf-metadata/)
+### BERIL-derived Skills
 
-Extracts variable metadata from NetCDF files to CSV format for documentation and analysis.
+- [`berdl`](.claude/skills/berdl/SKILL.md): Query BERDL databases for pangenome, genome statistics, annotations, and biochemistry data.
+- [`berdl-query`](.claude/skills/berdl-query/SKILL.md): Run off-cluster SQL queries against BERDL Spark compute.
+- [`berdl-discover`](.claude/skills/berdl-discover/SKILL.md): Discover and document BERDL databases and schemas.
+- [`berdl-minio`](.claude/skills/berdl-minio/SKILL.md): Transfer BERDL query artifacts via MinIO and manage credentials.
+- [`literature-review`](.claude/skills/literature-review/SKILL.md): Search and review biological literature with PubMed and paper-search MCP tools.
+- [`synthesize`](.claude/skills/synthesize/SKILL.md): Compare analysis outputs with literature and draft findings.
+- [`suggest-research`](.claude/skills/suggest-research/SKILL.md): Suggest high-impact next research directions based on prior project outputs and BERDL data.
 
-**Features:**
-- Automatic extraction of all variable metadata (names, dimensions, shapes, data types, units, attributes)
-- Support for both NetCDF3 (classic) and NetCDF4/HDF5 formats
-- CDL to binary NetCDF conversion workflows
-- Batch processing of multiple files
-- Troubleshooting guidance for common NetCDF issues
+### Existing EcoSIM Skills
 
-**Usage:**
-```bash
-# Extract metadata from all NetCDF files
-uv run python scripts/extract_netcdf_metadata.py
+- [`era5-download`](.claude/skills/era5-download/SKILL.md): Download ERA5 climate forcing data from Copernicus CDS.
+- [`netcdf-metadata`](.claude/skills/netcdf-metadata/SKILL.md): Extract NetCDF variable metadata and attributes to CSV.
 
-# Process specific files
-uv run python scripts/extract_netcdf_metadata.py file1.nc file2.nc
-```
+### Skill Prerequisites
 
-**Outputs:** `.metadata.csv` files alongside each NetCDF file with columns for variable_name, dimensions, shape, dtype, long_name, units, and all other attributes.
-
-See [`.claude/skills/netcdf-metadata/SKILL.md`](.claude/skills/netcdf-metadata/SKILL.md) for full documentation.
+- MCP servers are configured in [`.claude/.mcp.json`](.claude/.mcp.json): `ols-mcp`, `pubmed`, and `paper-search`.
+- BERDL access generally requires `KBASE_AUTH_TOKEN` and environment setup described in BERDL skill docs.
 
 ## =, About EcoSIM
 
@@ -115,7 +111,7 @@ See [`.claude/skills/netcdf-metadata/SKILL.md`](.claude/skills/netcdf-metadata/S
 
 EcoSIM is written in Fortran, uses NetCDF input formats, and supports parallel simulations via MPI.
 
-## <¯ Vision: The AI Co-Scientist
+## <ï¿½ Vision: The AI Co-Scientist
 
 Long-term capabilities under development:
 
@@ -154,7 +150,7 @@ Long-term capabilities under development:
 - Create publication-quality visualizations
 - Maintain audit trails of modeling decisions
 
-## =à Technology Stack
+## =ï¿½ Technology Stack
 
 - **Python 3.12+** with Fortran interoperability
 - **Data handling**: xarray (NetCDF), pandas, openpyxl
@@ -163,25 +159,26 @@ Long-term capabilities under development:
 - **Dependencies**: `uv` package manager
 - **Documentation**: mkdocs
 
-## =Ê Current Status
+## =ï¿½ Current Status
 
 This is an early-stage project emerging from a hackathon. Immediate priorities:
 
-1.  Data loaders for warming/nitrogen meta-analysis
-2.  NetCDF metadata extraction tooling
-3. =§ EcoSIM input generators from experimental metadata
-4. =§ Validation frameworks for model-data comparison
-5. =§ Agent workflows for common modeling tasks
+1. Data loaders for warming/nitrogen meta-analysis
+2. NetCDF metadata extraction tooling
+3. EcoSIM input generators from experimental metadata
+4. Validation frameworks for model-data comparison
+5. Agent workflows for common modeling tasks
 
 Future development will expand toward the full co-scientist vision as use cases mature.
 
-## =Ö Documentation
+## Documentation
 
-- [`AGENTS.md`](AGENTS.md) - Detailed project documentation for AI agents
+- [`AGENTS.md`](AGENTS.md) - Canonical agent and workflow guidance, including the source-of-truth skill list
 - [`PLANT_TRAITS.md`](PLANT_TRAITS.md) - Plant traits database and BERVO ontology details
-- [`.claude/skills/netcdf-metadata/SKILL.md`](.claude/skills/netcdf-metadata/SKILL.md) - NetCDF metadata extraction skill documentation
+- [`.claude/skills/`](.claude/skills/) - Skill definitions for BERIL and EcoSIM workflows
+- [`.github/copilot-instructions.md`](.github/copilot-instructions.md) - Copilot instruction overlay aligned to `AGENTS.md`
 
-## >ê Testing
+## >ï¿½ Testing
 
 ```bash
 # Run unit tests, doctests, and linting
@@ -193,7 +190,7 @@ just test-full
 
 Tests follow pytest functional style with extensive doctests for documentation and validation.
 
-## =Ý License
+## =ï¿½ License
 
 [License information to be added]
 
