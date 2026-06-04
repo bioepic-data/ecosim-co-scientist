@@ -1,6 +1,7 @@
 ---
 name: berdl-minio
 description: Retrieve and use BERDL MinIO credentials and transfer result artifacts between BERDL object storage and the local machine. Use when exported query results need to be listed, downloaded, shared, or when only KBASE_AUTH_TOKEN is available and MinIO keys must be acquired.
+allowed-tools: Bash, Read
 ---
 
 # BERDL MinIO Skill
@@ -80,3 +81,7 @@ If helper scripts are missing in this repository, use direct `mc` and environmen
 1. Never print full secrets in final user-facing summaries unless explicitly requested.
 2. Do not commit credentials into repository files.
 3. Prefer short-lived retrieval and local shell export for active sessions.
+4. The `eval "$(... --shell)"` pattern keeps secrets out of shell history (only the
+   literal command is recorded, not the resolved values). Avoid manually typing
+   `export MINIO_SECRET_KEY=...` with a literal secret, which *would* be saved to
+   history — read it from `.env` or the helper instead.

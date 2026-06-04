@@ -1,6 +1,7 @@
 ---
 name: berdl-query
 description: Run SQL queries from a local machine against a provisioned BERDL Spark cluster using spark_connect_remote. Use when the user wants remote Spark compute with local control, needs clarity on connection and timeout behavior, or wants to return small/medium results directly before exporting large outputs.
+allowed-tools: Bash, Read
 ---
 
 # BERDL Query Skill
