@@ -5,6 +5,11 @@ description: Run SQL queries from a local machine against a provisioned BERDL Sp
 
 # BERDL Query Skill
 
+## Compatibility Modes
+
+- Full BERDL mode: use helper scripts and proxy workflow.
+- Limited mode: if helper scripts are absent, run direct Spark SQL and DataFrame exports.
+
 ## Step 0: Environment Check
 
 Run before anything else:

@@ -26,6 +26,7 @@ BERIL-derived skills:
 - `berdl-query`
 - `berdl-discover`
 - `berdl-minio`
+- `pitfall-capture`
 - `literature-review`
 - `synthesize`
 - `suggest-research`
@@ -45,3 +46,5 @@ Existing EcoSIM skills:
 When updating docs or instructions that describe agent capabilities, update `AGENTS.md` first, then propagate the same information to:
 - `README.md`
 - `.github/copilot-instructions.md`
+
+For a concise prerequisites/fallback matrix, see `docs/agent-skills.md`.

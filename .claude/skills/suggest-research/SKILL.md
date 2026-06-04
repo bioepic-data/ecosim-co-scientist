@@ -9,6 +9,11 @@ user-invocable: true
 
 Identify and prioritize the next research topic using available EcoSIM-relevant data and completed analyses in this repository.
 
+## Compatibility Modes
+
+- Full mode: BERDL data access plus MCP literature tooling available.
+- Limited mode: rely on repository-local evidence and web literature fallback.
+
 ## Usage
 
 ```text

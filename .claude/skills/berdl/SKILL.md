@@ -8,12 +8,17 @@ allowed-tools: Bash, Read
 
 Query the KBase BERDL Data Lakehouse containing pangenome and biochemistry data.
 
+## Compatibility Modes
+
+- Full BERDL mode: KBase auth, proxy/session setup, and helper utilities available.
+- Limited mode: if helper scripts are missing, run equivalent Spark SQL directly in the active environment.
+
 ## Step 0: Environment Check
 
 Run before anything else:
 
 ```bash
-python scripts/berdl_env.py --check
+if [ -f scripts/berdl_env.py ]; then python3 scripts/berdl_env.py --check; else echo "berdl_env.py not found; perform manual environment checks"; fi
 ```
 
 If it exits non-zero, follow the printed next steps exactly. Do not proceed with any query until this passes. The location reported (`on-cluster` vs `off-cluster`) selects the execution path for every subsequent step.

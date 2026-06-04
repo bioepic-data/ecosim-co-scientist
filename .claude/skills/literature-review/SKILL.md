@@ -9,6 +9,11 @@ user-invocable: true
 
 Search, read, and synthesize literature relevant to EcoSIM modeling, warming experiments, nitrogen cycling, and related ecosystem biogeochemistry.
 
+## Compatibility Modes
+
+- Full mode: MCP servers available (`pubmed`, `paper-search`) for richer search and full text.
+- Limited mode: WebSearch + DOI fallback with explicit reduced-coverage note.
+
 ## Prerequisites
 
 Preferred servers are configured in `.claude/.mcp.json`:

@@ -9,6 +9,11 @@ user-invocable: true
 
 Synthesize analysis outputs into a report that connects numerical results, literature context, and implications for EcoSIM calibration and validation.
 
+## Compatibility Modes
+
+- Full mode: local analysis outputs plus MCP literature review.
+- Limited mode: synthesize from local outputs only and flag literature gaps explicitly.
+
 ## Usage
 
 ```text

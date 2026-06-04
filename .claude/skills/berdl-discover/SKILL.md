@@ -8,6 +8,11 @@ allowed-tools: Bash, Read, Write
 
 This skill performs live discovery of BERDL databases using `berdl_notebook_utils` helpers and `DESCRIBE EXTENDED`. It does NOT generate module files. Record non-derivable pitfalls in repo memory (for example `/memories/repo/berdl-pitfalls.md`) so future discovery is safer.
 
+## Compatibility Modes
+
+- Full BERDL mode: use helper utilities plus optional local wrappers.
+- Limited mode: if wrappers are missing, run discovery directly in active Spark/Jupyter environment.
+
 ## Step 0: Environment Check
 
 ```bash

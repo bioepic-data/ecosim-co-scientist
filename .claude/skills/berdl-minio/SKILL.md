@@ -5,6 +5,11 @@ description: Retrieve and use BERDL MinIO credentials and transfer result artifa
 
 # BERDL MinIO Skill
 
+## Compatibility Modes
+
+- Full BERDL mode: derive credentials from KBase context and helper scripts.
+- Limited mode: use direct MinIO credentials and `mc` commands without helper scripts.
+
 ## Overview
 
 Use this skill to work with BERDL MinIO from local tools.

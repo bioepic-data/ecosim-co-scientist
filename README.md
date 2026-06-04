@@ -86,6 +86,7 @@ Source of truth: see the **Agent Skills (Source of Truth)** section in [`AGENTS.
 - [`berdl-query`](.claude/skills/berdl-query/SKILL.md): Run off-cluster SQL queries against BERDL Spark compute.
 - [`berdl-discover`](.claude/skills/berdl-discover/SKILL.md): Discover and document BERDL databases and schemas.
 - [`berdl-minio`](.claude/skills/berdl-minio/SKILL.md): Transfer BERDL query artifacts via MinIO and manage credentials.
+- [`pitfall-capture`](.claude/skills/pitfall-capture/SKILL.md): Capture reusable errors, caveats, and performance gotchas in repo memory.
 - [`literature-review`](.claude/skills/literature-review/SKILL.md): Search and review biological literature with PubMed and paper-search MCP tools.
 - [`synthesize`](.claude/skills/synthesize/SKILL.md): Compare analysis outputs with literature and draft findings.
 - [`suggest-research`](.claude/skills/suggest-research/SKILL.md): Suggest high-impact next research directions based on prior project outputs and BERDL data.
@@ -99,6 +100,7 @@ Source of truth: see the **Agent Skills (Source of Truth)** section in [`AGENTS.
 
 - MCP servers are configured in [`.claude/.mcp.json`](.claude/.mcp.json): `ols-mcp`, `pubmed`, and `paper-search`.
 - BERDL access generally requires `KBASE_AUTH_TOKEN` and environment setup described in BERDL skill docs.
+- BERDL skills include compatibility fallbacks when helper scripts or full BERDL infrastructure are unavailable.
 
 ## =, About EcoSIM
 
@@ -175,6 +177,7 @@ Future development will expand toward the full co-scientist vision as use cases 
 
 - [`AGENTS.md`](AGENTS.md) - Canonical agent and workflow guidance, including the source-of-truth skill list
 - [`PLANT_TRAITS.md`](PLANT_TRAITS.md) - Plant traits database and BERVO ontology details
+- [`docs/agent-skills.md`](docs/agent-skills.md) - Skill prerequisites and fallback behavior matrix
 - [`.claude/skills/`](.claude/skills/) - Skill definitions for BERIL and EcoSIM workflows
 - [`.github/copilot-instructions.md`](.github/copilot-instructions.md) - Copilot instruction overlay aligned to `AGENTS.md`
 

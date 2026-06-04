@@ -177,6 +177,7 @@ This section is the canonical list of agent skills for this repository. Other do
 - `berdl-query` - Run off-cluster SQL queries against BERDL Spark compute.
 - `berdl-discover` - Discover and document BERDL databases and table schemas.
 - `berdl-minio` - Transfer BERDL query artifacts via MinIO and manage credentials.
+- `pitfall-capture` - Record reusable pitfalls and safety notes in repository memory.
 - `literature-review` - Multi-source literature search and review with optional full-text and citation expansion.
 - `synthesize` - Compare analysis outputs with literature and draft project findings.
 - `suggest-research` - Propose high-impact next research directions grounded in completed work and available BERDL data.
@@ -192,6 +193,12 @@ This section is the canonical list of agent skills for this repository. Other do
 - BERDL access workflows require environment-specific setup and typically a `KBASE_AUTH_TOKEN`.
 - BERDL transfer workflows may also require MinIO credentials (`MINIO_ACCESS_KEY`, `MINIO_SECRET_KEY`) when not auto-derived.
 - Repo-level skill files are in `.claude/skills/<skill-name>/SKILL.md`.
+
+### Compatibility Rule
+
+- BERDL-derived skills must support a fallback path when BERDL helper scripts or infrastructure are unavailable.
+- EcoSIM-only workflows should continue using local repository data and literature fallbacks without hard dependency on BERDL runtime.
+- See `docs/agent-skills.md` for the summarized prerequisites and fallback matrix.
 
 ## Repo management
 
