@@ -15,14 +15,14 @@ It handles credential sourcing, MinIO client setup, and object transfer operatio
 Run before anything else:
 
 ```bash
-python scripts/berdl_env.py --check
+if [ -f scripts/berdl_env.py ]; then python3 scripts/berdl_env.py --check; else echo "berdl_env.py not found; validate network/proxy manually"; fi
 ```
 
 If `--check` reports off-cluster and not ready, follow the printed next steps. The MinIO endpoint (`minio.berdl.kbase.us`) is only reachable through the proxy chain off-cluster, so this check is mandatory.
 
 ## Preconditions
 
-1. `KBASE_AUTH_TOKEN` set in environment or `.env`.
+1. Either `KBASE_AUTH_TOKEN` is available OR direct MinIO credentials are already available.
 2. **`mc` (MinIO client) installed.** Check with `command -v mc`. Install with:
    - macOS: `brew install minio/stable/mc` or download directly:
      `curl -sSL https://dl.min.io/client/mc/release/darwin-arm64/mc -o /usr/local/bin/mc && chmod +x /usr/local/bin/mc`
@@ -38,12 +38,13 @@ Use credentials in this order:
 ## Workflow
 
 1. Resolve credentials:
-   - `python scripts/get_minio_creds.py --shell`
-   - If remote bootstrap is needed: `python scripts/get_minio_creds.py --bootstrap-remote --shell`
-   - To load creds into your shell: `eval "$(python scripts/get_minio_creds.py --shell)"`
+   - If helper exists: `python3 scripts/get_minio_creds.py --shell`
+   - If helper exists and remote bootstrap is needed: `python3 scripts/get_minio_creds.py --bootstrap-remote --shell`
+   - To load creds from helper: `eval "$(python3 scripts/get_minio_creds.py --shell)"`
+   - Without helper, export existing credentials manually.
 2. Configure `mc` alias:
-   - `bash scripts/configure_mc.sh --berdl-proxy`
-   - Without proxy (on-cluster only): `bash scripts/configure_mc.sh`
+   - If helper exists: `bash scripts/configure_mc.sh --berdl-proxy`
+   - Without helper, run `mc alias set` directly.
 3. Move files with `mc`.
    **Important:** Every `mc` command needs `https_proxy` set when off-cluster, not just the alias setup. Either export it in your shell or prefix each command:
    ```bash
@@ -56,7 +57,7 @@ Use credentials in this order:
 
 ## Scripts
 
-Only the scripts listed below exist. Do not invent script names — if you need behavior that's not covered, ask the user.
+If helper scripts are missing in this repository, use direct `mc` and environment-variable workflows.
 
 - `scripts/berdl_env.py`: environment check entrypoint (Step 0).
 - `scripts/get_minio_creds.py`: resolve MinIO keys locally or via BERDL remote context.

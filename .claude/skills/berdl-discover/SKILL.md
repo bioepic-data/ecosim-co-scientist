@@ -6,12 +6,12 @@ allowed-tools: Bash, Read, Write
 
 # BERDL Database Discovery Skill
 
-This skill performs live discovery of BERDL databases using `berdl_notebook_utils` helpers and `DESCRIBE EXTENDED`. It does NOT generate module files. Curated database-specific gotchas live in `docs/pitfalls.md` per-database H2 sections (frozen historical archive). Recent project-specific gotchas hit during analysis live in `projects/*/memories/pitfalls.md` (per-project, append-only). Structural facts come from the live system.
+This skill performs live discovery of BERDL databases using `berdl_notebook_utils` helpers and `DESCRIBE EXTENDED`. It does NOT generate module files. Record non-derivable pitfalls in repo memory (for example `/memories/repo/berdl-pitfalls.md`) so future discovery is safer.
 
 ## Step 0: Environment Check
 
 ```bash
-python scripts/berdl_env.py --check
+if [ -f scripts/berdl_env.py ]; then python3 scripts/berdl_env.py --check; else echo "berdl_env.py not found; run manual environment checks"; fi
 ```
 
 Do not proceed if not ready.
@@ -55,9 +55,11 @@ spark.sql("DESCRIBE EXTENDED DATABASE_NAME.TABLE_NAME").toPandas()
 
 Off-cluster:
 ```bash
-uv run scripts/run_sql.py --berdl-proxy \
-  --query "DESCRIBE EXTENDED DATABASE_NAME.TABLE_NAME" \
-  --output /tmp/desc.json
+if [ -f scripts/run_sql.py ]; then
+  uv run scripts/run_sql.py --berdl-proxy --query "DESCRIBE EXTENDED DATABASE_NAME.TABLE_NAME" --output /tmp/desc.json
+else
+  echo "run_sql.py not found; run DESCRIBE EXTENDED in your active Spark session"
+fi
 ```
 
 This returns table COMMENT, TBLPROPERTIES, storage location, format, owner, created date.
@@ -68,7 +70,7 @@ This returns table COMMENT, TBLPROPERTIES, storage location, format, owner, crea
 spark.sql("SELECT COUNT(*) AS n FROM DATABASE_NAME.TABLE_NAME")
 ```
 
-Skip for tables flagged as large in `docs/pitfalls.md` (e.g. `gene`, `genome_ani`, `reaction_similarity`) or in any active project's `projects/*/memories/pitfalls.md`. The agent should ask before running `COUNT(*)` on any table without an existing pitfall entry.
+Skip for tables flagged as large in repo pitfall notes (for example `/memories/repo/berdl-pitfalls.md`). The agent should ask before running `COUNT(*)` on any table without an existing pitfall entry.
 
 ### Step 6: Identify cross-table relationships
 
@@ -80,7 +82,7 @@ spark.sql("SELECT * FROM DATABASE_NAME.TABLE_NAME LIMIT 5")
 
 ### Step 7: Propose pitfall additions
 
-If discovery surfaces non-derivable knowledge (NULL convention, ID format, missing-column workaround, JOIN-key gotcha, large-table guard) **during a specific project's work**, append it to that project's `projects/<id>/memories/pitfalls.md` via `/pitfall-capture`. The central `docs/pitfalls.md` is a frozen historical archive — new pitfalls go per-project, not into the central file. Do not write a separate module file.
+If discovery surfaces non-derivable knowledge (NULL convention, ID format, missing-column workaround, JOIN-key gotcha, large-table guard), append it via `/pitfall-capture` to a repo memory file (recommended: `/memories/repo/berdl-pitfalls.md`). Do not write a separate module file.
 
 ## Output
 
@@ -93,8 +95,8 @@ Present discovery results inline to the user: a compact summary of tables, schem
 - **`DESCRIBE EXTENDED` fails:** surface the error verbatim. Common cause: typo in database/table name, or table dropped between `get_tables()` and `DESCRIBE`.
 - **Schema retrieval prints `Error retrieving schema for table ...`:** the underlying S3 files are missing for that table. Note in the user-facing output, do not crash.
 
-Avoid raw `SHOW DATABASES` or `SHOW TABLES` for routine discovery — those bypass access-aware filtering. SHOW is allowed only for the off-cluster `/berdl_start` Phase 1.6 fallback when `berdl_notebook_utils` isn’t installed locally.
+Avoid raw `SHOW DATABASES` or `SHOW TABLES` for routine discovery when `berdl_notebook_utils` is available — those commands bypass access-aware filtering.
 
 ## Pitfall Detection
 
-When you encounter errors, unexpected results, retry cycles, performance issues, or data surprises during this task, follow the pitfall-capture protocol. Read `.claude/skills/pitfall-capture/SKILL.md` and follow its instructions to determine whether the issue should be added to the active project's `projects/<id>/memories/pitfalls.md`.
+When you encounter errors, unexpected results, retry cycles, performance issues, or data surprises during this task, follow the pitfall-capture protocol. Read `.claude/skills/pitfall-capture/SKILL.md` and capture the note in repo memory.

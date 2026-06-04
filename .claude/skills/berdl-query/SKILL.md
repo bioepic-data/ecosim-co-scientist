@@ -10,7 +10,7 @@ description: Run SQL queries from a local machine against a provisioned BERDL Sp
 Run before anything else:
 
 ```bash
-python scripts/berdl_env.py --check
+if [ -f scripts/berdl_env.py ]; then python3 scripts/berdl_env.py --check; else echo "berdl_env.py not found; perform manual environment checks"; fi
 ```
 
 This skill is for **off-cluster** execution. If `--check` reports `on-cluster`, you should be using the `berdl` skill with the active Spark session and `spark.sql(query)` directly — do not use `--berdl-proxy` on-cluster. If `--check` reports `off-cluster` and is not ready, follow the printed next steps.
@@ -22,11 +22,12 @@ Use this skill to run BERDL Spark queries locally while computation runs on the 
 Use this as the default query path for interactive analysis and API-like result retrieval.
 
 Do not use this proxy workflow when `scripts/berdl_env.py --check` reports an on-cluster / BERDL JupyterHub environment. On-cluster sessions should use the active Spark session and `spark.sql(query)` directly.
+If local BERDL helper scripts are not present in this repository, use direct Spark SQL in the active environment and skip script-specific commands.
 
 ## Preconditions
 
 1. `KBASE_AUTH_TOKEN` set in environment or `.env`.
-2. `.venv-berdl` created: `bash scripts/bootstrap_client.sh` (one-time setup).
+2. Optional local helper environment `.venv-berdl` created with `bash scripts/bootstrap_client.sh` (only if script exists).
 3. JupyterHub session active: log in at `https://hub.berdl.kbase.us` and open a notebook so your Spark Connect service is running.
 4. **Proxy running**: BERDL services are not directly reachable from external networks. Read `references/proxy-setup.md` for the full setup. The short version:
    - SSH SOCKS tunnels on ports 1337 and 1338 (requires user credentials — ask the user to start these)
@@ -39,11 +40,14 @@ Do not use this proxy workflow when `scripts/berdl_env.py --check` reports an on
    - `source .venv-berdl/bin/activate`
 2. Verify proxy is running (check ports 1337, 1338, 8123). Start pproxy if needed.
 3. Execute a probe query:
-   - `uv run scripts/run_sql.py --berdl-proxy --query "SELECT 1 AS ok"`
+   - If helper exists: `uv run scripts/run_sql.py --berdl-proxy --query "SELECT 1 AS ok"`
+   - Otherwise run equivalent probe in notebook/session: `spark.sql("SELECT 1 AS ok")`
 4. Run the target SQL query with bounded result size:
-   - `uv run scripts/run_sql.py --berdl-proxy --query "SELECT * FROM db.table ORDER BY id" --limit 500 --output /tmp/query_result.json`
+   - If helper exists: `uv run scripts/run_sql.py --berdl-proxy --query "SELECT * FROM db.table ORDER BY id" --limit 500 --output /tmp/query_result.json`
+   - Otherwise run `spark.sql(...)` and persist output manually.
 5. If result size is large, use export mode in this same skill:
-   - `uv run scripts/export_sql.py --berdl-proxy --query "SELECT ..." --path "s3a://cdm-lake/users-general-warehouse/<user>/exports/<run_id>" --format parquet --mode overwrite`
+   - If helper exists: `uv run scripts/export_sql.py --berdl-proxy --query "SELECT ..." --path "s3a://cdm-lake/users-general-warehouse/<user>/exports/<run_id>" --format parquet --mode overwrite`
+   - Otherwise write via DataFrame writer in Spark.
 
 ## Connection and Timeout Behavior
 
@@ -63,7 +67,7 @@ Do not use this proxy workflow when `scripts/berdl_env.py --check` reports an on
 
 - Query actions return data to local client memory by default.
 - Results are not automatically persisted to MinIO.
-- For large outputs, explicitly export to MinIO with `scripts/export_sql.py` and retrieve with `/berdl-minio`.
+- For large outputs, export to MinIO/object storage and retrieve with `/berdl-minio`.
 
 ## Result Size Guidance
 
@@ -86,7 +90,7 @@ spark = get_spark_session()
 This uses `spark_connect_remote` with proxy settings under the hood.
 The proxy chain (SSH tunnels + pproxy) must be running.
 
-## Scripts
+## Scripts (Optional Helpers)
 
 - `scripts/bootstrap_client.sh`: install required local packages into `.venv-berdl`. Also makes `scripts/` importable from the venv via a `.pth` file.
 - `scripts/get_spark_session.py`: drop-in replacement for the BERDL JupyterHub `get_spark_session()`. Uses `spark_connect_remote` with proxy settings.
@@ -95,6 +99,8 @@ The proxy chain (SSH tunnels + pproxy) must be running.
 - `scripts/export_sql.py`: run SQL and write output to MinIO/object storage.
   - Supports `--berdl-proxy`, `--grpc-proxy`, `--https-proxy`, `--host-template`, `--port`.
   - Supports format/mode/partition controls for large-result workflows.
+
+If these scripts are not present in this repository, use direct Spark SQL and equivalent DataFrame export operations.
 
 ## References
 
